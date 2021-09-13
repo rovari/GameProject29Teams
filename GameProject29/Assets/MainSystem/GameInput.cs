@@ -40,6 +40,77 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""TestInput"",
+            ""id"": ""aa0ac781-ea9c-4d81-a6d2-c5a4f4218b91"",
+            ""actions"": [
+                {
+                    ""name"": ""stick"",
+                    ""type"": ""Value"",
+                    ""id"": ""f48e3511-49d2-4885-9157-b13ccf563467"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""f75b8cb1-44c2-4432-8653-f5f72e5b06a3"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""stick"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""78a544e5-166d-46a7-a62e-75004611ba06"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""stick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""4b55eb06-ece8-43a3-bc78-d7bbcef8406b"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""stick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""41791b04-7ab6-4d7d-a501-f4d7ad434477"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""stick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5bd39c26-7480-4df5-b168-0ae409f79997"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""stick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -47,6 +118,9 @@ public class @GameInput : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Newaction = m_Player.FindAction("New action", throwIfNotFound: true);
+        // TestInput
+        m_TestInput = asset.FindActionMap("TestInput", throwIfNotFound: true);
+        m_TestInput_stick = m_TestInput.FindAction("stick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -125,8 +199,45 @@ public class @GameInput : IInputActionCollection, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // TestInput
+    private readonly InputActionMap m_TestInput;
+    private ITestInputActions m_TestInputActionsCallbackInterface;
+    private readonly InputAction m_TestInput_stick;
+    public struct TestInputActions
+    {
+        private @GameInput m_Wrapper;
+        public TestInputActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @stick => m_Wrapper.m_TestInput_stick;
+        public InputActionMap Get() { return m_Wrapper.m_TestInput; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TestInputActions set) { return set.Get(); }
+        public void SetCallbacks(ITestInputActions instance)
+        {
+            if (m_Wrapper.m_TestInputActionsCallbackInterface != null)
+            {
+                @stick.started -= m_Wrapper.m_TestInputActionsCallbackInterface.OnStick;
+                @stick.performed -= m_Wrapper.m_TestInputActionsCallbackInterface.OnStick;
+                @stick.canceled -= m_Wrapper.m_TestInputActionsCallbackInterface.OnStick;
+            }
+            m_Wrapper.m_TestInputActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @stick.started += instance.OnStick;
+                @stick.performed += instance.OnStick;
+                @stick.canceled += instance.OnStick;
+            }
+        }
+    }
+    public TestInputActions @TestInput => new TestInputActions(this);
     public interface IPlayerActions
     {
         void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface ITestInputActions
+    {
+        void OnStick(InputAction.CallbackContext context);
     }
 }
