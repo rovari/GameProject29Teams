@@ -52,6 +52,14 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Stick"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f405515-527b-473e-bf8a-5812109e37b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -164,6 +172,28 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""action"": ""stick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3ea5094-4ab8-429d-89a6-f42c30cc38f3"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b6994a7-610e-4903-a721-e78b87c1011c"",
+                    ""path"": ""<XInputController>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -176,6 +206,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         // TestInput
         m_TestInput = asset.FindActionMap("TestInput", throwIfNotFound: true);
         m_TestInput_stick = m_TestInput.FindAction("stick", throwIfNotFound: true);
+        m_TestInput_Newaction = m_TestInput.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -259,11 +290,13 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputActionMap m_TestInput;
     private ITestInputActions m_TestInputActionsCallbackInterface;
     private readonly InputAction m_TestInput_stick;
+    private readonly InputAction m_TestInput_Newaction;
     public struct TestInputActions
     {
         private @GameInput m_Wrapper;
         public TestInputActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @stick => m_Wrapper.m_TestInput_stick;
+        public InputAction @Newaction => m_Wrapper.m_TestInput_Newaction;
         public InputActionMap Get() { return m_Wrapper.m_TestInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -276,6 +309,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @stick.started -= m_Wrapper.m_TestInputActionsCallbackInterface.OnStick;
                 @stick.performed -= m_Wrapper.m_TestInputActionsCallbackInterface.OnStick;
                 @stick.canceled -= m_Wrapper.m_TestInputActionsCallbackInterface.OnStick;
+                @Newaction.started -= m_Wrapper.m_TestInputActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_TestInputActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_TestInputActionsCallbackInterface.OnNewaction;
             }
             m_Wrapper.m_TestInputActionsCallbackInterface = instance;
             if (instance != null)
@@ -283,6 +319,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @stick.started += instance.OnStick;
                 @stick.performed += instance.OnStick;
                 @stick.canceled += instance.OnStick;
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
             }
         }
     }
@@ -294,5 +333,6 @@ public class @GameInput : IInputActionCollection, IDisposable
     public interface ITestInputActions
     {
         void OnStick(InputAction.CallbackContext context);
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }

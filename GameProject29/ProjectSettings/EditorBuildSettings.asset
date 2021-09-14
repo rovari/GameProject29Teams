@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Kanazawa/KanazawaTestScene.unity
+    guid: 652ef01cee5e2e8408bf4c027bc79242
+  - enabled: 1
+    path: Assets/Kanazawa/NextTestScene.unity
+    guid: 35fd2075ae3120949893572c7b49de28
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bcb756b420b07d548af39debd902a3b9, type: 2}
