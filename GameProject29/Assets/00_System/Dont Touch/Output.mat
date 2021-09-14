@@ -58,9 +58,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _CDIFF: 0
+    - _CDIFF: 0.162
     - _Cutoff: 0.5
-    - _DDIFF: 0
+    - _DDIFF: 1
     - _DFLAG: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -69,7 +69,7 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _NDIFF: 0
+    - _NDIFF: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
