@@ -1,27 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-  
+    Vector3 move;
+    public float Speed;
 
-    TestAction testInputActions;
-
-    void Awake()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        DontDestroyOnLoad(this);
-        testInputActions = new TestAction();
-        testInputActions.Enable();
-        testInputActions.Player.Fire.performed += context => Debug.Log("Fire");
+        move = context.ReadValue<Vector2>();
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            Debug.Log("Fire");
+        }
     }
 
     void Update()
     {
-        const float Speed = 1f;
+       // const float Speed = 1f;
+        transform.Translate(move * Speed * Time.deltaTime);
 
-        var direction = testInputActions.Player.Move.ReadValue<Vector2>();
-        transform.Translate(direction * Speed * Time.deltaTime);
+       
     }
 }
