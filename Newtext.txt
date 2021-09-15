@@ -1,5 +1,0 @@
-Hello
-aaaa
-treetest
-mahoutukai = (Rovari > 30) true :  false;
-nomaguti==fuck;
