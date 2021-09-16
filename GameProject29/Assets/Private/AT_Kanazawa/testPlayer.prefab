@@ -145,7 +145,19 @@ MonoBehaviour:
     m_ActionId: 0864518d-dce4-42d9-b83a-0eda9fafe95d
     m_ActionName: Player/Look[/XInputControllerWindows/rightStick,/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8029018761939839308}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a418277f-26aa-43d4-b5b8-f9f664bec5eb
     m_ActionName: Player/Fire[/XInputControllerWindows/rightTrigger,/Logicool Logicool
       Dual Action/trigger]
@@ -195,6 +207,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: dd2405dc-b822-445f-96fb-695d0775987d
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8029018761939839308}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OntriggerV
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c413a02b-486e-4727-aee0-f8678a6d7035
+    m_ActionName: Player/triggerV[/DualShock4GamepadHID/leftTrigger,/XInputControllerWindows/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -212,4 +240,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc5559e93724be4485501f306ab1056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
+  Speed: 2

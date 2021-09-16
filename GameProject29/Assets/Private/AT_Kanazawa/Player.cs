@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     Vector3 move;
     public float Speed;
+    float trigger;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -13,10 +14,15 @@ public class Player : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        
+       if (context.phase == InputActionPhase.Performed)
         {
             Debug.Log("Fire");
         }
+    }
+    public void OntriggerV(InputAction.CallbackContext context)
+    {
+       
     }
 
     void Update()

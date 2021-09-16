@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     public GameObject originObject;
 
     public GameMode currentGameMode;
+    public int MultiplayerNumber;
+    public float Posinterval = 0.5f;
+
+    float nowinteval =0;
 
     public enum GameMode
     {
@@ -21,11 +25,15 @@ public class GameManager : MonoBehaviour
         switch (currentGameMode)
         {
             case GameMode.SinglePlayer:
-
+                Instantiate(originObject, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
                 break;
 
             case GameMode.LocalMultiplayer:
-                Instantiate(originObject, new Vector3(-1.0f, 0.0f, 0.0f), Quaternion.identity);
+                for (float i = 0; MultiplayerNumber > i; i++)
+                {
+                    Instantiate(originObject, new Vector3(i+nowinteval, 0.0f, 0.0f), Quaternion.identity);
+                    nowinteval = nowinteval + Posinterval;
+                }
                 break;
         }
     }
