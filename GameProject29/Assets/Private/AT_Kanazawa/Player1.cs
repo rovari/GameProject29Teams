@@ -7,6 +7,7 @@ public class Player1 : MonoBehaviour
     Vector3 move;
     public float Speed;
     float trigger;
+    bool CK=false;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -27,7 +28,7 @@ public class Player1 : MonoBehaviour
         if(context.phase == InputActionPhase.Performed)
         {
             Debug.Log("On");
-            UnityEngine.InputSystem.Gamepad.current.SetMotorSpeeds(0.5f, 1f);
+            CK = !CK;
         }
     }
 
@@ -46,7 +47,9 @@ public class Player1 : MonoBehaviour
     {
        // const float Speed = 1f;
         transform.Translate(move * Speed * Time.deltaTime);
-        Debug.Log(wheel);
-       
+        //Debug.Log(wheel);
+        Debug.Log(CK);
+       // if(CK)
+       // Gamepad.current.SetMotorSpeeds(0.5f, 1f);
     }
 }

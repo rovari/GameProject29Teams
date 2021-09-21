@@ -439,6 +439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originObject: {fileID: 2298426063877634897, guid: 8c68a53717d6abc4db855c631730b50d, type: 3}
-  currentGameMode: 1
+  currentGameMode: 0
   MultiplayerNumber: 3
   Posinterval: 0.5
