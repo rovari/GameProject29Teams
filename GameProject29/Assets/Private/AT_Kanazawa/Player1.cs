@@ -48,7 +48,7 @@ public class Player1 : MonoBehaviour
        // const float Speed = 1f;
         transform.Translate(move * Speed * Time.deltaTime);
         //Debug.Log(wheel);
-        Debug.Log(CK);
+        Debug.Log(move);
        // if(CK)
        // Gamepad.current.SetMotorSpeeds(0.5f, 1f);
     }

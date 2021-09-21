@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour {
 
@@ -19,6 +20,15 @@ public class Player : MonoBehaviour {
 
     public  GameObject       model;
     public  List<GameObject> bullets;
+
+    //kanazawa ChordTuika
+    Vector3 stickpos;
+
+
+   public void Onmove(InputAction.CallbackContext context)
+    {
+        stickpos = context.ReadValue<Vector2>();
+    }
     
     void CalculateFriction() {
 
@@ -53,8 +63,12 @@ public class Player : MonoBehaviour {
     void Update() {
 
         PlayerLost();
-        CalculateFriction(); 
-        
+        CalculateFriction();
+
+        float st;
+        st = (stickpos.x + 1.0f) * 0.5f;
+
+        velocity += Mathf.Lerp(-moveSpeed, moveSpeed,st) * Time.deltaTime;
         //if (Input.GetKey(KeyCode.A))            velocity -= moveSpeed * Time.deltaTime;
         //if (Input.GetKey(KeyCode.D))            velocity += moveSpeed * Time.deltaTime;
         //if (Input.GetKey(KeyCode.LeftArrow))    velocity -= atkInertia;
