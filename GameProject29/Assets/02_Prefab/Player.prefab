@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: mazzle
       value: 
       objectReference: {fileID: 2448244995867936163}
+    - target: {fileID: 4826556459032270503, guid: 92063c65e1768b64596cb900e18d995f, type: 3}
+      propertyPath: muzzle
+      value: 
+      objectReference: {fileID: 2448244995867936163}
     - target: {fileID: 4851266372316315439, guid: 92063c65e1768b64596cb900e18d995f, type: 3}
       propertyPath: m_Name
       value: Bullet
