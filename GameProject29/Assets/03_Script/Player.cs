@@ -17,9 +17,9 @@ public class Player : MonoBehaviour {
     public  float   maxSpeed    = 5.0f;
     public  float   atkInertia  = 2.5f;
 
-    public GameObject marakas;
-
-
+    public  GameObject       model;
+    public  List<GameObject> bullets;
+    
     void CalculateFriction() {
 
         float e = 0.00001f;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour {
 
     void PlayerLost() {
 
-        if (!GetComponent<Renderer>().isVisible) {
+        if (!model.GetComponent<Renderer>().isVisible) {
 
             this.GetComponent<Transform>().position 
                 = new Vector3( 0.0f, this.GetComponent<Transform>().position.y + Mathf.Sin(Time.time * 2.0f) * 0.001f, this.GetComponent<Transform>().position.z);
@@ -55,15 +55,15 @@ public class Player : MonoBehaviour {
         PlayerLost();
         CalculateFriction(); 
         
-        if (Input.GetKey(KeyCode.A))            velocity -= moveSpeed * Time.deltaTime;
-        if (Input.GetKey(KeyCode.D))            velocity += moveSpeed * Time.deltaTime;
-        if (Input.GetKey(KeyCode.LeftArrow))    velocity -= atkInertia;
-        if (Input.GetKey(KeyCode.RightArrow))   velocity += atkInertia;
+        //if (Input.GetKey(KeyCode.A))            velocity -= moveSpeed * Time.deltaTime;
+        //if (Input.GetKey(KeyCode.D))            velocity += moveSpeed * Time.deltaTime;
+        //if (Input.GetKey(KeyCode.LeftArrow))    velocity -= atkInertia;
+        //if (Input.GetKey(KeyCode.RightArrow))   velocity += atkInertia;
 
-        if (Input.GetKey(KeyCode.Space)) {
-            marakas.SetActive(true);
-            marakas.GetComponent<Bullet>().StartWeponCalc();
-        }
+        //if (Input.GetKey(KeyCode.Space)) {
+        //    bullets[0].SetActive(true);
+        //    bullets[0].GetComponent<Bullet>().StartWeponCalc();
+        //}
 
         PlayerMove();
     }
