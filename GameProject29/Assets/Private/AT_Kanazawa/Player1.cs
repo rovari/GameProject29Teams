@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     Vector3 wheel;
     Vector3 move;
