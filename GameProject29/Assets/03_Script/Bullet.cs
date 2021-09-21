@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour {
 
     public BULLET_TYPE type = BULLET_TYPE.THROW;
 
-    public  GameObject  mazzle;
+    public  GameObject  muzzle;
     public  GameObject  target;
     public  GameObject  collision;
     public  float       speed;
@@ -53,8 +53,11 @@ public class Bullet : MonoBehaviour {
 
         wait = true;
 
-        var     velocity    = target.transform.position - mazzle.transform.position;
-        Vector3 startPos    = mazzle.transform.position;
+        Vector3 velocity = (target != null)
+            ? target.transform.position - muzzle.transform.position
+            : -muzzle.transform.position;
+        
+        Vector3 startPos    = muzzle.transform.position;
         var     period      = flightTime;
 
         velocity = velocity.normalized * 10.0f;
@@ -94,11 +97,13 @@ public class Bullet : MonoBehaviour {
     public IEnumerator ThrowWeapon() {
 
         wait = true;
-        
-        Vector3 endPos      = target.transform.position;  
+
+        Vector3 endPos = Vector3.zero;
+        if (target != null) endPos = target.transform.position;  
+
         float   speedRate   = speed;
         float   gravity     = -9.8f;
-        var     startPos    = mazzle.transform.position;
+        var     startPos    = muzzle.transform.position;
         var     diffY       = (endPos - startPos).y;
         var     vn          = (diffY - gravity * 0.5f * flightTime * flightTime) / flightTime;
         Vector3 calcPos     = new Vector3(0.0f, 0.0f, 0.0f);
@@ -138,9 +143,9 @@ public class Bullet : MonoBehaviour {
 
         wait = true;
         
-        this.transform.position = mazzle.transform.position;
+        this.transform.position = muzzle.transform.position;
 
-        Vector3 startPos    = mazzle.transform.position;
+        Vector3 startPos    = muzzle.transform.position;
         Vector3 velocity    = new Vector3(20.0f, 0.0f, 0.0f);
         float   period      = flightTime;
         
@@ -150,8 +155,13 @@ public class Bullet : MonoBehaviour {
         while (period > 0.0f) {
 
             Vector3 acc = Vector3.zero;
-            
-            var diff    = target.transform.position - transform.position;
+
+            Vector3 diff;
+
+            diff = (target != null) 
+                ? target.transform.position - transform.position
+                : -transform.position;
+
             acc         += (diff - velocity * period) * 2f / (period * period);
             
             if (acc.magnitude > 100f) acc = acc.normalized * 100f;
