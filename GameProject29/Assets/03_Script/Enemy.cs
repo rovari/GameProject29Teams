@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-
-    public GameObject           player;
-    public List<GameObject>     enemyLists;
+    
+    [SerializeField]
+    private List<GameObject>     targetList;
     
     private void    Start() {
-        enemyLists.AddRange(GameObject.FindGameObjectsWithTag("EnemyList"));
-        AddList();
+        targetList.AddRange(GameObject.FindGameObjectsWithTag("Player"));
+        //AddList();
     }
 
     private void    Update() {
@@ -17,16 +17,16 @@ public class Enemy : MonoBehaviour {
     }
 
     private void    OnDestroy() {
-        RemoveList();
+        //RemoveList();
     }
 
     // User Function ===============================================
 
     private void    AddList() {
-        foreach (var list in enemyLists) { list.GetComponent<EnemyList>().AddEnemyList(gameObject); }
+        foreach (var list in targetList) { list.GetComponent<TargetList>().AddList(gameObject); }
     }
 
     private void    RemoveList() {
-        foreach (var list in enemyLists) { list.GetComponent<EnemyList>().RemoveEnemyList(gameObject); }
+        foreach (var list in targetList) { list.GetComponent<TargetList>().RemoveList(gameObject); }
     }
 }

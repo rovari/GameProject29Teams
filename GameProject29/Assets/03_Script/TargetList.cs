@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyList : MonoBehaviour {
+public class TargetList : MonoBehaviour {
 
-    [SerializeField] private List<GameObject> enemyList = new List<GameObject>();
+    [SerializeField] private List<GameObject> targetList = new List<GameObject>();
     private GameObject parent;
 
     private void    Start() {
@@ -19,16 +19,16 @@ public class EnemyList : MonoBehaviour {
     // User Function ===============================================
 
     private void    ListSortToDistance() {
-        enemyList.Sort((a, b) =>
+        targetList.Sort((a, b) =>
             Vector3.Distance(a.transform.position, parent.transform.position).CompareTo(
             Vector3.Distance(b.transform.position, parent.transform.position)));
     }
 
-    public  void    AddEnemyList    (GameObject enemy) {
-        enemyList.Add(enemy);
+    public  void    AddList    (GameObject target) {
+        targetList.Add(target);
     }
 
-    public  void    RemoveEnemyList (GameObject enemy) {
-        enemyList.Remove(enemy);
+    public  void    RemoveList (GameObject target) {
+        targetList.Remove(target);
     }
 }

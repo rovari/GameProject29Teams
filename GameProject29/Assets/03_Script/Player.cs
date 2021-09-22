@@ -17,11 +17,18 @@ public class Player : MonoBehaviour {
     public  float   moveSpeed   = 5.0f;
     public  float   maxSpeed    = 5.0f;
 
+    [SerializeField]
+    private List<GameObject> targetList;
+
     public  GameObject          model;
     public  List<GameObject>    bullets;
     private Vector3             stickPos;
 
-    private void Update() {
+    private void    Start() {
+        targetList.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+    }
+
+    private void    Update() {
 
         PlayerLost();
         CalculateFriction();
@@ -37,7 +44,7 @@ public class Player : MonoBehaviour {
     }
 
     // User Function ===============================================
-
+    
     public  void    OnMove(InputAction.CallbackContext context) {
         stickPos = context.ReadValue<Vector2>();
     }

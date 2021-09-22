@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Enemy
   - Collision
-  - EnemyList
   layers:
   - Default
   - TransparentFX

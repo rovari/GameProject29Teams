@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7073791589702028547}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,8 +111,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2071560184827088718}
-  - {fileID: 2004942355756440281}
   - {fileID: 3966394367068471406}
+  - {fileID: 2004942355756440281}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -136,6 +136,7 @@ MonoBehaviour:
   minFriction: 0
   moveSpeed: 5
   maxSpeed: 5
+  targetList: []
   model: {fileID: 341233914087283035}
   bullets: []
 --- !u!1001 &5679432060898082215
@@ -159,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6125908338823931774, guid: 92063c65e1768b64596cb900e18d995f, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6125908338823931774, guid: 92063c65e1768b64596cb900e18d995f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -217,7 +218,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7915375882245434402, guid: b4ff71ed1dbee8643a1577ac3c17b9e7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7915375882245434402, guid: b4ff71ed1dbee8643a1577ac3c17b9e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -261,7 +262,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7915375882245434403, guid: b4ff71ed1dbee8643a1577ac3c17b9e7, type: 3}
       propertyPath: m_Name
-      value: Enemy List
+      value: TargetList
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915375882245434403, guid: b4ff71ed1dbee8643a1577ac3c17b9e7, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4ff71ed1dbee8643a1577ac3c17b9e7, type: 3}
