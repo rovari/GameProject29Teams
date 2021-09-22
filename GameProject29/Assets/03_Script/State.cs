@@ -18,16 +18,18 @@ public class State : MonoBehaviour
 
     public float SceneLoadWaitTime = 0.0f;
 
-    private void Awake() { DontDestroyOnLoad(gameObject); }
+    private void    Awake() { DontDestroyOnLoad(gameObject); }
 
-    private void Start() { state = STATE.GAME; }
+    private void    Start() { state = STATE.GAME; }
 
-    public void StartLoadScenes (string sceneName) {
+    // User Function ===============================================
+
+    public  void            StartLoadScenes (string sceneName) {
         StartCoroutine(LoadScene("Load", 0.0f));
         StartCoroutine(LoadScene(sceneName, SceneLoadWaitTime));
     }
 
-    private IEnumerator LoadScene(string sceneName, float minTime) {
+    private IEnumerator     LoadScene (string sceneName, float minTime) {
 
         var async = SceneManager.LoadSceneAsync(sceneName);
 

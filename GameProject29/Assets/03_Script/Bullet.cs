@@ -29,8 +29,13 @@ public class Bullet : MonoBehaviour {
         swLR = false;
     }
 
-    public  BULLET_TYPE ReceiveType     () { return type; }
-    public  void        StartWeponCalc  () {
+    // User Function ===============================================
+
+    public  BULLET_TYPE     ReceiveType() {
+        return type;
+    }
+
+    public  void            StartWeponCalc() {
         
         switch(type) {
             case BULLET_TYPE.SHOT:
@@ -45,29 +50,23 @@ public class Bullet : MonoBehaviour {
         }
     }
 
-    public  void        ActiveCollision (bool enable){
+    public  void            ActiveCollision (bool enable){
         collision.SetActive(enable);
     }
 
-    public IEnumerator ShotWeapon() {
+    public  IEnumerator     ShotWeapon() {
 
         wait = true;
-
-        Vector3 velocity = (target != null)
-            ? target.transform.position - muzzle.transform.position
-            : -muzzle.transform.position;
         
         Vector3 startPos    = muzzle.transform.position;
-        var     period      = flightTime;
+        Vector3 endPos      = (target) ? target.transform.position : Vector3.zero;
 
-        velocity = velocity.normalized * 10.0f;
-        
+        var     period      = 1.0f;
+        var     speed       = 1.0f / flightTime;
+
         while (period > 0.0f) {
-            
-            startPos += speed * velocity * Time.deltaTime;
-            this.transform.position = startPos;
-
-            period -= Time.deltaTime;
+            this.transform.position = Vector3.Lerp(startPos, endPos, 1.0f - period);
+            period -= speed * Time.deltaTime;
 
             yield return null;
         }
@@ -94,13 +93,12 @@ public class Bullet : MonoBehaviour {
         yield return null;
     }
 
-    public IEnumerator ThrowWeapon() {
+    public  IEnumerator     ThrowWeapon() {
 
         wait = true;
 
-        Vector3 endPos = Vector3.zero;
-        if (target != null) endPos = target.transform.position;  
-
+        Vector3 endPos = (target) ? target.transform.position : Vector3.zero;
+        
         float   speedRate   = speed;
         float   gravity     = -9.8f;
         var     startPos    = muzzle.transform.position;
@@ -139,7 +137,7 @@ public class Bullet : MonoBehaviour {
         yield return null;
     }
     
-    public IEnumerator HomingWeapon() {
+    public  IEnumerator     HomingWeapon() {
 
         wait = true;
         
@@ -158,7 +156,7 @@ public class Bullet : MonoBehaviour {
 
             Vector3 diff;
 
-            diff = (target != null) 
+            diff = (target) 
                 ? target.transform.position - transform.position
                 : -transform.position;
 

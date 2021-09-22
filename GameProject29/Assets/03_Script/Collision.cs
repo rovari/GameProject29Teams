@@ -6,8 +6,10 @@ public class Collision : MonoBehaviour {
 
     public bool     ShowCollisionArea;
     public float    Damage = 0.0f;
-    
-    void Update() {
+
+    private void    Update() {
        // GetComponent<MeshRenderer>().enabled = (ShowCollisionArea) ? true : false;
     }
+
+    // User Function ===============================================
 }

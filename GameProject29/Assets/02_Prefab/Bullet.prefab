@@ -4933,7 +4933,7 @@ Transform:
   m_GameObject: {fileID: 4851266372316315439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 275316952}
   - {fileID: 1431007684}
@@ -4954,7 +4954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  mazzle: {fileID: 0}
+  muzzle: {fileID: 0}
   target: {fileID: 0}
   collision: {fileID: 8824974889046182839}
   speed: 1

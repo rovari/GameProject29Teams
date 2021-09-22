@@ -20,12 +20,29 @@ public class Player : MonoBehaviour {
     public  GameObject          model;
     public  List<GameObject>    bullets;
     private Vector3             stickPos;
-    
-    public void OnMove(InputAction.CallbackContext context) {
+
+    private void Update() {
+
+        PlayerLost();
+        CalculateFriction();
+        
+        velocity += Mathf.Lerp(-moveSpeed, moveSpeed, (stickPos.x + 1.0f) * 0.5f) * Time.deltaTime;
+
+        //if (Input.GetKey(KeyCode.Space)) {
+        //    bullets[0].SetActive(true);
+        //    bullets[0].GetComponent<Bullet>().StartWeponCalc();
+        //}
+
+        PlayerMove();
+    }
+
+    // User Function ===============================================
+
+    public  void    OnMove(InputAction.CallbackContext context) {
         stickPos = context.ReadValue<Vector2>();
     }
     
-    void CalculateFriction() {
+    private void    CalculateFriction() {
 
         float e = 0.00001f;
         float d = Mathf.Clamp(damage, e, 1.0f);
@@ -39,7 +56,7 @@ public class Player : MonoBehaviour {
         velocity = (Mathf.Abs(velocity) < f + e) ? 0.0f : velocity;
     }
 
-    void PlayerLost() {
+    private void    PlayerLost() {
 
         if (!model.GetComponent<Renderer>().isVisible) {
 
@@ -50,25 +67,8 @@ public class Player : MonoBehaviour {
         }
     }
 
-    void PlayerMove() {
+    private void    PlayerMove() {
         velocity = Mathf.Clamp(velocity, -maxSpeed, maxSpeed);
         transform.position += new Vector3(velocity * Time.deltaTime, Mathf.Sin(Time.time * 2.0f) * 0.001f, 0.0f);
-    }
-
-    void Update() {
-
-        PlayerLost();
-        CalculateFriction();
-
-        float st = (stickPos.x + 1.0f) * 0.5f;
-    
-        velocity += Mathf.Lerp(-moveSpeed, moveSpeed,st) * Time.deltaTime;
-
-        //if (Input.GetKey(KeyCode.Space)) {
-        //    bullets[0].SetActive(true);
-        //    bullets[0].GetComponent<Bullet>().StartWeponCalc();
-        //}
-
-        PlayerMove();
     }
 }
