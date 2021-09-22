@@ -52,6 +52,22 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "selectL",
+                    "type": "Button",
+                    "id": "92276f97-82c7-4a9e-a7f4-0c9c5bb5a18f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "selectR",
+                    "type": "Button",
+                    "id": "5cf536b9-2813-46c1-b6d6-9f8910848d8d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -261,6 +277,28 @@
                     "processors": "",
                     "groups": "keyboard&mouse",
                     "action": "mause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b08d72bb-4709-4b3a-a6ef-8e29513a5fca",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "selectL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "086c023b-b8cc-4396-8b45-e8b63256678f",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "selectR",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

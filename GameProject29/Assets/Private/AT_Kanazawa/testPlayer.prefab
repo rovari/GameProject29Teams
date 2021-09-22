@@ -251,6 +251,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 993585eb-78eb-4e63-9ab7-bc8481ba727d
     m_ActionName: Player/mause[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8029018761939839308}
+        m_TargetAssemblyTypeName: Player1, Assembly-CSharp
+        m_MethodName: OnselectL
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 92276f97-82c7-4a9e-a7f4-0c9c5bb5a18f
+    m_ActionName: Player/selectL[/XInputControllerWindows/buttonEast,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8029018761939839308}
+        m_TargetAssemblyTypeName: Player1, Assembly-CSharp
+        m_MethodName: OnSelectR
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5cf536b9-2813-46c1-b6d6-9f8910848d8d
+    m_ActionName: Player/selectR[/XInputControllerWindows/buttonWest,/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
