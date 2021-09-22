@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIEasing : MonoBehaviour {
     
-    public enum EASING_TYPE1 {
+    public  enum    EASING_TYPE1 {
         LERP,
         SINE,
         QUAD,
@@ -19,21 +19,23 @@ public class UIEasing : MonoBehaviour {
         ELASTIC,
     };
 
-    public enum EASING_TYPE2 {
+    public  enum    EASING_TYPE2 {
         IN,
         OUT,
         INOUT
     };
 
-    private float       progress;
-    public  Vector2     start;
-    public  Vector2     end;
-    private Vector2     inc;
+    private float   progress;
+    public  Vector2 start;
+    public  Vector2 end;
+    private Vector2 inc;
 
     public  EASING_TYPE1   type1;
     public  EASING_TYPE2   type2;
-    
-    private void Start() {
+
+    // Unity Function ===============================================
+
+    private void Start   () {
         
         Vector2 range = end - start;
 
@@ -41,11 +43,14 @@ public class UIEasing : MonoBehaviour {
         inc         = new Vector2(progress / range.x, progress / range.y);
     }
 
-    private void Update() {
+    private void Update  () {
+
         if (Input.GetKeyDown(KeyCode.F)) Easing();
     }
 
-    private void Easing() {
+    // User  Function ===============================================
+
+    private void        Easing  () {
         switch (type1) {
         case EASING_TYPE1.LERP:     StartCoroutine("Lerp");     break;
         case EASING_TYPE1.SINE:     StartCoroutine("Sine");     break;
@@ -60,7 +65,7 @@ public class UIEasing : MonoBehaviour {
         }
     }
     
-    IEnumerator Lerp() {
+    private IEnumerator Lerp    () {
 
         Vector2 pos = start;
 
@@ -76,8 +81,8 @@ public class UIEasing : MonoBehaviour {
 
         this.GetComponent<RectTransform>().anchoredPosition = end;
     }
-    
-    IEnumerable Sine() {
+
+    private IEnumerable Sine    () {
 
         Vector2 pos = start;
 
@@ -95,7 +100,7 @@ public class UIEasing : MonoBehaviour {
         this.GetComponent<RectTransform>().anchoredPosition = end;
     }
 
-    IEnumerator Quad() {
+    private IEnumerator Quad    () {
 
         Vector2 pos = start;
 
@@ -112,7 +117,7 @@ public class UIEasing : MonoBehaviour {
         this.GetComponent<RectTransform>().anchoredPosition = end;
     }
 
-    IEnumerator Cubic() {
+    private IEnumerator Cubic   () {
 
         Vector2 pos = start;
 
@@ -129,7 +134,7 @@ public class UIEasing : MonoBehaviour {
         this.GetComponent<RectTransform>().anchoredPosition = end;
     }
 
-    IEnumerator Quart() {
+    private IEnumerator Quart   () {
 
         Vector2 pos = start;
 
@@ -146,7 +151,7 @@ public class UIEasing : MonoBehaviour {
         this.GetComponent<RectTransform>().anchoredPosition = end;
     }
 
-    IEnumerator Quint() {
+    private IEnumerator Quint   () {
 
         Vector2 pos = start;
 
@@ -163,7 +168,7 @@ public class UIEasing : MonoBehaviour {
         this.GetComponent<RectTransform>().anchoredPosition = end;
     }
 
-    IEnumerator Expo() {
+    private IEnumerator Expo    () {
 
         Vector2 pos = start;
 
@@ -181,7 +186,7 @@ public class UIEasing : MonoBehaviour {
         this.GetComponent<RectTransform>().anchoredPosition = end;
     }
 
-    IEnumerator Circ() {
+    private IEnumerator Circ    () {
 
         Vector2 pos = start;
 
@@ -199,7 +204,7 @@ public class UIEasing : MonoBehaviour {
         this.GetComponent<RectTransform>().anchoredPosition = end;
     }
 
-    IEnumerator Back() {
+    private IEnumerator Back    () {
 
         Vector2 pos = start;
 
@@ -219,7 +224,7 @@ public class UIEasing : MonoBehaviour {
         this.GetComponent<RectTransform>().anchoredPosition = end;
     }
 
-    IEnumerator Elastic() {
+    private IEnumerator Elastic () {
 
         Vector2 pos = start;
 

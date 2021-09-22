@@ -3,24 +3,32 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
- public enum STATE {
 
-     MENU   = 0,
-     GAME,
-     LOAD,
-     EVENT,
-}
 
-public class State : MonoBehaviour
-{
-    public STATE state;
-    public STATE GetSetState { get; set; }
+public class State : MonoBehaviour {
+    
+    public  enum     STATE {
 
-    public float SceneLoadWaitTime = 0.0f;
+        MENU   = 0,
+        GAME,
+        LOAD,
+        EVENT,
+    }
 
-    private void    Awake() { DontDestroyOnLoad(gameObject); }
+    public  STATE    state;
+    public  STATE    GetSetState { get; set; }
 
-    private void    Start() { state = STATE.GAME; }
+    public  float    SceneLoadWaitTime = 0.0f;
+
+    // Unity Function ===============================================
+
+    private void Awake  () {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start  () {
+        state = STATE.GAME;
+    }
 
     // User Function ===============================================
 

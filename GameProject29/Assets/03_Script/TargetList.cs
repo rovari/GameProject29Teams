@@ -9,22 +9,24 @@ public class TargetList : MonoBehaviour {
 
     [SerializeField] private List<GameObject> targetList = new List<GameObject>();
 
-    private void    Start() {
+    // Unity Function ===============================================
+
+    private void Start  () {
         parent      = gameObject.transform.root.gameObject;
         targetList.AddRange(GameObject.FindGameObjectsWithTag(tagName));
 
         StartCoroutine("ListUpdate");
     }
     
-    // User Function ===============================================
+    // User  Function ===============================================
 
-    private void    ListSortToDistance() {
+    private void        ListSortToDistance  () {
         targetList.Sort((a, b) =>
             Vector3.Distance(a.transform.position, parent.transform.position).CompareTo(
             Vector3.Distance(b.transform.position, parent.transform.position)));
     }
 
-    private IEnumerator ListUpdate() {
+    private IEnumerator ListUpdate          () {
         while (true) {
 
             targetList.Clear();
@@ -33,5 +35,9 @@ public class TargetList : MonoBehaviour {
 
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    public  GameObject GetTarget(int index) {
+        return targetList[index];
     }
 }

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
     
-    public enum BULLET_TYPE {
+    public  enum BULLET_TYPE {
         SHOT,
         THROW,
         HOMING,
         BOMB,
     };
 
-    public BULLET_TYPE type = BULLET_TYPE.THROW;
+    public  BULLET_TYPE type = BULLET_TYPE.THROW;
 
     public  GameObject  muzzle;
     public  GameObject  target;
@@ -19,23 +19,24 @@ public class Bullet : MonoBehaviour {
     public  float       speed;
     public  float       flightTime;
     public  float       damageAreaTime;
+    public  Vector3     homingLunchVector;
 
-    private bool wait;
-    private bool swLR;
+    private bool        wait;
     
-    private void Start() {
+    // Unity Function ===============================================
+
+    private void Start  () {
         this.gameObject.SetActive(false);
         wait = false;
-        swLR = false;
     }
 
-    // User Function ===============================================
+    // User  Function ===============================================
 
-    public  BULLET_TYPE     ReceiveType() {
-        return type;
+    public  void            SetTarget       (GameObject tg) {
+        target = tg;
     }
-
-    public  void            StartWeponCalc() {
+    
+    public  void            StartWeponCalc  () {
         
         switch(type) {
             case BULLET_TYPE.SHOT:
@@ -47,6 +48,9 @@ public class Bullet : MonoBehaviour {
             case BULLET_TYPE.HOMING:
                 if (!wait) StartCoroutine("HomingWeapon");
                 break;
+            case BULLET_TYPE.BOMB:
+                if (!wait) StartCoroutine("BombWeapon");
+                break;
         }
     }
 
@@ -54,7 +58,7 @@ public class Bullet : MonoBehaviour {
         collision.SetActive(enable);
     }
 
-    public  IEnumerator     ShotWeapon() {
+    public  IEnumerator     ShotWeapon      () {
 
         wait = true;
         
@@ -65,19 +69,20 @@ public class Bullet : MonoBehaviour {
         var     speed       = 1.0f / flightTime;
 
         while (period > 0.0f) {
-            this.transform.position = Vector3.Lerp(startPos, endPos, 1.0f - period);
+            transform.position = Vector3.Lerp(startPos, endPos, 1.0f - period);
             period -= speed * Time.deltaTime;
 
             yield return null;
         }
 
+        transform.position = endPos;
+
         ActiveCollision(true);
 
         float count = damageAreaTime;
 
-        while (count > 0.0f)
-        {
-            transform.position = startPos;
+        while (count > 0.0f) {
+            transform.position = endPos;
             count -= Time.deltaTime;
             yield return null;
         }
@@ -93,7 +98,7 @@ public class Bullet : MonoBehaviour {
         yield return null;
     }
 
-    public  IEnumerator     ThrowWeapon() {
+    public  IEnumerator     ThrowWeapon     () {
 
         wait = true;
 
@@ -104,8 +109,8 @@ public class Bullet : MonoBehaviour {
         var     startPos    = muzzle.transform.position;
         var     diffY       = (endPos - startPos).y;
         var     vn          = (diffY - gravity * 0.5f * flightTime * flightTime) / flightTime;
-        Vector3 calcPos     = new Vector3(0.0f, 0.0f, 0.0f);
-            
+        Vector3 calcPos     = Vector3.zero;
+        
         for (var t = 0f; t < flightTime; t += (Time.deltaTime * speedRate)) {
             
             calcPos   = Vector3.Lerp(startPos, endPos, t/flightTime);
@@ -137,19 +142,16 @@ public class Bullet : MonoBehaviour {
         yield return null;
     }
     
-    public  IEnumerator     HomingWeapon() {
+    public  IEnumerator     HomingWeapon    () {
 
         wait = true;
         
         this.transform.position = muzzle.transform.position;
 
         Vector3 startPos    = muzzle.transform.position;
-        Vector3 velocity    = new Vector3(20.0f, 0.0f, 0.0f);
+        Vector3 velocity    = homingLunchVector;
         float   period      = flightTime;
         
-        if (!swLR) velocity *= -1.0f;
-        swLR = !swLR;
-
         while (period > 0.0f) {
 
             Vector3 acc = Vector3.zero;
@@ -175,15 +177,17 @@ public class Bullet : MonoBehaviour {
             yield return null;
         }
         
+
         ActiveCollision(true);
 
         float count = damageAreaTime;
 
         while (count > 0.0f) {
-            transform.position = startPos;
+            transform.position = target.transform.position;
             count -= Time.deltaTime;
             yield return null;
         }
+
 
         ActiveCollision(false);
 
@@ -192,6 +196,31 @@ public class Bullet : MonoBehaviour {
         this.gameObject.SetActive(false);
 
         wait                = false;
+
+        yield return null;
+    }
+
+    public  IEnumerator     BombWeapon      () {
+
+        wait = true;
+        
+        ActiveCollision(true);
+
+        float count = damageAreaTime;
+
+        while (count > 0.0f) {
+            transform.position = Vector3.zero;
+            count -= Time.deltaTime;
+            yield return null;
+        }
+
+        ActiveCollision(false);
+
+        transform.position  = Vector3.zero;
+        transform.rotation  = Quaternion.identity;
+        wait                = false;
+
+        this.gameObject.SetActive(false);
 
         yield return null;
     }

@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-    
-    private void    Start() {
+
+    // Unity Function ===============================================
+
+    private void Start  () {
 
     }
 
-    private void    Update() {
+    private void Update () {
 
     }
     
-    // User Function ===============================================
+    // User  Function ===============================================
 
 }
