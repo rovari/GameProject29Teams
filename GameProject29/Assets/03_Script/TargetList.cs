@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class TargetList : MonoBehaviour {
 
+    private GameObject  parent;
+    public  string      tagName;
+
     [SerializeField] private List<GameObject> targetList = new List<GameObject>();
-    private GameObject parent;
 
     private void    Start() {
-        parent      = this.gameObject.transform.root.gameObject;
-        ListSortToDistance();
-    }
+        parent      = gameObject.transform.root.gameObject;
+        targetList.AddRange(GameObject.FindGameObjectsWithTag(tagName));
 
-    private void    FixedUpdate() {
-        ListSortToDistance();
+        StartCoroutine("ListUpdate");
     }
-
+    
     // User Function ===============================================
 
     private void    ListSortToDistance() {
@@ -24,11 +24,14 @@ public class TargetList : MonoBehaviour {
             Vector3.Distance(b.transform.position, parent.transform.position)));
     }
 
-    public  void    AddList    (GameObject target) {
-        targetList.Add(target);
-    }
+    private IEnumerator ListUpdate() {
+        while (true) {
 
-    public  void    RemoveList (GameObject target) {
-        targetList.Remove(target);
+            targetList.Clear();
+            targetList.AddRange(GameObject.FindGameObjectsWithTag(tagName));
+            ListSortToDistance();
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

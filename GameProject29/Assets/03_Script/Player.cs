@@ -16,18 +16,11 @@ public class Player : MonoBehaviour {
     public  float   minFriction = 0.0f;
     public  float   moveSpeed   = 5.0f;
     public  float   maxSpeed    = 5.0f;
-
-    [SerializeField]
-    private List<GameObject> targetList;
-
+    
     public  GameObject          model;
     public  List<GameObject>    bullets;
     private Vector3             stickPos;
-
-    private void    Start() {
-        targetList.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
-    }
-
+    
     private void    Update() {
 
         PlayerLost();
