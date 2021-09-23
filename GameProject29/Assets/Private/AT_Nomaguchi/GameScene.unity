@@ -2630,7 +2630,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Object
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1913833297, guid: 54cd58fe7edd9da4cbe17c61d5c8a209, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 54cd58fe7edd9da4cbe17c61d5c8a209, type: 3}
 --- !u!1001 &4349553165048948784
 PrefabInstance:
