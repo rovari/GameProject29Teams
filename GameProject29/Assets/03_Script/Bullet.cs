@@ -26,8 +26,10 @@ public class Bullet : MonoBehaviour {
     // Unity Function ===============================================
 
     private void Start  () {
-        this.gameObject.SetActive(false);
+
         wait = false;
+
+        this.gameObject.SetActive(false);
     }
 
     // User  Function ===============================================

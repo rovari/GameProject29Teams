@@ -8,9 +8,13 @@ public class OptionCameraSetting : MonoBehaviour {
 
     private void Start  () {
 
-        GetComponent<Camera>().depthTextureMode |= DepthTextureMode.Depth;
-        Application.targetFrameRate = 61;
+        CamaraSetting();
     }
 
     // User  Function ===============================================
+
+    void CamaraSetting() {
+        GetComponent<Camera>().depthTextureMode |= DepthTextureMode.Depth;
+        Application.targetFrameRate = 61;
+    }
 }

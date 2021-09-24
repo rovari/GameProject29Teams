@@ -4,40 +4,45 @@ using UnityEngine;
 
 public class TargetList : MonoBehaviour {
 
-    private GameObject  parent;
     public  string      tagName;
+    private GameObject  parent;
 
-    [SerializeField] private List<GameObject> targetList = new List<GameObject>();
+    [SerializeField] private List<GameObject> targetList;
 
     // Unity Function ===============================================
 
-    private void Start  () {
+    private void    Awake() {
         parent      = gameObject.transform.root.gameObject;
-        targetList.AddRange(GameObject.FindGameObjectsWithTag(tagName));
-
-        StartCoroutine("ListUpdate");
+        targetList  = new List<GameObject>();
     }
-    
+
+    private void    OnEnable() {
+        GetTargetListObject();
+        ListSortToDistance ();
+    }
+
+    private void    OnDisable() {
+        targetList.Clear();
+    }
+
     // User  Function ===============================================
 
-    private void        ListSortToDistance  () {
-        targetList.Sort((a, b) =>
-            Vector3.Distance(a.transform.position, parent.transform.position).CompareTo(
-            Vector3.Distance(b.transform.position, parent.transform.position)));
+    private void        GetTargetListObject () {
+        targetList.AddRange(GameObject.FindGameObjectsWithTag(tagName));
     }
 
-    private IEnumerator ListUpdate          () {
-        while (true) {
-
-            targetList.Clear();
-            targetList.AddRange(GameObject.FindGameObjectsWithTag(tagName));
-            ListSortToDistance();
-
-            yield return new WaitForSeconds(0.1f);
+    private void        ListSortToDistance  () {
+        if (targetList.Count > 0) {
+            targetList.Sort((a, b) =>
+                Vector3.Distance(a.transform.position, parent.transform.position).CompareTo(
+                Vector3.Distance(b.transform.position, parent.transform.position)));
         }
     }
 
-    public  GameObject GetTarget(int index) {
+    public  GameObject  GetTarget(int index) {
+
+        if (targetList.Count <= 0) return null;
+
         return targetList[index];
     }
 }

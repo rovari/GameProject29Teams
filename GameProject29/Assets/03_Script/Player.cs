@@ -31,17 +31,20 @@ public class Player : MonoBehaviour {
         BOMB 
     }
     public  List<GameObject>    bullets;
-    public  WEAPON              type;
+    public  int                 weaponIndex;
 
-    private TargetList          targetList;
+    private GameObject          targetList;
     private Vector2             leftStick;
     private bool                fire;
     private bool                special;
+    private bool                indexAdd;
+    private bool                indexSub;
 
     // Unity Function ===============================================
 
     private void Start  (){
-        targetList = gameObject.transform.Find("TargetList").gameObject.GetComponent<TargetList>();
+        targetList  = gameObject.transform.Find("TargetList").gameObject;
+        weaponIndex = 0;
     }
 
     private void Update () {
@@ -54,19 +57,27 @@ public class Player : MonoBehaviour {
 
     // User  Function ===============================================
     
-    public  void    OnMove      (InputAction.CallbackContext context) {
+    public  void    OnMove              (InputAction.CallbackContext context) {
         leftStick = context.ReadValue<Vector2>();
     }
 
-    public  void    OnFire      (InputAction.CallbackContext context) {
+    public  void    OnFire              (InputAction.CallbackContext context) {
         fire = context.ReadValueAsButton();
     } 
     
-    public  void    OnSpecial   (InputAction.CallbackContext context) {
+    public  void    OnSpecial           (InputAction.CallbackContext context) {
         special = context.ReadValueAsButton();
-    } 
+    }
 
-    private void    CalculateFriction() {
+    public  void    OnWeaponIndexAdd    (InputAction.CallbackContext context) {
+        indexAdd = context.ReadValueAsButton();
+    }
+
+    public  void    OnWeaponIndexSub    (InputAction.CallbackContext context) {
+        indexSub = context.ReadValueAsButton();
+    }
+
+    private void    CalculateFriction   () {
 
         float e = 0.00001f;
         float d = Mathf.Clamp(damage, e, 1.0f);
@@ -80,7 +91,7 @@ public class Player : MonoBehaviour {
         velocity = (Mathf.Abs(velocity) < f + e) ? 0.0f : velocity;
     }
 
-    private void    PlayerLost  () {
+    private void    PlayerLost          () {
 
         if (!model.GetComponent<Renderer>().isVisible) {
 
@@ -91,28 +102,31 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void    PlayerFire  () {
+    private void    PlayerFire          () {
 
-        if(!special && fire) {
-            switch (type) {
-                case WEAPON.SHOT:
-                    LaunchWeapon((int)WEAPON.SHOT);
-                    break;
-                case WEAPON.THROW:
-                    LaunchWeapon((int)WEAPON.THROW);
-                    break;
-                case WEAPON.HOMING0:
-                    StartCoroutine("HomingSugoino");
-                    break;
-            }
+        ChengeWeaponIndex();
+        
+        switch (weaponIndex) {
+            case 0:
+                targetList.SetActive(false);
+                if (!special && fire) LaunchWeapon((int)WEAPON.SHOT);
+                break;
+            case 1:
+                targetList.SetActive(true);
+                if (!special && fire) LaunchWeapon((int)WEAPON.THROW);
+                break;
+            case 2:
+                targetList.SetActive(true);
+                if (!special && fire) StartCoroutine("HomingSugoino");
+                break;
         }
 
-        if (special && fire) {
+        if( special && fire) {
             LaunchWeapon((int)WEAPON.BOMB);
         }
     }
 
-    private void    PlayerMove  () {
+    private void    PlayerMove          () {
 
         velocity += Mathf.Lerp(-moveSpeed, moveSpeed, (leftStick.x + 1.0f) * 0.5f) * Time.deltaTime;
 
@@ -120,9 +134,26 @@ public class Player : MonoBehaviour {
         transform.position += new Vector3(velocity * Time.deltaTime, Mathf.Sin(Time.time * 2.0f) * 0.001f, 0.0f);
     }
     
-    private void    LaunchWeapon(int number) {
+    private void    ChengeWeaponIndex   () {
+
+        if (indexAdd) {
+            ++weaponIndex;
+            targetList.SetActive(false);
+
+            if (weaponIndex > 2) weaponIndex = 0;
+        }
+
+        if (indexSub) {
+            --weaponIndex;
+            targetList.SetActive(false);
+
+            if (weaponIndex < 0) weaponIndex = 2;
+        }
+    }
+
+    private void    LaunchWeapon        (int number) {
         bullets[number].SetActive(true);
-        bullets[number].GetComponent<Bullet>().SetTarget(targetList.GetTarget(0));
+        bullets[number].GetComponent<Bullet>().SetTarget(targetList.GetComponent<TargetList>().GetTarget(0));
         bullets[number].GetComponent<Bullet>().StartWeponCalc();
     }
 
