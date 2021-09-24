@@ -177,9 +177,9 @@ public class Bullet : MonoBehaviour {
 
             Debug.Log(velocity);
             yield return null;
+
         }
         
-
         ActiveCollision(true);
 
         float count = damageAreaTime;

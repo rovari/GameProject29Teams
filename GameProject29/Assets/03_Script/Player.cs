@@ -105,24 +105,26 @@ public class Player : MonoBehaviour {
     private void    PlayerFire          () {
 
         ChengeWeaponIndex();
-        
+
+        GameObject target = targetList.GetComponent<TargetList>().GetTarget(0);
+
         switch (weaponIndex) {
             case 0:
                 targetList.SetActive(false);
-                if (!special && fire) LaunchWeapon((int)WEAPON.SHOT);
+                if (!special && fire) LaunchWeapon((int)WEAPON.SHOT, target);
                 break;
             case 1:
                 targetList.SetActive(true);
-                if (!special && fire) LaunchWeapon((int)WEAPON.THROW);
+                if (!special && fire) LaunchWeapon((int)WEAPON.THROW, target);
                 break;
             case 2:
                 targetList.SetActive(true);
-                if (!special && fire) StartCoroutine("HomingSugoino");
+                if (!special && fire && target) StartCoroutine("HomingSugoino", target);
                 break;
         }
 
         if( special && fire) {
-            LaunchWeapon((int)WEAPON.BOMB);
+            LaunchWeapon((int)WEAPON.BOMB, target);
         }
     }
 
@@ -151,26 +153,26 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private void    LaunchWeapon        (int number) {
+    private void    LaunchWeapon        (int number, GameObject target) {
         bullets[number].SetActive(true);
-        bullets[number].GetComponent<Bullet>().SetTarget(targetList.GetComponent<TargetList>().GetTarget(0));
+        bullets[number].GetComponent<Bullet>().SetTarget(target);
         bullets[number].GetComponent<Bullet>().StartWeponCalc();
     }
 
-    IEnumerator HomingSugoino() {
-
-        LaunchWeapon((int)WEAPON.HOMING0);
+    IEnumerator HomingSugoino(GameObject target) {
+        
+        LaunchWeapon((int)WEAPON.HOMING0, target);
         yield return new WaitForSeconds(0.1f);
-        LaunchWeapon((int)WEAPON.HOMING1);
+        LaunchWeapon((int)WEAPON.HOMING1, target);
         yield return new WaitForSeconds(0.1f);
-        LaunchWeapon((int)WEAPON.HOMING2);
+        LaunchWeapon((int)WEAPON.HOMING2, target);
         yield return new WaitForSeconds(0.1f);
-        LaunchWeapon((int)WEAPON.HOMING3);
+        LaunchWeapon((int)WEAPON.HOMING3, target);
         yield return new WaitForSeconds(0.1f);
-        LaunchWeapon((int)WEAPON.HOMING4);
+        LaunchWeapon((int)WEAPON.HOMING4, target);
         yield return new WaitForSeconds(0.1f);
-        LaunchWeapon((int)WEAPON.HOMING5);
+        LaunchWeapon((int)WEAPON.HOMING5, target);
         yield return new WaitForSeconds(0.1f);
-        LaunchWeapon((int)WEAPON.HOMING6);
+        LaunchWeapon((int)WEAPON.HOMING6, target);
     }
 }
