@@ -284,9 +284,9 @@
                     "name": "",
                     "id": "b08d72bb-4709-4b3a-a6ef-8e29513a5fca",
                     "path": "<Gamepad>/buttonWest",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "",
                     "action": "selectL",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -295,9 +295,9 @@
                     "name": "",
                     "id": "086c023b-b8cc-4396-8b45-e8b63256678f",
                     "path": "<Gamepad>/buttonEast",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
+                    "groups": "",
                     "action": "selectR",
                     "isComposite": false,
                     "isPartOfComposite": false

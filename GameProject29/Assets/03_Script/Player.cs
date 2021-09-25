@@ -37,8 +37,8 @@ public class Player : MonoBehaviour {
     private Vector2             leftStick;
     private bool                fire;
     private bool                special;
-    private bool                indexAdd;
-    private bool                indexSub;
+    private InputActionPhase    indexAdd;
+    private InputActionPhase    indexSub;
 
     // Unity Function ===============================================
 
@@ -70,11 +70,11 @@ public class Player : MonoBehaviour {
     }
 
     public  void    OnWeaponIndexAdd    (InputAction.CallbackContext context) {
-        indexAdd = context.ReadValueAsButton();
+        indexAdd    = context.phase;
     }
 
     public  void    OnWeaponIndexSub    (InputAction.CallbackContext context) {
-        indexSub = context.ReadValueAsButton();
+        indexSub    = context.phase;
     }
 
     private void    CalculateFriction   () {
@@ -138,14 +138,14 @@ public class Player : MonoBehaviour {
     
     private void    ChengeWeaponIndex   () {
 
-        if (indexAdd) {
+        if (InputActionPhase.Started == indexAdd) {
             ++weaponIndex;
             targetList.SetActive(false);
 
             if (weaponIndex > 2) weaponIndex = 0;
         }
 
-        if (indexSub) {
+        if (InputActionPhase.Started == indexSub) {
             --weaponIndex;
             targetList.SetActive(false);
 
