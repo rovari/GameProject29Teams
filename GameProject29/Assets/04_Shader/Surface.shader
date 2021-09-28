@@ -110,7 +110,7 @@ Shader "Custom/Surface"
 			if (_Fog != 0) {
 				float linerDep = _FogLv * 0.01;
 				float linerPos = length(_WorldSpaceCameraPos - IN.worldPos) * linerDep;
-				c = saturate(lerp(_FogColor, c, saturate(1.0 - linerPos)));
+				c = saturate(lerp(c * _FogColor, c, saturate(1.0 - linerPos)));
 			}
 
 			o.Normal = n;

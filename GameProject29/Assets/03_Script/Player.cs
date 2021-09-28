@@ -17,6 +17,7 @@ public class Player : MonoBehaviour {
     public  float   maxSpeed    = 5.0f;
     
     public  GameObject          model;
+    public  GameObject          aim;
 
     public  enum    WEAPON {
         SHOT    = 0,
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour {
     private bool                special;
     private InputActionPhase    indexAdd;
     private InputActionPhase    indexSub;
+    private Vector3             aimTarget;
 
     // Unity Function ===============================================
 
@@ -56,7 +58,11 @@ public class Player : MonoBehaviour {
     }
 
     // User  Function ===============================================
-    
+
+    public  GameObject    GetAim        () {
+        return aim;
+    }
+
     public  void    OnMove              (InputAction.CallbackContext context) {
         leftStick = context.ReadValue<Vector2>();
     }
@@ -66,7 +72,7 @@ public class Player : MonoBehaviour {
     } 
     
     public  void    OnSpecial           (InputAction.CallbackContext context) {
-        special = context.ReadValueAsButton();
+        special     = context.ReadValueAsButton();
     }
 
     public  void    OnWeaponIndexAdd    (InputAction.CallbackContext context) {
@@ -110,14 +116,17 @@ public class Player : MonoBehaviour {
 
         switch (weaponIndex) {
             case 0:
+                aim.SetActive(true);
                 targetList.SetActive(false);
-                if (!special && fire) LaunchWeapon((int)WEAPON.SHOT, target);
+                if (!special && fire) LaunchWeapon((int)WEAPON.SHOT, aim);
                 break;
             case 1:
+                aim.SetActive(false);
                 targetList.SetActive(true);
                 if (!special && fire) LaunchWeapon((int)WEAPON.THROW, target);
                 break;
             case 2:
+                aim.SetActive(false);
                 targetList.SetActive(true);
                 if (!special && fire && target) StartCoroutine("HomingSugoino", target);
                 break;
@@ -138,17 +147,19 @@ public class Player : MonoBehaviour {
     
     private void    ChengeWeaponIndex   () {
 
-        if (InputActionPhase.Started == indexAdd) {
+        if (InputActionPhase.Performed == indexAdd) {
             ++weaponIndex;
+            aim.SetActive(false);
             targetList.SetActive(false);
-
+            indexAdd = InputActionPhase.Canceled;
             if (weaponIndex > 2) weaponIndex = 0;
         }
 
-        if (InputActionPhase.Started == indexSub) {
+        if (InputActionPhase.Performed == indexSub) {
             --weaponIndex;
+            aim.SetActive(false);
             targetList.SetActive(false);
-
+            indexSub = InputActionPhase.Canceled;
             if (weaponIndex < 0) weaponIndex = 2;
         }
     }

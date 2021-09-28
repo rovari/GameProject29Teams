@@ -23,7 +23,6 @@ public class LockIcon : MonoBehaviour {
     
     void Update() {
         ForcasTarget();
-        
     }
 
     void ForcasTarget() {
