@@ -23,7 +23,7 @@ public class AimIcon : MonoBehaviour {
         rectTransform   = GetComponent<RectTransform>();
         camera          = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         parent          = gameObject.transform.parent.gameObject;
-        length          = 10.0f;
+        length          = 50.0f;
         aimPos          = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f);
     }
     
@@ -41,6 +41,8 @@ public class AimIcon : MonoBehaviour {
         aimPos.y    += rightStick.y * 10.0f;
         aimPos.z    =  length;
 
+        ResetOverScreenPos();
+
         this.GetComponent<Image>().enabled = false;
         aim = parent.GetComponent<PlayerUI>().GetPlayer().GetComponent<Player>().GetAim();
 
@@ -53,5 +55,12 @@ public class AimIcon : MonoBehaviour {
         }
 
         aim.transform.position = camera.ScreenToWorldPoint(aimPos);
+    }
+
+    private void ResetOverScreenPos() {
+        if (rectTransform.position.x > Screen.width)    aimPos.x = Screen.width;
+        if (rectTransform.position.x < 0)               aimPos.x = 0.0f;
+        if (rectTransform.position.y > Screen.height)   aimPos.y = Screen.height;
+        if (rectTransform.position.y < 0)               aimPos.y = 0.0f;
     }
 }

@@ -70,6 +70,8 @@ public class Bullet : MonoBehaviour {
         var     period      = 1.0f;
         var     speed       = 1.0f / flightTime;
 
+        ActiveCollision(true);
+
         while (period > 0.0f) {
             transform.position = Vector3.Lerp(startPos, endPos, 1.0f - period);
             period -= speed * Time.deltaTime;
@@ -79,18 +81,8 @@ public class Bullet : MonoBehaviour {
 
         transform.position = endPos;
 
-        ActiveCollision(true);
-
-        float count = damageAreaTime;
-
-        while (count > 0.0f) {
-            transform.position = endPos;
-            count -= Time.deltaTime;
-            yield return null;
-        }
-
         ActiveCollision(false);
-
+      
         transform.position  = Vector3.zero;
         transform.rotation  = Quaternion.identity;
         wait                = false;
@@ -118,8 +110,7 @@ public class Bullet : MonoBehaviour {
             calcPos   = Vector3.Lerp(startPos, endPos, t/flightTime);
             calcPos.y = startPos.y + vn * t + 0.5f * gravity * t * t;
             transform.position = calcPos;
-            
-            Debug.Log("called");
+        
             yield return null;
         }
 
@@ -174,8 +165,7 @@ public class Bullet : MonoBehaviour {
             transform.forward   = velocity.normalized;
             transform.position  = startPos;
             startPos += velocity * Time.deltaTime;
-
-            Debug.Log(velocity);
+            
             yield return null;
 
         }

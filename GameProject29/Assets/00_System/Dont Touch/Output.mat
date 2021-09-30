@@ -58,7 +58,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _CDIFF: 0.5
+    - _CDIFF: 1
     - _Cutoff: 0.5
     - _DDIFF: 1
     - _DFLAG: 0
@@ -75,7 +75,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Thick: 1.01
+    - _Thick: 1.45
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

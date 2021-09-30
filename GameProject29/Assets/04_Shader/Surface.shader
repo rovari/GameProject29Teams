@@ -23,16 +23,23 @@ Shader "Custom/Surface"
 		_Scr_Y		("UvScroll Speed Y"			, float)			= 0.0
 
 		[Toggle]		_Fog	("Fog"			, int)				= 0
-        _FogLv		("Fog Level"				, Range(0.0, 10.0))	= 0
+        _FogStart	("Fog Start"				, float)			= 0
+        _FogEnd		("Fog End"					, float)			= 0
 		_FogColor	("Fog Color"				, Color)			= (1,1,1,1)
+
+		[Toggle]		_Rim	("Rim"			, int)				= 0
+		_RimLv		("Rim Level"				, Range(0.0, 10.0))	= 0
+		_RimColor	("Rim Color"				, Color)			= (1,1,1,1)
+
 
 		[HideInInspector]
 		_Discard	("Discard"					, int)				= 0
     }
     SubShader
     {
-        LOD 200
+        LOD		200
 		ZWrite	On
+		Cull	Off
 		Tags {"Queue" = "AlphaTest"}
 
         CGPROGRAM
@@ -50,14 +57,15 @@ Shader "Custom/Surface"
             float2	uv_Mask;
 			float3	worldPos;
 			float3	lightDir;
+			float3	viewDir;
         };
 
-        fixed4	_Color, _SubColor, _FogColor;
-		fixed	_Height, _FogLv;
+        fixed4	_Color, _SubColor, _FogColor, _RimColor;
+		fixed	_Height, _RimLv;
 		fixed	_GV_X, _GV_Y, _GH_TOP, _GH_BOTTOM;
-		int		_Reverse, _Fog;
+		int		_Reverse, _Fog, _Rim;
 		fixed	_Range;
-		float	_Scr_X, _Scr_Y;
+		float	_Scr_X, _Scr_Y, _FogStart, _FogEnd;
 		int		_Discard;
 
 		float Gradation_Vec		(float2 uv)			{ return length(uv * float2( _GV_X, _GV_Y)); }
@@ -69,7 +77,7 @@ Shader "Custom/Surface"
 			UNITY_INITIALIZE_OUTPUT(Input, o);
 
 			TANGENT_SPACE_ROTATION;
-			o.lightDir	= mul(rotation, ObjSpaceLightDir(v.vertex));
+			o.lightDir	= normalize(mul(rotation, ObjSpaceLightDir(v.vertex)));
 		}
 
 		void Dissolve(float2 uv) {
@@ -108,9 +116,17 @@ Shader "Custom/Surface"
             #endif
 
 			if (_Fog != 0) {
-				float linerDep = _FogLv * 0.01;
-				float linerPos = length(_WorldSpaceCameraPos - IN.worldPos) * linerDep;
-				c = saturate(lerp(c * _FogColor, c, saturate(1.0 - linerPos)));
+
+				float linerDep	= 1.0 / (30.0 - 0.1);
+				float linerPos	= length(_WorldSpaceCameraPos - IN.worldPos) * linerDep;
+				float fogFactor = saturate((_FogEnd - linerPos) / (_FogEnd - _FogStart));
+
+				c = saturate(lerp(_FogColor, c, fogFactor * fogFactor));
+			}
+
+			if (_Rim != 0) {
+				fixed4 rim = _RimColor * (1.0 - saturate(dot(IN.viewDir, n)));
+				c += pow(rim, _RimLv);
 			}
 
 			o.Normal = n;

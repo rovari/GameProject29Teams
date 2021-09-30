@@ -14,6 +14,14 @@ public class Enemy : MonoBehaviour {
 
     }
     
+   private void OnTriggerEnter(Collider obj) {
+
+        Collision col;
+
+        if (obj.TryGetComponent(out col)) {
+            Debug.Log(col.GetDamage());
+        }
+    }
     // User  Function ===============================================
 
 }

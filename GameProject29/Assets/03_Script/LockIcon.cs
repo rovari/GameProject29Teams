@@ -33,7 +33,7 @@ public class LockIcon : MonoBehaviour {
         GameObject targetList = parent.GetComponent<PlayerUI>().GetPlayer().transform.Find("TargetList").gameObject;
 
         if (targetList.activeSelf) {
-            target = targetList.GetComponent<TargetList>().GetTarget(listNum);
+            target = parent.GetComponent<PlayerUI>().GetPlayer().GetComponent<Player>().GetNowTarget();
             GetComponent<Image>().enabled = true;
         }
 

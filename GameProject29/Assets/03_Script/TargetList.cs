@@ -45,4 +45,8 @@ public class TargetList : MonoBehaviour {
 
         return targetList[index];
     }
+
+    public  int         GetListSize() {
+        return targetList.Count;
+    } 
 }
