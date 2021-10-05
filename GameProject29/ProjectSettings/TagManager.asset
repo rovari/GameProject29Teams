@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Collision
   - Manager
+  - Frame
   layers:
   - Default
   - TransparentFX

@@ -14,74 +14,49 @@ SubShader {
 	    ZWrite Off
 	    Blend [_SrcBlend] [_DstBlend]
 	
-	CGPROGRAM
-	#pragma target 3.0
-	#pragma vertex vert_deferred
-	#pragma fragment frag
+		CGPROGRAM
+		#pragma target 3.0
+		#pragma vertex vert_deferred
+		#pragma fragment frag
 	
-	#pragma exclude_renderers nomrt
+		#pragma exclude_renderers nomrt
 	
-	#include "UnityCG.cginc"
-	#include "UnityDeferredLibrary.cginc"
+		#include "UnityCG.cginc"
+		#include "UnityDeferredLibrary.cginc"
 	
 		sampler2D _CameraGBufferTexture0;
 	
-		half4 CalculateLight (unity_v2f_deferred i)
-		{
-		    float2 uv = i.uv.xy / i.uv.w;
-		    return half4(tex2D(_CameraGBufferTexture0, uv).rgb, 1.0);
-		}
-	
 		fixed4 frag (unity_v2f_deferred i) : SV_Target {
 
-		    half4 c = CalculateLight(i);
-		    return exp2(-c);
+			return tex2D(_CameraGBufferTexture0, i.uv);
 		}
 	
-	ENDCG
+		ENDCG
 	}
 
 	Pass {
 
-    ZTest Always Cull Off ZWrite Off
+		ZTest	Always
+		Cull	Off
+		ZWrite	Off
 
-    Stencil {
-        ref		 [_StencilNonBackground]
-        readmask [_StencilNonBackground]
-        compback equal
-        compfront equal
-    }
+		CGPROGRAM
+		#pragma target   3.0
+		#pragma vertex	 vert_deferred
+		#pragma fragment frag
 
-	CGPROGRAM
-	#pragma target   3.0
-	#pragma vertex   vert
-	#pragma fragment frag
-	#pragma exclude_renderers nomrt
+		#pragma exclude_renderers nomrt
 	
-	#include "UnityCG.cginc"
+		#include "UnityCG.cginc"
+		#include "UnityDeferredLibrary.cginc"
 	
-	sampler2D _LightBuffer;
+		sampler2D _CameraGBufferTexture0;
 
-	struct v2f {
-	    float4 vertex : SV_POSITION;
-	    float2 texcoord : TEXCOORD0;
-	};
+		fixed4 frag (unity_v2f_deferred i) : SV_Target {
+			return tex2D(_CameraGBufferTexture0, i.uv.xy);
+		}
 
-	v2f vert (float4 vertex : POSITION, float2 texcoord : TEXCOORD0)
-	{
-	    v2f o;
-	    o.vertex	= UnityObjectToClipPos(vertex);
-	    o.texcoord	= texcoord.xy;
-	
-	    return o;
-	}
-
-	fixed4 frag (v2f i) : SV_Target
-	{
-	    return -log2(tex2D(_LightBuffer, i.texcoord));
-	}
-
-	ENDCG
+		ENDCG
 	}
 
 	}
