@@ -72,9 +72,9 @@ Material:
     - _Discard: 0
     - _DstBlend: 0
     - _Fog: 1
-    - _FogEnd: 2
+    - _FogEnd: 3.5
     - _FogLv: 0
-    - _FogStart: 0
+    - _FogStart: 0.01
     - _GH_BOTTOM: 0
     - _GH_TOP: 0
     - _GT: 0
