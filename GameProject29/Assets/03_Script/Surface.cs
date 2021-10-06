@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Surface : ShaderController {
 
@@ -9,5 +10,10 @@ public class Surface : ShaderController {
         _material = mat;
     }
 
-
+    public  void SetDissolve (float level) {
+        _material.SetFloat("_Range", Mathf.Clamp01(level));
+    }
+    public  void SetRimEnable(bool active) {
+        _material.SetInt("_Rim", Convert.ToInt32(active));
+    }
 }

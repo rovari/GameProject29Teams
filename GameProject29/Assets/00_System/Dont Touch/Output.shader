@@ -3,29 +3,42 @@ Shader "Custom/Output" {
     Properties  {
 
         _MainTex ("Texture"	, 2D)				= "white" {}
-
+		
+		[Space(5)][Header(Chromatic Aberration)][Space(10)]
 		[Toggle]
-		_CA		 ("Chromatic Aberration", int)			= 0
+		_CA		 ("Active"			, int)				= 0
 		_CALv	 ("CA Level"		, Range(0.0, 1.0))	= 0.0
 
+		[Space(5)][Header(Fill)][Space(10)]
 		[Toggle]
-		_Fill	 ("Fill"			, int)				= 0
+		_Fill	 ("Active"			, int)				= 0
 		_FiCol	 ("Fill Color"		, Color)			= (1,1,1,1)
 		_FiLv	 ("Fill Level"		, Range(0.0, 1.0))	= 0.0
 
+		[Space(5)][Header(Laplasian)][Space(10)]
 		[Toggle]
-		_Thick	 ("Line Thick"		, Range(0.5, 5.0))	= 1.0
-		_Color	 ("Line Color"		, Color)			= (1,1,1,1)
 		_DFLAG	 ("Use Depth"		, int)				= 0
+		_Color	 ("Line Color"		, Color)			= (1,1,1,1)
+		_Thick	 ("Line Thick"		, Range(0.5, 5.0))	= 1.0
 		_CDIFF	 ("Color Differece"	, Range(0.0, 1.0))	= 0.00
 		_NDIFF	 ("Normal Differece", Range(0.0, 1.0))	= 0.00
 		_DDIFF	 ("Depth Differece"	, Range(0.0, 1.0))	= 0.00
 
+		[Space(5)][Header(Viggnet)][Space(10)]
 		[Toggle]
-		_Vigg	 ("Viggnet"			, int)				= 0
+		_Vigg	 ("Active"			, int)				= 0
 		_ViCol	 ("Viggnet Color"	, Color)			= (0,0,0,0)
 		_ViLv	 ("Viggnet Level"	, Range(0.0, 1.0))	= 0.0
 		_ViRg	 ("Viggnet Range"	, Range(0.0, 1.0))	= 0.0
+
+		[Space(5)][Header(Fade)][Space(10)]
+		[KeywordEnum(DEFAULT, MASK)]
+		_TYPE	 ("Fade Type"		, int)				= 0
+		_FadeMask("Fade Mask"		, 2D)				= "white" {}
+		[Toggle]		  
+		_Reverse ("Reverse Mask"	, int)				= 0
+		_FdCol	 ("Fade Color"		, Color)			= (0, 0, 0, 0)
+		_FdRange ("Level"			, Range(0.0 , 1.0))	= 0.0
     }
 
     SubShader {
@@ -38,6 +51,7 @@ Shader "Custom/Output" {
             CGPROGRAM
             #pragma vertex	 vert
             #pragma fragment frag
+			#pragma shader_feature _TYPE_DEFAULT _TYPE_MASK
 
             #include "UnityCG.cginc"
 			#include "UnityGBuffer.cginc"
@@ -54,6 +68,7 @@ Shader "Custom/Output" {
             };
 
             sampler2D _MainTex;
+			sampler2D _FadeMask;
 			sampler2D _CameraGBufferTexture0;
 			sampler2D _CameraGBufferTexture2;
 			sampler2D _CameraDepthTexture;
@@ -73,6 +88,10 @@ Shader "Custom/Output" {
 			fixed	_ViLv;
 			fixed	_ViRg;
 			fixed4	_ViCol;
+
+			int		_Reverse;
+			fixed	_FdRange;
+			fixed4	_FdCol;
 
 			fixed4 ChromaticAberration	(float2 uv, fixed4 col) {
 				
@@ -135,6 +154,25 @@ Shader "Custom/Output" {
 
 				return lerp(_ViCol, col, ret);
 			}
+			fixed4 Fade					(float2 uv, fixed4 col){
+
+				fixed4 c;
+				fixed  fr	= 0;
+				
+				#ifdef _TYPE_DEFAULT
+				fr = _FdRange;
+
+				#elif  _TYPE_MASK
+				fr = (_Reverse)
+					? (tex2D(_FadeMask, uv).r		<= _FdRange) ? 1.0: 0.0
+					: (1.0 - tex2D(_FadeMask, uv).r <  _FdRange) ? 1.0: 0.0;
+
+				#endif
+
+				c = lerp(col, _FdCol, fr);
+
+				return c;
+			}
 
             v2f		vert (appdata v) {
                 v2f o;
@@ -151,7 +189,8 @@ Shader "Custom/Output" {
 				col = (_Fill)	? Fill(col)	: col;
 				col = Laplacian(i.uv, col);
 				col = (_Vigg) ? Viggnet(i.uv, col) : col;
-				
+				col = Fade(i.uv, col);
+
 				return col;
 			}
 			

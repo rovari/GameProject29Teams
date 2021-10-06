@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadManager : MonoBehaviour {
-    
+
     // Show  Property =============================================
+    [SerializeField] private RenderTexture      _srcFrame;
+    [SerializeField] private RenderTexture      _srcCut;
     [SerializeField] private bool               _DebugPreLoad;
     [SerializeField] private bool               _openPreLoad;
     [SerializeField] private int                _sequensNumber;
@@ -27,6 +29,8 @@ public class LoadManager : MonoBehaviour {
 
     // User  Method ===============================================
     public  void        LoadScene (int sequensNum = -1) {
+
+        Graphics.CopyTexture(_srcFrame, _srcCut);
 
         IEnumerator loadScene = PreLoad(sequensNum);
         StartCoroutine(loadScene);

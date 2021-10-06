@@ -71,7 +71,7 @@ public class EffectManager : MonoBehaviour {
 
     }
     private void Update     () {
-        if (_shake)                 CameraShake(_shakeSpeed, _shakeLevel, true);
+        //if (_shake)                 ;
         //if (_explosion)             ;
         //if (_chormaticAberration)   ;
         //if (_fade)                  ;
@@ -90,6 +90,13 @@ public class EffectManager : MonoBehaviour {
         float nz    = ((Mathf.PerlinNoise(t + 2.0f  , t + 1.5f) + 0.025f) * 2.0f - 1.0f) * level;
 
         Quaternion noiseRot         = Quaternion.Euler( nx, ny, nz );
-        camera.transform.rotation   = Quaternion.Slerp(transform.rotation, noiseRot, Time.time);
+        camera.transform.rotation   = Quaternion.Slerp(transform.rotation, noiseRot, Time.time * 5.0f);
     }
+
+    //public IEnumerator Fill () {
+
+
+
+
+    //}
 }
