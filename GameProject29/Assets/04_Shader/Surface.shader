@@ -121,7 +121,7 @@ Shader "Custom/Surface"
 				float linerPos	= length(_WorldSpaceCameraPos - IN.worldPos) * linerDep;
 				float fogFactor = saturate((_FogEnd - linerPos) / (_FogEnd - _FogStart));
 
-				c = saturate(lerp(_FogColor, c, pow(fogFactor, 10)));
+				c = saturate(lerp(_FogColor * c, c, pow(fogFactor, 10)));
 			}
 
 			if (_Rim != 0) {
