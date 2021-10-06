@@ -123,6 +123,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &177143061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6988748447456171106, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
+  m_PrefabInstance: {fileID: 6988748446155828541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &177143062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177143061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82248aed5b721943b696190bcba5b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &438891347 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6988748446320991854, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
@@ -140,7 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4871e44fb47e0c44693bff0e0927b37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: 1
 --- !u!4 &658127518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2228922330170098357, guid: f64c984afce0c1f4887e1ddbf2c22f77, type: 3}
@@ -168,10 +184,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0999a21b52972744e858461e0e80e8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _DebugPreLoad: 0
+  _openPreLoad: 0
   _sequensNumber: 0
   _loadingScene:
-    m_SceneName: 
+    m_SceneName: Load
   _sceneSequens:
+  - m_SceneName: GameScene
+  - m_SceneName: GameScene
+  - m_SceneName: GameScene
   - m_SceneName: GameScene
 --- !u!1 &1768914134 stripped
 GameObject:

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class InputMnaager : MonoBehaviour {
 
+    // Hide  Property =============================================
+
     // Show  Property =============================================
-    
+
     // Unity Method ===============================================
-    
+
     // User  Method ===============================================
 }

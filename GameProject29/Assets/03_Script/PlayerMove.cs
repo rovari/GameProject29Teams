@@ -6,6 +6,7 @@ public class PlayerMove : FacadeData {
     
     // Hide  Property =============================================
     private float   _velocity;
+    private float   _sceneCount;
 
     // Show  Property =============================================
     [SerializeField] private AnimationCurve _frictionCurve;
@@ -27,10 +28,11 @@ public class PlayerMove : FacadeData {
     // User  Method ===============================================
     private void Move() {
 
-        _velocity += Mathf.Lerp(-_moveSpeed, _moveSpeed, (/*stick*/0.0f + 1.0f) * 0.5f) * Time.deltaTime;
-        _velocity =  Mathf.Clamp(_velocity, -_maxSpeed, _maxSpeed);
+        _sceneCount += Time.deltaTime;
+        _velocity   += Mathf.Lerp(-_moveSpeed, _moveSpeed, (/*stick*/0.0f + 1.0f) * 0.5f) * Time.deltaTime;
+        _velocity   =  Mathf.Clamp(_velocity, -_maxSpeed, _maxSpeed);
         
-        facade.GetFacade<Player>().GetSetPosition += new Vector3(_velocity * Time.deltaTime, Mathf.Sin(Time.time * 2.0f) * Time.deltaTime); ;
+        facade.GetFacade<Player>().GetSetPosition += new Vector3(_velocity * Time.deltaTime, Mathf.Sin(_sceneCount) * 1e-1f * Time.deltaTime); ;
     }
     private void CalculationStability() {
 

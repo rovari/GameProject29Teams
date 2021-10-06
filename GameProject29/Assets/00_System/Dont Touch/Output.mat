@@ -58,7 +58,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _CDIFF: 1
+    - _CDIFF: 0.5
     - _Cutoff: 0.5
     - _DDIFF: 1
     - _DFLAG: 0

@@ -10,16 +10,7 @@ public enum STATE {
 }
 
 public class StateManager : MonoBehaviour {
-
-    [SerializeField][Range(0.01f, 1.0f)] private float scale = 1;
-
-    //
-    private void Update() {
-        Time.timeScale = scale;
-    }
-
+    
     // User  Method ===============================================
     public STATE GetSetState { get; set; } = STATE.MENU;
-
-
 }

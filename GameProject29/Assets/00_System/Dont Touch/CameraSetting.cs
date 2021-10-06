@@ -12,6 +12,7 @@ public class CameraSetting : MonoBehaviour {
     
     // User  Method ===============================================
     private void CamaraSetting() {
+
         GetComponent<Camera>().depthTextureMode |= DepthTextureMode.Depth;
         Application.targetFrameRate = 61;
     }
