@@ -674,6 +674,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1377920686480731380, guid: fe31275dab0d04f41b7d23d82099798a, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1377920686480731380, guid: fe31275dab0d04f41b7d23d82099798a, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750818192000704163, guid: fe31275dab0d04f41b7d23d82099798a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4750818192000704163, guid: fe31275dab0d04f41b7d23d82099798a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7469037707280445617, guid: fe31275dab0d04f41b7d23d82099798a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -796,6 +812,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1654305839, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
+      propertyPath: _openPreLoad
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654305839, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
+      propertyPath: _DebugPreLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6988748447978015372, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
       propertyPath: m_RootOrder
       value: 0

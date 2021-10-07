@@ -12,10 +12,7 @@ public class Enemy : Facade {
     private void Awake  () {
         GetSetPosition = transform.position;   
     }
-    private void Update () {
-        transform.position = GetSetPosition;
-    }
-
+    
     // User  Method ===============================================
     public float        GetSetHp        {
         get { return _hp;  }
@@ -25,6 +22,9 @@ public class Enemy : Facade {
         get { return _life; }
         set { _life = value;}
     }
-    public Vector3      GetSetPosition  { get; set; }
+    public Vector3      GetSetPosition  {
+        get { return transform.position;  }
+        set { transform.position = value; }
+    }
     public GameObject   GetSetTarget    { get; set; }
 }

@@ -9,7 +9,7 @@ public class CameraSetting : MonoBehaviour {
 
         CamaraSetting();
     }
-    
+
     // User  Method ===============================================
     private void CamaraSetting() {
 

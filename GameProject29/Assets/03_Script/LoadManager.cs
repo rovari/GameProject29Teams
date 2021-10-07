@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class LoadManager : MonoBehaviour {
-
+    
     // Show  Property =============================================
     [SerializeField] private RenderTexture      _srcFrame;
     [SerializeField] private RenderTexture      _srcCut;
@@ -29,9 +30,9 @@ public class LoadManager : MonoBehaviour {
 
     // User  Method ===============================================
     public  void        LoadScene (int sequensNum = -1) {
-
-        Graphics.CopyTexture(_srcFrame, _srcCut);
-
+        
+        ScreenCapture.CaptureScreenshot("Assets/Resource/capture.png");
+        
         IEnumerator loadScene = PreLoad(sequensNum);
         StartCoroutine(loadScene);
     }
