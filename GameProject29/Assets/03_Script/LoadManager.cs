@@ -31,7 +31,7 @@ public class LoadManager : MonoBehaviour {
     // User  Method ===============================================
     public  void        LoadScene (int sequensNum = -1) {
         
-        ScreenCapture.CaptureScreenshot("Assets/Resource/capture.png");
+        ScreenCapture.CaptureScreenshot("Assets/00_System/DontTouch/capture.png");
         
         IEnumerator loadScene = PreLoad(sequensNum);
         StartCoroutine(loadScene);

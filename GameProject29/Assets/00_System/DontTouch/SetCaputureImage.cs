@@ -8,7 +8,7 @@ public class SetCaputureImage : MonoBehaviour {
 
     private void Start() {
 
-        byte[] image = File.ReadAllBytes("Assets/Resource/capture.png");
+        byte[] image = File.ReadAllBytes("Assets/00_System/DontTouch/capture.png");
 
         Texture2D tex = new Texture2D(0, 0);
         tex.LoadImage(image);
