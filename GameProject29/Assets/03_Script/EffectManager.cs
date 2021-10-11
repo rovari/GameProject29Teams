@@ -133,6 +133,8 @@ public class EffectManager : MonoBehaviour {
             period  -= Time.deltaTime;;
             yield return null;
         }
+
+
     }
     public IEnumerator  Fill        () {
         

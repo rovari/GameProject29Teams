@@ -12,5 +12,5 @@ public enum STATE {
 public class StateManager : MonoBehaviour {
     
     // User  Method ===============================================
-    public STATE GetSetState { get; set; } = STATE.MENU;
+    public static STATE GetSetState { get; set; } = STATE.MENU;
 }
