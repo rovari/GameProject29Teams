@@ -33,9 +33,9 @@ public class Output : ShaderController{
         _material.SetFloat  ("_ViLv"    , Mathf.Clamp01(level));
         _material.SetFloat  ("_ViRg"    , Mathf.Clamp01(range));
     }
-    public  void SetFade                (bool mask, bool reverse, Color color, float level) {
+    public  void SetFade                (float type, bool reverse, Color color, float level) {
         
-        _material.SetInt    ("_TYPE"    , Convert.ToInt32(mask));
+        _material.SetFloat  ("_TYPE"    , type);
         _material.SetInt    ("_Reverse" , Convert.ToInt32(reverse));
         _material.SetColor  ("_FdCol"   , color);
         _material.SetFloat  ("_FdRange" , Mathf.Clamp01(level));

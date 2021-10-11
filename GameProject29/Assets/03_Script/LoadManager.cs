@@ -7,8 +7,6 @@ using UnityEditor;
 public class LoadManager : MonoBehaviour {
     
     // Show  Property =============================================
-    [SerializeField] private RenderTexture      _srcFrame;
-    [SerializeField] private RenderTexture      _srcCut;
     [SerializeField] private bool               _DebugPreLoad;
     [SerializeField] private bool               _openPreLoad;
     [SerializeField] private int                _sequensNumber;
@@ -16,20 +14,16 @@ public class LoadManager : MonoBehaviour {
     [SerializeField] private List<SceneObject>  _sceneSequens;
 
     // Unity Method ===============================================
-    private void Start  () {
-        
-        if(_sceneSequens.Count > 0)SceneManager.LoadScene(_sceneSequens[_sequensNumber]);
-    }
     private void Update () {
         
         if (_DebugPreLoad) {
-            LoadScene();
+            LoadScene(-1);
             _DebugPreLoad = false;
         }
     }
 
     // User  Method ===============================================
-    public  void        LoadScene (int sequensNum = -1) {
+    public  void  LoadScene (int sequensNum) {
         
         ScreenCapture.CaptureScreenshot("Assets/00_System/DontTouch/capture.png");
         
@@ -49,6 +43,7 @@ public class LoadManager : MonoBehaviour {
 
         while (!_openPreLoad && !async.isDone) { yield return null; }
 
+        AudioManager.PlayBGM("funcJuzz");
         async.allowSceneActivation  = true;
         _openPreLoad                = false;
     }

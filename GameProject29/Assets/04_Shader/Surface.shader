@@ -111,7 +111,7 @@ Shader "Custom/Surface"
 			c = saturate(c * lerp(_SubColor, _Color, Gradation_Lambert(n, normalize(IN.lightDir))));
 
 			#elif  _GT_CEL
-			c = saturate(c * (Gradation_Lambert(n, normalize(IN.lightDir)) < 0.5 ? _SubColor : _Color ));
+			c = saturate(c * (Gradation_Lambert(n, normalize(IN.lightDir) + 0.5 * 0.5) < 0.5 ? _SubColor : _Color ));
 
             #endif
 
