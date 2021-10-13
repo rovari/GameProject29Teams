@@ -10,12 +10,12 @@ public class SampleInput : MonoBehaviour
 
     bool check;
 
-    private void Awake()
+    private void Awake()    
     {
         actions = new TestAction();
 
-        actions.Player.Push.started += context => { check = true; };
-        actions.Player.Push.canceled += context => { check = false; };
+        actions.Player.Push.started     += context => { check = true; };
+        actions.Player.Push.canceled    += context => { check = false; };
 
     }
 
