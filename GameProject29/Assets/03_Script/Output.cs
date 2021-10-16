@@ -49,7 +49,7 @@ public class Output : ShaderController{
     }
     public  void SetViggnet             (bool active, Color color, float level, float range) {
         
-        _material.SetInt    ("_Vigg"    , Convert.ToInt32(active));
+        _material.SetInt    ("_Vig"     , Convert.ToInt32(active));
         _material.SetColor  ("_ViCol"   , color);
         _material.SetFloat  ("_ViLv"    , Mathf.Clamp01(level));
         _material.SetFloat  ("_ViRg"    , Mathf.Clamp01(range));

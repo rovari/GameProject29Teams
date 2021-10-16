@@ -23,7 +23,7 @@ public class LoadManager : MonoBehaviour {
     }
 
     // User  Method ===============================================
-    public  void  LoadScene (int sequensNum) {
+    public  void        LoadScene (int sequensNum) {
         
         ScreenCapture.CaptureScreenshot("Assets/00_System/DontTouch/capture.png");
         

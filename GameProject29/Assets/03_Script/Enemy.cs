@@ -14,17 +14,17 @@ public class Enemy : Facade {
     }
     
     // User  Method ===============================================
-    public float        GetSetHp        {
+    public  float        GetSetHp        {
         get { return _hp;  }
         set { _hp = value; }
     }
-    public int          GetSetLife      {
+    public  int          GetSetLife      {
         get { return _life; }
         set { _life = value;}
     }
-    public Vector3      GetSetPosition  {
+    public  Vector3      GetSetPosition  {
         get { return transform.position;  }
         set { transform.position = value; }
     }
-    public GameObject   GetSetTarget    { get; set; }
+    public  GameObject   GetSetTarget    { get; set; }
 }

@@ -76,7 +76,7 @@ Material:
     - _DstBlend: 0
     - _FdLink: 1
     - _FdRan: 0.591
-    - _FdRange: 0.00035774708
+    - _FdRange: 0.03
     - _FiLv: 0
     - _Fill: 0
     - _GlossMapScale: 1
@@ -96,15 +96,15 @@ Material:
     - _Thick: 1
     - _UVSec: 0
     - _ViLv: 0
-    - _ViRg: 1
-    - _Vig: 0
+    - _ViRg: 0
+    - _Vig: 1
     - _Vigg: 1
     - _ZWrite: 1
     - _fiLv: 0
     m_Colors:
     - _Color: {r: 0, g: 0.13407628, b: 0.2264151, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FdCol: {r: 0.005114794, g: 0.005114794, b: 0.005114794, a: 0}
+    - _FdCol: {r: 0.00673753, g: 0.00673753, b: 0.00673753, a: 0}
     - _FdSCol: {r: 1, g: 0, b: 0, a: 0}
     - _FiCol: {r: 0, g: 0, b: 0, a: 0}
     - _ViCol: {r: 0, g: 0, b: 0, a: 0}

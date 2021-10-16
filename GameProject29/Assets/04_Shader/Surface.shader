@@ -16,7 +16,7 @@ Shader "Custom/Surface"
 		_GH_TOP		("Gradation Height Top"		, float)			= 0
 		_GH_BOTTOM	("Gradation Height Bottom"	, float)			= 0
 
-		_Mask		("Dissolve Mask", 2D)				= "white" {}
+		_Mask		("Dissolve Mask", 2D)			= "white" {}
 		[Toggle]	_Reverse("Reverse Mask "	, int)				= 0
 		_Range		("Dissolve"					, Range(0.0 , 1.0))	= 1.0
 		_Scr_X		("UvScroll Speed X"			, float)			= 0.0			

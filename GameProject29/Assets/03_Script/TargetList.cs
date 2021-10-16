@@ -10,10 +10,10 @@ public class TargetList : MonoBehaviour {
     [SerializeField] private List<GameObject>   _targetList;
 
     // User  Method ===============================================
-    public GameObject   GetTarget           (int index) {
+    public  GameObject  GetTarget           (int index) {
         return _targetList[index];
     }
-    public int          GetListSize         () {
+    public  int         GetListSize         () {
         return _targetList.Count;
     }
     public  void        RefreshList         () {

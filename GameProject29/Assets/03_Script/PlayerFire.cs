@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerFire : FacadeData {
 
@@ -17,36 +18,35 @@ public class PlayerFire : FacadeData {
 
         _targetIndex = 0;
         _weaponIndex = 0;
-    }
-    private void Update () {
 
-        ChangeIndex();
-        Fire();
+        InputManager.GetGAMEInput.TriggerR      .started += _ => Fire();
+        InputManager.GetGAMEInput.EastButtonB   .started += _ => AddWeaponIndex();
+        InputManager.GetGAMEInput.WestButtonX   .started += _ => SubWeaponIndex();
     }
 
     // User  Method ===============================================
-    private void Fire() {
+    private void Fire           () {
 
-        bool dammy = false;
-
-        if(/*r trigger*/dammy) weaponList.GetWeapon(_weaponIndex)                   .Lunch(transform.position, targetList.GetTarget(_targetIndex));
-        if(/*r trigger*/dammy) weaponList.GetWeapon(weaponList.GetListSize() - 1)   .Lunch(transform.position ,targetList.GetTarget(_targetIndex));
+        if (InputManager.GetGAMEInput.TriggerL.phase == InputActionPhase.Started) {
+            weaponList.GetWeapon(_weaponIndex).Lunch(transform.position, targetList.GetTarget(_targetIndex));
+        }
+        else {
+            weaponList.GetWeapon(weaponList.GetListSize() - 1).Lunch(transform.position, targetList.GetTarget(_targetIndex));
+        }
     }
-    private void ChangeIndex() {
-
-        bool dammy = false;
-
-        if (/*l stick*/dammy)       ++_targetIndex;
-        if (/*l stick*/dammy)       --_targetIndex;
-        if (/*botton east*/dammy)   ++_weaponIndex;
-        if (/*botton west*/dammy)   --_weaponIndex;
-   
-        if (_targetIndex < 0) _targetIndex = targetList.GetListSize() - 1;
-        if (_targetIndex > targetList.GetListSize() - 1) _targetIndex = 0;
-        if (_weaponIndex < 0) _weaponIndex = weaponList.GetListSize() - 2;
-        if (_weaponIndex > weaponList.GetListSize() - 2) _weaponIndex = 0;
+    private void AddTargetIndex () {
+        _targetIndex = (_targetIndex > targetList.GetListSize() - 1) ? 0 : ++_targetIndex;
     }
-    private void AimUIType() {
+    private void SubTargetIndex () {
+        _targetIndex = (_targetIndex < 0) ? targetList.GetListSize() - 1 : --_targetIndex;
+    }
+    private void AddWeaponIndex () {
+        _weaponIndex = (_weaponIndex > weaponList.GetListSize() - 2) ? 0 : ++_weaponIndex;
+    }
+    private void SubWeaponIndex () {
+        _weaponIndex = (_weaponIndex < 0) ? weaponList.GetListSize() - 2 : --_weaponIndex;
+    }
+    private void AimUIType      () {
 
         switch (_weaponIndex) {
             case 0: break;

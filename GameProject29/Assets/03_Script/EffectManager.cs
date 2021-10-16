@@ -20,7 +20,7 @@ public class EffectManager : MonoBehaviour {
         MASK,
         COLORMASK
     }
-
+    
     private AnimationCurve _curve;
     
     [Header("<< Camera Shake >>")][Space(5)]
@@ -60,6 +60,12 @@ public class EffectManager : MonoBehaviour {
     [SerializeField] private float          _chormaticAberrationTime;
     [SerializeField] private AnimationCurve _chormaticAberrationCurve;
 
+    [Header("<< FOV >>")][Space(5)]
+    [SerializeField] private bool           _fov;
+    [SerializeField] private float          _fovTime;
+    [SerializeField] private float          _fovMax;
+    [SerializeField] private AnimationCurve _fovCurve;
+
     [Header("<< Distorion >>")][Space(5)]
     [SerializeField] private bool           _distorion;
     [SerializeField] private float          _distorionTime;
@@ -75,6 +81,15 @@ public class EffectManager : MonoBehaviour {
     [SerializeField] private float          _radialTime;
     [SerializeField] private AnimationCurve _radialCurve;
 
+    [Header("<< Time Stop >>")][Space(5)]
+    [SerializeField] private bool           _timeStop;
+    [SerializeField] private float          _waitTime;
+
+    [Header("<< Slow Motion >>")][Space(5)]
+    [SerializeField] private bool           _slowMotion;
+    [SerializeField] private float          _slowMotionTime;
+    [SerializeField] private AnimationCurve _slowMotionCurve;
+    
     // Unity Method ===============================================
     private void Start      () {
         
@@ -82,24 +97,27 @@ public class EffectManager : MonoBehaviour {
         output      = new Output(GameObject.FindGameObjectWithTag("Frame").GetComponent<Image>().material);
         camera      = GameObject.FindGameObjectWithTag("MainCamera").gameObject;
     }
-
-    // User  Method ===============================================
-
-    [ContextMenu("DebugEffect")]
-    public void DebugEffect() {
-        DebugEffectPlayer();
+    private void Update     () {
+        if (_shake)     CameraShake();
     }
 
-    public void         DebugEffectPlayer(AnimationCurve curve = null){
+    // User  Method ===============================================
+    [ContextMenu("DebugEffect")]
+    public void         DebugEffect         () {
+        DebugEffectPlayer();
+    }
+    public void         DebugEffectPlayer   (AnimationCurve curve = null){
 
         _curve = curve;
         
-        if (_shake)     CameraShake();
         if (_explosion) StartCoroutine("Explosion");
         if (_fill)      StartCoroutine("Fill");
         if (_fade)      StartCoroutine("Fade");
         if (_vignette)  StartCoroutine("Vignette");
         if (_ca)        StartCoroutine("CA");
+        if (_fov)       StartCoroutine("FOV");
+        if (_timeStop)  StartCoroutine("TimeStop");
+        if (_slowMotion)StartCoroutine("SlowMotion");
     }
 
     public void         CameraShake () {
@@ -133,8 +151,6 @@ public class EffectManager : MonoBehaviour {
             period  -= Time.deltaTime;;
             yield return null;
         }
-
-
     }
     public IEnumerator  Fill        () {
         
@@ -151,6 +167,8 @@ public class EffectManager : MonoBehaviour {
             period  -= Time.deltaTime;
             yield return null;
         }
+
+        output.SetFill(false, _fillColor, 0.0f);
     }
     public IEnumerator  Fade        () {
         
@@ -193,6 +211,8 @@ public class EffectManager : MonoBehaviour {
             period  -= Time.deltaTime;
             yield return null;
         }
+
+        output.SetViggnet(false, _vignetteColor, 0.0f, 0.0f);
     }
     public IEnumerator  CA          () {
 
@@ -213,5 +233,53 @@ public class EffectManager : MonoBehaviour {
             period  -= Time.deltaTime;
             yield return null;
         }
+
+        output.SetChromaticAberrtion( false, 0.0f);
+    }
+    public IEnumerator  FOV         () {
+
+        float period    = _fovTime;
+        float inc       = 1.0f / (period + Mathf.Epsilon);
+        float count     = 0.0f;
+        float defFov    = camera.GetComponent<Camera>().fieldOfView;
+        float diff      = _fovMax - defFov;
+
+        if (_curve == null) _curve = _fovCurve;
+
+        while (period > 0) {
+
+            camera.GetComponent<Camera>().fieldOfView = defFov + (diff * _curve.Evaluate(count));
+
+            count   += inc * Time.deltaTime;
+            period  -= Time.deltaTime;
+            yield return null;
+        }
+    }
+    public IEnumerator  TimeStop    () {
+        
+        Time.timeScale = 0.0f;
+
+        yield return new WaitForSecondsRealtime(_waitTime);
+
+        Time.timeScale = 1.0f;
+    }
+    public IEnumerator  SlowMotion  () {
+
+        float period    = _slowMotionTime;
+        float inc       = 1.0f / (period + Mathf.Epsilon);
+        float count     = 0.0f;
+        
+        if (_curve == null) _curve = _slowMotionCurve;
+
+        while (period > 0) {
+            
+            Time.timeScale = Mathf.Lerp(1.0f, 0.01f,_curve.Evaluate(count));
+
+            count   += inc * Time.unscaledDeltaTime;
+            period  -= Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        Time.timeScale = 1.0f;
     }
 }

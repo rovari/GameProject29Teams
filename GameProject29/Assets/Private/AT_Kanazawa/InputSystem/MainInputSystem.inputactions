@@ -79,17 +79,17 @@
                 },
                 {
                     "name": "TriggerL",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "211dcba3-100f-4659-b2a4-33c0d32a7759",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "TriggerR",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "65766f9d-8df6-493f-86a9-9b7ac893e482",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },

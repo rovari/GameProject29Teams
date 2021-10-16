@@ -3,22 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour {
-
+    
     // Hide  Property =============================================
-    protected bool _recast;
+    protected   bool _recast;
+    public      enum UITYPE {
+        AIM,
+        LOCK,
+    }
 
     // Show  Property =============================================
+    [SerializeField] protected UITYPE       _uiType;
     [SerializeField] protected float        _recastTime;
     [SerializeField] protected float        _interval;
     [SerializeField] protected List<Bullet> _bulletList;
     
     // User  Method ===============================================
-    public  void Lunch(Vector3 muzzle, GameObject target) {
+    public  void    Lunch       (Vector3 muzzle, GameObject target) {
 
         IEnumerator timeline = TimeLine(muzzle, target);
 
         if(!_recast) StartCoroutine(timeline);
     }
+    public  UITYPE  GetUIType   () {
+        return _uiType;
+    }
+
     virtual public IEnumerator TimeLine(Vector3 muzzle, GameObject target) {
 
         _recast = true;

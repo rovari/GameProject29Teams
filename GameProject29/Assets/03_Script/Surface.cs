@@ -6,7 +6,7 @@ using System;
 public class Surface : ShaderController {
 
     // User Method ===============================================
-    public Surface(Material mat) {
+    public  Surface(Material mat) {
         _material = mat;
     }
 

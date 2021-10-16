@@ -9,12 +9,12 @@ using AudioClipDictionary   = System.Collections.Generic.Dictionary<string, Unit
 public class AudioManager : MonoBehaviour {
 
     // Hide  Property =============================================
-    static private bool                 isLoaded;
-    static private AudioClipDictionary  _bgmDic;
-    static private AudioClipDictionary  _gseDic;
-    static private AudioClipDictionary  _mseDic;
-    static private AudioClipDictionary  _envDic; 
-    static private AudioClipDictionary  _jngDic;
+    private static bool isLoaded;
+    private static AudioClipDictionary  _bgmDic;
+    private static AudioClipDictionary  _gseDic;
+    private static AudioClipDictionary  _mseDic;
+    private static AudioClipDictionary  _envDic; 
+    private static AudioClipDictionary  _jngDic;
     
     // Show  Property =============================================
     [SerializeField] private AudioMixer         _mixer;
@@ -27,11 +27,11 @@ public class AudioManager : MonoBehaviour {
     [SerializeField] private AudioClipList      _jngleList;
 
     [Space()]
-    static private AudioSource _bgm;
-    static private AudioSource _se;
-    static private AudioSource _env;
-    static private AudioSource _jng;
-    static private AudioSource _vic;
+    private static AudioSource _bgm;
+    private static AudioSource _se;
+    private static AudioSource _env;
+    private static AudioSource _jng;
+    private static AudioSource _vic;
 
     // Unity Method ===============================================
     private void Start() {
@@ -64,16 +64,16 @@ public class AudioManager : MonoBehaviour {
         isLoaded = true;
     }
     
-    static public void PlayBGM          (string name) {
+    public static void PlayBGM          (string name) {
         _bgm.PlayOneShot(_bgmDic[name]);
     }
-    static public void PlayEnv          (string name) {
+    public static void PlayEnv          (string name) {
         _env.PlayOneShot(_envDic[name]);
     }
-    static public void PlayMenuSE       (string name) {
+    public static void PlayMenuSE       (string name) {
         _se .PlayOneShot(_mseDic[name]);
     }
-    static public void PlaySE           (string name) {
+    public static void PlaySE           (string name) {
         _se .PlayOneShot(_gseDic[name]);
     }
 }

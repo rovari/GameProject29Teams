@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputMnaager : MonoBehaviour {
+public class InputManager : MonoBehaviour {
 
     // Show  Property =============================================
-    private static MainInputSystem _input;
+    private static MainInputSystem  _input;
+    private static STATE            _state;
 
     // Unity Method ===============================================
     private void    Awake       () {
         _input = new MainInputSystem();
+        _state = StateManager.GetSetState;
 
         GetGAMEInput    = _input.GAME;
         GetEVENTInput   = _input.EVENT;
