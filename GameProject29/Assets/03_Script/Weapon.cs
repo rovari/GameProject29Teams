@@ -27,7 +27,6 @@ public class Weapon : MonoBehaviour {
     public  UITYPE  GetUIType   () {
         return _uiType;
     }
-
     virtual public IEnumerator TimeLine(Vector3 muzzle, GameObject target) {
 
         _recast = true;

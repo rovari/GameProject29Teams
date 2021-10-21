@@ -14,7 +14,7 @@ public class PlayerFire : FacadeData {
     [SerializeField] private WeaponList  weaponList;
 
     // Unity Method ===============================================
-    private void Awake  () {
+    private void Start  () {
 
         _targetIndex = 0;
         _weaponIndex = 0;
@@ -47,7 +47,7 @@ public class PlayerFire : FacadeData {
         _weaponIndex = (_weaponIndex < 0) ? weaponList.GetListSize() - 2 : --_weaponIndex;
     }
     private void AimUIType      () {
-
+        
         switch (_weaponIndex) {
             case 0: break;
             case 1: break;

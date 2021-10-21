@@ -10,9 +10,14 @@ public class Player : Facade {
 
     // User  Method ===============================================
     private void Awake  () {
-        GetSetPosition = transform.position;   
+        GetSetPosition = transform.position;
+        GetSetRotation = transform.rotation;
     }
-    
+    private void Update () {
+        _hp     = (_hp   < 0.0f) ? 0.0f : _hp;
+        _life   = (_life < 0)    ? 0    : _life;
+    }
+
     // User  Method ===============================================
     public  float        GetSetHp        {
         get { return _hp;  }
@@ -25,6 +30,10 @@ public class Player : Facade {
     public  Vector3      GetSetPosition  {
         get { return transform.position; }
         set { transform.position = value; }
+    }
+    public  Quaternion   GetSetRotation  {
+        get { return transform.rotation; }
+        set { transform.rotation = value; }
     }
     public  GameObject   GetSetTarget    { get; set; }
 }

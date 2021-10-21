@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : Facade {
 
     // Hide  Property =============================================
     private enum ORBIT {
@@ -11,7 +11,8 @@ public class Bullet : MonoBehaviour {
         HOMING,
         BOMB,
     }
-
+    
+    private GameObject  col;
     private GameObject  target;
     private Vector3     _muzzle;
     private bool        _wait;
@@ -22,8 +23,21 @@ public class Bullet : MonoBehaviour {
     [SerializeField] private float   _damageTime;
     [SerializeField] private Vector3 _lunchVector;
 
+    // Unity Method ===============================================
+    private void Start      () {
+        col = transform.Find("Collision").gameObject;
+        ActiveCollision(false);
+    }
+    private void OnDisable  () {
+        _wait = false;
+    }
+    
     // User  Method ===============================================
-    public void StartBullet(Vector3 muzzle, GameObject target) {
+
+    private void ActiveCollision(bool enable) {
+        col.SetActive(enable);
+    }
+    public  void StartBullet(Vector3 muzzle, GameObject target) {
 
         if (!_wait) { 
             _muzzle = muzzle;
@@ -40,8 +54,8 @@ public class Bullet : MonoBehaviour {
             StartCoroutine(bullet);
         }
     }
-    
-    public IEnumerator Shot  () {
+
+    private IEnumerator Shot  () {
         
         _wait = true;
         
@@ -50,7 +64,7 @@ public class Bullet : MonoBehaviour {
         var period      = 1.0f;
         var speed       = 1.0f / _flightTime;
 
-        //ActiveCollision(true);
+        ActiveCollision(true);
 
         while (period > 0.0f) {
             transform.position = Vector3.Lerp(startPos, endPos, 1.0f - period);
@@ -61,15 +75,14 @@ public class Bullet : MonoBehaviour {
 
         transform.position = endPos;
 
-        //ActiveCollision(false);
+        ActiveCollision(false);
       
         transform.position  = Vector3.zero;
         transform.rotation  = Quaternion.identity;
         
         this.gameObject.SetActive(false);
-        _wait = false;
     }
-    public IEnumerator Blade () {
+    private IEnumerator Blade () {
 
         _wait = true;
         
@@ -78,7 +91,7 @@ public class Bullet : MonoBehaviour {
         var period      = 1.0f;
         var speed       = 1.0f / _flightTime;
 
-        //ActiveCollision(true);
+        ActiveCollision(true);
 
         while (period > 0.0f) {
             transform.position = Vector3.Lerp(startPos, endPos, 1.0f - period);
@@ -89,15 +102,14 @@ public class Bullet : MonoBehaviour {
 
         transform.position = endPos;
 
-        //ActiveCollision(false);
+        ActiveCollision(false);
       
         transform.position  = Vector3.zero;
         transform.rotation  = Quaternion.identity;
         
         this.gameObject.SetActive(false);
-        _wait = false;
     }
-    public IEnumerator Throw () {
+    private IEnumerator Throw () {
 
         _wait = true;
 
@@ -117,7 +129,7 @@ public class Bullet : MonoBehaviour {
             yield return null;
         }
         
-        //ActiveCollision(true);
+        ActiveCollision(true);
         float count = _damageTime;
 
         while (count > 0.0f) {
@@ -126,15 +138,14 @@ public class Bullet : MonoBehaviour {
             yield return null;
         }
 
-        //ActiveCollision(false);
+        ActiveCollision(false);
 
         transform.position  = Vector3.zero;
         transform.rotation  = Quaternion.identity;
 
         this.gameObject.SetActive(false);
-        _wait = false;
     }
-    public IEnumerator Homing() {
+    private IEnumerator Homing() {
 
         _wait = true;
         
@@ -169,7 +180,7 @@ public class Bullet : MonoBehaviour {
 
         }
         
-        //ActiveCollision(true);
+        ActiveCollision(true);
 
         float count = _damageTime;
 
@@ -179,20 +190,18 @@ public class Bullet : MonoBehaviour {
             yield return null;
         }
 
-
-        //ActiveCollision(false);
+        ActiveCollision(false);
 
         transform.position  = Vector3.zero;
         transform.rotation  = Quaternion.identity;
 
         this.gameObject.SetActive(false);
-        _wait = false;
     }
-    public IEnumerator Bomb  () {
+    private IEnumerator Bomb  () {
 
         _wait = true;
         
-        //ActiveCollision(true);
+        ActiveCollision(true);
 
         float count = _damageTime;
 
@@ -202,12 +211,11 @@ public class Bullet : MonoBehaviour {
             yield return null;
         }
 
-        //ActiveCollision(false);
+        ActiveCollision(false);
 
         transform.position  = Vector3.zero;
         transform.rotation  = Quaternion.identity;
 
         this.gameObject.SetActive(false);
-        _wait = false;
     }
 }

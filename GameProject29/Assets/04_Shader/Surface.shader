@@ -72,12 +72,13 @@ Shader "Custom/Surface"
 		float Gradation_Height	(float	y)			{ return saturate((y) / (_GH_TOP - _GH_BOTTOM)); }
 		float Gradation_Lambert	(float3 n, float3 l){ return max(0 ,dot(n, l)); }
 
+		
 		void vert(inout appdata_full v, out Input o) {
 
 			UNITY_INITIALIZE_OUTPUT(Input, o);
 
 			TANGENT_SPACE_ROTATION;
-			o.lightDir	= normalize(mul(rotation, ObjSpaceLightDir(v.vertex)));
+			o.lightDir	= normalize(mul(rotation, -float3(1.0, -1.0, 1.0) -  v.vertex.xyz));
 		}
 
 		void Dissolve(float2 uv) {
@@ -95,6 +96,7 @@ Shader "Custom/Surface"
 
 			fixed4	c	= tex2D(_MainTex, IN.uv_MainTex + addUv);
 			float3	n	= UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap + addUv) * _Height);
+			float3	l	= normalize(float3(1.0, -1.0, 1.0));
 
 			if (c.a <= 0.0 || _Discard) discard;
 
@@ -111,7 +113,7 @@ Shader "Custom/Surface"
 			c = saturate(c * lerp(_SubColor, _Color, Gradation_Lambert(n, normalize(IN.lightDir))));
 
 			#elif  _GT_CEL
-			c = saturate(c * (Gradation_Lambert(n, normalize(IN.lightDir) + 0.5 * 0.5) < 0.5 ? _SubColor : _Color ));
+			c = saturate(c * (Gradation_Lambert(n, normalize(IN.lightDir)) < 0.5 ? _SubColor : _Color ));
 
             #endif
 

@@ -11,8 +11,8 @@ using UnityEditor;
 public class EffectManager : MonoBehaviour {
 
     // Hide  Property =============================================
-    private Output      output;
-    private GameObject  camera;
+    private Output          output;
+    private new GameObject  camera;
 
     // Show  Property =============================================
     public enum FADE_TYPE {

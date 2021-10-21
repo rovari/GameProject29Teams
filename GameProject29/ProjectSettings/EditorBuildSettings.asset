@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Private/AT_Kanazawa/KanazawaTestScene.unity
-    guid: 652ef01cee5e2e8408bf4c027bc79242
-  - enabled: 1
     path: Assets/Private/AT_Nomaguchi/GameScene.unity
     guid: cbed9236d6c477f469eb43f1e29a23db
+  - enabled: 1
+    path: Assets/Private/AT_Kanazawa/KanazawaTestScene.unity
+    guid: 652ef01cee5e2e8408bf4c027bc79242
   - enabled: 1
     path: Assets/01_Scenes/Load.unity
     guid: 5883fc54479ea3b458ecd48c597af735

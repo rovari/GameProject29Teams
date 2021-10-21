@@ -10,13 +10,12 @@ public class Facade : MonoBehaviour {
     protected Surface       _surface;
 
     // Show  Property =============================================
-    [SerializeField] private string _name;
+    [SerializeField] private GameObject model;
 
     // Unity Method ===============================================
     private void Awake      () {
 
-        gameObject.name = _name;
-        _surface = new Surface(GetComponent<Renderer>().material);
+        _surface = new Surface(model.GetComponent<MeshRenderer>().material);
     }
     private void Start      () {
         FindManager();
