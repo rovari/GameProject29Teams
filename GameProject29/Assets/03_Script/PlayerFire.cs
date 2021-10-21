@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerFire : FacadeData {
 
     // Hide  Property =============================================
-    private int _targetIndex;
-    private int _weaponIndex;
+    [SerializeField] private int _targetIndex;
+    [SerializeField] private int _weaponIndex;
 
     // Show  Property =============================================
     [SerializeField] private TargetList  targetList;
@@ -41,17 +41,18 @@ public class PlayerFire : FacadeData {
         _targetIndex = (_targetIndex < 0) ? targetList.GetListSize() - 1 : --_targetIndex;
     }
     private void AddWeaponIndex () {
+        targetList.RefreshList();
         _weaponIndex = (_weaponIndex > weaponList.GetListSize() - 2) ? 0 : ++_weaponIndex;
     }
     private void SubWeaponIndex () {
+        targetList.RefreshList();
         _weaponIndex = (_weaponIndex < 0) ? weaponList.GetListSize() - 2 : --_weaponIndex;
     }
     private void AimUIType      () {
         
-        switch (_weaponIndex) {
-            case 0: break;
-            case 1: break;
-            case 2: break;
+        switch (weaponList.GetWeapon(_weaponIndex).GetUIType()) {
+            case Weapon.UITYPE.AIM:  break;
+            case Weapon.UITYPE.LOCK: break;
         }
     }
 }

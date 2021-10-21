@@ -78,7 +78,7 @@ Shader "Custom/Surface"
 			UNITY_INITIALIZE_OUTPUT(Input, o);
 
 			TANGENT_SPACE_ROTATION;
-			o.lightDir	= normalize(mul(rotation, -float3(1.0, -1.0, 1.0) -  v.vertex.xyz));
+			o.lightDir = normalize(mul(rotation, -float3(1.0, -1.0, 1.0)));
 		}
 
 		void Dissolve(float2 uv) {

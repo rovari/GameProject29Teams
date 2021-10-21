@@ -42,6 +42,24 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-5799529660045135252
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: ffd1b66c13f80334288140fb34f4a1f1
+  m_EffectName: Lowpass
+  m_MixLevel: 3469b8e46942a1243ae9a606b16b1b2c
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 4464d8bbd59f1264f8765ca36e62c2fc
+  - m_ParameterName: Resonance
+    m_GUID: 8cbef75ce00728d428d99044b15d320d
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -101,6 +119,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
+  - {fileID: -5799529660045135252}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -131,9 +150,29 @@ AudioMixerSnapshotController:
   m_FloatValues:
     3a47c4901912e79499b925bca77a1f76: 1
     9ae271e08e5c6b74aa2bc04b37139e6d: 0
+    8c3ecac5d5e2b7f4fbe27a78c7be01da: 10
     857f6266aa269f34a9edc01511e1ef2c: -0.036130458
+    0881a397386b1984f92591c9648344f3: 1
     b351f32bfa7cd8d4cbe86b3e5a145cbf: -19
   m_TransitionOverrides: {}
+--- !u!244 &1048591290686187296
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: e7844a926babf8c4ca3d8ff62b623063
+  m_EffectName: Lowpass
+  m_MixLevel: 7a3660b0f178991478d611e4b93fc924
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 8c3ecac5d5e2b7f4fbe27a78c7be01da
+  - m_ParameterName: Resonance
+    m_GUID: 0881a397386b1984f92591c9648344f3
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &1816380307404923681
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -220,6 +259,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 7283991458915981738}
+  - {fileID: 1048591290686187296}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

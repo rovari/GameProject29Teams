@@ -20,6 +20,10 @@ public class Enemy : Facade {
         _defHp      = _hp;
         _defLife    = _life;
     }
+    private void Update     () {
+        _hp     = (_hp   < 0.0f) ? 0.0f : _hp;
+        _life   = (_life < 0)    ? 0    : _life;
+    }
     private void OnEnable   () {
         if(_timeline != null) _timeline.Play();
     }

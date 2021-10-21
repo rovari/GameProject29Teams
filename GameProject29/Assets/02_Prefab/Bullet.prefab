@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2299683801413a041bed28bed64d5b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectManager: {fileID: 0}
   model: {fileID: 5517871520163643355}
   _orbit: 0
   _flightTime: 1
@@ -238,7 +239,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 37d2670601533f546b4e683413af1553, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

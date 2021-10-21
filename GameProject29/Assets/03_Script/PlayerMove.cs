@@ -43,7 +43,7 @@ public class PlayerMove : FacadeData {
         float rot = 1.0f - Vector3.Dot(Vector3.up, Vector3.Normalize(new Vector3(_velocity, 1.0f, 0.0f)));
         rot = (_velocity < 0.0f) ? rot : -rot;
         
-        facade.GetFacade<Player>().GetSetPosition += new Vector3(_velocity * Time.deltaTime, Mathf.Sin(_sceneCount) * 1e-1f * Time.deltaTime);
+        facade.GetFacade<Player>().GetSetPosition += new Vector3(_velocity * Time.deltaTime, 0.0f);
         facade.GetFacade<Player>().GetSetRotation = Quaternion.Euler(0.0f, 0.0f, rot * (180.0f / Mathf.PI) * 0.5f);
 
     }
@@ -66,14 +66,16 @@ public class PlayerMove : FacadeData {
 
     private IEnumerator Jump() {
 
+        float jumpPow = _jumpPow;
+
         if (!_isJump) {
 
             _isJump = true;
             
             while (_defaultPos.y <= facade.GetFacade<Player>().GetSetPosition.y) {
 
-                facade.GetFacade<Player>().GetSetPosition += new Vector3(0.0f, _jumpPow * Time.deltaTime, 0.0f);
-                _jumpPow -= 9.8f * Time.deltaTime;
+                facade.GetFacade<Player>().GetSetPosition += new Vector3(0.0f, jumpPow * Time.deltaTime, 0.0f);
+                jumpPow -= 9.8f * Time.deltaTime;
                 yield return null;
             }
 

@@ -37,8 +37,10 @@ public class Bullet : Facade {
     private void ActiveCollision(bool enable) {
         col.SetActive(enable);
     }
-    public  void StartBullet(Vector3 muzzle, GameObject target) {
+    public  void StartBullet(Vector3 muzzle, GameObject tgt) {
 
+        target = tgt;
+        
         if (!_wait) { 
             _muzzle = muzzle;
 
@@ -51,6 +53,7 @@ public class Bullet : Facade {
                 case ORBIT.BOMB:    bullet = Bomb();    break;
             }
 
+            gameObject.SetActive(true);
             StartCoroutine(bullet);
         }
     }
@@ -150,7 +153,7 @@ public class Bullet : Facade {
         _wait = true;
         
         transform.position = _muzzle;
-
+        
         var startPos    = _muzzle;
         var velocity    = _lunchVector;
         var period      = _flightTime;
@@ -182,8 +185,8 @@ public class Bullet : Facade {
         
         ActiveCollision(true);
 
-        float count = _damageTime;
-
+        float   count   = _damageTime;
+        
         while (count > 0.0f) {
             transform.position = target.transform.position;
             count -= Time.deltaTime;

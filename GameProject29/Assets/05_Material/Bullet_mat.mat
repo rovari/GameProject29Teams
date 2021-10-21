@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Output
-  m_Shader: {fileID: 4800000, guid: 3a426cde888a09b4bafec4ac276feb9d, type: 3}
-  m_ShaderKeywords: _FDLINK_ON _LINK_ON _REVERSE_ON _THICK_ON _TYPE_COLORMASK _VIGG_ON
+  m_Name: Bullet_mat
+  m_Shader: {fileID: 4800000, guid: 49513062b543e35458d55e5de3c9c972, type: 3}
+  m_ShaderKeywords: _GT_LAMBERT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -39,12 +39,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _FadeMask:
-        m_Texture: {fileID: 2800000, guid: ae31bf28bb0c4ce4dae11c74af0d2705, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 8400000, guid: f2a22c1d7fd731546a7874e3dba0e6b8, type: 2}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
@@ -66,47 +62,42 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _CA: 0
-    - _CALv: 0
-    - _CDIFF: 0.5
     - _Cutoff: 0.5
-    - _DDIFF: 1
-    - _DFLAG: 0
     - _DetailNormalMapScale: 1
+    - _Discard: 0
     - _DstBlend: 0
-    - _FdLink: 1
-    - _FdRan: 0.591
-    - _FdRange: 0.03
-    - _FiLv: 0
-    - _Fill: 0
+    - _Fog: 0
+    - _FogEnd: 0
+    - _FogLv: 0
+    - _FogStart: 0
+    - _GH_BOTTOM: 0
+    - _GH_TOP: 250
+    - _GT: 1
+    - _GV_X: 1
+    - _GV_Y: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Link: 1
+    - _Height: 1
     - _Metallic: 0
     - _Mode: 0
-    - _NDIFF: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Range: 1
     - _Reverse: 0
+    - _Rim: 0
+    - _RimLv: 0
+    - _Scr_X: 0
+    - _Scr_Y: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TYPE: 0
-    - _Thick: 1
     - _UVSec: 0
-    - _ViLv: 0
-    - _ViRg: 0
-    - _Vig: 0
-    - _Vigg: 1
     - _ZWrite: 1
-    - _fiLv: 0
     m_Colors:
-    - _Color: {r: 0.08810965, g: 0.3300687, b: 0.33962262, a: 1}
+    - _Color: {r: 0.509434, g: 0.39689124, b: 0.14177644, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FdCol: {r: 0.00673753, g: 0.00673753, b: 0.00673753, a: 0}
-    - _FdSCol: {r: 1, g: 0, b: 0, a: 0}
-    - _FiCol: {r: 0, g: 0, b: 0, a: 0}
-    - _ViCol: {r: 0, g: 0, b: 0, a: 0}
-    - _fiCol: {r: 0.49056602, g: 0.40494835, b: 0.40494835, a: 1}
+    - _FogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SubColor: {r: 0.5283019, g: 0.15699537, b: 0.49298623, a: 1}
   m_BuildTextureStacks: []

@@ -20,10 +20,12 @@ public class Player : Facade {
         _defLife    = _life;
     }
     private void Update () {
-        _hp     = _defHp;
-        _life   = _defLife;
         _hp     = (_hp   < 0.0f) ? 0.0f : _hp;
         _life   = (_life < 0)    ? 0    : _life;
+    }
+    private void OnDisable() {
+        _hp     = _defHp;
+        _life   = _defLife;
     }
 
     // User  Method ===============================================

@@ -6,18 +6,15 @@ using System;
 public class Facade : MonoBehaviour {
     
     // Hide  Property =============================================
-    protected EffectManager effectManager;
-    protected Surface       _surface;
+    [HideInInspector] public EffectManager effectManager;
+    [HideInInspector] public Surface       _surface;
 
     // Show  Property =============================================
     [SerializeField] private GameObject model;
 
     // Unity Method ===============================================
-    private void Awake      () {
-
-        _surface = new Surface(model.GetComponent<MeshRenderer>().material);
-    }
     private void Start      () {
+        _surface = new Surface(model.GetComponent<MeshRenderer>().material);
         FindManager();
     }
     private void OnDestroy  () {

@@ -16,4 +16,5 @@ public class Surface : ShaderController {
     public  void SetRimEnable(bool active) {
         _material.SetInt("_Rim", Convert.ToInt32(active));
     }
+
 }
