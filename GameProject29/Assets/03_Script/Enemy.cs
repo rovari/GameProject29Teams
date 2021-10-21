@@ -1,27 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Enemy : Facade {
 
-    // Hide  Property ==========================================================================================
+    // Hide  Property =============================================
     private float   _defHp;
     private int     _defLife;
 
     // Show  Property =============================================
+    [SerializeField]                    private PlayableDirector _timeline;
     [SerializeField][Range(0.0f, 1.0f)] private float   _hp;
     [SerializeField]                    private int     _life;
     
     // User  Method ===============================================
-    private void Awake  () {
+    private void Awake      () {
         GetSetPosition = transform.position;
         _defHp      = _hp;
         _defLife    = _life;
     }
-
-    private void OnDisable() {
+    private void OnEnable   () {
+        if(_timeline != null) _timeline.Play();
+    }
+    private void OnDisable  () {
         _hp         = _defHp;
         _life       = _defLife;
+
+        if (_timeline != null) _timeline.initialTime = 0.0;
     }
 
     // User  Method ===============================================

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : Facade {
 
+    // Hide  Property =============================================
+    private float   _defHp;
+    private int     _defLife;
+
     // Show  Property =============================================
     [SerializeField][Range(0.0f, 1.0f)] private float   _hp;
     [SerializeField]                    private int     _life;
@@ -12,8 +16,12 @@ public class Player : Facade {
     private void Awake  () {
         GetSetPosition = transform.position;
         GetSetRotation = transform.rotation;
+        _defHp      = _hp;
+        _defLife    = _life;
     }
     private void Update () {
+        _hp     = _defHp;
+        _life   = _defLife;
         _hp     = (_hp   < 0.0f) ? 0.0f : _hp;
         _life   = (_life < 0)    ? 0    : _life;
     }
