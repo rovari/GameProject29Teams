@@ -32,8 +32,6 @@ Shader "Custom/Output" {
 		_ViRg	 ("Vignette Range"	, Range(0.0, 1.0))	= 0.0
 
 		[Space(5)][Header(Fade)][Space(10)]
-		[KeywordEnum(COLOR, MASK, COLORMASK)]
-		_TYPE	 ("Fade Type"		, int)				= 0
 		_FadeMask("Fade Mask"		, 2D)				= "white" {}
 		[Toggle]		  
 		_Reverse ("Reverse Mask"	, int)				= 0
@@ -51,8 +49,7 @@ Shader "Custom/Output" {
             CGPROGRAM
             #pragma vertex	 vert
             #pragma fragment frag
-			#pragma shader_feature _TYPE_COLOR _TYPE_MASK _TYPE_COLORMASK
-
+			
             #include "UnityCG.cginc"
 			#include "UnityGBuffer.cginc"
 
@@ -159,20 +156,10 @@ Shader "Custom/Output" {
 				fixed4 c;
 				fixed  fr	= 0;
 				
-				#ifdef _TYPE_COLOR
-				fr = _FdRange;
-
-				#elif  _TYPE_MASK
-				fr = (_Reverse)
-					? (tex2D(_FadeMask, uv).r		<= _FdRange) ? 1.0: 0.0
-					: (1.0 - tex2D(_FadeMask, uv).r <  _FdRange) ? 1.0: 0.0;
-				
-				#elif  _TYPE_COLORMASK
 				fr = (_Reverse)
 					? (tex2D(_FadeMask, uv).r		<= _FdRange) ? _FdRange : 0.0
 					: (1.0 - tex2D(_FadeMask, uv).r <  _FdRange) ? _FdRange : 0.0;
-				#endif
-
+				
 				c = lerp(col, _FdCol, fr);
 
 				return c;

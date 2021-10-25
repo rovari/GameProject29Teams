@@ -18,22 +18,14 @@ public class Effect : MonoBehaviour {
         FOV,
         TIMESTOP,
         SLOWMOTION,
-        DAMAGE,
-        ACCEL,
     }
     
     // Hide  Property =============================================
     private Output          output;
+    private AnimationCurve  _curve;
     private new GameObject  camera;
 
     // Show  Property =============================================
-    public enum FADE_TYPE {
-        COLOR,
-        MASK,
-        COLORMASK
-    }
-    
-    private AnimationCurve _curve;
     
     [Header("<< Camera Shake >>")][Space(5)]
     [SerializeField] private bool           _shake;
@@ -70,6 +62,7 @@ public class Effect : MonoBehaviour {
     [Header("<< Chromatic Aberration >>")][Space(5)]
     [SerializeField] private bool           _ca;
     [SerializeField] private float          _chormaticAberrationTime;
+    [SerializeField] private float          _chormaticAberrationLevel;
     [SerializeField] private AnimationCurve _chormaticAberrationCurve;
 
     [Header("<< FOV >>")][Space(5)]
@@ -114,7 +107,7 @@ public class Effect : MonoBehaviour {
     }
 
     // User  Method ===============================================
-    public void         PlayEffect (EFFECT effect, AnimationCurve curve, float level, float time, Color color) {
+    public void         PlayEffect (EFFECT effect, float time = 0.0f, AnimationCurve curve = null, float level = 0.0f, Color color = default) {
 
         IEnumerator c = null;
 
@@ -142,6 +135,7 @@ public class Effect : MonoBehaviour {
 
             case EFFECT.CA:
                 _chormaticAberrationTime    = time;
+                _chormaticAberrationLevel   = level;
                 _curve                      = curve;
                 c = CA();
                 break;
@@ -162,12 +156,6 @@ public class Effect : MonoBehaviour {
                 _slowMotionTime     = time;
                 _curve              = curve;
                 c = SlowMotion();
-                break;
-
-            case EFFECT.DAMAGE:
-                break;
-
-            case EFFECT.ACCEL:
                 break;
         }
 
@@ -200,7 +188,7 @@ public class Effect : MonoBehaviour {
         float nz    = ((Mathf.PerlinNoise(t + 2.0f  , t + 1.5f) + 0.025f) * 2.0f - 1.0f) * _shakeLevel;
 
         Quaternion noiseRot         = Quaternion.Euler( nx, ny, nz );
-        camera.transform.rotation   = Quaternion.Slerp(transform.rotation, noiseRot, Time.time * 5.0f);
+        camera.transform.rotation   = Quaternion.Slerp(camera.transform.rotation, noiseRot, Time.time * 5.0f);
     }  
     private IEnumerator  Explosion   () {
         
@@ -208,16 +196,17 @@ public class Effect : MonoBehaviour {
         float inc       = 1.0f / (period + Mathf.Epsilon);
         float count     = 0.0f;
 
-        if (_curve == null) _curve = _explosionCurve;
+        AnimationCurve c = _curve;
+        if (c == null) c = _explosionCurve;
 
         while(period > 0) {
             
-            float nx    = (UnityEngine.Random.Range(-1.0f, 1.0f)) * _curve.Evaluate(count) * _explosionLevel;
-            float ny    = (UnityEngine.Random.Range(-1.0f, 1.0f)) * _curve.Evaluate(count) * _explosionLevel;
-            float nz    = (UnityEngine.Random.Range(-1.0f, 1.0f)) * _curve.Evaluate(count) * _explosionLevel;
+            float nx    = (UnityEngine.Random.Range(-1.0f, 1.0f)) * c.Evaluate(count) * _explosionLevel;
+            float ny    = (UnityEngine.Random.Range(-1.0f, 1.0f)) * c.Evaluate(count) * _explosionLevel;
+            float nz    = (UnityEngine.Random.Range(-1.0f, 1.0f)) * c.Evaluate(count) * _explosionLevel;
 
             Quaternion noiseRot = Quaternion.Euler( nx, ny, nz );
-            camera.transform.rotation  = Quaternion.Lerp(transform.rotation, noiseRot, Time.time * 5.0f);
+            camera.transform.rotation  = Quaternion.Slerp(camera.transform.rotation, camera.transform.rotation * noiseRot, Time.time * 5.0f);
 
             count   += inc * Time.deltaTime;
             period  -= Time.deltaTime;;
@@ -230,10 +219,11 @@ public class Effect : MonoBehaviour {
         float inc       = 1.0f / (period + Mathf.Epsilon);
         float count     = 0.0f;
 
-        if (_curve == null) _curve = _fillCurve;
+        AnimationCurve c = _curve;
+        if (c == null) c = _fillCurve;
 
         while (period > 0) {
-            output.SetFill(true, _fillColor, _curve.Evaluate(count));
+            output.SetFill(true, _fillColor, c.Evaluate(count));
 
             count   += inc * Time.deltaTime;
             period  -= Time.deltaTime;
@@ -248,14 +238,14 @@ public class Effect : MonoBehaviour {
         float inc       = 1.0f / (period + Mathf.Epsilon);
         float count     = 0.0f;
 
-        if (_curve == null) _curve = _fadeCurve;
+        AnimationCurve c = _curve;
+        if (c == null) c = _fadeCurve;
 
         while (period > 0) {
             output.SetFade( 
-                (float)FADE_TYPE.COLOR,
                 _fadeInvers,
                 Color.Lerp(_fadeStartColor, _fadeEndColor, count),
-                _curve.Evaluate(count)
+                c.Evaluate(count)
                 );
             
             count   += inc * Time.deltaTime;
@@ -269,13 +259,14 @@ public class Effect : MonoBehaviour {
         float inc       = 1.0f / (period + Mathf.Epsilon);
         float count     = 0.0f;
 
-        if (_curve == null) _curve = _vignetteCurve;
+        AnimationCurve c = _curve;
+        if (c == null) c = _vignetteCurve;
 
         while (period > 0) {
             output.SetViggnet(
                 true,
                 _vignetteColor,
-                _curve.Evaluate(count),
+                c.Evaluate(count),
                 _vignetteLevel
                 );
             
@@ -292,13 +283,14 @@ public class Effect : MonoBehaviour {
         float inc       = 1.0f / (period + Mathf.Epsilon);
         float count     = 0.0f;
 
-        if (_curve == null) _curve = _chormaticAberrationCurve;
+        AnimationCurve c = _curve;
+        if (c == null) c = _chormaticAberrationCurve;
 
         while (period > 0) {
 
             output.SetChromaticAberrtion(
                 true,
-                _curve.Evaluate(count)
+                c.Evaluate(count) * _chormaticAberrationLevel
             );
 
             count   += inc * Time.deltaTime;
@@ -316,11 +308,12 @@ public class Effect : MonoBehaviour {
         float defFov    = camera.GetComponent<Camera>().fieldOfView;
         float diff      = _fovLevel - defFov;
 
-        if (_curve == null) _curve = _fovCurve;
+        AnimationCurve c = _curve;
+        if (c == null) c = _fovCurve;
 
         while (period > 0) {
 
-            camera.GetComponent<Camera>().fieldOfView = defFov + (diff * _curve.Evaluate(count));
+            camera.GetComponent<Camera>().fieldOfView = defFov + (diff * c.Evaluate(count));
 
             count   += inc * Time.deltaTime;
             period  -= Time.deltaTime;
@@ -337,15 +330,17 @@ public class Effect : MonoBehaviour {
     }
     private IEnumerator  SlowMotion  () {
 
+
         float period    = _slowMotionTime;
         float inc       = 1.0f / (period + Mathf.Epsilon);
         float count     = 0.0f;
         
-        if (_curve == null) _curve = _slowMotionCurve;
+        AnimationCurve c = _curve;
+        if (c == null) c = _slowMotionCurve;
 
         while (period > 0) {
             
-            Time.timeScale = Mathf.Lerp(1.0f, 0.01f,_curve.Evaluate(count));
+            Time.timeScale = Mathf.Lerp(1.0f, 0.01f, c.Evaluate(count));
 
             count   += inc * Time.unscaledDeltaTime;
             period  -= Time.unscaledDeltaTime;

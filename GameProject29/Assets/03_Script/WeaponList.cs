@@ -9,7 +9,7 @@ public class WeaponList : MonoBehaviour {
    
     // User  Method ===============================================
     public  Weapon  GetWeapon   (int index) {
-        return _weaponList[index].GetComponent<Weapon>();
+        return (_weaponList.Count > 0) ? _weaponList[index].GetComponent<Weapon>() : null;
     }
     public  int     GetListSize () {
         return _weaponList.Count;

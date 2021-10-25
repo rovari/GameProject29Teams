@@ -10,7 +10,7 @@ public class MultiHoming : Weapon {
         _recast = true;
 
         foreach(var b in _bulletList) {
-            b.StartBullet(_muzzle, _target);
+            b.StartBullet(_target);
             yield return new WaitForSeconds(_interval);
         }
 

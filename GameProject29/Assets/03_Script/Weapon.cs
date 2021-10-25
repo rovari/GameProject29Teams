@@ -16,15 +16,12 @@ public class Weapon : MonoBehaviour {
     [SerializeField] protected float        _recastTime;
     [SerializeField] protected float        _interval;
     [SerializeField] protected List<Bullet> _bulletList;
-    [SerializeField] protected Vector3      _muzzle;
     [SerializeField] protected GameObject   _target;
     
     // User  Method ===============================================
-    public  void    Lunch       (Vector3 muzzle, GameObject target) {
-        
-        if (!_recast) {
+    public  void    Lunch       (GameObject target) {
 
-            _muzzle = muzzle;
+        if (!_recast && target != null) {
             _target = target;
 
             StartCoroutine("TimeLine");
@@ -37,7 +34,7 @@ public class Weapon : MonoBehaviour {
 
         _recast = true;
 
-        _bulletList[0].GetComponent<Bullet>().StartBullet(_muzzle ,_target);
+        _bulletList[0].GetComponent<Bullet>().StartBullet(_target);
 
         yield return new WaitForSeconds(_recastTime);
         _recast = false;

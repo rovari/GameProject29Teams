@@ -76,7 +76,7 @@ Material:
     - _DstBlend: 0
     - _FdLink: 1
     - _FdRan: 0.591
-    - _FdRange: 0.03
+    - _FdRange: 0.00027143955
     - _FiLv: 0
     - _Fill: 0
     - _GlossMapScale: 1
@@ -104,9 +104,9 @@ Material:
     m_Colors:
     - _Color: {r: 0.08810965, g: 0.3300687, b: 0.33962262, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FdCol: {r: 0.00673753, g: 0.00673753, b: 0.00673753, a: 0}
+    - _FdCol: {r: 0.004406512, g: 0.004406512, b: 0.004406512, a: 0}
     - _FdSCol: {r: 1, g: 0, b: 0, a: 0}
-    - _FiCol: {r: 0, g: 0, b: 0, a: 0}
+    - _FiCol: {r: 1, g: 0.97216296, b: 0.8254717, a: 0}
     - _ViCol: {r: 0, g: 0, b: 0, a: 0}
     - _fiCol: {r: 0.49056602, g: 0.40494835, b: 0.40494835, a: 1}
   m_BuildTextureStacks: []

@@ -19,19 +19,22 @@ public class PlayerFire : FacadeData {
         _targetIndex = 0;
         _weaponIndex = 0;
 
-        InputManager.GetGAMEInput.TriggerR      .started += _ => Fire();
-        InputManager.GetGAMEInput.EastButtonB   .started += _ => AddWeaponIndex();
-        InputManager.GetGAMEInput.WestButtonX   .started += _ => SubWeaponIndex();
+        InputManager.GetGAMEInput.TriggerR      .performed  += _ => Fire();
+        InputManager.GetGAMEInput.EastButtonB   .started    += _ => AddWeaponIndex();
+        InputManager.GetGAMEInput.WestButtonX   .started    += _ => SubWeaponIndex();
     }
 
     // User  Method ===============================================
     private void Fire           () {
 
         if (InputManager.GetGAMEInput.TriggerL.phase == InputActionPhase.Started) {
-            weaponList.GetWeapon(_weaponIndex).Lunch(transform.position, targetList.GetTarget(_targetIndex));
+
+            Weapon weapon = weaponList.GetWeapon(_weaponIndex);
+            if(weapon != null) weapon.Lunch(targetList.GetTarget(_targetIndex));
         }
         else {
-            weaponList.GetWeapon(weaponList.GetListSize() - 1).Lunch(transform.position, targetList.GetTarget(_targetIndex));
+            Weapon weapon = weaponList.GetWeapon(_weaponIndex);
+            if(weapon != null) weapon.Lunch(targetList.GetTarget(_targetIndex));
         }
     }
     private void AddTargetIndex () {

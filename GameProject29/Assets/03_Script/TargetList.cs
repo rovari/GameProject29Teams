@@ -11,7 +11,7 @@ public class TargetList : MonoBehaviour {
 
     // User  Method ===============================================
     public  GameObject  GetTarget           (int index) {
-        return _targetList[index];
+        return (_targetList.Count > 0) ? _targetList[index] : null;
     }
     public  int         GetListSize         () {
         return _targetList.Count;

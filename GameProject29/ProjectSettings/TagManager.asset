@@ -8,6 +8,7 @@ TagManager:
   - Collision
   - Manager
   - Frame
+  - Effect
   layers:
   - Default
   - TransparentFX

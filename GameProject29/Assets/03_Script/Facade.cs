@@ -6,8 +6,8 @@ using System;
 public class Facade : MonoBehaviour {
     
     // Hide  Property =============================================
-    [HideInInspector] public EffectManager effectManager;
-    [HideInInspector] public Surface       _surface;
+    [HideInInspector] public Effect     _effect;
+    [HideInInspector] public Surface    _surface;
 
     // Show  Property =============================================
     [SerializeField] private GameObject model;
@@ -28,7 +28,6 @@ public class Facade : MonoBehaviour {
         return (T)this;
     }
     private void    FindManager () {
-
-        effectManager =  GameObject.FindGameObjectWithTag("Manager").GetComponent<EffectManager>();
+        _effect =  GameObject.FindGameObjectWithTag("Effect").GetComponent<Effect>();
     }
 }

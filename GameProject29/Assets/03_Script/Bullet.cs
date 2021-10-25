@@ -9,19 +9,20 @@ public class Bullet : Facade {
         SHOT,
         THROW,
         HOMING,
+        BLADE,
         BOMB,
     }
     
     private GameObject  col;
     private GameObject  target;
-    private Vector3     _muzzle;
     private bool        _wait;
 
     // Show  Property =============================================
-    [SerializeField] private ORBIT   _orbit;
-    [SerializeField] private float   _flightTime;
-    [SerializeField] private float   _damageTime;
-    [SerializeField] private Vector3 _lunchVector;
+    [SerializeField] private Transform  muzzle;
+    [SerializeField] private ORBIT      _orbit;
+    [SerializeField] private float      _flightTime;
+    [SerializeField] private float      _damageTime;
+    [SerializeField] private Vector3    _lunchVector;
 
     // Unity Method ===============================================
     private void Start      () {
@@ -37,13 +38,12 @@ public class Bullet : Facade {
     private void ActiveCollision(bool enable) {
         col.SetActive(enable);
     }
-    public  void StartBullet(Vector3 muzzle, GameObject tgt) {
+    public  void StartBullet(GameObject tgt) {
 
         target = tgt;
         
         if (!_wait) { 
-            _muzzle = muzzle;
-
+            
             IEnumerator bullet = null;
 
             switch (_orbit) {
@@ -51,6 +51,7 @@ public class Bullet : Facade {
                 case ORBIT.THROW:   bullet = Throw();   break;
                 case ORBIT.HOMING:  bullet = Homing();  break;
                 case ORBIT.BOMB:    bullet = Bomb();    break;
+                case ORBIT.BLADE:   bullet = Blade();   break;
             }
 
             gameObject.SetActive(true);
@@ -62,7 +63,7 @@ public class Bullet : Facade {
         
         _wait = true;
         
-        var startPos    = _muzzle;
+        var startPos    = muzzle.position;
         var endPos      = (target) ? target.transform.position : Vector3.zero;
         var period      = 1.0f;
         var speed       = 1.0f / _flightTime;
@@ -80,7 +81,7 @@ public class Bullet : Facade {
 
         ActiveCollision(false);
       
-        transform.position  = Vector3.zero;
+        transform.position  = muzzle.position;
         transform.rotation  = Quaternion.identity;
         
         this.gameObject.SetActive(false);
@@ -89,7 +90,7 @@ public class Bullet : Facade {
 
         _wait = true;
         
-        var startPos    = _muzzle;
+        var startPos    = muzzle.position;
         var endPos      = startPos + new Vector3( 0.0f, 0.0f, 50.0f);
         var period      = 1.0f;
         var speed       = 1.0f / _flightTime;
@@ -107,7 +108,7 @@ public class Bullet : Facade {
 
         ActiveCollision(false);
       
-        transform.position  = Vector3.zero;
+        transform.position  = muzzle.position;
         transform.rotation  = Quaternion.identity;
         
         this.gameObject.SetActive(false);
@@ -117,7 +118,7 @@ public class Bullet : Facade {
         _wait = true;
 
         var gravity     = -9.8f;
-        var startPos    = _muzzle;
+        var startPos    = muzzle.position;
         var endPos      = (target) ? target.transform.position : Vector3.zero;
         var diffY       = (endPos - startPos).y;
         var vn          = (diffY - gravity * 0.5f * _flightTime * _flightTime) / _flightTime;
@@ -143,7 +144,7 @@ public class Bullet : Facade {
 
         ActiveCollision(false);
 
-        transform.position  = Vector3.zero;
+        transform.position  = muzzle.position;
         transform.rotation  = Quaternion.identity;
 
         this.gameObject.SetActive(false);
@@ -152,9 +153,9 @@ public class Bullet : Facade {
 
         _wait = true;
         
-        transform.position = _muzzle;
+        transform.position = muzzle.position;
         
-        var startPos    = _muzzle;
+        var calcPos     = muzzle.position;
         var velocity    = _lunchVector;
         var period      = _flightTime;
         
@@ -176,8 +177,8 @@ public class Bullet : Facade {
             velocity    += acc * Time.deltaTime;
 
             transform.forward   = velocity.normalized;
-            transform.position  = startPos;
-            startPos += velocity * Time.deltaTime;
+            transform.position  = calcPos;
+            calcPos += velocity * Time.deltaTime;
             
             yield return null;
 
@@ -188,14 +189,14 @@ public class Bullet : Facade {
         float   count   = _damageTime;
         
         while (count > 0.0f) {
-            transform.position = target.transform.position;
+            transform.position = calcPos;
             count -= Time.deltaTime;
             yield return null;
         }
 
         ActiveCollision(false);
 
-        transform.position  = Vector3.zero;
+        transform.position  = muzzle.position;
         transform.rotation  = Quaternion.identity;
 
         this.gameObject.SetActive(false);

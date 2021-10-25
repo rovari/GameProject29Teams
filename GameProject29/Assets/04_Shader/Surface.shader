@@ -19,6 +19,8 @@ Shader "Custom/Surface"
 		_Mask		("Dissolve Mask", 2D)			= "white" {}
 		[Toggle]	_Reverse("Reverse Mask "	, int)				= 0
 		_Range		("Dissolve"					, Range(0.0 , 1.0))	= 1.0
+        _DisCol		("Dissolve Color"			, Color)			= (1,1,1,1)
+        _DisEdgeCol	("Dissolve Edge Color"		, Color)			= (1,1,1,1)
 		_Scr_X		("UvScroll Speed X"			, float)			= 0.0			
 		_Scr_Y		("UvScroll Speed Y"			, float)			= 0.0
 
@@ -60,7 +62,7 @@ Shader "Custom/Surface"
 			float3	viewDir;
         };
 
-        fixed4	_Color, _SubColor, _FogColor, _RimColor;
+        fixed4	_Color, _SubColor, _FogColor, _RimColor, _DisCol, _DisEdgeCol;
 		fixed	_Height, _RimLv;
 		fixed	_GV_X, _GV_Y, _GH_TOP, _GH_BOTTOM;
 		int		_Reverse, _Fog, _Rim;
@@ -78,25 +80,25 @@ Shader "Custom/Surface"
 			UNITY_INITIALIZE_OUTPUT(Input, o);
 
 			TANGENT_SPACE_ROTATION;
-			o.lightDir = normalize(mul(rotation, -float3(1.0, -1.0, 1.0)));
+			o.lightDir = normalize(mul(rotation, mul(unity_WorldToObject, -float3(1.0, -1.0, 1.0))));
 		}
 
-		void Dissolve(float2 uv) {
+		void Dissolve(float2 uv, fixed4 col) {
 			fixed m = tex2D(_Mask, uv).r;
 			m = (_Reverse != 0) ? 1.0 - m : m;
 
-			if (m > _Range) _Discard = true;
+			if (m > _Range) { _Discard = true; }
 		}
 
-        void surf (Input IN, inout SurfaceOutput o)
-        {
-			Dissolve(IN.uv_Mask);
+        void surf (Input IN, inout SurfaceOutput o) {
 
 			float2 addUv = float2(_Time.y * _Scr_X, _Time.y * _Scr_Y);
 
 			fixed4	c	= tex2D(_MainTex, IN.uv_MainTex + addUv);
 			float3	n	= UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap + addUv) * _Height);
 			float3	l	= normalize(float3(1.0, -1.0, 1.0));
+
+			Dissolve(IN.uv_Mask, c);
 
 			if (c.a <= 0.0 || _Discard) discard;
 
@@ -132,7 +134,7 @@ Shader "Custom/Surface"
 			}
 
 			o.Normal = n;
-			o.Albedo = c;
+			o.Albedo = lerp(_DisCol, c, _Range * _Range);
         }
         ENDCG
     }

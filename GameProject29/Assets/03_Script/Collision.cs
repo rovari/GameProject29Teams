@@ -7,7 +7,8 @@ public class Collision : FacadeData {
     
     // Show  Property =============================================
     [SerializeField] private float  _damage;
-    
+    [SerializeField] private AnimationCurve _damageCurve;
+
     // Unity Method ===============================================
     private void OnTriggerEnter     (Collider other) {
         Debug.Log("Hit " + transform.parent.name + " " + name + " to "+ other.transform.parent.name + " "+ other.name);
@@ -22,9 +23,13 @@ public class Collision : FacadeData {
     }
     private void        CalcPlayerHp    (float damage) {
         facade.GetFacade<Player>().GetSetHp -= damage;
+        facade._effect.PlayEffect(Effect.EFFECT.CA, 0.5f, _damageCurve, 0.1f);
+        facade._effect.PlayEffect(Effect.EFFECT.EXPLOSION, 0.5f, _damageCurve, 0.25f);
     }
     private void        CalcEnemyHp     (float damage) {
         facade.GetFacade<Enemy>().GetSetHp -= damage;
+        facade._effect.PlayEffect(Effect.EFFECT.TIMESTOP, 0.05f);
+        facade._effect.PlayEffect(Effect.EFFECT.EXPLOSION, 0.5f, _damageCurve, 0.25f);
     }
     private void        HitCalc         (GameObject obj) {
         

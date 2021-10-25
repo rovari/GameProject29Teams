@@ -15,9 +15,8 @@ public class Output : ShaderController{
 
         _material.SetColor  ("_Color"   , color);
     }
-    public  void SetFade                (float type, bool reverse, Color color, float level) {
+    public  void SetFade                (bool reverse, Color color, float level) {
         
-        _material.SetFloat  ("_TYPE"    , type);
         _material.SetInt    ("_Reverse" , Convert.ToInt32(reverse));
         _material.SetColor  ("_FdCol"   , color);
         _material.SetFloat  ("_FdRange" , Mathf.Clamp01(level));
