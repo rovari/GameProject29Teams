@@ -28,19 +28,18 @@ public class PlayerUI : FacadeData {
 
     private void SwitchAimUI            () {
 
-        if(facade.GetFacade<Player>().GetSetTarget != null) { 
+        GameObject tgt = facade.GetFacade<Player>().GetSetTarget;
 
-            if(facade.GetFacade<Player>().GetSetTarget.name == aimTarget.name) {
-                aim     .gameObject.SetActive(true);
-                target  .gameObject.SetActive(false);
+        if (tgt != null && tgt.name == aimTarget.name) {
+            aim     .gameObject.SetActive(true);
+            target  .gameObject.SetActive(false);
 
-            }
-            else {
-                aim     .gameObject.SetActive(false);
-                target  .gameObject.SetActive(true);
+        }
+        else {
+            aim     .gameObject.SetActive(false);
+            target  .gameObject.SetActive(true);
 
-                _calcPosition = Vector3.zero;
-            }
+            _calcPosition = Vector3.zero;
         }
     }
     private void ScreenAimPosition      () {
@@ -60,7 +59,7 @@ public class PlayerUI : FacadeData {
                 = RectTransformUtility.WorldToScreenPoint(Camera.main, tgt.transform.position);
         }
         else {
-            target.GetComponent<RectTransform>().position = default;
+            target.gameObject.SetActive(false);
         }
     }
 }

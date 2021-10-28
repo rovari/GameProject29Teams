@@ -69,6 +69,7 @@ public class PlayerFire : FacadeData {
 
         Weapon weapon = weaponList.GetWeapon(_weaponIndex);
 
+        facade.GetFacade<Player>().GetSetTarget = null;
         facade.GetFacade<Player>().GetSetTarget = (weapon.GetUIType() == Weapon.UITYPE.AIM)
                 ? aimObject
                 : targetList.GetTarget(_targetIndex);
