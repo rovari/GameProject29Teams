@@ -17,15 +17,32 @@ public class PlayerUI : FacadeData {
     [SerializeField] private Transform      muzzle;
 
     // Unity Method ===============================================
-    private void Start  () {
-        
-    }
     private void Update () {
+
+        SwitchAimUI         ();
         ScreenAimPosition   ();
         ScreenTargetPosition();
     }
 
     // User  Method ===============================================
+
+    private void SwitchAimUI            () {
+
+        if(facade.GetFacade<Player>().GetSetTarget != null) { 
+
+            if(facade.GetFacade<Player>().GetSetTarget.name == aimTarget.name) {
+                aim     .gameObject.SetActive(true);
+                target  .gameObject.SetActive(false);
+
+            }
+            else {
+                aim     .gameObject.SetActive(false);
+                target  .gameObject.SetActive(true);
+
+                _calcPosition = Vector3.zero;
+            }
+        }
+    }
     private void ScreenAimPosition      () {
         
         var stick       = InputManager.GetGAMEInput.RStick.ReadValue<Vector2>() * 50.0f * Time.deltaTime;

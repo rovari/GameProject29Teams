@@ -26,8 +26,11 @@ public class Bullet : Facade {
     // Unity Method ===============================================
     private void Start      () {
         col = transform.Find("Collision").gameObject;
+        transform.position = muzzle.position;
+
         gameObject.SetActive(false);
-        ActiveCollision(false);
+        ActiveCollision     (false);
+
     }
     private void OnDisable  () {
         _wait = false;
