@@ -14,5 +14,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01_Scenes/Load.unity
     guid: 5883fc54479ea3b458ecd48c597af735
+  - enabled: 1
+    path: Assets/Private/AT_Itami/Scene/GameScene.unity
+    guid: 9d769e5b79cdd1d46a92df09cf593238
+  - enabled: 1
+    path: Assets/Private/AT_Itami/Scene/scoreTest.unity
+    guid: ec59985646167584fb48b49c26bff410
+  - enabled: 1
+    path: Assets/Private/AT_Itami/Scene/scoreTest2.unity
+    guid: 8f79ebd68b4840440a01eab78243b51d
+  - enabled: 1
+    path: Assets/Private/AT_Itami/Scene/result.unity
+    guid: c2fb132da5b93094390de2aa4a9f42ac
+  - enabled: 1
+    path: Assets/Private/AT_Itami/Scene/result2.unity
+    guid: 345a1713d28f34642928999901904efa
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bcb756b420b07d548af39debd902a3b9, type: 2}
