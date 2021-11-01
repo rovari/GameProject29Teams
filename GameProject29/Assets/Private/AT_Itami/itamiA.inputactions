@@ -1,0 +1,33 @@
+{
+    "name": "itamiA",
+    "maps": [
+        {
+            "name": "player",
+            "id": "21a0c39d-34b8-423d-ae08-9e7c2a85835d",
+            "actions": [
+                {
+                    "name": "space",
+                    "type": "Button",
+                    "id": "517969f5-c20e-4cf8-a373-8d8ae29ebbf2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "34ecd7c4-76c3-430d-8bbb-1d5099ed496e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "space",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -20,9 +20,9 @@ public class rSceneChange : MonoBehaviour
     {
         totalTime -= Time.deltaTime;
         retime = (int)totalTime;
-        if (Input.GetKey(KeyCode.Space))
-        {
-            SceneManager.LoadScene("result2");
-        }
+        //if (Input.GetKey(KeyCode.Space))
+        //{
+        //    SceneManager.LoadScene("result2");
+        //}
     }
 }
