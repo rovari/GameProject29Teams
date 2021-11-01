@@ -9,6 +9,7 @@ TagManager:
   - Manager
   - Frame
   - Effect
+  - Input
   layers:
   - Default
   - TransparentFX

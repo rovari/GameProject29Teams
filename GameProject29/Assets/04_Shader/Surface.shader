@@ -33,7 +33,6 @@ Shader "Custom/Surface"
 		_RimLv		("Rim Level"				, Range(0.0, 10.0))	= 0
 		_RimColor	("Rim Color"				, Color)			= (1,1,1,1)
 
-
 		[HideInInspector]
 		_Discard	("Discard"					, int)				= 0
     }
@@ -99,7 +98,6 @@ Shader "Custom/Surface"
 			float3	l	= normalize(float3(1.0, -1.0, 1.0));
 
 			Dissolve(IN.uv_Mask, c);
-
 			if (c.a <= 0.0 || _Discard) discard;
 
 			#ifdef _GT_ONECOLOR

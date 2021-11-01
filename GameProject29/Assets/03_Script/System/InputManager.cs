@@ -5,39 +5,23 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour {
 
-    // Show  Property =============================================
-    private static MainInputSystem  _input;
-    private static STATE            _state;
-    private static bool             _flag;
-
-    // Unity Method ===============================================
-    private void    Awake       () {
-        
-        Initialize();
-    }
-    private void    OnEnable    () { _input.Enable (); }
-    private void    OnDisable   () { _input.Disable(); }
-    private void    OnDestroy   () { _input.Dispose(); }
-
-    // User  Method ===============================================
+    // Hide  Field ================================================
+    private static CustomInput _cInput;
+    private static STATE        _state;
     
-    private static  void Initialize() {
+    // User  Method ===============================================
+    public  static  void                            LoadInput(CustomInput input) {
 
-        if (!_flag) {
-            _input  = new MainInputSystem();
-            _flag   = true;        
-        }
-
+        _cInput = input;
         _state  = StateManager.GetSetState;
-
-        GetGAMEInput    = _input.GAME;
-        GetEVENTInput   = _input.EVENT;
-        GetLOADInput    = _input.LOAD;
-        GetMENUInput    = _input.MENU;
+        
+        GetGAMEInput    = _cInput.GAMEActions;
+        GetEVENTInput   = _cInput.EVENTActions;
+        GetLOADInput    = _cInput.LOADActions;
+        GetMENUInput    = _cInput.MENUActions;
     }
-
-    public  static  MainInputSystem.GAMEActions   GetGAMEInput    { get; set; }
-    public  static  MainInputSystem.EVENTActions  GetEVENTInput   { get; set; }
-    public  static  MainInputSystem.LOADActions   GetLOADInput    { get; set; }
-    public  static  MainInputSystem.MENUActions   GetMENUInput    { get; set; }
+    public  static  MainInputSystem.GAMEActions     GetGAMEInput    { get; set; }
+    public  static  MainInputSystem.EVENTActions    GetEVENTInput   { get; set; }
+    public  static  MainInputSystem.LOADActions     GetLOADInput    { get; set; }
+    public  static  MainInputSystem.MENUActions     GetMENUInput    { get; set; }
 }

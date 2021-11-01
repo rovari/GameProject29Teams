@@ -27,6 +27,8 @@ public class Effect : MonoBehaviour {
     private int            _fillHierarchy                = -1;
     private int            _vignetteHierarchy            = -1; 
     private int            _chormaticAberrationHierarchy = -1; 
+
+    private Dictionary<string, IEnumerator> coroutine;
     
     // Show  Property =============================================
     
@@ -103,10 +105,24 @@ public class Effect : MonoBehaviour {
         
         _curve      = null;
         output      = new Output(GameObject.FindGameObjectWithTag("Frame").GetComponent<Image>().material);
-    
+
+        CreateDictionaly();
     }
     private void Update     () {
         if (_shake)     CameraShake();
+    }
+
+    private void CreateDictionaly() {
+
+        coroutine = new Dictionary<string, IEnumerator>();
+
+        coroutine.Add("Explosion"   , null);
+        coroutine.Add("Fill"        , null);
+        coroutine.Add("Vignette"    , null);
+        coroutine.Add("CA"          , null);
+        coroutine.Add("FOV"         , null);
+        coroutine.Add("TimeStop"    , null);
+        coroutine.Add("SlowMotion"  , null);
     }
 
     // User  Method ===============================================
@@ -118,75 +134,127 @@ public class Effect : MonoBehaviour {
         float           level       = 0.0f,
         Color           color       = default
     ) {
-
-        IEnumerator c = null;
+        bool    skip    = false;
+        string  name    = "";
 
         switch (effect) {
 
             case EFFECT.EXPLOSION:
 
                 if (_explosionHierarchy <= hierarchy) {
-                    StopCoroutine("Explosion");
+
+                    name = "Explosion";
+
+                    if (coroutine[name] != null) {
+                        StopCoroutine(coroutine[name]);
+                        coroutine[name] = null;
+                    }
+
                     _explosionHierarchy = hierarchy;
                     _explosionTime      = time ;
                     _explosionLevel     = level;
                     _curve              = curve;
-                    c = Explosion();
+
+                    coroutine[name] = Explosion();
                 }
+                else skip = true;
+
                 break;
 
             case EFFECT.FILL:
                 if (_fillHierarchy <= hierarchy) {
-                    StopCoroutine("Fill");
+
+                    name = "Fill";
+
+                    if (coroutine[name] != null) {
+                        StopCoroutine(coroutine[name]);
+                        coroutine[name] = null;
+                    }
+
                     _fillHierarchy      = hierarchy;
                     _fillTime           = time;
                     _curve              = curve;
-                    c = Fill();
+
+                    coroutine[name] = Fill();
                 }
+                else skip = true;
+
                 break;
                 
             case EFFECT.VIGNETTE:
                 if(_vignetteHierarchy <= hierarchy) {
-                    StopCoroutine("Vignette");
+
+                    name = "Vignette";
+
+                    if (coroutine[name] != null) {
+                        StopCoroutine(coroutine[name]);
+                        coroutine[name] = null;
+                    }
+
                     _vignetteHierarchy  = hierarchy;
                     _vignetteTime       = time;
                     _vignetteLevel      = level;
                     _curve              = curve;
-                    c = Vignette();
+
+                    coroutine[name] = Vignette();
                 }
+                else skip = true;
+
                 break;
 
             case EFFECT.CA:
                 if(_chormaticAberrationHierarchy <= hierarchy) {
-                    StopCoroutine("CA");
+
+                    name = "CA";
+
+                    if (coroutine[name] != null) {
+                        StopCoroutine(coroutine[name]);
+                        coroutine[name] = null;
+                    }
+
                     _chormaticAberrationHierarchy   = hierarchy;
                     _chormaticAberrationTime        = time;
                     _chormaticAberrationLevel       = level;
                     _curve                          = curve;
-                    c = CA();
+                    
+                    coroutine[name] = CA();
                 }
+                else skip = true;
+
                 break;
 
             case EFFECT.FOV:
+
+                name = "FOV";
+
                 _fovTime            = time;
                 _fovLevel           = level; 
                 _curve              = curve;
-                c = FOV();
+
+                coroutine[name] = FOV();
                 break;
 
             case EFFECT.TIMESTOP:
+
+                name = "TimeStop";
+
                 _waitTime           = time;
-                c = TimeStop();
+                
+                coroutine[name] = TimeStop();
                 break;
 
             case EFFECT.SLOWMOTION:
+
+                name = "SlowMotion";
+
                 _slowMotionTime     = time;
                 _curve              = curve;
-                c = SlowMotion();
+
+                coroutine[name] = SlowMotion();
                 break;
         }
 
-        if (c != null) StartCoroutine(c);
+        if (!skip && coroutine[name] != null) StartCoroutine(coroutine[name]);
     }
     
     [ContextMenu("DebugEffect")]

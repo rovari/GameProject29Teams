@@ -64,8 +64,9 @@ public class Enemy : Facade {
     public  GRADE        GetGrade    () {
         return _grade;
     }
-    public  bool         GetIsDestory() {
-        return _isDestory;
+    public  bool         GetSetIsDestory {
+        get { return _isDestory;  }
+        set { _isDestory = value; }
     }
     public  float        GetSetHp       {
         get { return _hp;  }

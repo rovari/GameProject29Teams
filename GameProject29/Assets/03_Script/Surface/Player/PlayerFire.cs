@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerFire : FacadeData {
 
-    // Hide  Property =============================================
+    // Hide  Field ================================================
     [SerializeField] private int _targetIndex;
     [SerializeField] private int _weaponIndex;
     private bool lockIndex;
 
-    // Show  Property =============================================
+    // Show  Field ================================================
     [SerializeField] private TargetList  targetList;
     [SerializeField] private WeaponList  weaponList;
     [SerializeField] private GameObject  aimObject;

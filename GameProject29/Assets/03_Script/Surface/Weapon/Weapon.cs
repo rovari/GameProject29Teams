@@ -4,40 +4,58 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour {
     
-    // Hide  Property =============================================
-    protected   bool _recast;
-    public      enum UITYPE {
+    // Hide  Field ================================================
+    public      enum        UITYPE {
         AIM,
         LOCK,
         RANGE,
     }
+    protected   bool        _recast;
+    protected   float       _castCount;
+    private     IEnumerator _coroutine;
 
-    // Show  Property =============================================
+    // Show  Field ================================================
     [SerializeField] protected UITYPE       _uiType;
     [SerializeField] protected float        _recastTime;
     [SerializeField] protected float        _interval;
     [SerializeField] protected List<Bullet> _bulletList;
     [SerializeField] protected GameObject   _target;
+
+    // Unity  Method ===============================================
+    private void Start() {
+        GetSetRecastTime = 1.0f;
+    }
     
     // User  Method ===============================================
-    public  void    Lunch       (GameObject target) {
+    public void    Lunch       (GameObject target) {
 
         if (!_recast && target != null) {
             _target = target;
-
+            
+            StartCoroutine("Cast");
             StartCoroutine("TimeLine");
         }
     }
-    public  UITYPE  GetUIType   () {
+    public          UITYPE      GetUIType       () {
         return _uiType;
     }
-    virtual public IEnumerator TimeLine() {
+    public          float       GetSetRecastTime   {
+        get; set;
+    }
+    private         IEnumerator Cast            () {
 
-        _recast = true;
+        GetSetRecastTime = 0.0f;
 
-        _bulletList[0].GetComponent<Bullet>().StartBullet(_target);
+        float inc = 1.0f / (_recastTime + Mathf.Epsilon);
 
-        yield return new WaitForSeconds(_recastTime);
-        _recast = false;
+        while (1.0f > GetSetRecastTime) {
+            GetSetRecastTime += inc * Time.deltaTime;
+            yield return null;
+        }
+        
+        GetSetRecastTime = 1.0f;
+    }
+    virtual public  IEnumerator TimeLine () {
+        yield return null;
     }
 }

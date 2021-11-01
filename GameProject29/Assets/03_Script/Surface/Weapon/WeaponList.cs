@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponList : MonoBehaviour {
 
-    // Show  Property =============================================
-    [SerializeField] private List<GameObject> _weaponList;
-   
+    // Hide  Field ================================================ 
+    
+    // Show  Field ================================================
+    [SerializeField] private List<GameObject>   _weaponList;
+
+    // Unity Method ===============================================
+        
     // User  Method ===============================================
-    public  Weapon  GetWeapon   (int index) {
+
+    public  Weapon  GetWeapon       (int index) {
         return (_weaponList.Count > 0) ? _weaponList[index].GetComponent<Weapon>() : null;
     }
-    public  int     GetListSize () {
+    public  int     GetListSize     () {
         return _weaponList.Count;
     }
+
 }

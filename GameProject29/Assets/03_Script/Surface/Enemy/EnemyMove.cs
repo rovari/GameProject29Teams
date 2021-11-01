@@ -17,26 +17,26 @@ public class EnemyMove : FacadeData {
 
     // User  Method ===============================================
     private void Dead() {
-        if (facade.GetFacade<Enemy>().GetIsDestory()) {
-
-            Enemy.GRADE grade = facade.GetFacade<Enemy>().GetGrade();
-
-            StartCoroutine("DeadEffect");
-            if (grade >= Enemy.GRADE.MIDDLERISK) facade._effect.PlayEffect(Effect.EFFECT.TIMESTOP,  0.01f);
-            if (grade >= Enemy.GRADE.HEIGHTRISK) facade._effect.PlayEffect(Effect.EFFECT.EXPLOSION, _deadEffectTime, _deadEffectCurve, 1, 0.025f);
-            if (grade >= Enemy.GRADE.BOSS)       facade._effect.PlayEffect(Effect.EFFECT.CA,        _deadEffectTime, _deadEffectCurve, 1, 0.5f);
-            if (grade >= Enemy.GRADE.BOSS)       facade._effect.PlayEffect(Effect.EFFECT.FILL,      _deadEffectTime, _deadEffectCurve, 1, 0.0f, Color.yellow);
-            if (grade >= Enemy.GRADE.BIGBOSS)    facade._effect.PlayEffect(Effect.EFFECT.SLOWMOTION,_deadEffectTime, _deadEffectCurve, 1);
-
-        }
+        if (facade.GetFacade<Enemy>().GetSetIsDestory) { StartCoroutine("DeadEffect"); }
     }
 
     private IEnumerator DeadEffect() {
-        
-        float period    = _deadEffectTime;
-        float inc       = 1.0f / (period + Mathf.Epsilon);
-        float count     = 0.0f;
-        
+
+        facade.GetFacade<Enemy>().GetSetIsDestory = false;
+
+        float   period  = _deadEffectTime;
+        float   inc     = 1.0f / (period + Mathf.Epsilon);
+        float   count   = 0.0f;
+        Vector3 drop    = new Vector3((Random.value * 2.0f - 1.0f) * 0.05f, -0.05f , (Random.value * 2.0f -1.0f) * 0.05f);
+
+        Enemy.GRADE grade = facade.GetFacade<Enemy>().GetGrade();
+
+        if (grade >= Enemy.GRADE.MIDDLERISK) facade._effect.PlayEffect(Effect.EFFECT.TIMESTOP,  0.01f);
+        if (grade >= Enemy.GRADE.HEIGHTRISK) facade._effect.PlayEffect(Effect.EFFECT.EXPLOSION, _deadEffectTime, _deadEffectCurve, 1, 0.5f);
+        if (grade >= Enemy.GRADE.BOSS)       facade._effect.PlayEffect(Effect.EFFECT.CA,        _deadEffectTime, _deadEffectCurve, 1, 0.5f);
+        if (grade >= Enemy.GRADE.BOSS)       facade._effect.PlayEffect(Effect.EFFECT.FILL,      _deadEffectTime, _deadEffectCurve, 1, 0.0f, Color.yellow);
+        if (grade >= Enemy.GRADE.BIGBOSS)    facade._effect.PlayEffect(Effect.EFFECT.SLOWMOTION,_deadEffectTime, _deadEffectCurve, 1);
+
         transform.Find("Collision").gameObject.SetActive(false);
 
         tag = "Untagged";
@@ -45,6 +45,7 @@ public class EnemyMove : FacadeData {
         while (period > 0) {
 
             facade._surface.SetDissolve(1.0f - count);
+            transform.position += drop * Time.deltaTime;
 
             count += inc * Time.deltaTime;
             period -= Time.deltaTime;

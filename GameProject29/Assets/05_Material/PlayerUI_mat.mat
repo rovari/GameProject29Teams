@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerUI_mat
   m_Shader: {fileID: 4800000, guid: 49513062b543e35458d55e5de3c9c972, type: 3}
-  m_ShaderKeywords: _GT_ONECOLOR
-  m_LightmapFlags: 4
+  m_ShaderKeywords: _EMISSION _GT_ONECOLOR
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -43,6 +43,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainBump:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -66,12 +70,24 @@ Material:
     m_Ints: []
     m_Floats:
     - PixelSnap: 0
+    - _BlendOp: 0
     - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
+    - _ColorMask: 15
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Discard: 0
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0
     - _DstBlend: 0
+    - _EmissionEnabled: 0
     - _EnableExternalAlpha: 0
+    - _FlipbookMode: 0
     - _Fog: 0
     - _FogEnd: 0
     - _FogLv: 0
@@ -85,6 +101,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Height: 1
+    - _LightingEnabled: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -92,15 +109,26 @@ Material:
     - _Range: 1
     - _Reverse: 0
     - _Rim: 0
-    - _RimLv: 2
+    - _RimLv: 0
     - _Scr_X: 0
     - _Scr_Y: 0
+    - _Shininess: 0.2
     - _SmoothnessTextureChannel: 0
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _UVSec: 0
+    - _UseUIAlphaClip: 0
     - _ZWrite: 1
     m_Colors:
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 0.9592262, b: 0.92156863, a: 1}
     - _DisCol: {r: 1, g: 1, b: 1, a: 1}
     - _DisEdgeCol: {r: 1, g: 1, b: 1, a: 1}
@@ -109,5 +137,7 @@ Material:
     - _FogColor: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SubColor: {r: 0.06446116, g: 0.028034888, b: 0.2830189, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
+    - _Specular: {r: 0, g: 0, b: 0, a: 0}
+    - _SubColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
