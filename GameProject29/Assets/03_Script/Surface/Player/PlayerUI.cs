@@ -57,7 +57,9 @@ public class PlayerUI : FacadeData {
         
         var stick       = InputManager.GetGAMEInput.RStick.ReadValue<Vector2>() * 50.0f * Time.deltaTime;
         _calcPosition   += stick;
-        
+
+        var oldPos  = aimTarget.transform.position;
+
         aimTarget.transform.position = new Vector3(_calcPosition.x , _calcPosition.y, 20.0f);
         
         RaycastHit  hit;

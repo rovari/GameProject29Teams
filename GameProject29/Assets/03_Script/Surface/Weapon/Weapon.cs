@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour {
     }
     
     // User  Method ===============================================
-    public void    Lunch       (GameObject target) {
+    public              void        Lunch           (GameObject target) {
 
         if (!_recast && target != null) {
             _target = target;
@@ -36,13 +36,13 @@ public class Weapon : MonoBehaviour {
             StartCoroutine("TimeLine");
         }
     }
-    public          UITYPE      GetUIType       () {
+    public              UITYPE      GetUIType       () {
         return _uiType;
     }
-    public          float       GetSetRecastTime   {
+    public              float       GetSetRecastTime   {
         get; set;
     }
-    private         IEnumerator Cast            () {
+    private             IEnumerator Cast            () {
 
         GetSetRecastTime = 0.0f;
 
@@ -55,7 +55,7 @@ public class Weapon : MonoBehaviour {
         
         GetSetRecastTime = 1.0f;
     }
-    virtual public  IEnumerator TimeLine () {
+    virtual protected   IEnumerator TimeLine        () {
         yield return null;
     }
 }

@@ -27,7 +27,7 @@ public class EnemyMove : FacadeData {
         float   period  = _deadEffectTime;
         float   inc     = 1.0f / (period + Mathf.Epsilon);
         float   count   = 0.0f;
-        Vector3 drop    = new Vector3((Random.value * 2.0f - 1.0f) * 0.05f, -0.05f , (Random.value * 2.0f -1.0f) * 0.05f);
+        Vector3 drop    = new Vector3((Random.value * 2.0f - 1.0f) * 0.05f, -0.5f , (Random.value * 2.0f -1.0f) * 0.05f);
 
         Enemy.GRADE grade = facade.GetFacade<Enemy>().GetGrade();
 

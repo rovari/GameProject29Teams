@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shot : Weapon {
 
     // User  Method =============================================== 
-    public override IEnumerator TimeLine() {
+    override protected IEnumerator TimeLine() {
 
         _recast = true;
 

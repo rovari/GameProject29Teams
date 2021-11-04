@@ -73,7 +73,6 @@ Shader "Custom/Surface"
 		float Gradation_Height	(float	y)			{ return saturate((y) / (_GH_TOP - _GH_BOTTOM)); }
 		float Gradation_Lambert	(float3 n, float3 l){ return max(0 ,dot(n, l)); }
 
-		
 		void vert(inout appdata_full v, out Input o) {
 
 			UNITY_INITIALIZE_OUTPUT(Input, o);
@@ -98,7 +97,7 @@ Shader "Custom/Surface"
 			float3	l	= normalize(float3(1.0, -1.0, 1.0));
 
 			Dissolve(IN.uv_Mask, c);
-			if (c.a <= 0.0 || _Discard) discard;
+			if (c.a < 0 || _Discard) discard;
 
 			#ifdef _GT_ONECOLOR
 			c = c * _Color;
@@ -130,6 +129,7 @@ Shader "Custom/Surface"
 				fixed4 rim = _RimColor * (1.0 - saturate(dot(IN.viewDir, n)));
 				c += pow(rim, _RimLv);
 			}
+
 
 			o.Normal = n;
 			o.Albedo = lerp(_DisCol, c, _Range * _Range);
