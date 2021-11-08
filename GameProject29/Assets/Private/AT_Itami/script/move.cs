@@ -15,12 +15,11 @@ public class move : MonoBehaviour
 
     void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        if(collision.gameObject.tag=="Enemy")
+        if(collision.gameObject.tag=="Object")
         {
-            FindObjectOfType<ScoreScript>().AddScore();
-
             Destroy(this.gameObject);
         }
+       
     }
 
 

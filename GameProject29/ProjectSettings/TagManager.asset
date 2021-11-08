@@ -10,6 +10,7 @@ TagManager:
   - Frame
   - Effect
   - Input
+  - WeakEnemy
   layers:
   - Default
   - TransparentFX
