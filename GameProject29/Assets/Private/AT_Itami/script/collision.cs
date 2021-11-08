@@ -18,7 +18,7 @@ public class collision : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             FindObjectOfType<ScoreScript>().AddScoreE();
-
+            //move.cs‚Åíœˆ—
         }
 
         if (collision.gameObject.tag == "WeakEnemy")
