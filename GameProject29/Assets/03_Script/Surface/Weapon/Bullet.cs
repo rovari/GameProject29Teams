@@ -63,11 +63,12 @@ public class Bullet : Facade {
     }
 
     private IEnumerator Shot  () {
-        
+
+        if (target == null) yield break;
         _wait = true;
         
         var startPos    = muzzle.position;
-        var endPos      = (target) ? target.transform.position : Vector3.zero;
+        var endPos      = target.transform.position;
         var speed       = 30.0f;
         var length      = (startPos - endPos).sqrMagnitude;
         var calcPos     = transform.position;
@@ -90,7 +91,8 @@ public class Bullet : Facade {
         this.gameObject.SetActive(false);
     }
     private IEnumerator Blade () {
-
+        
+        if (target == null) yield break;
         _wait = true;
         
         var startPos    = muzzle.position;
@@ -117,7 +119,8 @@ public class Bullet : Facade {
         this.gameObject.SetActive(false);
     }
     private IEnumerator Throw () {
-
+        
+        if (target == null) yield break;
         _wait = true;
 
         var gravity     = -9.8f;
@@ -153,7 +156,8 @@ public class Bullet : Facade {
         this.gameObject.SetActive(false);
     }
     private IEnumerator Homing() {
-
+        
+        if (target == null) yield break;
         _wait = true;
         
         transform.position = muzzle.position;
@@ -205,7 +209,7 @@ public class Bullet : Facade {
         this.gameObject.SetActive(false);
     }
     private IEnumerator Bomb  () {
-
+        
         _wait = true;
         
         ActiveCollision(true);

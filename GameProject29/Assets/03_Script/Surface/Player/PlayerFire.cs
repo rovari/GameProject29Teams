@@ -46,13 +46,13 @@ public class PlayerFire : FacadeData {
 
             _unLockFire = false;
 
-            if (InputManager.GetGAMEInput.TriggerL.phase == InputActionPhase.Started)
-            {
+            if (InputManager.GetGAMEInput.TriggerL.phase == InputActionPhase.Started) {
+
                 Weapon weapon = weaponList.GetWeapon(weaponList.GetListSize() - 1);
                 if (weapon != null) weapon.Lunch(facade.GetFacade<Player>().GetSetTarget);
             }
-            else
-            {
+            else {
+
                 Weapon weapon = weaponList.GetWeapon(_weaponIndex);
                 if (weapon != null) weapon.Lunch(facade.GetFacade<Player>().GetSetTarget);
             }
@@ -95,10 +95,9 @@ public class PlayerFire : FacadeData {
 
             if (Mathf.Abs(InputManager.GetGAMEInput.RStick.ReadValue<Vector2>().x) < 0.3f) break;
 
-            if (InputManager.GetGAMEInput.RStick.ReadValue<Vector2>().x > 0.7f) {
+            if (InputManager.GetGAMEInput.RStick.ReadValue<Vector2>().x >  0.7f) {
                 _targetIndex = (_targetIndex >= targetList.GetListSize() - 1) ? 0 : ++_targetIndex;
             }
-
             if (InputManager.GetGAMEInput.RStick.ReadValue<Vector2>().x < -0.7f) {
                 _targetIndex = (_targetIndex <= 0) ? targetList.GetListSize() - 1 : --_targetIndex;
             }

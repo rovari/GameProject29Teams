@@ -14,7 +14,9 @@ public class Collision : FacadeData {
         Debug.Log("Hit " + transform.parent.name + " " + name + " to "+ other.transform.parent.name + " "+ other.name);
         HitCalc(other.gameObject);
         
-        if(facade.GetType() != typeof(Bullet)) SetDamageRim(0.5f, 0.05f);
+        if (    facade.GetType()                                != typeof(Bullet) 
+            &&  other.GetComponent<Collision>().GetFacadeType() != typeof(Enemy)
+            ) SetDamageRim(0.5f, 0.05f);
     }
 
     // User  Method ===============================================
@@ -35,8 +37,8 @@ public class Collision : FacadeData {
     }
     private void        HitCalc         (GameObject obj) {
         
-        if((typeof(Player) == obj.GetComponent<Collision>().GetFacadeType()))   obj.GetComponent<Collision>().CalcPlayerHp  (_damage, obj.transform.position.x);
-        if((typeof(Enemy ) == obj.GetComponent<Collision>().GetFacadeType()))   obj.GetComponent<Collision>().CalcEnemyHp   (_damage);
+        if((typeof(Player       ) == obj.GetComponent<Collision>().GetFacadeType()))    obj.GetComponent<Collision>().CalcPlayerHp  (_damage, obj.transform.position.x);
+        if((typeof(Enemy        ) == obj.GetComponent<Collision>().GetFacadeType()))    obj.GetComponent<Collision>().CalcEnemyHp   (_damage);
     }
     private void        SetDamageRim    (float time, float interval) {
 

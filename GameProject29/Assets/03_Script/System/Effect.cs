@@ -449,4 +449,24 @@ public class Effect : MonoBehaviour {
 
         Time.timeScale = 1.0f;
     }
+    //private IEnumerator  Acceleration() {
+
+    //    float period    = _slowMotionTime;
+    //    float inc       = 1.0f / (period + Mathf.Epsilon);
+    //    float count     = 0.0f;
+        
+    //    AnimationCurve c = _curve;
+    //    if (c == null) c = _slowMotionCurve;
+
+    //    while (period > 0) {
+            
+    //        Time.timeScale = Mathf.Lerp(1.0f, 0.01f, c.Evaluate(count));
+
+    //        count   += inc * Time.unscaledDeltaTime;
+    //        period  -= Time.unscaledDeltaTime;
+    //        yield return null;
+    //    }
+
+    //    Time.timeScale = 1.0f;
+    //}
 }

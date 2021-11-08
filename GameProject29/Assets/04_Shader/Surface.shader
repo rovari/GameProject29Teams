@@ -7,10 +7,11 @@ Shader "Custom/Surface"
 
 		_MainTex ("Albedo (RGB)", 2D)				= "white" {}
 		_BumpMap ("Normal Map"	, 2D)				= "bump"  {}
-
+		
         _Color		("Color"					, Color)			= (1,1,1,1)
         _SubColor	("Sub Color"				, Color)			= (1,1,1,1)
         _Height		("Normal Level"				, Range(0, 2.0))	= 1.0
+		_Clv		("Cel Light Level"			, Range(0.0, 1.0))	= 0.5
 		_GV_X		("Gradation UV vector X"	, Range(0.0, 1.0))	= 1.0
 		_GV_Y		("Gradation UV vector Y"	, Range(0.0, 1.0))	= 1.0
 		_GH_TOP		("Gradation Height Top"		, float)			= 0
@@ -62,7 +63,7 @@ Shader "Custom/Surface"
         };
 
         fixed4	_Color, _SubColor, _FogColor, _RimColor, _DisCol, _DisEdgeCol;
-		fixed	_Height, _RimLv;
+		fixed	_Height, _Clv, _RimLv;
 		fixed	_GV_X, _GV_Y, _GH_TOP, _GH_BOTTOM;
 		int		_Reverse, _Fog, _Rim;
 		fixed	_Range;
@@ -71,7 +72,7 @@ Shader "Custom/Surface"
 
 		float Gradation_Vec		(float2 uv)			{ return length(uv * float2( _GV_X, _GV_Y)); }
 		float Gradation_Height	(float	y)			{ return saturate((y) / (_GH_TOP - _GH_BOTTOM)); }
-		float Gradation_Lambert	(float3 n, float3 l){ return max(0 ,dot(n, l)); }
+		float Gradation_Lambert	(float3 n, float3 l){ return dot(n, l); }
 
 		void vert(inout appdata_full v, out Input o) {
 
@@ -109,10 +110,10 @@ Shader "Custom/Surface"
 			c = saturate(c * lerp(_SubColor, _Color, Gradation_Height(IN.worldPos.y)));
 
 			#elif  _GT_LAMBERT
-			c = saturate(c * lerp(_SubColor, _Color, Gradation_Lambert(n, normalize(IN.lightDir))));
+			c = saturate(c * lerp(_SubColor, _Color, max(0, Gradation_Lambert(n, normalize(IN.lightDir)))));
 
 			#elif  _GT_CEL
-			c = saturate(c * (Gradation_Lambert(n, normalize(IN.lightDir)) < 0.5 ? _SubColor : _Color ));
+			c = saturate(c * (Gradation_Lambert(n, normalize(IN.lightDir)) < _Clv * 2.0 - 1.0 ? _SubColor : _Color ));
 
             #endif
 
