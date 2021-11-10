@@ -234,7 +234,7 @@
                     "id": "ce84e534-1019-4eb0-9c96-abe53d452425",
                     "path": "<Mouse>/delta",
                     "interactions": "",
-                    "processors": "StickDeadzone",
+                    "processors": "StickDeadzone(min=0.125,max=0.929)",
                     "groups": "",
                     "action": "RStick",
                     "isComposite": false,
