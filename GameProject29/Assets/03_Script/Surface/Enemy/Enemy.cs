@@ -25,7 +25,7 @@ public class Enemy : Facade {
         BIGBOSS,W
     }
     [SerializeField]                    private GRADE               _grade;
-    [SerializeField]                    private float               _activeTime;
+    [SerializeField]                    private float               _activeTime = 30.0f;
     [SerializeField]                    private PlayableDirector    startTL;
     [SerializeField]                    private PlayableDirector    roopTL;
     [SerializeField]                    private PlayableDirector    returnTL;
