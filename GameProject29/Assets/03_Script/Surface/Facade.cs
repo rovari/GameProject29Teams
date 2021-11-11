@@ -5,12 +5,12 @@ using System;
 
 public class Facade : MonoBehaviour {
     
-    // Hide  Property =============================================
+    // Hide  Field ================================================
     [HideInInspector]   public      Effect      _effect;
     [HideInInspector]   public      Surface     _surface;
                         protected   bool        _isDestory;
 
-    // Show  Property =============================================
+    // Show  Field ================================================
     [SerializeField]    private GameObject  model;
 
     // Unity Method ===============================================

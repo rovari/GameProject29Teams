@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : Facade {
 
-    // Hide  Property =============================================
+    // Hide  Field ================================================
     private enum ORBIT {
         SHOT,
         THROW,
@@ -16,7 +16,7 @@ public class Bullet : Facade {
     private GameObject  target;
     private bool        _wait;
 
-    // Show  Property =============================================
+    // Show  Field ================================================
     [SerializeField] private Transform  muzzle;
     [SerializeField] private ORBIT      _orbit;
     [SerializeField] private float      _flightTime;

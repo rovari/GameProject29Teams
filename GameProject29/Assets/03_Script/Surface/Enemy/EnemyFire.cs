@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyFire : FacadeData {
 
-    // Hide  Property =============================================
+    // Hide  Field ================================================
     
-    // Show  Property =============================================
+    // Show  Field ================================================
     [SerializeField] private TargetList targetList;
     [SerializeField] private WeaponList weaponList;
 
@@ -19,7 +19,6 @@ public class EnemyFire : FacadeData {
     }
 
     // User  Method ===============================================
-    
     public  void        Lunch           (int num) {
         Debug.Log("Lunch to " + targetList.GetTarget(0).name);
     }

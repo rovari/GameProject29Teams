@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainSystem : MonoBehaviour {
     
-    // Show  Property =============================================
+    // Show  Field ================================================
     public static MainSystem singleton;
 
     // Unity Method ===============================================
@@ -12,8 +12,7 @@ public class MainSystem : MonoBehaviour {
 
         CreateManager();
     }
-
-    private void Start() {
+    private void Start  () {
         
         //LoadScene.Load(0);
     }

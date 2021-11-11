@@ -12,12 +12,12 @@ public enum STATE {
 
 public class StateManager : MonoBehaviour {
 
-    // Hide  Property =============================================
+    // Hide  Field ================================================
     private static PlayableDirector start;
     private static PlayableDirector game;
     private static PlayableDirector result;
     
-    // Show  Property =============================================
+    // Show  Field ================================================
     [SerializeField] private GameObject startTL;
     [SerializeField] private GameObject gameTL;
     [SerializeField] private GameObject resultTL;

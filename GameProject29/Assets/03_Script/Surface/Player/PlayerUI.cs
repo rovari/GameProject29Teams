@@ -10,8 +10,7 @@ public class PlayerUI : FacadeData {
     private Vector2     _tgtPosition;
     private Vector2     _calcPosition;
     private List<int>   _indexes;
-
-
+    
     // Show  Field ================================================
     [SerializeField] private Slider         hpSlider;
     [SerializeField] private GameObject     aimTarget;
@@ -19,7 +18,6 @@ public class PlayerUI : FacadeData {
     [SerializeField] private RectTransform  target;
     [SerializeField] private Transform      muzzle;
     [SerializeField] private WeaponList     weaponList;
-
     [SerializeField] private Slider         mainWeaponSlider;
     [SerializeField] private List<Slider>   subWeaponSlider;
 

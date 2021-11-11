@@ -35,7 +35,7 @@ public class Enemy : Facade {
     [SerializeField]                    private int                 _life;
     
     // User  Method ===============================================
-    private void Start      () {
+    private void Awake      () {
         
         GetSetPosition  = transform.position;
         _defHp          = _hp;
@@ -74,7 +74,7 @@ public class Enemy : Facade {
             if (_sequence != SEQUENCE.ROOP && _timeline.time >= _timeline.duration) {
 
                 _timeline.Stop();
-                _timeline.initialTime = 0.0f;
+                _timeline.initialTime   = 0.0f;
                 _timeline.playableAsset = nextTL;
                 ++_sequence;
 
@@ -88,7 +88,7 @@ public class Enemy : Facade {
                 _timeline.playableAsset = nextTL;
                 ++_sequence;
                 
-                if (_timeline.playableAsset != null) _timeline.Play();
+                if (_timeline.playableAsset != null)    _timeline.Play();
             }
             else {
                 _activeCount += Time.deltaTime;
@@ -123,7 +123,7 @@ public class Enemy : Facade {
     public  GRADE       GetGrade    () {
         return _grade;
     }
-    public  bool        GetSetIsDestory {
+    public  bool        GetSetIsDestory{
         get { return _isDestory;  }
         set { _isDestory = value; }
     }
@@ -139,5 +139,7 @@ public class Enemy : Facade {
         get { return transform.position;  }
         set { transform.position = value; }
     }
-    public  GameObject  GetSetTarget   { get; set; }
+    public  GameObject  GetSetTarget   {
+        get; set;
+    }
 }

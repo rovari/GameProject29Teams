@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Collision : FacadeData {
     
-    // Show  Field  =============================================
+    // Show  Field  ===============================================
     [SerializeField] private float          _damage;
     [SerializeField] private AnimationCurve _damageCurve;
 
     // Unity Method ===============================================
     private void OnTriggerEnter     (Collider other) {
-        Debug.Log("Hit " + transform.parent.name + " " + name + " to "+ other.transform.parent.name + " "+ other.name);
-        HitCalc(other.gameObject);
+        Debug.Log("<< HIT >> " + transform.parent.name + " to "+ other.transform.parent.name);
+        HitTypeCheck(other.gameObject);
         
         if (    facade.GetType()                                != typeof(Bullet) 
             &&  other.GetComponent<Collision>().GetFacadeType() != typeof(Enemy)
@@ -20,7 +20,7 @@ public class Collision : FacadeData {
     }
 
     // User  Method ===============================================
-    public  Type        GetFacadeType   () {
+    public  Type        GetFacadeType       () {
         return facade.GetType();
     }
     private void        CalcPlayerHp        (float damage, float posX) {
@@ -40,18 +40,26 @@ public class Collision : FacadeData {
         
         facade.GetFacade<Environment>().GetSetHp -= damage;
     }
+    private void        HitTypeCheck        (GameObject obj) {
 
-    private void        HitCalc         (GameObject obj) {
-        
-        if((typeof(Player       ) == obj.GetComponent<Collision>().GetFacadeType()))    obj.GetComponent<Collision>().CalcPlayerHp  (_damage, obj.transform.position.x);
-        if((typeof(Enemy        ) == obj.GetComponent<Collision>().GetFacadeType()))    obj.GetComponent<Collision>().CalcEnemyHp   (_damage);
+        if ((typeof(Player)      == obj.GetComponent<Collision>().GetFacadeType())) {
+            obj.GetComponent<Collision>().CalcPlayerHp(_damage, obj.transform.position.x);
+        }
+
+        if ((typeof(Enemy)       == obj.GetComponent<Collision>().GetFacadeType())) {
+            if(facade.GetType() != typeof(Enemy)) obj.GetComponent<Collision>().CalcEnemyHp(_damage);
+        }
+
+        if ((typeof(Environment) == obj.GetComponent<Collision>().GetFacadeType())) {
+            obj.GetComponent<Collision>().CalcEnvironmentHp(_damage);
+        }
     }
-    private void        SetDamageRim    (float time, float interval) {
+    private void        SetDamageRim        (float time, float interval) {
 
         IEnumerator dr = DamageRim(time, interval);
         StartCoroutine(dr);
     }
-    private IEnumerator DamageRim       (float time, float interval) {
+    private IEnumerator DamageRim           (float time, float interval) {
 
         float   count   = time / interval;
         bool    sw      = true;

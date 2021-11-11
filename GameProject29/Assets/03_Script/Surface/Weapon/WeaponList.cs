@@ -13,7 +13,6 @@ public class WeaponList : MonoBehaviour {
     // Unity Method ===============================================
         
     // User  Method ===============================================
-
     public  Weapon  GetWeapon       (int index) {
         return (_weaponList.Count > 0) ? _weaponList[index].GetComponent<Weapon>() : null;
     }

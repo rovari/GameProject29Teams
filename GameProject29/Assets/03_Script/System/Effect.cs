@@ -9,6 +9,18 @@ using UnityEditor;
 #endif
 
 public class Effect : MonoBehaviour {
+    
+    // Hide  Field ================================================
+    private Output          output;
+    private AnimationCurve  _curve;
+    private int            _explosionHierarchy           = -1;
+    private int            _fillHierarchy                = -1;
+    private int            _vignetteHierarchy            = -1; 
+    private int            _chormaticAberrationHierarchy = -1; 
+
+    private Dictionary<string, IEnumerator> coroutine;
+    
+    // Show  Field ================================================
 
     public enum EFFECT {
         EXPLOSION,
@@ -19,19 +31,7 @@ public class Effect : MonoBehaviour {
         TIMESTOP,
         SLOWMOTION,
     }
-    
-    // Hide  Property =============================================
-    private Output          output;
-    private AnimationCurve  _curve;
-    private int            _explosionHierarchy           = -1;
-    private int            _fillHierarchy                = -1;
-    private int            _vignetteHierarchy            = -1; 
-    private int            _chormaticAberrationHierarchy = -1; 
 
-    private Dictionary<string, IEnumerator> coroutine;
-    
-    // Show  Property =============================================
-    
     [Header("<< Camera Shake >>")][Space(5)]
     [SerializeField] private bool           _shake;
     [SerializeField] private float          _shakeSpeed;
@@ -112,18 +112,6 @@ public class Effect : MonoBehaviour {
         if (_shake)     CameraShake();
     }
 
-    private void CreateDictionaly() {
-
-        coroutine = new Dictionary<string, IEnumerator>();
-
-        coroutine.Add("Explosion"   , null);
-        coroutine.Add("Fill"        , null);
-        coroutine.Add("Vignette"    , null);
-        coroutine.Add("CA"          , null);
-        coroutine.Add("FOV"         , null);
-        coroutine.Add("TimeStop"    , null);
-        coroutine.Add("SlowMotion"  , null);
-    }
 
     // User  Method ===============================================
     public void         PlayEffect (
@@ -258,10 +246,10 @@ public class Effect : MonoBehaviour {
     }
     
     [ContextMenu("DebugEffect")]
-    public  void         DebugEffect         () {
+    public  void         DebugEffect        () {
         DebugEffectPlayer();
     }
-    public  void         DebugEffectPlayer   (AnimationCurve curve = null){
+    public  void         DebugEffectPlayer  (AnimationCurve curve = null){
 
         _curve = curve;
         
@@ -275,7 +263,19 @@ public class Effect : MonoBehaviour {
         if (_slowMotion)StartCoroutine("SlowMotion");
     }
 
-    private void         CameraShake () {
+    private void         CreateDictionaly   () {
+
+        coroutine = new Dictionary<string, IEnumerator>();
+
+        coroutine.Add("Explosion"   , null);
+        coroutine.Add("Fill"        , null);
+        coroutine.Add("Vignette"    , null);
+        coroutine.Add("CA"          , null);
+        coroutine.Add("FOV"         , null);
+        coroutine.Add("TimeStop"    , null);
+        coroutine.Add("SlowMotion"  , null);
+    }
+    private void         CameraShake        () {
         
         float t     = Time.time * _shakeSpeed;
         float nx    = ((Mathf.PerlinNoise(t         , t + 0.5f) + 0.025f) * 2.0f - 1.0f) * _shakeLevel;
@@ -285,7 +285,7 @@ public class Effect : MonoBehaviour {
         Quaternion noiseRot         = Quaternion.Euler( nx, ny, nz );
         Camera.main.transform.rotation   = Quaternion.Slerp(Camera.main.transform.rotation, noiseRot, Time.time * 5.0f);
     }  
-    private IEnumerator  Explosion   () {
+    private IEnumerator  Explosion          () {
         
         float period    = _explosionTime;
         float inc       = 1.0f / (period + Mathf.Epsilon);
@@ -310,7 +310,7 @@ public class Effect : MonoBehaviour {
 
         _explosionHierarchy = -1;
     }
-    private IEnumerator  Fill        () {
+    private IEnumerator  Fill               () {
         
         float period    = _fillTime;
         float inc       = 1.0f / (period + Mathf.Epsilon);
@@ -330,7 +330,7 @@ public class Effect : MonoBehaviour {
         output.SetFill(false, _fillColor, 0.0f);
         _fillHierarchy = -1;
     }
-    private IEnumerator  Fade        () {
+    private IEnumerator  Fade               () {
         
         float period    = _fadeTime;
         float inc       = 1.0f / (period + Mathf.Epsilon);
@@ -351,7 +351,7 @@ public class Effect : MonoBehaviour {
             yield return null;
         }
     }
-    private IEnumerator  Vignette    () {
+    private IEnumerator  Vignette           () {
 
         float period    = _vignetteTime;
         float inc       = 1.0f / (period + Mathf.Epsilon);
@@ -376,7 +376,7 @@ public class Effect : MonoBehaviour {
         output.SetViggnet(false, _vignetteColor, 0.0f, 0.0f);
         _vignetteHierarchy = -1;
     }
-    private IEnumerator  CA          () {
+    private IEnumerator  CA                 () {
 
         float period    = _chormaticAberrationTime;
         float inc       = 1.0f / (period + Mathf.Epsilon);
@@ -400,7 +400,7 @@ public class Effect : MonoBehaviour {
         output.SetChromaticAberrtion( false, 0.0f);
         _chormaticAberrationHierarchy = -1;
     }
-    private IEnumerator  FOV         () {
+    private IEnumerator  FOV                () {
 
         float period    = _fovTime;
         float inc       = 1.0f / (period + Mathf.Epsilon);
@@ -420,7 +420,7 @@ public class Effect : MonoBehaviour {
             yield return null;
         }
     }
-    private IEnumerator  TimeStop    () {
+    private IEnumerator  TimeStop           () {
         
         Time.timeScale = 0.0f;
 
@@ -428,7 +428,7 @@ public class Effect : MonoBehaviour {
 
         Time.timeScale = 1.0f;
     }
-    private IEnumerator  SlowMotion  () {
+    private IEnumerator  SlowMotion         () {
 
 
         float period    = _slowMotionTime;
@@ -449,24 +449,4 @@ public class Effect : MonoBehaviour {
 
         Time.timeScale = 1.0f;
     }
-    //private IEnumerator  Acceleration() {
-
-    //    float period    = _slowMotionTime;
-    //    float inc       = 1.0f / (period + Mathf.Epsilon);
-    //    float count     = 0.0f;
-        
-    //    AnimationCurve c = _curve;
-    //    if (c == null) c = _slowMotionCurve;
-
-    //    while (period > 0) {
-            
-    //        Time.timeScale = Mathf.Lerp(1.0f, 0.01f, c.Evaluate(count));
-
-    //        count   += inc * Time.unscaledDeltaTime;
-    //        period  -= Time.unscaledDeltaTime;
-    //        yield return null;
-    //    }
-
-    //    Time.timeScale = 1.0f;
-    //}
 }

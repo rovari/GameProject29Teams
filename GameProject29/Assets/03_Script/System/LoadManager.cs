@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class LoadManager : MonoBehaviour {
     
-    // Show  Property =============================================
+    // Show  Field ================================================
     [SerializeField] private bool               _DebugPreLoad;
     [SerializeField] private bool               _openPreLoad;
     [SerializeField] private int                _sequensNumber;

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : FacadeData {
 
-    // Hide  Property =============================================
+    // Hide  Field ================================================
     private Vector3 _defaultPos;
     private float   _velocity;
     private float   _sceneCount;
@@ -13,7 +13,7 @@ public class PlayerMove : FacadeData {
     private bool    _isJump;
     private float   _oldHp;
 
-    // Show  Property =============================================
+    // Show  Field =================================================
     [SerializeField] private AnimationCurve _frictionCurve;
     [SerializeField] private AnimationCurve _blowCurve;
     [SerializeField] private float          _moveSpeed;
