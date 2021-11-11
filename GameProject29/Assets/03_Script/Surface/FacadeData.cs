@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class FacadeData : MonoBehaviour {
 
-    // Hide  Property =============================================
+    // Hide  Field ===============================================
     [SerializeField] protected Facade facade;
 }

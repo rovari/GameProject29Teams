@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Player : Facade {
 
-    // Hide  Property =============================================
+    // Hide  Field ================================================
     private float   _defHp;
     private int     _defLife;
 
-    // Show  Property =============================================
+    // Show  Field ================================================
     [SerializeField][Range(0.0f, 1.0f)] private float   _hp;
     [SerializeField]                    private int     _life;
 

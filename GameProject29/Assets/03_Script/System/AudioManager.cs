@@ -8,7 +8,7 @@ using AudioClipDictionary   = System.Collections.Generic.Dictionary<string, Unit
 
 public class AudioManager : MonoBehaviour {
 
-    // Hide  Property =============================================
+    // Hide  Field ================================================
     private static bool isLoaded;
     private static AudioClipDictionary  _bgmDic;
     private static AudioClipDictionary  _gseDic;
@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour {
     private static AudioClipDictionary  _envDic; 
     private static AudioClipDictionary  _jngDic;
     
-    // Show  Property =============================================
+    // Show  Field ================================================
     [SerializeField] private AudioMixer         _mixer;
 
     [Space()]

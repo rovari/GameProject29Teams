@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShaderController {
 
-    // Hide  Property =============================================
+    // Hide  Field ================================================
     protected Material _material;
 
     // User  Method ===============================================

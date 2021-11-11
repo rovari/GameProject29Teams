@@ -11,8 +11,10 @@ public class Environment : Facade {
         GetSetPosition = transform.position;
         _defHp      = _hp;
     }
-
-    public  void         CalcLife    () {
+    private void Update     () {
+        CalcHp();
+    }
+    public  void         CalcHp    () {
 
         if (_hp <= 0.0f) {
             

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TargetList : MonoBehaviour {
     
-    // Show  Property =============================================
+    // Show  Field ================================================
     [SerializeField] private Transform          owner;
     [SerializeField] private string             _searchTag;
     [SerializeField] private List<GameObject>   _targetList;
