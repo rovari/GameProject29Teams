@@ -53,12 +53,12 @@ public class Enemy : Facade {
 
     // User  Method ===============================================
 
-    private void         TLSequence() {
+    private void         TLSequence  () {
 
         switch (_sequence) {
             case SEQUENCE.START:
 
-                if(startTL.time >= startTL.duration) {
+                if (startTL != null && startTL.time >= startTL.duration) {
                     startTL.Stop();
                     startTL.initialTime = 0.0f;
                     if(roopTL != null) roopTL.Play();
@@ -71,7 +71,7 @@ public class Enemy : Facade {
 
                 _activeCount += Time.deltaTime;
 
-                if(_activeCount >= _activeTime) {
+                if (roopTL != null && _activeCount >= _activeTime) {
                     roopTL.Stop();
                     roopTL.initialTime = 0.0f;
                     if(returnTL != null) returnTL.Play();
@@ -82,7 +82,7 @@ public class Enemy : Facade {
 
             case SEQUENCE.RETURN:
 
-                if(returnTL.time >= returnTL.duration) {
+                if (returnTL != null && returnTL.time >= returnTL.duration ) {
                     returnTL.Stop();
                     returnTL.initialTime = 0.0f;
                     _sequence = SEQUENCE.START;
@@ -91,7 +91,6 @@ public class Enemy : Facade {
                 break;
         }   
     }
-    
     public  void         CalcLife    () {
 
         if (_hp <= 0.0f) {
@@ -100,7 +99,7 @@ public class Enemy : Facade {
 
             if (_life < 0) {
 
-                roopTL.Stop();
+                if (roopTL != null) roopTL.Stop();
                 _isDestory  = true;
                 _life       = _defLife;
                 _hp         = _defHp;
