@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Field_mat
+  m_Name: Cloud_mat
   m_Shader: {fileID: 4800000, guid: 49513062b543e35458d55e5de3c9c972, type: 3}
   m_ShaderKeywords: _FOG_ON _GT_DEPTH _GT_FOG _GT_ONECOLOR
   m_LightmapFlags: 4
@@ -44,11 +44,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2f0cd3b9c740bde4ea417a22621560e1, type: 3}
-        m_Scale: {x: 500, y: 500}
+        m_Texture: {fileID: 2800000, guid: 25483d90193db16428c49ae912583acb, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 2800000, guid: 126b35092d530bc41bbbb09bc0d06a4a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 25483d90193db16428c49ae912583acb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -89,12 +89,12 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Range: 1
+    - _Range: 0.454
     - _Reverse: 0
     - _Rim: 0
     - _RimLv: 0
     - _Scr_X: 0
-    - _Scr_Y: -10
+    - _Scr_Y: -0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -106,7 +106,7 @@ Material:
     - _DisCol: {r: 1, g: 1, b: 1, a: 1}
     - _DisEdgeCol: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor: {r: 0, g: 0.3118984, b: 0.8490566, a: 1}
+    - _FogColor: {r: 0, g: 0, b: 0, a: 1}
     - _GV: {r: 2.01, g: -0.49, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SubColor: {r: 0.21733712, g: 0.39905998, b: 0.41509432, a: 1}

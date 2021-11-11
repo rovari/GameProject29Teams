@@ -84,7 +84,9 @@ Material:
     - _GlossyReflections: 1
     - _Link: 1
     - _Metallic: 0
+    - _MoLv: 0.495
     - _Mode: 0
+    - _Mono: 0
     - _NDIFF: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -107,6 +109,7 @@ Material:
     - _FdCol: {r: 0.004406512, g: 0.004406512, b: 0.004406512, a: 0}
     - _FdSCol: {r: 1, g: 0, b: 0, a: 0}
     - _FiCol: {r: 1, g: 0.97216296, b: 0.8254717, a: 0}
+    - _MoCol: {r: 0, g: 0, b: 0, a: 1}
     - _ViCol: {r: 0, g: 0, b: 0, a: 0}
     - _fiCol: {r: 0.49056602, g: 0.40494835, b: 0.40494835, a: 1}
   m_BuildTextureStacks: []

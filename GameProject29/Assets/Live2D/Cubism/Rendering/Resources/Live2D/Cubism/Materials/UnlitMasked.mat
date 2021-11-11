@@ -27,6 +27,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _Cull: 0
     - _DstAlpha: 10
@@ -39,3 +40,4 @@ Material:
     m_Colors:
     - cubism_MaskTile: {r: 0, g: 0, b: 0, a: 0}
     - cubism_MaskTransform: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

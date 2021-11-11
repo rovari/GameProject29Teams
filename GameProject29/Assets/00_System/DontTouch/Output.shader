@@ -15,6 +15,12 @@ Shader "Custom/Output" {
 		_FiCol	 ("Fill Color"		, Color)			= (1,1,1,1)
 		_FiLv	 ("Fill Level"		, Range(0.0, 1.0))	= 0.0
 
+		[Space(5)][Header(Monochrome)][Space(10)]
+		[Toggle]
+		_Mono	 ("Active"			, int)				= 0
+		_MoCol	 ("Monochrome Color", Color)			= (1,1,1,1)
+		_MoLv	 ("Monochrome Level", Range(0.0, 1.0))	= 0.0
+
 		[Space(5)][Header(Laplasian)][Space(10)]
 		[Toggle]
 		_DFLAG	 ("Use Depth"		, int)				= 0
@@ -74,6 +80,10 @@ Shader "Custom/Output" {
 			fixed	_FiLv;
 			fixed4	_FiCol;
 
+			int		_Mono;
+			fixed	_MoLv;
+			fixed4	_MoCol;
+
 			int		_CA;
 			fixed	_CALv;
 
@@ -104,6 +114,15 @@ Shader "Custom/Output" {
 			}
 			fixed4 Fill					(fixed4 col) {
 				return lerp(col, _FiCol, _FiLv);
+			}
+			fixed4 Monochrome			(fixed4 col){
+
+				float3 monochrome;
+				monochrome.r = col.r * 0.299;
+				monochrome.g = col.g * 0.587;
+				monochrome.b = col.b * 0.114;
+				monochrome.r = monochrome.r * monochrome.g * monochrome.b;
+				return col * monochrome.r;
 			}
 			fixed4 Laplacian			(float2 uv, fixed4 col) {
 
@@ -179,7 +198,8 @@ Shader "Custom/Output" {
 				col = (_CA)		? ChromaticAberration(i.uv, col) : col;
 				col = (_Fill)	? Fill(col)	: col;
 				col = Laplacian(i.uv, col);
-				col = (_Vig) ? Vignette(i.uv, col) : col;
+				col = (_Vig)	? Vignette(i.uv, col) : col;
+				col = (_Mono)	? Monochrome(col) : col;
 				col = Fade(i.uv, col);
 
 				return col;

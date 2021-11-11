@@ -97,7 +97,7 @@ Shader "Custom/Surface"
 			float3	n	= UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap + addUv) * _Height);
 			float3	l	= normalize(float3(1.0, -1.0, 1.0));
 
-			Dissolve(IN.uv_Mask, c);
+			Dissolve(IN.uv_Mask + addUv, c);
 			if (c.a < 0 || _Discard) discard;
 
 			#ifdef _GT_ONECOLOR
