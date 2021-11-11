@@ -129,6 +129,22 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Lockon"",
+                    ""type"": ""Value"",
+                    ""id"": ""a6f37680-78a5-4fde-8c82-d6e1a1e4f9f1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Weaponchange"",
+                    ""type"": ""Button"",
+                    ""id"": ""64cab0ac-c035-4124-96df-466e92b2b78e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -626,6 +642,61 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4a4e635-165e-436d-9368-8a2ead7be758"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lockon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d037ff33-3b59-4f65-9736-b7259d2f7695"",
+                    ""path"": ""<DualShockGamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lockon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e9a98563-b47d-4794-9b14-ef96caecc44c"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lockon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""15544aec-68e7-412f-92d9-831d4f55067e"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lockon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a121ec1-826f-42c8-ad9a-dac6fc84690b"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weaponchange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -770,6 +841,8 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
         m_GAME_LButton = m_GAME.FindAction("LButton", throwIfNotFound: true);
         m_GAME_RButton = m_GAME.FindAction("RButton", throwIfNotFound: true);
         m_GAME_Move = m_GAME.FindAction("Move", throwIfNotFound: true);
+        m_GAME_Lockon = m_GAME.FindAction("Lockon", throwIfNotFound: true);
+        m_GAME_Weaponchange = m_GAME.FindAction("Weaponchange", throwIfNotFound: true);
         // LOAD
         m_LOAD = asset.FindActionMap("LOAD", throwIfNotFound: true);
         m_LOAD_Enter = m_LOAD.FindAction("Enter", throwIfNotFound: true);
@@ -843,6 +916,8 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
     private readonly InputAction m_GAME_LButton;
     private readonly InputAction m_GAME_RButton;
     private readonly InputAction m_GAME_Move;
+    private readonly InputAction m_GAME_Lockon;
+    private readonly InputAction m_GAME_Weaponchange;
     public struct GAMEActions
     {
         private @MainInputSystem m_Wrapper;
@@ -861,6 +936,8 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
         public InputAction @LButton => m_Wrapper.m_GAME_LButton;
         public InputAction @RButton => m_Wrapper.m_GAME_RButton;
         public InputAction @Move => m_Wrapper.m_GAME_Move;
+        public InputAction @Lockon => m_Wrapper.m_GAME_Lockon;
+        public InputAction @Weaponchange => m_Wrapper.m_GAME_Weaponchange;
         public InputActionMap Get() { return m_Wrapper.m_GAME; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -912,6 +989,12 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_GAMEActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_GAMEActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_GAMEActionsCallbackInterface.OnMove;
+                @Lockon.started -= m_Wrapper.m_GAMEActionsCallbackInterface.OnLockon;
+                @Lockon.performed -= m_Wrapper.m_GAMEActionsCallbackInterface.OnLockon;
+                @Lockon.canceled -= m_Wrapper.m_GAMEActionsCallbackInterface.OnLockon;
+                @Weaponchange.started -= m_Wrapper.m_GAMEActionsCallbackInterface.OnWeaponchange;
+                @Weaponchange.performed -= m_Wrapper.m_GAMEActionsCallbackInterface.OnWeaponchange;
+                @Weaponchange.canceled -= m_Wrapper.m_GAMEActionsCallbackInterface.OnWeaponchange;
             }
             m_Wrapper.m_GAMEActionsCallbackInterface = instance;
             if (instance != null)
@@ -958,6 +1041,12 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Lockon.started += instance.OnLockon;
+                @Lockon.performed += instance.OnLockon;
+                @Lockon.canceled += instance.OnLockon;
+                @Weaponchange.started += instance.OnWeaponchange;
+                @Weaponchange.performed += instance.OnWeaponchange;
+                @Weaponchange.canceled += instance.OnWeaponchange;
             }
         }
     }
@@ -1085,6 +1174,8 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
         void OnLButton(InputAction.CallbackContext context);
         void OnRButton(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnLockon(InputAction.CallbackContext context);
+        void OnWeaponchange(InputAction.CallbackContext context);
     }
     public interface ILOADActions
     {
