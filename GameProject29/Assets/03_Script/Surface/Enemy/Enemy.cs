@@ -5,22 +5,32 @@ using UnityEngine.Playables;
 
 public class Enemy : Facade {
 
-    // Hide  Property =============================================
-    [SerializeField] public  enum GRADE {
+    // Hide  Field  ===============================================
+    private enum SEQUENCE {
+        START,
+        ROOP,
+        RETURN
+    }
+    private SEQUENCE    _sequence;
+    private float       _defHp;
+    private int         _defLife;
+    private float       _activeCount;
+
+    // Show  Field ================================================
+    [SerializeField]                    public  enum GRADE {
         LOWRISK,
         MIDDLERISK,
         HEIGHTRISK,
         BOSS,
-        BIGBOSS,
+        BIGBOSS,W
     }
-    [SerializeField] private GRADE   _grade;
-                     private float   _defHp;
-                     private int     _defLife;
-
-    // Show  Property =============================================
-    [SerializeField]                    private PlayableDirector _timeline;
-    [SerializeField][Range(0.0f, 1.0f)] private float   _hp;
-    [SerializeField]                    private int     _life;
+    [SerializeField]                    private GRADE               _grade;
+    [SerializeField]                    private float               _activeTime;
+    [SerializeField]                    private PlayableDirector    startTL;
+    [SerializeField]                    private PlayableDirector    roopTL;
+    [SerializeField]                    private PlayableDirector    returnTL;
+    [SerializeField][Range(0.0f, 1.0f)] private float               _hp;
+    [SerializeField]                    private int                 _life;
     
     // User  Method ===============================================
     private void Awake      () {
@@ -31,18 +41,57 @@ public class Enemy : Facade {
     private void Update     () {
 
         CalcLife();
+        TLSequence();
     }
     private void OnEnable   () {
-        if(_timeline != null) _timeline.Play();
+        if(roopTL != null) startTL.Play();
     }
     private void OnDisable  () {
         _hp         = _defHp;
         _life       = _defLife;
-
-        if (_timeline != null) _timeline.initialTime = 0.0;
     }
 
     // User  Method ===============================================
+
+    private void         TLSequence() {
+
+        switch (_sequence) {
+            case SEQUENCE.START:
+
+                if(startTL.time >= startTL.duration) {
+                    startTL.Stop();
+                    startTL.initialTime = 0.0f;
+                    if(roopTL != null) roopTL.Play();
+                    _sequence = SEQUENCE.ROOP;
+                }
+
+                break;
+
+            case SEQUENCE.ROOP:
+
+                _activeCount += Time.deltaTime;
+
+                if(_activeCount >= _activeTime) {
+                    roopTL.Stop();
+                    roopTL.initialTime = 0.0f;
+                    if(returnTL != null) returnTL.Play();
+                    _sequence = SEQUENCE.RETURN;
+                }
+
+                break;
+
+            case SEQUENCE.RETURN:
+
+                if(returnTL.time >= returnTL.duration) {
+                    returnTL.Stop();
+                    returnTL.initialTime = 0.0f;
+                    _sequence = SEQUENCE.START;
+                }
+                
+                break;
+        }   
+    }
+    
     public  void         CalcLife    () {
 
         if (_hp <= 0.0f) {
@@ -51,7 +100,7 @@ public class Enemy : Facade {
 
             if (_life < 0) {
 
-                _timeline.Stop();
+                roopTL.Stop();
                 _isDestory  = true;
                 _life       = _defLife;
                 _hp         = _defHp;
