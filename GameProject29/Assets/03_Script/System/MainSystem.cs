@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MainSystem : MonoBehaviour {
     
@@ -16,9 +17,12 @@ public class MainSystem : MonoBehaviour {
         
         //LoadScene.Load(0);
     }
+    private void Update () {
+        Quit();
+    }
 
     // User  Method ===============================================
-    private void CreateManager() {
+    private void CreateManager  () {
 
         if (singleton == null) {
             DontDestroyOnLoad(gameObject);
@@ -27,6 +31,17 @@ public class MainSystem : MonoBehaviour {
 
         else {
             Destroy(gameObject);
+        }
+    }
+    private void Quit           () {
+
+        if (Keyboard.current.escapeKey.isPressed && Keyboard.current.shiftKey.isPressed) { 
+
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #elif UNITY_STANDALONE
+            UnityEngine.Application.Quit();
+            #endif
         }
     }
 }

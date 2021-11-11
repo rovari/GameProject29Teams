@@ -23,10 +23,10 @@ public class StateManager : MonoBehaviour {
     [SerializeField] private GameObject resultTL;
 
     // User  Method ===============================================
-    private void Start() {
+    private void Start  () {
         Fetch();
     }
-
+    
     // User  Method ===============================================
     public  static void  Fetch       () {
         start   = GameObject.Find("StartTL" ).gameObject.GetComponent<PlayableDirector>();
