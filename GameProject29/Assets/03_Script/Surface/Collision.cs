@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Collision : FacadeData {
     
-    // Show  Property =============================================
+    // Show  Field  =============================================
     [SerializeField] private float          _damage;
     [SerializeField] private AnimationCurve _damageCurve;
 
@@ -23,18 +23,24 @@ public class Collision : FacadeData {
     public  Type        GetFacadeType   () {
         return facade.GetType();
     }
-    private void        CalcPlayerHp    (float damage, float posX) {
+    private void        CalcPlayerHp        (float damage, float posX) {
         facade.GetFacade<Player>().GetSetHp -= damage;
         facade.GetFacade<Player>().GetSetHitPos = posX;
 
         facade._effect.PlayEffect(Effect.EFFECT.CA,        0.5f, _damageCurve, 0, 0.1f);
         facade._effect.PlayEffect(Effect.EFFECT.EXPLOSION, 0.5f, _damageCurve, 0, 0.25f);
     }
-    private void        CalcEnemyHp     (float damage) {
+    private void        CalcEnemyHp         (float damage) {
+
         facade.GetFacade<Enemy>().GetSetHp -= damage;
         facade._effect.PlayEffect(Effect.EFFECT.TIMESTOP,  0.05f);
         facade._effect.PlayEffect(Effect.EFFECT.EXPLOSION, 0.5f, _damageCurve, 0, 0.25f);
     }
+    private void        CalcEnvironmentHp   (float damage) {
+        
+        facade.GetFacade<Environment>().GetSetHp -= damage;
+    }
+
     private void        HitCalc         (GameObject obj) {
         
         if((typeof(Player       ) == obj.GetComponent<Collision>().GetFacadeType()))    obj.GetComponent<Collision>().CalcPlayerHp  (_damage, obj.transform.position.x);
