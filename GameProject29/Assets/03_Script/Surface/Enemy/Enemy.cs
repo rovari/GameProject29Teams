@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 
 public class Enemy : Facade {
 
-    // Hide  Field  ===============================================
+    // Hide  Field ================================================
     private enum SEQUENCE {
         START,
         ROOP,
@@ -78,8 +78,8 @@ public class Enemy : Facade {
                 _timeline.playableAsset = nextTL;
                 ++_sequence;
 
-                if (_sequence == SEQUENCE.END) _sequence = SEQUENCE.START;
-                if (_timeline.playableAsset != null) _timeline.Play();
+                if (_sequence == SEQUENCE.END)          _sequence = SEQUENCE.START;
+                if (_timeline.playableAsset != null)    _timeline.Play();
             }
             else if(_activeCount > _activeTime){
 
@@ -92,6 +92,12 @@ public class Enemy : Facade {
             }
             else {
                 _activeCount += Time.deltaTime;
+
+                if(_timeline.time >= _timeline.duration) {
+                    _timeline.Stop();
+                    _timeline.initialTime = 0.0f;
+                    _timeline.Play();
+                }
             }
          }
     }
