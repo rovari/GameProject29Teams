@@ -83,6 +83,6 @@ public class Player1 : MonoBehaviour
         //Debug.Log(wheel);
        // Debug.Log(move);
        // if(CK)
-       // Gamepad.current.SetMotorSpeeds(0.5f, 1f);
+       Gamepad.current.SetMotorSpeeds(0.5f, 1f);
     }
 }
