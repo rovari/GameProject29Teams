@@ -145,6 +145,30 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""f452d2be-9cc6-45e0-809b-74afbcb24ac9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""502cc48b-f191-49fc-b0a9-0c9f2dad21aa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Item"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b1f71e6-7c81-401a-9f83-0ac0a029d3f5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -690,11 +714,143 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4a121ec1-826f-42c8-ad9a-dac6fc84690b"",
-                    ""path"": """",
+                    ""path"": ""<DualShockGamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Weaponchange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f56303c-30d5-45c0-a6ae-04ddd517b512"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weaponchange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b06e1a1-bede-443c-9cd2-cc6a832cf3c2"",
+                    ""path"": ""<SwitchProControllerHID>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weaponchange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05c37d34-92ea-4d95-bb82-260cc7fcbd5c"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weaponchange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0381bc09-be33-454b-97c8-63d57291a504"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a88e6dfa-f626-471b-b859-0aa19c1bedbd"",
+                    ""path"": ""<DualShockGamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59ce981c-1eac-449a-978b-f35f49dea3bd"",
+                    ""path"": ""<SwitchProControllerHID>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11bda516-c421-463c-9171-7e5f09070cac"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""977cb66b-06dd-4d74-8c9e-4961bde4386b"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""678d5cb5-bac2-42d3-a2cd-c34a89fe6a38"",
+                    ""path"": ""<DualShockGamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79f9b047-6493-45d6-a5d2-e341d78ebcb7"",
+                    ""path"": ""<SwitchProControllerHID>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abed48da-368b-4295-83f3-de3b86b18570"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44dda4ef-98af-4f67-89b8-ae1e559a044c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Item"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -843,6 +999,9 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
         m_GAME_Move = m_GAME.FindAction("Move", throwIfNotFound: true);
         m_GAME_Lockon = m_GAME.FindAction("Lockon", throwIfNotFound: true);
         m_GAME_Weaponchange = m_GAME.FindAction("Weaponchange", throwIfNotFound: true);
+        m_GAME_Attack = m_GAME.FindAction("Attack", throwIfNotFound: true);
+        m_GAME_Jump = m_GAME.FindAction("Jump", throwIfNotFound: true);
+        m_GAME_Item = m_GAME.FindAction("Item", throwIfNotFound: true);
         // LOAD
         m_LOAD = asset.FindActionMap("LOAD", throwIfNotFound: true);
         m_LOAD_Enter = m_LOAD.FindAction("Enter", throwIfNotFound: true);
@@ -918,6 +1077,9 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
     private readonly InputAction m_GAME_Move;
     private readonly InputAction m_GAME_Lockon;
     private readonly InputAction m_GAME_Weaponchange;
+    private readonly InputAction m_GAME_Attack;
+    private readonly InputAction m_GAME_Jump;
+    private readonly InputAction m_GAME_Item;
     public struct GAMEActions
     {
         private @MainInputSystem m_Wrapper;
@@ -938,6 +1100,9 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_GAME_Move;
         public InputAction @Lockon => m_Wrapper.m_GAME_Lockon;
         public InputAction @Weaponchange => m_Wrapper.m_GAME_Weaponchange;
+        public InputAction @Attack => m_Wrapper.m_GAME_Attack;
+        public InputAction @Jump => m_Wrapper.m_GAME_Jump;
+        public InputAction @Item => m_Wrapper.m_GAME_Item;
         public InputActionMap Get() { return m_Wrapper.m_GAME; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -995,6 +1160,15 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                 @Weaponchange.started -= m_Wrapper.m_GAMEActionsCallbackInterface.OnWeaponchange;
                 @Weaponchange.performed -= m_Wrapper.m_GAMEActionsCallbackInterface.OnWeaponchange;
                 @Weaponchange.canceled -= m_Wrapper.m_GAMEActionsCallbackInterface.OnWeaponchange;
+                @Attack.started -= m_Wrapper.m_GAMEActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_GAMEActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_GAMEActionsCallbackInterface.OnAttack;
+                @Jump.started -= m_Wrapper.m_GAMEActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_GAMEActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_GAMEActionsCallbackInterface.OnJump;
+                @Item.started -= m_Wrapper.m_GAMEActionsCallbackInterface.OnItem;
+                @Item.performed -= m_Wrapper.m_GAMEActionsCallbackInterface.OnItem;
+                @Item.canceled -= m_Wrapper.m_GAMEActionsCallbackInterface.OnItem;
             }
             m_Wrapper.m_GAMEActionsCallbackInterface = instance;
             if (instance != null)
@@ -1047,6 +1221,15 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                 @Weaponchange.started += instance.OnWeaponchange;
                 @Weaponchange.performed += instance.OnWeaponchange;
                 @Weaponchange.canceled += instance.OnWeaponchange;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+                @Item.started += instance.OnItem;
+                @Item.performed += instance.OnItem;
+                @Item.canceled += instance.OnItem;
             }
         }
     }
@@ -1176,6 +1359,9 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLockon(InputAction.CallbackContext context);
         void OnWeaponchange(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnItem(InputAction.CallbackContext context);
     }
     public interface ILOADActions
     {
