@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class EnemyMove : FacadeData {
 
-    // Hide  Property =============================================
+    // Hide  Field  =============================================
 
-    // Show  Property =============================================
+    // Show  Field  =============================================
     [SerializeField] private float          _deadEffectTime;
     [SerializeField] private AnimationCurve _deadEffectCurve;
 
     // Unity Method ===============================================
     private void Update() {
-        Dead();
+        Dead        ();
+        LookTarget  ();
     }
-
+    
     // User  Method ===============================================
-    private void Dead() {
+    private void        Dead() {
         if (facade.GetFacade<Enemy>().GetSetIsDestory) { StartCoroutine("DeadEffect"); }
     }
-
+    private void        LookTarget() {
+        if(facade.GetFacade<Enemy>().GetSetTarget != null && GetSetLookLock) transform.LookAt(facade.GetFacade<Enemy>().GetSetTarget.transform);
+    }
+    private bool        GetSetLookLock  {
+        get; set;
+    } = true;
     private IEnumerator DeadEffect() {
 
         facade.GetFacade<Enemy>().GetSetIsDestory = false;

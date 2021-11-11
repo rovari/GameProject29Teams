@@ -7,23 +7,23 @@ public class EnemyFire : FacadeData {
     // Hide  Property =============================================
     
     // Show  Property =============================================
-    [SerializeField] private TargetList  targetList;
-    [SerializeField] private WeaponList  weaponList;
+    [SerializeField] private TargetList targetList;
+    [SerializeField] private WeaponList weaponList;
 
     // Unity Method ===============================================
     private void Start  () {
         StartCoroutine("SearchPlayer");
     }
-    
-    // User  Method ===============================================
-    public void Lunch       (int num) {
-
-        Debug.Log("Lunch to " + targetList.GetTarget(0).name);
-
-        //weaponList.GetWeapon(num).Lunch(targetList.GetTarget(0));
+    private void Update () {
+        facade.GetFacade<Enemy>().GetSetTarget = targetList.GetTarget(0);
     }
+
+    // User  Method ===============================================
     
-    private IEnumerator SearchPlayer() {
+    public  void        Lunch           (int num) {
+        Debug.Log("Lunch to " + targetList.GetTarget(0).name);
+    }
+    private IEnumerator SearchPlayer    () {
 
         while (true) {
             targetList.RefreshList();
