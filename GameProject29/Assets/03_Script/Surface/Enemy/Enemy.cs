@@ -51,6 +51,7 @@ public class Enemy : Facade {
 
             if (_life < 0) {
 
+                _timeline.Stop();
                 _isDestory  = true;
                 _life       = _defLife;
                 _hp         = _defHp;
