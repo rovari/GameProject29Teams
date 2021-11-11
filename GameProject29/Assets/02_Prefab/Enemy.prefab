@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 1060248473044478003}
   - component: {fileID: 660387518908266485}
   - component: {fileID: 1060248473044478000}
+  - component: {fileID: 7575798439972136723}
   - component: {fileID: 2075163143}
   m_Layer: 0
   m_Name: Enemy
@@ -145,7 +146,10 @@ MonoBehaviour:
   _effect: {fileID: 0}
   model: {fileID: 1060248473162570149}
   _grade: 0
-  _timeline: {fileID: 0}
+  _activeTime: 30
+  _startTL: {fileID: 0}
+  _roopTL: {fileID: 0}
+  _returnTL: {fileID: 0}
   _hp: 1
   _life: 1
 --- !u!114 &660387518908266485
@@ -210,6 +214,23 @@ MonoBehaviour:
   facade: {fileID: 1060248473044478003}
   targetList: {fileID: 1060248472288188541}
   weaponList: {fileID: 1060248471502809683}
+--- !u!320 &7575798439972136723
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060248473044478006}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!114 &2075163143
 MonoBehaviour:
   m_ObjectHideFlags: 0

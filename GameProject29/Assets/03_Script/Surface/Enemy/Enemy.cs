@@ -9,12 +9,14 @@ public class Enemy : Facade {
     private enum SEQUENCE {
         START,
         ROOP,
-        RETURN
+        RETURN,
+        END
     }
-    private SEQUENCE    _sequence;
-    private float       _defHp;
-    private int         _defLife;
-    private float       _activeCount;
+    private SEQUENCE            _sequence;
+    private float               _defHp;
+    private int                 _defLife;
+    private float               _activeCount;
+    private PlayableDirector    _timeline;
 
     // Show  Field ================================================
     [SerializeField]                    public  enum GRADE {
@@ -26,17 +28,18 @@ public class Enemy : Facade {
     }
     [SerializeField]                    private GRADE               _grade;
     [SerializeField]                    private float               _activeTime = 30.0f;
-    [SerializeField]                    private PlayableDirector    startTL;
-    [SerializeField]                    private PlayableDirector    roopTL;
-    [SerializeField]                    private PlayableDirector    returnTL;
+    [SerializeField]                    private PlayableAsset       _startTL;
+    [SerializeField]                    private PlayableAsset       _roopTL;
+    [SerializeField]                    private PlayableAsset       _returnTL;
     [SerializeField][Range(0.0f, 1.0f)] private float               _hp;
     [SerializeField]                    private int                 _life;
     
     // User  Method ===============================================
-    private void Awake      () {
-        GetSetPosition = transform.position;
-        _defHp      = _hp;
-        _defLife    = _life;
+    private void Start      () {
+        
+        GetSetPosition  = transform.position;
+        _defHp          = _hp;
+        _defLife        = _life;
     }
     private void Update     () {
 
@@ -44,7 +47,10 @@ public class Enemy : Facade {
         TLSequence();
     }
     private void OnEnable   () {
-        if(roopTL != null) startTL.Play();
+
+        _timeline               = GetComponent<PlayableDirector>();
+        _timeline.playableAsset = _startTL;
+        if(_timeline.playableAsset != null) _timeline.Play();
     }
     private void OnDisable  () {
         _hp         = _defHp;
@@ -53,45 +59,43 @@ public class Enemy : Facade {
 
     // User  Method ===============================================
 
-    private void         TLSequence  () {
+    private void        TLSequence  () {
 
         switch (_sequence) {
-            case SEQUENCE.START:
-
-                if (startTL != null && startTL.time >= startTL.duration) {
-                    startTL.Stop();
-                    startTL.initialTime = 0.0f;
-                    if(roopTL != null) roopTL.Play();
-                    _sequence = SEQUENCE.ROOP;
-                }
-
-                break;
-
-            case SEQUENCE.ROOP:
-
-                _activeCount += Time.deltaTime;
-
-                if (roopTL != null && _activeCount >= _activeTime) {
-                    roopTL.Stop();
-                    roopTL.initialTime = 0.0f;
-                    if(returnTL != null) returnTL.Play();
-                    _sequence = SEQUENCE.RETURN;
-                }
-
-                break;
-
-            case SEQUENCE.RETURN:
-
-                if (returnTL != null && returnTL.time >= returnTL.duration ) {
-                    returnTL.Stop();
-                    returnTL.initialTime = 0.0f;
-                    _sequence = SEQUENCE.START;
-                }
-                
-                break;
+            case SEQUENCE.START:    SetTimeLine(_roopTL  ); break;
+            case SEQUENCE.ROOP:     SetTimeLine(_returnTL); break;
+            case SEQUENCE.RETURN:   SetTimeLine(null     ); break;
         }   
     }
-    public  void         CalcLife    () {
+    private void        SetTimeLine (PlayableAsset nextTL) {
+
+         if (_timeline.playableAsset != null ) {
+
+            if (_sequence != SEQUENCE.ROOP && _timeline.time >= _timeline.duration) {
+
+                _timeline.Stop();
+                _timeline.initialTime = 0.0f;
+                _timeline.playableAsset = nextTL;
+                ++_sequence;
+
+                if (_sequence == SEQUENCE.END) _sequence = SEQUENCE.START;
+                if (_timeline.playableAsset != null) _timeline.Play();
+            }
+            else if(_activeCount > _activeTime){
+
+                _timeline.Stop();
+                _timeline.initialTime   = 0.0f;
+                _timeline.playableAsset = nextTL;
+                ++_sequence;
+                
+                if (_timeline.playableAsset != null) _timeline.Play();
+            }
+            else {
+                _activeCount += Time.deltaTime;
+            }
+         }
+    }
+    public  void        CalcLife    () {
 
         if (_hp <= 0.0f) {
 
@@ -99,7 +103,7 @@ public class Enemy : Facade {
 
             if (_life < 0) {
 
-                if (roopTL != null) roopTL.Stop();
+                if (_timeline.playableAsset != null) _timeline.Stop();
                 _isDestory  = true;
                 _life       = _defLife;
                 _hp         = _defHp;
@@ -110,24 +114,24 @@ public class Enemy : Facade {
         _hp     = (_hp   < 0.0f) ? 0.0f : _hp;
         _life   = (_life < 0)    ? 0    : _life;
     }
-    public  GRADE        GetGrade    () {
+    public  GRADE       GetGrade    () {
         return _grade;
     }
-    public  bool         GetSetIsDestory {
+    public  bool        GetSetIsDestory {
         get { return _isDestory;  }
         set { _isDestory = value; }
     }
-    public  float        GetSetHp       {
+    public  float       GetSetHp       {
         get { return _hp;  }
         set { _hp = value; }
     }
-    public  int          GetSetLife     {
+    public  int         GetSetLife     {
         get { return _life; }
         set { _life = value;}
     }
-    public  Vector3      GetSetPosition {
+    public  Vector3     GetSetPosition {
         get { return transform.position;  }
         set { transform.position = value; }
     }
-    public  GameObject   GetSetTarget   { get; set; }
+    public  GameObject  GetSetTarget   { get; set; }
 }
