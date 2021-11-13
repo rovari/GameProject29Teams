@@ -7,10 +7,10 @@ public class Enemy : Facade {
 
     // Hide  Field ================================================
     private enum SEQUENCE {
+        IDLE,
         START,
         ROOP,
-        RETURN,
-        END
+        RETURN
     }
     private SEQUENCE            _sequence;
     private float               _defHp;
@@ -37,6 +37,7 @@ public class Enemy : Facade {
     // User  Method ===============================================
     private void Awake      () {
         
+        _sequence       = SEQUENCE.IDLE;
         GetSetPosition  = transform.position;
         _defHp          = _hp;
         _defLife        = _life;
@@ -46,12 +47,6 @@ public class Enemy : Facade {
         CalcLife();
         TLSequence();
     }
-    private void OnEnable   () {
-
-        _timeline               = GetComponent<PlayableDirector>();
-        _timeline.playableAsset = _startTL;
-        if(_timeline.playableAsset != null) _timeline.Play();
-    }
     private void OnDisable  () {
         _hp         = _defHp;
         _life       = _defLife;
@@ -59,47 +54,71 @@ public class Enemy : Facade {
 
     // User  Method ===============================================
 
-    private void        TLSequence  () {
+    private void        SetSequence () {
 
-        switch (_sequence) {
-            case SEQUENCE.START:    SetTimeLine(_roopTL  ); break;
-            case SEQUENCE.ROOP:     SetTimeLine(_returnTL); break;
-            case SEQUENCE.RETURN:   SetTimeLine(null     ); break;
-        }   
+        _timeline = GetComponent<PlayableDirector>();
+        _timeline.playableAsset = _startTL;
+
+        if (_timeline.playableAsset != null) {
+            _sequence = SEQUENCE.START;
+            _timeline.Play();
+        }
     }
-    private void        SetTimeLine (PlayableAsset nextTL) {
+    private void        TLSequence  () {
+        
+        switch (_sequence) {
+            case SEQUENCE.START:
 
-         if (_timeline.playableAsset != null ) {
+                if (_timeline.time >= _timeline.duration) {
 
-            if (_sequence != SEQUENCE.ROOP && _timeline.time >= _timeline.duration) {
-
-                _timeline.Stop();
-                _timeline.initialTime   = 0.0f;
-                _timeline.playableAsset = nextTL;
-                ++_sequence;
-
-                if (_sequence == SEQUENCE.END)          _sequence = SEQUENCE.START;
-                if (_timeline.playableAsset != null)    _timeline.Play();
-            }
-            else if(_activeCount > _activeTime){
-
-                _timeline.Stop();
-                _timeline.initialTime   = 0.0f;
-                _timeline.playableAsset = nextTL;
-                ++_sequence;
-                
-                if (_timeline.playableAsset != null)    _timeline.Play();
-            }
-            else {
-                _activeCount += Time.deltaTime;
-
-                if(_timeline.time >= _timeline.duration) {
                     _timeline.Stop();
-                    _timeline.initialTime = 0.0f;
-                    _timeline.Play();
+                    _timeline.initialTime   = 0.0f;
+                    _timeline.playableAsset = _roopTL;
+
+                    if (_timeline.playableAsset != null) {
+                        _sequence = SEQUENCE.ROOP;
+                        _timeline.Play();
+                    }
                 }
-            }
-         }
+                break;
+
+            case SEQUENCE.ROOP:
+
+                if(_activeCount > _activeTime){
+
+                    _activeCount            = 0.0f;
+                    _timeline.Stop();
+                    _timeline.initialTime   = 0.0f;
+                    _timeline.playableAsset = _returnTL;
+
+                    if (_timeline.playableAsset != null) {
+                        _sequence = SEQUENCE.RETURN;
+                        _timeline.Play();
+                    }
+                }
+                else {
+                    _activeCount += Time.deltaTime;
+
+                    if(_timeline.time >= _timeline.duration) {
+                        
+                        _timeline.Stop();
+                        _timeline.initialTime = 0.0f;
+                        _timeline.Play();
+                    }
+                }
+                break;
+
+            case SEQUENCE.RETURN:
+
+                if (_timeline.time >= _timeline.duration) {
+
+                    _timeline.Stop();
+                    _timeline.initialTime   = 0.0f;
+                    _timeline.playableAsset = null;
+                    _sequence               = SEQUENCE.IDLE;
+                }
+                break;
+        }
     }
     public  void        CalcLife    () {
 
