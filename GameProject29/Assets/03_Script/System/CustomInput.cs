@@ -19,8 +19,6 @@ public class CustomInput : MonoBehaviour {
 
         InputManager.LoadInput(this);
         _input.Enable();
-
-        Debug.Log("Set");
     }
     private void    OnDisable   () { _input.Disable(); }
     private void    OnDestroy   () { _input.Dispose(); }

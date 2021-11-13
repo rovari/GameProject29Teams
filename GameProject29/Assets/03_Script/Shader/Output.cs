@@ -7,7 +7,6 @@ public class Output : ShaderController{
 
     // User  Method ===============================================
     public  Output(Material mat) {
-        Debug.Log(mat);
         _material = mat;
     }
 

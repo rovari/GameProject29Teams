@@ -41,6 +41,8 @@ public class Enemy : Facade {
         GetSetPosition  = transform.position;
         _defHp          = _hp;
         _defLife        = _life;
+
+        SetSequence();
     }
     private void Update     () {
 
