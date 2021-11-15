@@ -22,7 +22,7 @@ public class ScoreScript : MonoBehaviour
     {
         dTime += Time.deltaTime;
 
-        Debug.Log("計測中： " + (dTime).ToString());
+        //Debug.Log("計測中： " + (dTime).ToString());
         ScoreText.text = "Score:" + Score.ToString(); //ScoreTextの文字をScore:Scoreの値にする
         
     }
