@@ -48,8 +48,29 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 4956117372811212245, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
     value: {fileID: 0}
+  - key: {fileID: 440112289598506178, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -1174726111217921912, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6001227313032772129, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4328057801344136571, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7315996277646403478, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7224921927731702695, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5235439215877034635, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3442475422029204290, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5933233025887442815, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8035165201417490415, guid: 387d15f6c5d711b48bc805c9907e7b97, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
-    m_References: []
+    m_References:
+    - 16d2f9b8b25aa9f44b7520e4d58ea51b: {fileID: 0}
 --- !u!1 &532624103647359968
 GameObject:
   m_ObjectHideFlags: 0
