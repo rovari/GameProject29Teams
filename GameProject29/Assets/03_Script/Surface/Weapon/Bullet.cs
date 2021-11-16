@@ -11,6 +11,7 @@ public class Bullet : Facade {
         HOMING,
         BLADE,
         BOMB,
+        ENVIRONMENT,
     }
     private GameObject  col;
     private GameObject  target;
@@ -50,15 +51,30 @@ public class Bullet : Facade {
             IEnumerator bullet = null;
 
             switch (_orbit) {
-                case ORBIT.SHOT:    bullet = Shot();    break;
-                case ORBIT.THROW:   bullet = Throw();   break;
-                case ORBIT.HOMING:  bullet = Homing();  break;
-                case ORBIT.BOMB:    bullet = Bomb();    break;
-                case ORBIT.BLADE:   bullet = Blade();   break;
+                case ORBIT.SHOT:        bullet = Shot();    break;
+                case ORBIT.THROW:       bullet = Throw();   break;
+                case ORBIT.HOMING:      bullet = Homing();  break;
+                case ORBIT.BOMB:        bullet = Bomb();    break;
+                case ORBIT.BLADE:       bullet = Blade();   break;
+                case ORBIT.ENVIRONMENT: bullet = Env();     break;
             }
 
             gameObject.SetActive(true);
             StartCoroutine(bullet);
+        }
+    }
+    private IEnumerator Dissolve    () {
+
+        float period = 0.5f;
+        float inc = 1.0f / (period + Mathf.Epsilon);
+        float count = 0.0f;
+
+        while (period > 0) {
+            //_surface.SetDissolve(1.0f - count);
+            
+            count += inc * Time.deltaTime;
+            period -= Time.deltaTime;
+            yield return null;
         }
     }
 
@@ -140,6 +156,8 @@ public class Bullet : Facade {
         }
         
         ActiveCollision(true);
+        Dissolve();
+
         float count = _damageTime;
 
         while (count > 0.0f) {
@@ -172,10 +190,9 @@ public class Bullet : Facade {
 
             Vector3 diff;
 
-            diff = (target) 
-                ? target.transform.position - transform.position
-                : -transform.position;
-
+            if (target) diff = target.transform.position - transform.position;
+            else break;
+            
             acc += (diff - velocity * period) * 2f / (period * period);
             
             if (acc.magnitude > 100f) acc = acc.normalized * 100f;
@@ -192,7 +209,7 @@ public class Bullet : Facade {
         }
         
         ActiveCollision(true);
-
+        
         float   count   = _damageTime;
         
         while (count > 0.0f) {
@@ -226,6 +243,32 @@ public class Bullet : Facade {
 
         transform.position  = Vector3.zero;
         transform.rotation  = Quaternion.identity;
+
+        this.gameObject.SetActive(false);
+    }
+    private IEnumerator Env   () {
+
+        _wait = true;
+
+        bool useEnvSpeed = false;
+
+        var a = -Camera.main.transform.forward;
+        var s = (useEnvSpeed) ? 1.0f : 10.0f;
+        var sv = new Vector3(transform.position.x, transform.position.y, 100.0f);
+
+        transform.position = sv;
+
+        while (true) {
+            sv += a;
+            transform.position = sv;
+
+            if (Vector3.Dot(a, (Camera.main.transform.position - sv)) < 0.0f) break;
+
+            yield return null;
+        }
+
+        transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
 
         this.gameObject.SetActive(false);
     }

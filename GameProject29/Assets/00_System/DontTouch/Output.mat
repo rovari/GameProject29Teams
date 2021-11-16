@@ -108,8 +108,8 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FdCol: {r: 0.004406512, g: 0.004406512, b: 0.004406512, a: 0}
     - _FdSCol: {r: 1, g: 0, b: 0, a: 0}
-    - _FiCol: {r: 1, g: 0.97216296, b: 0.8254717, a: 0}
+    - _FiCol: {r: 1, g: 0.9215687, b: 0.882353, a: 1}
     - _MoCol: {r: 0, g: 0, b: 0, a: 1}
-    - _ViCol: {r: 0, g: 0, b: 0, a: 0}
+    - _ViCol: {r: 0, g: 1, b: 1, a: 1}
     - _fiCol: {r: 0.49056602, g: 0.40494835, b: 0.40494835, a: 1}
   m_BuildTextureStacks: []

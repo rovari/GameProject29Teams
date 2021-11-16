@@ -14,8 +14,8 @@ public class Facade : MonoBehaviour {
     [SerializeField]    private GameObject  model;
 
     // Unity Method ===============================================
+    
     private void Start      () {
-
         _isDestory  = false;
         _surface    = new Surface(model.GetComponent<MeshRenderer>().material);
         FindManager();
@@ -31,6 +31,6 @@ public class Facade : MonoBehaviour {
         return (T)this;
     }
     private void    FindManager () {
-        _effect =  GameObject.FindGameObjectWithTag("Effect").GetComponent<Effect>();
+        _effect = GameObject.FindGameObjectWithTag("Effect").GetComponent<Effect>();
     }
 }

@@ -32,10 +32,11 @@ public class Player : Facade {
 
         _hp     = (_hp   < 0.0f) ? 0.0f : _hp;
         _life   = (_life < 0)    ? 0    : _life;
+        _hp     = (_hp   > 1.0f) ? 1.0f : _hp;
     }
     public  float        GetSetHp       {
         get { return _hp;  }
-        set { _hp = value; }
+        set { _hp = (!GetSetIsInvin) ? value : _hp; }
     }
     public  int          GetSetLife     {
         get { return _life; }
@@ -44,6 +45,12 @@ public class Player : Facade {
     public  float        GetSetHitPos   {
         get; set;
     }
+    public  bool         GetSetIsTHEW   {
+        get; set;
+    } = false;
+    public  bool         GetSetIsInvin  {
+        get; set;
+    } = false;
     public  Vector3      GetSetPosition {
         get { return transform.position; }
         set { transform.position = value; }
