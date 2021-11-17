@@ -131,6 +131,7 @@ public class Enemy : Facade {
             if (_life < 0) {
 
                 if (_timeline.playableAsset != null) _timeline.Stop();
+
                 _isDestory  = true;
                 _life       = _defLife;
                 _hp         = _defHp;

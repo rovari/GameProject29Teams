@@ -19,7 +19,6 @@ public class PlayerMove : FacadeData {
     [SerializeField] private float          _moveSpeed;
     [SerializeField] private float          _maxSpeed;
     [SerializeField] private float          _jumpPow;
-    [SerializeField] private bool          _theWorld;
     
     // Unity Method ===============================================
     private void Start  () {
@@ -33,7 +32,7 @@ public class PlayerMove : FacadeData {
     }
     private void Update () {
 
-        _playerTimeScale = (_theWorld) ? Time.unscaledDeltaTime : Time.deltaTime;
+        _playerTimeScale = (facade.GetFacade<Player>().GetSetIsTHEW) ? Time.unscaledDeltaTime : Time.deltaTime;
 
         CalculationStability();
         DamageBlow          ();
@@ -67,7 +66,7 @@ public class PlayerMove : FacadeData {
         
         float damage = _oldHp - facade.GetFacade<Player>().GetSetHp;
         
-        if (damage > 0) {
+        if (damage > 0 && facade.GetFacade<Player>().GetSetHp < 1.0f) {
 
             _oldHp = facade.GetFacade<Player>().GetSetHp;
 

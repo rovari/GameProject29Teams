@@ -161,7 +161,9 @@ public class Effect : MonoBehaviour {
 
                     _fillHierarchy      = hierarchy;
                     _fillTime           = time;
+                    _fillColor          = color;
                     _curve              = curve;
+
 
                     coroutine[name] = Fill();
                 }
@@ -180,6 +182,7 @@ public class Effect : MonoBehaviour {
                     }
 
                     _vignetteHierarchy  = hierarchy;
+                    _vignetteColor      = color;
                     _vignetteTime       = time;
                     _vignetteLevel      = level;
                     _curve              = curve;

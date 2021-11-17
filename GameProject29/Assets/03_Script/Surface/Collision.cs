@@ -16,6 +16,7 @@ public class Collision : FacadeData {
         
         if (    facade.GetType()                                != typeof(Bullet) 
             &&  other.GetComponent<Collision>().GetFacadeType() != typeof(Enemy)
+            &&  other.GetComponent<Collision>().GetFacadeType() != typeof(Item)
             ) SetDamageRim(0.5f, 0.05f);
     }
 
@@ -24,6 +25,7 @@ public class Collision : FacadeData {
         return facade.GetType();
     }
     private void        CalcPlayerHp        (float damage, float posX) {
+
         facade.GetFacade<Player>().GetSetHp -= damage;
         facade.GetFacade<Player>().GetSetHitPos = posX;
 
@@ -40,18 +42,26 @@ public class Collision : FacadeData {
         
         facade.GetFacade<Environment>().GetSetHp -= damage;
     }
+    private void        CalcItem            (Facade player) {
+        facade.GetFacade<Item>().CalcItemEvent(ref player);
+    }
+
     private void        HitTypeCheck        (GameObject obj) {
 
         if ((typeof(Player)      == obj.GetComponent<Collision>().GetFacadeType())) {
-            obj.GetComponent<Collision>().CalcPlayerHp(_damage, obj.transform.position.x);
+            if(typeof(Item) != facade.GetType() )obj.GetComponent<Collision>().CalcPlayerHp(_damage, obj.transform.position.x);
         }
 
         if ((typeof(Enemy)       == obj.GetComponent<Collision>().GetFacadeType())) {
-            if(facade.GetType() != typeof(Enemy)) obj.GetComponent<Collision>().CalcEnemyHp(_damage);
+            if(typeof(Enemy) != facade.GetType()) obj.GetComponent<Collision>().CalcEnemyHp(_damage);
         }
 
         if ((typeof(Environment) == obj.GetComponent<Collision>().GetFacadeType())) {
             obj.GetComponent<Collision>().CalcEnvironmentHp(_damage);
+        }
+
+        if ((typeof(Item)        == obj.GetComponent<Collision>().GetFacadeType())) {
+            if(typeof(Player) == facade.GetType()) obj.GetComponent<Collision>().CalcItem(facade);
         }
     }
     private void        SetDamageRim        (float time, float interval) {
@@ -65,13 +75,13 @@ public class Collision : FacadeData {
         bool    sw      = true;
 
         while (count > 0) {
-            facade._surface.SetRimEnable(sw);
+            facade._surface.SetRimEnable(sw, Color.red);
             count   -=  1.0f;
             sw      =   !sw;
 
             yield return new WaitForSeconds(interval);
         }
 
-        facade._surface.SetRimEnable(false);
+        facade._surface.SetRimEnable(false, Color.white);
     }
-}
+}   
