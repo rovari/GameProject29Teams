@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class rezult_score : MonoBehaviour
 {
+    //public RectTransform TextDate;
+
     public Vector3 start_position;
     public Vector3 end_position;
 
@@ -17,26 +20,24 @@ public class rezult_score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Transform mytransform = this.transform;
-       // mytransform.position = start_position;
+        Transform myTransform = this.transform;
 
-        MoveX = start_position.x - end_position.x;
-        MoveY = start_position.y - end_position.y;
+        start_position += new Vector3(960, 540, 0);
+        end_position += new Vector3(960, 540, 0);
 
-        Debug.Log(mytransform.position.x);
+        myTransform.position = start_position;
+
+        myTransform.localScale = start_scale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Transform mytransform = this.transform;
+        Transform myTransform = this.transform;
 
-        Vector3 pos = new Vector3(start_position.x + (MoveX / MoveTime * Time.deltaTime), start_position.y, start_position.z);
+        myTransform.DOMove(end_position, MoveTime);//.SetEase(Ease.InOutQuint);
+        myTransform.DOScale(end_scale, MoveTime);//.SetEase(Ease.InOutQuint);
 
-        mytransform.position = pos;
-
-
-        //transform.position(start_position.x + (MoveX / MoveTime * Time.deltaTime), start_position.y, start_position.z);
         
     }
 }
