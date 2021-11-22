@@ -271,28 +271,6 @@
                 },
                 {
                     "name": "",
-                    "id": "ce84e534-1019-4eb0-9c96-abe53d452425",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "StickDeadzone",
-                    "groups": "",
-                    "action": "RStick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2a4b599c-5707-4dee-acd6-48df9886b053",
-                    "path": "<Mouse>/scroll",
-                    "interactions": "",
-                    "processors": "StickDeadzone",
-                    "groups": "",
-                    "action": "RStick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "8994b057-9158-4126-b162-ed8b9ff7076a",
                     "path": "<Gamepad>/dpad",
                     "interactions": "",
@@ -669,17 +647,6 @@
                     "name": "",
                     "id": "d037ff33-3b59-4f65-9736-b7259d2f7695",
                     "path": "<DualShockGamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Lockon",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e9a98563-b47d-4794-9b14-ef96caecc44c",
-                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
