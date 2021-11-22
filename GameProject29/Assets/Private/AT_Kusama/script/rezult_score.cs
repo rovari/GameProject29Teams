@@ -22,22 +22,27 @@ public class rezult_score : MonoBehaviour
     {
         Transform myTransform = this.transform;
 
-        start_position += new Vector3(960, 540, 0);
-        end_position += new Vector3(960, 540, 0);
+        start_position += new Vector3(Screen.width / 2, Screen.height / 2, 0);
+        end_position += new Vector3(Screen.width / 2, Screen.height / 2, 0);
 
         myTransform.position = start_position;
 
         myTransform.localScale = start_scale;
     }
-
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
+        Debug.Log("OnEnable");
+        
         Transform myTransform = this.transform;
 
         myTransform.DOMove(end_position, MoveTime);//.SetEase(Ease.InOutQuint);
-        myTransform.DOScale(end_scale, MoveTime);//.SetEase(Ease.InOutQuint);
+        myTransform.DOScale(end_scale, MoveTime/3);//.SetEase(Ease.InOutQuint);
 
-        
+
+    }
+    // Update is called once per frame
+    void Update()
+    {
+       
     }
 }
