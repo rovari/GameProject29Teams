@@ -15,8 +15,6 @@ public class rezult_score : MonoBehaviour
 
     public float MoveTime;
 
-    float MoveX, MoveY;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +33,11 @@ public class rezult_score : MonoBehaviour
         
         Transform myTransform = this.transform;
 
-        myTransform.DOMove(end_position, MoveTime);//.SetEase(Ease.InOutQuint);
+        if (start_position != end_position)
+        {
+            myTransform.DOMove(end_position, MoveTime);//.SetEase(Ease.InOutQuint);
+        }
+        
         myTransform.DOScale(end_scale, MoveTime/3);//.SetEase(Ease.InOutQuint);
 
 
