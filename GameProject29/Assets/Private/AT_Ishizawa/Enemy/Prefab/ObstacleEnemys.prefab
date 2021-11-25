@@ -44,7 +44,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -63,7 +63,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: _returnTL
       value: 
       objectReference: {fileID: 11400000, guid: e613c01588fc2ca4f85261c6d04f693f, type: 2}
+    - target: {fileID: 1060248473044478003, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
+      propertyPath: _activeTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1060248473044478006, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
       propertyPath: m_Name
       value: Low1
@@ -224,8 +228,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7575798439972136723, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
+      propertyPath: m_WrapMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575798439972136723, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
       propertyPath: m_InitialState
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7575798439972136723, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
       propertyPath: m_PlayableAsset
@@ -362,6 +370,10 @@ PrefabInstance:
       propertyPath: _returnTL
       value: 
       objectReference: {fileID: 11400000, guid: ffc408f631defc74092480bc1ed3e2cb, type: 2}
+    - target: {fileID: 1060248473044478003, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
+      propertyPath: _activeTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1060248473044478006, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
       propertyPath: m_Name
       value: Low0
@@ -371,8 +383,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7575798439972136723, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
+      propertyPath: m_WrapMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7575798439972136723, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
       propertyPath: m_InitialState
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7575798439972136723, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
       propertyPath: m_PlayableAsset
@@ -380,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: de3297ab9f0fa2f4ea0bf9e799fcf8bf, type: 2}
     - target: {fileID: 7575798439972136723, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7575798439972136723, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].key
@@ -405,7 +421,7 @@ PrefabInstance:
     - target: {fileID: 7575798439972136723, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
       propertyPath: m_SceneBindings.Array.data[5].key
       value: 
-      objectReference: {fileID: -3757595537628395148, guid: e613c01588fc2ca4f85261c6d04f693f, type: 2}
+      objectReference: {fileID: 1101207516291904820, guid: ffc408f631defc74092480bc1ed3e2cb, type: 2}
     - target: {fileID: 7575798439972136723, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
       propertyPath: m_SceneBindings.Array.data[6].key
       value: 

@@ -1258,54 +1258,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstacleEnemys
       objectReference: {fileID: 0}
-    - target: {fileID: 5932119173076196053, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932119173076196053, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932119173076196053, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932119173076196053, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932119173076196053, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932119173076196053, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6555410686855415892, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6555410686855415892, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6555410686855415892, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6555410686855415892, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6555410686855415892, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6555410686855415892, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7994335129945783993, guid: 889a2e7c8dec717449e2e1fc9073b7c9, type: 3}
       propertyPath: m_RootOrder
       value: 9

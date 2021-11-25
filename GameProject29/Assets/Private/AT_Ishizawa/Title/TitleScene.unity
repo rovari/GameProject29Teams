@@ -1244,14 +1244,6 @@ PrefabInstance:
       propertyPath: TrailModule.colorOverTrail.maxGradient.key1.a
       value: 0.78431374
       objectReference: {fileID: 0}
-    - target: {fileID: 3895240233217932852, guid: e39de1011139da645975d39a631802f5, type: 3}
-      propertyPath: _fov
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3895240233217932852, guid: e39de1011139da645975d39a631802f5, type: 3}
-      propertyPath: _shake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3895240233217933002, guid: e39de1011139da645975d39a631802f5, type: 3}
       propertyPath: m_Name
       value: Effect
@@ -1404,7 +1396,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
