@@ -10,6 +10,7 @@ public class Item : Facade {
         Invincible,
         Spanner,
         TurboCharger,
+        LifeBox,
     }
     private Facade  TargetFacade;
     private bool    _isEffect;
@@ -45,10 +46,11 @@ public class Item : Facade {
 
             case ITEMTYPE.TurboCharger: if (!_isEffect) StartCoroutine("TurboChagerItem");  break;
 
+            case ITEMTYPE.LifeBox:      if (!_isEffect) StartCoroutine("LifeBoxItem");      break;
         }
     }
 
-    private IEnumerator InvincibleItem() {
+    private IEnumerator InvincibleItem  () {
 
         _isEffect = true;
         TargetFacade.GetFacade<Player>().GetSetIsInvin = true;
@@ -76,7 +78,7 @@ public class Item : Facade {
         _isEffect = false;
     }
     
-    private IEnumerator SpannerItem() {
+    private IEnumerator SpannerItem     () {
 
         _isEffect = true;
 
@@ -90,7 +92,7 @@ public class Item : Facade {
         _isEffect = false;
     }
 
-    private IEnumerator TurboChagerItem() {
+    private IEnumerator TurboChagerItem () {
 
         _isEffect = true;
 
@@ -106,5 +108,16 @@ public class Item : Facade {
 
         _isEffect = false;
         //_isDestory = true;
+    }
+
+    private IEnumerator LifeBoxItem     () {
+
+        _isEffect = true;
+        
+        ++TargetFacade.GetFacade<Player>().GetSetLife;
+
+        yield return null;
+        
+        _isEffect = false;
     }
 }
