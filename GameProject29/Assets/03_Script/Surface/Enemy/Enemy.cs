@@ -41,13 +41,14 @@ public class Enemy : Facade {
         GetSetPosition  = transform.position;
         _defHp          = _hp;
         _defLife        = _life;
-
-        SetSequence();
     }
     private void Update     () {
 
         CalcLife();
         TLSequence();
+    }
+    private void OnEnable   () {
+        SetSequence();   
     }
     private void OnDisable  () {
         _hp         = _defHp;
