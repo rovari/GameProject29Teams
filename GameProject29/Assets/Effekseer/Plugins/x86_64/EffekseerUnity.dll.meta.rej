@@ -1,0 +1,8 @@
+diff a/GameProject29/Assets/Effekseer/Plugins/x86_64/EffekseerUnity.dll.meta b/GameProject29/Assets/Effekseer/Plugins/x86_64/EffekseerUnity.dll.meta	(rejected hunks)
+@@ -1,5 +1,6 @@
+ fileFormatVersion: 2
+ guid: 580422935b89bfb47b855b41ec56f688
++<<<<<<< HEAD
+ timeCreated: 1425475246
+ licenseType: Free
+ PluginImporter:
