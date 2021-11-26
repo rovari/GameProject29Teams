@@ -1,0 +1,42 @@
+diff a/GameProject29/Assets/Private/AT_Nomaguchi/GameScene.unity b/GameProject29/Assets/Private/AT_Nomaguchi/GameScene.unity	(rejected hunks)
+@@ -353,6 +353,11 @@
+       objectReference: {fileID: 0}
+     m_RemovedComponents: []
+   m_SourcePrefab: {fileID: 100100000, guid: 51572ea1ee45f654388ca30f1e533100, type: 3}
++--- !u!198 &223678780 stripped
++ParticleSystem:
++  m_CorrespondingSourceObject: {fileID: 6101436985371461286, guid: f64c984afce0c1f4887e1ddbf2c22f77, type: 3}
++  m_PrefabInstance: {fileID: 6118169221247522535}
++  m_PrefabAsset: {fileID: 0}
+ --- !u!224 &232230812 stripped
+ RectTransform:
+   m_CorrespondingSourceObject: {fileID: 3124536124690925175, guid: ca7694750d8c81f4fad60acdb284f72b, type: 3}
+@@ -2438,7 +2448,8 @@
+       propertyPath: m_Color.r
+       value: 0.30588236
+       objectReference: {fileID: 0}
+-    m_RemovedComponents: []
++    m_RemovedComponents:
++    - {fileID: 5634473781660815118, guid: ca7694750d8c81f4fad60acdb284f72b, type: 3}
+   m_SourcePrefab: {fileID: 100100000, guid: ca7694750d8c81f4fad60acdb284f72b, type: 3}
+ --- !u!224 &3446582478958028480 stripped
+ RectTransform:
+@@ -3443,10 +3454,18 @@
+       propertyPath: resultTL
+       value: 
+       objectReference: {fileID: 114105053413658582}
++    - target: {fileID: 1250226938, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
++      propertyPath: OutputAudioMixerGroup
++      value: 
++      objectReference: {fileID: 7866594896387909671, guid: 89508fcb00e45a44c946a5954e2d7548, type: 2}
+     - target: {fileID: 291478438914520901, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
+       propertyPath: _cInput
+       value: 
+       objectReference: {fileID: 1416496786}
++    - target: {fileID: 1051308110698056629, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
++      propertyPath: OutputAudioMixerGroup
++      value: 
++      objectReference: {fileID: 5358432282736697828, guid: 89508fcb00e45a44c946a5954e2d7548, type: 2}
+     - target: {fileID: 6988748446155828545, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
+       propertyPath: m_DefaultActionMap
+       value: 
