@@ -36,7 +36,7 @@ public class LoadManager : MonoBehaviour {
 
         _sequensNumber = (sequensNum >= 0) ? sequensNum : ++_sequensNumber;
         _sequensNumber = (_sequensNumber < _sceneSequens.Count) ? _sequensNumber :  0;
-
+        
         var async = SceneManager.LoadSceneAsync(_sceneSequens[_sequensNumber]);
 
         async.allowSceneActivation = false;

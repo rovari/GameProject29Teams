@@ -3432,6 +3432,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 438891349, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
+      propertyPath: csv
+      value: 
+      objectReference: {fileID: 4900000, guid: e25914fc20cf2db428046f2e611eee18, type: 3}
+    - target: {fileID: 438891349, guid: af3581a2f920d9b4282a2a649048c73d, type: 3}
       propertyPath: gameTL
       value: 
       objectReference: {fileID: 1203862983}

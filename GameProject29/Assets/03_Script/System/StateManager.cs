@@ -21,10 +21,16 @@ public class StateManager : MonoBehaviour {
     [SerializeField] private GameObject startTL;
     [SerializeField] private GameObject gameTL;
     [SerializeField] private GameObject resultTL;
+    [SerializeField] private TextAsset  csv;
 
     // User  Method ===============================================
     private void Start  () {
         Fetch();
+
+        LEVEL_CSV data;
+        LoadLevelCSV.LoadCSV(csv, out data);
+
+
     }
     
     // User  Method ===============================================

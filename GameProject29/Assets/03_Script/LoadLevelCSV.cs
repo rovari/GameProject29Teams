@@ -29,13 +29,10 @@ public struct LEVEL_CSV {
 
 public class LoadLevelCSV {
     
-    [SerializeField] private TextAsset csv;
-    private LEVEL_CSV   tempData; 
-    private int         length  = 0;
-    
-    private void LoadCSV(out LEVEL_CSV data) {
+    static public void LoadCSV(TextAsset csv, out LEVEL_CSV data) {
 
-        tempData = new LEVEL_CSV();
+        LEVEL_CSV tempData = new LEVEL_CSV();
+        tempData.enemyData = new List<ENEMY_DATA>();
 
         StringReader reader     = new StringReader(csv.text);
         List<string> splitLine  = new List<string>();
@@ -43,8 +40,8 @@ public class LoadLevelCSV {
         while (reader.Peek() != -1) {
 
             string line = reader.ReadLine();
-
-            for (int i = 0; i < line.Length; ++i) {
+            
+            for (int i = 0; i < line.Split(',').Length; ++i) {
                 splitLine.Add(line.Split(',')[i]);
             }
         }
@@ -67,21 +64,14 @@ public class LoadLevelCSV {
                     ENEMY_DATA enemy;
                     enemy.name      = splitLine[i + 1];
                     enemy.life      = int   .Parse(splitLine[i + 3]);
-                    enemy.hp        = float .Parse(splitLine[i + 6]);
-                    enemy.defecnce  = float .Parse(splitLine[i + 9]);
+                    enemy.hp        = float .Parse(splitLine[i + 5]);
+                    enemy.defecnce  = float .Parse(splitLine[i + 7]);
+                    
+                    tempData.enemyData.Add(enemy);
                     break;
             }
         }
 
         data = tempData;
-    }
-    
-    public LEVEL_CSV GetLevelCSV() {
-
-        LEVEL_CSV data = new LEVEL_CSV();
-
-        LoadCSV(out data);
-
-        return data;
     }
 }
