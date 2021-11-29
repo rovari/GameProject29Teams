@@ -14,6 +14,7 @@ public class Bodyblow : MonoBehaviour
     private Vector3 velocity;
     Vector3 acce = Vector3.zero;//‰Šú‰»
     public float period = 1.5f; //’…’eŽžŠÔ
+    public int mTime;//“®‚«Žn‚ß‚ÌŽžŠÔ
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class Bodyblow : MonoBehaviour
     {
         dtime += Time.deltaTime;
 
-        if(dtime>=5&&flag==true)
+        if(dtime>= mTime && flag==true)
         {
             flag = false;
             pos = m_PlayerObject.transform.position;
