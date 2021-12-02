@@ -23,12 +23,15 @@ public class MenuSystem : MonoBehaviour {
     // [ User  Method ] ===============================================
     private void OpenMenu() {
 
-        _oldTimeScale = Time.timeScale;
-        
-        StateManager.GetSetState = STATE.MENU;
-        Time.timeScale = 0.0f; 
+        if (StateManager.GetSetState == STATE.GAME ||  StateManager.GetSetState == STATE.EVENT) {
 
-        menuObject.SetActive(true);
+            _oldTimeScale = Time.timeScale;
+
+            StateManager.GetSetState = STATE.MENU;
+            Time.timeScale = 0.0f;
+
+            menuObject.SetActive(true);
+        }
     }
 
     private void ExitMenu() {
