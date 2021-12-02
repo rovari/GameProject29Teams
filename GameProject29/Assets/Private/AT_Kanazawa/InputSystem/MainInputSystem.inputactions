@@ -449,7 +449,7 @@
             "id": "4c735c4b-a49d-477e-8ba2-d5546155f372",
             "actions": [
                 {
-                    "name": "Menue",
+                    "name": "Menu",
                     "type": "Button",
                     "id": "bb784e33-a423-4a15-b894-82d100c0a832",
                     "expectedControlType": "Button",
@@ -465,7 +465,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Menue",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -511,6 +511,14 @@
                     "name": "Apply",
                     "type": "Button",
                     "id": "87386d23-42ac-4226-9210-28215d27ed11",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "b2a889b3-9fdc-4427-95b1-46f7ea804df3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -800,6 +808,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Apply",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "58879579-7cb0-44db-b79e-18790688e352",
+                    "path": "<DualShockGamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21c4e99a-753c-46ea-bf93-c2b6609c6dec",
+                    "path": "<XInputController>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0753c909-2704-473b-bf6d-a2dd76f14968",
+                    "path": "<SwitchProControllerHID>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48009b5a-3ed2-4235-85f1-f097f50a158a",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
