@@ -10,7 +10,7 @@ public class PlayerFire : FacadeData {
     private int     _weaponIndex;
     private bool    _lockIndex;
     private bool    _unLockFire;
-
+   
     // Show  Field ================================================
     [SerializeField] private TargetList  targetList;
     [SerializeField] private WeaponList  weaponList;
@@ -22,10 +22,9 @@ public class PlayerFire : FacadeData {
         _targetIndex = 0;
         _weaponIndex = 0;
 
-        InputManager.GetGAMEInput.TriggerR      .performed  += _ => OnFire();
-        InputManager.GetGAMEInput.EastButtonB   .started    += _ => AddWeaponIndex();
-        InputManager.GetGAMEInput.WestButtonX   .started    += _ => SubWeaponIndex();
-
+        InputManager.GetPlayerInput().currentActionMap["Attack"]       .performed  += _ => OnFire();
+        InputManager.GetPlayerInput().currentActionMap["Weaponchange"] .started += _ => AddWeaponIndex();
+                                 
         targetList.RefreshList();
     }
     private void Update () {
@@ -45,17 +44,9 @@ public class PlayerFire : FacadeData {
         if (_unLockFire) {
 
             _unLockFire = false;
-
-            if (InputManager.GetGAMEInput.TriggerL.phase == InputActionPhase.Started) {
-
-                Weapon weapon = weaponList.GetWeapon(weaponList.GetListSize() - 1);
-                if (weapon != null) weapon.Lunch(facade.GetFacade<Player>().GetSetTarget);
-            }
-            else {
-
-                Weapon weapon = weaponList.GetWeapon(_weaponIndex);
-                if (weapon != null) weapon.Lunch(facade.GetFacade<Player>().GetSetTarget);
-            }
+            
+            Weapon weapon = weaponList.GetWeapon(_weaponIndex);
+            if (weapon != null) weapon.Lunch(facade.GetFacade<Player>().GetSetTarget);
         }
     }
     private void CalcTargetIndex    () {
@@ -68,7 +59,7 @@ public class PlayerFire : FacadeData {
             StateManager.GetSetTakeDown = false;
         }
         if (weaponList.GetWeapon(_weaponIndex).GetUIType() == Weapon.UITYPE.AIM) return;
-        if (Mathf.Abs(InputManager.GetGAMEInput.RStick.ReadValue<Vector2>().x) > 0.7f && !_lockIndex) StartCoroutine("TargetIndex");
+        if (Mathf.Abs(InputManager.GetPlayerInput().currentActionMap["Lockon"].ReadValue<Vector2>().x) > 0.7f && !_lockIndex) StartCoroutine("TargetIndex");
     }
     private void AddWeaponIndex     () {
         targetList.RefreshList();
@@ -93,12 +84,12 @@ public class PlayerFire : FacadeData {
 
         while (true) {
 
-            if (Mathf.Abs(InputManager.GetGAMEInput.RStick.ReadValue<Vector2>().x) < 0.3f) break;
+            if (Mathf.Abs(InputManager.GetPlayerInput().currentActionMap["Lockon"].ReadValue<Vector2>().x) < 0.3f) break;
 
-            if (InputManager.GetGAMEInput.RStick.ReadValue<Vector2>().x >  0.7f) {
+            if (InputManager.GetPlayerInput().currentActionMap["Lockon"].ReadValue<Vector2>().x >  0.7f) {
                 _targetIndex = (_targetIndex >= targetList.GetListSize() - 1) ? 0 : ++_targetIndex;
             }
-            if (InputManager.GetGAMEInput.RStick.ReadValue<Vector2>().x < -0.7f) {
+            if (InputManager.GetPlayerInput().currentActionMap["Lockon"].ReadValue<Vector2>().x < -0.7f) {
                 _targetIndex = (_targetIndex <= 0) ? targetList.GetListSize() - 1 : --_targetIndex;
             }
 

@@ -10,23 +10,16 @@ public class CustomInput : MonoBehaviour {
 
     // Unity Method ===============================================
     private void    OnEnable    () {
+
         _input = new MainInputSystem();
-        
-        GAMEActions     = _input.GAME;
-        EVENTActions    = _input.EVENT;
-        MENUActions     = _input.MENU;
-        LOADActions     = _input.LOAD;
+        GetSetPlayerInput = GetComponent<PlayerInput>();
 
         InputManager.LoadInput(this);
         _input.Enable();
     }
     private void    OnDisable   () { _input.Disable(); }
     private void    OnDestroy   () { _input.Dispose(); }
-
+    
     // User  Method ===============================================
-    public  MainInputSystem.GAMEActions     GAMEActions     { get; set; }
-    public  MainInputSystem.EVENTActions    EVENTActions    { get; set; }
-    public  MainInputSystem.MENUActions     MENUActions     { get; set; }
-    public  MainInputSystem.LOADActions     LOADActions     { get; set; }
-
+    public PlayerInput  GetSetPlayerInput { get; set; }
 }

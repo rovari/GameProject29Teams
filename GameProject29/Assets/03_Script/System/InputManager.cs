@@ -4,24 +4,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour {
-
-    // Hide  Field ================================================
-    private static CustomInput _cInput;
-    private static STATE        _state;
+    
+    // Hide  Field ================================================-
+    private static PlayerInput      _playerInput;
     
     // User  Method ===============================================
-    public  static  void                            LoadInput(CustomInput input) {
-
-        _cInput = input;
-        _state  = StateManager.GetSetState;
-        
-        GetGAMEInput    = _cInput.GAMEActions;
-        GetEVENTInput   = _cInput.EVENTActions;
-        GetLOADInput    = _cInput.LOADActions;
-        GetMENUInput    = _cInput.MENUActions;
+    public  static void             LoadInput       (CustomInput input) {
+        _playerInput    = input.GetSetPlayerInput;
     }
-    public  static  MainInputSystem.GAMEActions     GetGAMEInput    { get; set; }
-    public  static  MainInputSystem.EVENTActions    GetEVENTInput   { get; set; }
-    public  static  MainInputSystem.LOADActions     GetLOADInput    { get; set; }
-    public  static  MainInputSystem.MENUActions     GetMENUInput    { get; set; }
+    
+    public  static PlayerInput GetPlayerInput () {
+        return _playerInput;
+    }
 }

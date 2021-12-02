@@ -53,7 +53,7 @@ public class PlayerUI : FacadeData {
     }
     private void ScreenAimPosition      () {
         
-        var stick       = InputManager.GetGAMEInput.RStick.ReadValue<Vector2>() * 50.0f * Time.deltaTime;
+        var stick       = InputManager.GetPlayerInput().currentActionMap["Lockon"].ReadValue<Vector2>() * 50.0f * Time.deltaTime;
         _calcPosition   += stick;
 
         var oldPos  = aimTarget.transform.position;

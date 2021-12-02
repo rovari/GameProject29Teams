@@ -26,9 +26,8 @@ public class PlayerMove : FacadeData {
         _defaultPos = facade.GetFacade<Player>().GetSetPosition;
         _oldHp      = facade.GetFacade<Player>().GetSetHp;
         _velocity   = 0.0f;
-
-
-        InputManager.GetGAMEInput.LButton.started += _ => StartCoroutine("Jump");
+        
+        InputManager.GetPlayerInput().currentActionMap["Jump"].started += _ => StartCoroutine("Jump");
     }
     private void Update () {
 
@@ -43,7 +42,7 @@ public class PlayerMove : FacadeData {
     private void Move                   () {
         
         _sceneCount += Time.deltaTime;
-        _velocity   += Mathf.Lerp(-_moveSpeed, _moveSpeed, (InputManager.GetGAMEInput.LStick.ReadValue<Vector2>().x + 1.0f) * 0.5f) * _playerTimeScale;
+        _velocity   += Mathf.Lerp(-_moveSpeed, _moveSpeed, (InputManager.GetPlayerInput().currentActionMap["Move"].ReadValue<Vector2>().x + 1.0f) * 0.5f) * _playerTimeScale;
         _velocity   =  Mathf.Clamp(_velocity, -_maxSpeed, _maxSpeed);
 
         float rot = 1.0f - Vector3.Dot(Vector3.up, Vector3.Normalize(new Vector3(_velocity, 1.0f, 0.0f)));

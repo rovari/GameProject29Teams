@@ -1,0 +1,1530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CameraSetting" Collapsed="true">
+    <Position X="30.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Assets\00_System\DontTouch\CameraSetting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneObject" Collapsed="true">
+    <Position X="34" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIIAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\00_System\DontTouch\SceneObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneObjectEditor" Collapsed="true">
+    <Position X="35.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAA=</HashCode>
+      <FileName>Assets\00_System\DontTouch\SceneObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SetCaputureImage" Collapsed="true">
+    <Position X="16.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\00_System\DontTouch\SetCaputureImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadLevelCSV" Collapsed="true">
+    <Position X="28.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Assets\03_Script\LoadLevelCSV.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnvironmentMeasure" Collapsed="true">
+    <Position X="16.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIACAAABAACAgAAACAAAAAAIAAAAgAACAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Shader\EnvironmentMeasure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Output">
+    <Position X="11.75" Y="12.5" Width="1.5" />
+    <InheritanceLine Type="ShaderController" FixedToPoint="true">
+      <Path>
+        <Point X="7.25" Y="12.781" />
+        <Point X="7.127" Y="12.781" />
+        <Point X="7.127" Y="14.817" />
+        <Point X="12.562" Y="14.817" />
+        <Point X="12.562" Y="14.694" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAQAIgAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Shader\Output.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShaderController" Collapsed="true">
+    <Position X="7.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAABAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Shader\ShaderController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Surface">
+    <Position X="12.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Shader\Surface.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Collision">
+    <Position X="11.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABCEAAAAAIAAQIQEAAAAEAAAAAAQQAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Collision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomEffectPlayer" Collapsed="true">
+    <Position X="16.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEIAUQAAAQAAAAAEQAAQAAAAAAAAAAEAAAALCAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\CustomEffectPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy">
+    <Position X="10" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Enemy.SEQUENCE" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\03_Script\Surface\Enemy\Enemy.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Enemy.GRADE" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\03_Script\Surface\Enemy\Enemy.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAAEAAAABAoAEUSAEAAAAAAoQIEBAACAAAmFA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Enemy\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyFire">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAIAAAEAAAAAAAAAAAAAQEA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Enemy\EnemyFire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyMove">
+    <Position X="5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAAAAAAAAAAAAAAAAAAIAABAACAAAACAAAgAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Enemy\EnemyMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnvController" Collapsed="true">
+    <Position X="14.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Environment\EnvController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Environment">
+    <Position X="1" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAEAAAAAAAAAAiAAAAAAAAgAAAAAACAAAgEA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Environment\Environment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Facade">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAAAAAAAAAAAAAAEBAAAAAAgAAAAAIEgA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Facade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FacadeData">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\FacadeData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Item">
+    <Position X="3.25" Y="5.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Item.ITEMTYPE" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\03_Script\Surface\Item\Item.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAgAEAAAAEAAAACACAAAAAAAAgAAgIgAQCDCAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Item\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="5.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAAEAAAAAAAAEQQAAAAAEIAgAIAAACCAAAgFA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Player\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerFire">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQACAAAACAAQAAAAQAAAAAAAA0EgAAAAQIIAgAAQAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Player\PlayerFire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerMove">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAEABqIAAABAAAAAAAgAAAEBAAAAC4AAIAAAQAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Player\PlayerMove.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerUI">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEIAABBAAgIAABAAIAAAEgAACAAAAAQiAAgAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Player\PlayerUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bullet">
+    <Position X="7.75" Y="7.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Bullet.ORBIT" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\03_Script\Surface\Weapon\Bullet.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAAAIAACAAAIAJIAAIAQQAAgMIEAAIAQAAQAAEAAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Weapon\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MultiHoming">
+    <Position X="5.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Weapon\MultiHoming.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shot">
+    <Position X="7.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Weapon\Shot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TargetList" Collapsed="true">
+    <Position X="25.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAEAAAAAAgAAAAAAAAAAAAgAAAIAQIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Weapon\TargetList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Throw" Collapsed="true">
+    <Position X="1.75" Y="13.25" Width="1.5" />
+    <InheritanceLine Type="Weapon" FixedFromPoint="true">
+      <Path>
+        <Point X="4.625" Y="15.511" />
+        <Point X="4.625" Y="15.751" />
+        <Point X="2.5" Y="15.751" />
+        <Point X="2.5" Y="13.941" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Weapon\Throw.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Weapon">
+    <Position X="4" Y="11" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Weapon.UITYPE" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\03_Script\Surface\Weapon\Weapon.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAkAAEAAACCACAAACAAICAAAQAAAAAAAAQgAAAAAAUA=</HashCode>
+      <FileName>Assets\03_Script\Surface\Weapon\Weapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeaponList" Collapsed="true">
+    <Position X="32.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAE=</HashCode>
+      <FileName>Assets\03_Script\Surface\Weapon\WeaponList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AudioEffect" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAACSEgAAACAAAAAAAAAAgACAAIEAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\System\AudioEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AudioManager" Collapsed="true">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAlAgDACAUEAIAgAQAAKAAAAAQCAAAqAqAAAwACAQ=</HashCode>
+      <FileName>Assets\03_Script\System\AudioManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CustomInput" Collapsed="true">
+    <Position X="18.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABABAAAAAAIAIAAAAAAEAQAAAAAAAAAIAAAAAAAACAA=</HashCode>
+      <FileName>Assets\03_Script\System\CustomInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Effect" Collapsed="true">
+    <Position X="34" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Sg3AEMAwYiAQD9UOJAQDBCNOWIAKChAANAAIBAAFBBk=</HashCode>
+      <FileName>Assets\03_Script\System\Effect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputManager" Collapsed="true">
+    <Position X="23.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACIAAAAAAQAAAAAAAggAICAA=</HashCode>
+      <FileName>Assets\03_Script\System\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadManager" Collapsed="true">
+    <Position X="30.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAEAAAAAAAAAAAAACAQAAAAAAABAACAgAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\System\LoadManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadScene" Collapsed="true">
+    <Position X="32.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\System\LoadScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainSystem" Collapsed="true">
+    <Position X="34" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABCAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUA=</HashCode>
+      <FileName>Assets\03_Script\System\MainSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateManager" Collapsed="true">
+    <Position X="23.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAQDAAAAAgBAEAAAgAAAACAIAIABAAAAIAAAA=</HashCode>
+      <FileName>Assets\03_Script\System\StateManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObstacleGenerationSystem" Collapsed="true">
+    <Position X="16.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAAACAIAAAAEAQAAAAAACAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\Private\AT_Ishizawa\Enemy\Script\ObstacleGenerationSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerSelect" Collapsed="true">
+    <Position X="20" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Ishizawa\Title\Script\PlayerSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="collision" Collapsed="true">
+    <Position X="32.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAQAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Itami\Score\script\collision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="move" Collapsed="true">
+    <Position X="35.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAABAAAAAIAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Itami\Score\script\move.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="resultScore" Collapsed="true">
+    <Position X="21.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAIIAAADAAAAAAAAAICAAAAAAAAAAAAIAAAAAAABA=</HashCode>
+      <FileName>Assets\Private\AT_Itami\Score\script\resultScore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rSceneChange" Collapsed="true">
+    <Position X="25.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Itami\Score\script\rSceneChange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneChange" Collapsed="true">
+    <Position X="28.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Assets\Private\AT_Itami\Score\script\SceneChange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneChange2" Collapsed="true">
+    <Position X="30.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Itami\Score\script\SceneChange2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="scenechangr" Collapsed="true">
+    <Position X="32.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Itami\Score\script\scenechangr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScoreScript" Collapsed="true">
+    <Position X="14.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAgAACAAAAgAAAEAAAAAAAAAAAEBAgACgAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Itami\Score\script\ScoreScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bodyblow" Collapsed="true">
+    <Position X="25.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAIACAAAAAAAIAAAIAACAAAAAAAAgQAAgAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Itami\Test\script\Bodyblow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="testtransform" Collapsed="true">
+    <Position X="27" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Itami\Test\script\testtransform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventManager" Collapsed="true">
+    <Position X="18.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQIAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kanazawa\Enemy\EventManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="20" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAKAgAAAAAAAAAABAAAAAAAAAQAAAQAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kanazawa\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="@MainInputSystem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAQSSAAACAAAhIAAGgAOBBAIBwRCGA0QIAhBCAQDAI=</HashCode>
+      <FileName>Assets\Private\AT_Kanazawa\InputSystem\MainInputSystem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Player1" Collapsed="true">
+    <Position X="18.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAEAAAAACAAQAAAAABEAAAAABAABAAEBACIAA=</HashCode>
+      <FileName>Assets\Private\AT_Kanazawa\Player1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SampleInput" Collapsed="true">
+    <Position X="27" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAIACAAAAAAAAAAAAAAAAAIAAAAAAAACEA=</HashCode>
+      <FileName>Assets\Private\AT_Kanazawa\SampleInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyPos" Collapsed="true">
+    <Position X="35.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kanazawa\Script\EnemyPos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SignalScript" Collapsed="true">
+    <Position X="18.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kanazawa\Script\SignalScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleMultiplayerPlayer" Collapsed="true">
+    <Position X="20" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kanazawa\SimpleMultiplayerPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Singleton&lt;T&gt;" Collapsed="true">
+    <Position X="21.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAFAAAAAAAAAAAgAABAAAAAAAAAAAAAQAAAAAAgAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kanazawa\Singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="@TestAction" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAQAAAACgAABAiAAKEGRAIYAIXBGAUAGMgIFgQAIA=</HashCode>
+      <FileName>Assets\Private\AT_Kanazawa\testAction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="kaihuku" Collapsed="true">
+    <Position X="27" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\script\kaihuku.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="rezult_score" Collapsed="true">
+    <Position X="23.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAAACAAAABAAAAAAAAAAAAABAAAgAQAAAAACAA=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\script\rezult_score.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="wall" Collapsed="true">
+    <Position X="30.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAACAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\script\wall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="box" Collapsed="true">
+    <Position X="27" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAgACIAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Nomaguchi\box.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.ArrayExtensionMethods" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAgAAABAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\ArrayExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.ComponentExtensionMethods" Collapsed="true">
+    <Position X="34" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\ComponentExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.CubismCanvasInformation" Collapsed="true">
+    <Position X="27" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgACAAAABQAAAADQAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\CubismCanvasInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.CubismDrawable" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgECgAACAEACBQAAABAaAAAAAAAAAAIBEAQAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\CubismDrawable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.CubismDynamicDrawableData" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAlAAAABAAEAAAAEAAIAgAAABAAAAgAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\CubismDynamicDrawableData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.CubismLogging" Collapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAQAAAAAAAAAAAAAIAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\CubismLogging.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.CubismMoc" Collapsed="true">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEABAAAAAAAgAiAQAAAAAAAAAwAAAAAIAQAQAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\CubismMoc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.CubismModel" Collapsed="true">
+    <Position X="21.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAYBAAABIEQERAgAADEQAAgAEgQAAADKgIIBQAQACAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\CubismModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.CubismParameter" Collapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAABAAAAEAQAAAASABAAAAhAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\CubismParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.CubismPart" Collapsed="true">
+    <Position X="23.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAESEAAAAAAABQAAAAAQAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\CubismPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.CubismTaskableModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAUUAAAAAICAgAQAAAAAAAAAAAQAIAEAIABAFAAAAAI=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\CubismTaskableModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Core.CubismTaskQueue" Collapsed="true">
+    <Position X="34" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\CubismTaskQueue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.GameObjectExtensionMethods" Collapsed="true">
+    <Position X="21.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\GameObjectExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.ByteExtensionMethods" Collapsed="true">
+    <Position X="28.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAABAAAAAQAAIAAAACAAAAAEwAAEAACA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\ByteExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismCoreDll" Collapsed="true">
+    <Position X="28.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAACCQAQBJGCGBoBKBAYAADJACAAQGAAGIkAAIQSBQA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismCoreDll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedIntArrayView" Collapsed="true">
+    <Position X="20" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAACAgAAABgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedArrayView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedUshortArrayView" Collapsed="true">
+    <Position X="30.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAACAgAAABgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedArrayView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedByteArrayView" Collapsed="true">
+    <Position X="35.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAACAgAAABgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedArrayView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedFloatArrayView" Collapsed="true">
+    <Position X="18.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAACAgAAABgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedArrayView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedCanvasInformation" Collapsed="true">
+    <Position X="14.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAQAAAADAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedCanvasInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedDrawables" Collapsed="true">
+    <Position X="16.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACiAAABGgAAAAAAkACIAUAAAAAAAAAAAQEAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedDrawables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedMemory" Collapsed="true">
+    <Position X="21.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAIAAABAAAAgAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedMemory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedMoc" Collapsed="true">
+    <Position X="23.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedMoc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedModel" Collapsed="true">
+    <Position X="25.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAAAAAAABAAAAAAQAAAAAACgIAAABAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedParameters" Collapsed="true">
+    <Position X="27" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAgAAAAACAAAAAQAAAAAAAAAgAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedParameters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Core.Unmanaged.CubismUnmanagedParts" Collapsed="true">
+    <Position X="28.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAAAAAAQAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\Unmanaged\CubismUnmanagedParts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.ComponentExtensionMethods" Collapsed="true">
+    <Position X="35.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\ComponentExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismAutoEyeBlinkInput" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAQASAABAIAAAAAIAAAAIAAAAAEAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismAutoEyeBlinkInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismDisplayInfoParameterName" Collapsed="true">
+    <Position X="32.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismDisplayInfoParameterName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismDisplayInfoPartName" Collapsed="true">
+    <Position X="34" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismDisplayInfoPartName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismDontMoveOnReimportAttribute" Collapsed="true">
+    <Position X="35.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismDontMoveOnReimportAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismEyeBlinkController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACRAAAAAAAAAIAAgAAAAAEAMAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismEyeBlinkController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismEyeBlinkParameter" Collapsed="true">
+    <Position X="27" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismEyeBlinkParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismHitDrawable" Collapsed="true">
+    <Position X="18.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismHitDrawable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismMoveOnReimportCopyComponentsOnly" Collapsed="true">
+    <Position X="14.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismMoveOnReimportCopyComponentsOnly.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismParameterExtensionMethods" Collapsed="true">
+    <Position X="18.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAEAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismParameterExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismParametersInspector" Collapsed="true">
+    <Position X="20" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismParametersInspector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismParameterStore" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAARBAAAAAEAAAAAAgAAAAEIIAAAAIAAACQA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismParameterStore.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismPartsInspector" Collapsed="true">
+    <Position X="25.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismPartsInspector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismUpdateController" Collapsed="true">
+    <Position X="32.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBAAAAAAAAAIAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismUpdateController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.CubismUpdateExecutionOrder" Collapsed="true">
+    <Position X="34" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAARAAAAAAgAAIgAAAIAAAAAAAAQAAQABAAAggAAQAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismUpdateExecutionOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.ObjectExtensionMethods" Collapsed="true">
+    <Position X="14.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAABAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\ObjectExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Expression.CubismExpressionController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAQIAAAAAgAAIAAAEAAAAEAIAAAAKAAAKAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Expression\CubismExpressionController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Expression.CubismExpressionData" Collapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAIIAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Expression\CubismExpressionData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Expression.CubismExpressionList" Collapsed="true">
+    <Position X="23.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Expression\CubismExpressionList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Expression.CubismPlayingExpression" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAACAAAEAEAQAgAAIIAIA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Expression\CubismPlayingExpression.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.HarmonicMotion.CubismHarmonicMotionController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACRABAAAAIAAIAAgAAAQAEAMAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\HarmonicMotion\CubismHarmonicMotionController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.HarmonicMotion.CubismHarmonicMotionParameter" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAhAAACAQAAAGAIAgAAQAAAAgAAgAAABIAEAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\HarmonicMotion\CubismHarmonicMotionParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Json.CubismBuiltinPickers" Collapsed="true">
+    <Position X="23.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Json\CubismBuiltinPickers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Json.CubismDisplayInfo3Json" Collapsed="true">
+    <Position X="30.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAEAAAAAABAAAAAAAAAAAAAAAIAAAIAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Json\CubismDisplayInfo3Json.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Json.CubismExp3Json" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAIIIAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Json\CubismExp3Json.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Json.CubismJsonParser" Collapsed="true">
+    <Position X="20" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAECAEAAAAEAgAAgAAAAAAAACAQBAAAAIAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Json\CubismJsonParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Json.Value" Collapsed="true">
+    <Position X="28.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABBIAAAAAEAAAABAAAAADAAABAAACABAABAACADIAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Json\CubismJsonParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Json.CubismModel3Json" Collapsed="true">
+    <Position X="23.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MGAAIERAAQCAAgFAAAAAAAAgAAABAAABAEBCIAQAABA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Json\CubismModel3Json.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Json.CubismMotion3Json" Collapsed="true">
+    <Position X="25.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAEBACAAAAAAAAAIACAAAAAAAAIAEgAQAAMAICAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Json\CubismMotion3Json.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Json.CubismPhysics3Json" Collapsed="true">
+    <Position X="28.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAiACAAAAAAAAEAAAIAAAAAAAIAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Json\CubismPhysics3Json.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Json.CubismPose3Json" Collapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAIAIAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Json\CubismPose3Json.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Json.CubismUserData3Json" Collapsed="true">
+    <Position X="35.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAIAIAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Json\CubismUserData3Json.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.LookAt.CubismLookController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAFAAKRAAgBAAAAAICAgQAAQAEAMAAACIAAIAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\LookAt\CubismLookController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.LookAt.CubismLookParameter" Collapsed="true">
+    <Position X="25.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAABAAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\LookAt\CubismLookParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.LookAt.CubismLookTargetBehaviour" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\LookAt\CubismLookTargetBehaviour.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Motion.CubismMotionController" Collapsed="true">
+    <Position X="27" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgwBFQAABAIAAAAAAAACkAADIAAGAAgAACAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Motion\CubismMotionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Motion.CubismMotionLayer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQEAAABggAAAAAAIgQBAIKAAACkgAAAFAUQAgAABAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Motion\CubismMotionLayer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Motion.CubismMotionPriority" Collapsed="true">
+    <Position X="30.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAQAAAAAAAAAAAAAAAAACEAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Motion\CubismMotionPriority.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Motion.CubismMotionState" Collapsed="true">
+    <Position X="32.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAgAAAAAAACAEAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Motion\CubismMotionState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.MotionFade.CubismFadeController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAIARAAAAAAFAAIgAAAAgAIEAIIAAAIBAADAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MotionFade\CubismFadeController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.MotionFade.CubismFadeMath" Collapsed="true">
+    <Position X="30.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MotionFade\CubismFadeMath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.MotionFade.CubismFadeMotionData" Collapsed="true">
+    <Position X="32.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABQAAAgAAAAAAAgAAAAAAAAAAAAAAAEAAAAYIAAI=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MotionFade\CubismFadeMotionData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.MotionFade.CubismFadeMotionList" Collapsed="true">
+    <Position X="34" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MotionFade\CubismFadeMotionList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.MotionFade.CubismFadeStateObserver" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAgAAAAAAIAABAACAAICAgAAAEAQQAoAgCAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MotionFade\CubismFadeStateObserver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.MouthMovement.CubismAudioMouthInput" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQAAAAAAAAABAAABAACAAAAAFAAAgAAAABBAECAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MouthMovement\CubismAudioMouthInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.MouthMovement.CubismAutoMouthInput" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAASAABAAAAAAAIAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MouthMovement\CubismAutoMouthInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.MouthMovement.CubismMouthController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACRAAAAAAAAAIAAgAAAAAEAMAAAEIAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MouthMovement\CubismMouthController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.MouthMovement.CubismMouthParameter" Collapsed="true">
+    <Position X="35.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MouthMovement\CubismMouthParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Physics.CubismPhysics" Collapsed="true">
+    <Position X="27" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQBAgAAAAAAAAAAACAAAAAEAAAgAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Physics.CubismPhysicsController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAASQAAQAAAAAIIAAAAAAAAEAIAIAAIAAAAEA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysicsController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Physics.CubismPhysicsMath" Collapsed="true">
+    <Position X="32.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAEAVAAAAAAAAAgAAAAAgAAAAABABAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysicsMath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Physics.CubismPhysicsRig" Collapsed="true">
+    <Position X="34" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAQAIAQAAAAAAAgAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysicsRig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Physics.CubismPhysicsSubRig" Collapsed="true">
+    <Position X="35.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAACQgAAAAIAgAAEAAQAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysicsSubRig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Pose.CubismPoseController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAARAAAAAIgAAIDAAAAIAAEAIAAAAIAAACAI=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Pose\CubismPoseController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Pose.CubismPosePart" Collapsed="true">
+    <Position X="20" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Pose\CubismPosePart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Raycasting.CubismRaycastable" Collapsed="true">
+    <Position X="21.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Raycasting\CubismRaycastable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Raycasting.CubismRaycaster" Collapsed="true">
+    <Position X="23.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBAAAAAAAAAAAAAAAAAADAAAAACAgAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Raycasting\CubismRaycaster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.Tasking.CubismBuiltinAsyncTaskHandler" Collapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgQABAAAAFSAABAAAAAAAAAAAIAAAAAAAAIAAAAACA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Tasking\CubismBuiltinAsyncTaskHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Framework.UserData.CubismUserDataTag" Collapsed="true">
+    <Position X="14.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAABAAAAAAAAAAAAAAAgAAAAEAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\UserData\CubismUserDataTag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.ArrayExtensionMethods" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\ArrayExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.CubismBuiltinMaterials" Collapsed="true">
+    <Position X="21.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwQgEAAQCABAEAAAAAAGAAEAAAACIAAIACpIACAAAg=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\CubismBuiltinMaterials.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.CubismBuiltinShaders" Collapsed="true">
+    <Position X="25.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\CubismBuiltinShaders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.CubismRenderController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAMCAQBCUACAARJEUAIBAABAAAAUAYCAiAIAAwCCA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\CubismRenderController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.CubismRenderer" Collapsed="true">
+    <Position X="27" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMQhVA0hhFMKCYCJBEQU0BCERBIAAUQAiQIAiIBAERA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\CubismRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.CubismShaderVariables" Collapsed="true">
+    <Position X="28.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACABAAAIAABBAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\CubismShaderVariables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.CubismSortingModeExtensionMethods" Collapsed="true">
+    <Position X="30.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\CubismSortingModeExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.Masking.CubismMaskCommandBuffer" Collapsed="true">
+    <Position X="28.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAQAAAAAAICAAAAAQAAAJAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\CubismMaskCommandBuffer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.Masking.CubismMaskController" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAABAAABAOQAAAAAAAAgIAAABABAAEAIAAEAIAAAAAI=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\CubismMaskController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.Masking.CubismMaskMaskedJunction" Collapsed="true">
+    <Position X="32.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYQABAAAAABACAAAAwAAAAABAAAAAABBEQAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\CubismMaskMaskedJunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.Masking.CubismMaskProperties" Collapsed="true">
+    <Position X="34" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAQA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\CubismMaskProperties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.Masking.CubismMaskRenderer" Collapsed="true">
+    <Position X="35.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAACCAAAAQIAAAQAAAAAAABAAIAAAgAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\CubismMaskRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.Masking.CubismMaskRendererExtensionMethods" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\CubismMaskRendererExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.Masking.CubismMaskTexture" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAABAEABAEAAgQAAAAAAAAAAAAASACANAAMAAAIAGAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\CubismMaskTexture.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.Masking.CubismMaskTilePool" Collapsed="true">
+    <Position X="18.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAEAAgAAAAAEAIAAEAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\CubismMaskTilePool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Live2D.Cubism.Rendering.Masking.IntExtensionMethods" Collapsed="true">
+    <Position X="25.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\IntExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModuleAudio" Collapsed="true">
+    <Position X="21.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAIAAEAEgAAAAAAAAAACCBIAEghQ=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\Plugins\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModulePhysics" Collapsed="true">
+    <Position X="23.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAGBBAAAQAACAAAAEAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModulePhysics2D" Collapsed="true">
+    <Position X="25.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAGBAAAAAAACAAAAEAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModuleSprite" Collapsed="true">
+    <Position X="27" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAQAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\Plugins\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModuleUI" Collapsed="true">
+    <Position X="28.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAIQABAAAAgAgKAgAEAIAAQCLQEFAABAQAABBQAAAAg=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModuleUnityVersion" Collapsed="true">
+    <Position X="30.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAQAAAAEAIACAAAAgAgAQAAAAAAQEAUCAACAAAAABA=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenCYInstruction" Collapsed="true">
+    <Position X="20" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DG.Tweening.DOTweenModuleUtils" Collapsed="true">
+    <Position X="32.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAACABCAAAAAAA=</HashCode>
+      <FileName>Assets\Private\AT_Kusama\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="STAGE_DATA" Collapsed="true">
+    <Position X="16.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAIAAAAAAAAAAAEEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\LoadLevelCSV.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ENEMY_DATA" Collapsed="true">
+    <Position X="35.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAIAAAAAAAAAAAEAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\LoadLevelCSV.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LEVEL_CSV" Collapsed="true">
+    <Position X="14.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\LoadLevelCSV.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="AudioLink" Collapsed="true">
+    <Position X="14.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAEAABAAAAAAAAAAAAAAAAAAAoAgAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\System\AudioManager.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Framework.MotionFade.CubismFadePlayingMotion" Collapsed="true">
+    <Position X="16.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABICBgQAAAAAAAAAAAACA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MotionFade\CubismFadePlayingMotion.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Framework.Physics.CubismPhysicsInput" Collapsed="true">
+    <Position X="21.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCAAABAAgAAAQAAAAAAAIBAACAACCAAAAAAAACAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysicsInput.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Framework.Physics.CubismPhysicsNormalizationTuplet" Collapsed="true">
+    <Position X="25.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAACAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysicsNormalization.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Framework.Physics.CubismPhysicsNormalization" Collapsed="true">
+    <Position X="23.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysicsNormalization.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Framework.Physics.CubismPhysicsOutput" Collapsed="true">
+    <Position X="27" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAEAAAAIAABAQEAAAAAAIAABCAACABkIAIACICAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysicsOutput.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Framework.Physics.CubismPhysicsParticle" Collapsed="true">
+    <Position X="28.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAIAAAAEgAAAAAAAAAAAIAAAAAAAEAABMABA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysicsParticle.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Framework.Pose.CubismPoseData" Collapsed="true">
+    <Position X="30.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAIAAAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Pose\CubismPoseData.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Framework.Raycasting.CubismRaycastHit" Collapsed="true">
+    <Position X="32.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAgAAAAAAAAAAAAAAAAABAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Raycasting\CubismRaycastHit.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Framework.UserData.CubismUserDataBody" Collapsed="true">
+    <Position X="34" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\UserData\CubismUserDataBody.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Rendering.Masking.CubismMaskTile" Collapsed="true">
+    <Position X="18.25" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAgAAAAABAAAAAAACAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\CubismMaskTile.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Live2D.Cubism.Rendering.Masking.CubismMaskTransform" Collapsed="true">
+    <Position X="20" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAQAAACAAAAAAAAAAAAAwAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\CubismMaskTransform.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Live2D.Cubism.Core.ICubismTask" Collapsed="true">
+    <Position X="21.75" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Core\ICubismTask.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Live2D.Cubism.Framework.ICubismUpdatable" Collapsed="true">
+    <Position X="23.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAIAAAAIAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\ICubismUpdatable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Live2D.Cubism.Framework.LookAt.ICubismLookTarget" Collapsed="true">
+    <Position X="18.25" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\LookAt\ICubismLookTarget.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Live2D.Cubism.Framework.MotionFade.ICubismFadeState" Collapsed="true">
+    <Position X="16.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAABAACAAACAAAAAEAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MotionFade\ICubismFadeState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Live2D.Cubism.Rendering.ICubismDrawOrderHandler" Collapsed="true">
+    <Position X="14.75" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\ICubismDrawOrderHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Live2D.Cubism.Rendering.ICubismOpacityHandler" Collapsed="true">
+    <Position X="20" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\ICubismOpacityHandler.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Live2D.Cubism.Rendering.Masking.ICubismMaskCommandSource" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\ICubismMaskCommandSource.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Live2D.Cubism.Rendering.Masking.ICubismMaskTextureCommandSource" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\Masking\ICubismMaskTextureCommandSource.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="STATE" Collapsed="true">
+    <Position X="30.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAACAAAAAIAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\03_Script\System\StateManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Live2D.Cubism.Framework.CubismParameterBlendMode" Collapsed="true">
+    <Position X="21.75" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\CubismParameterBlendMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Live2D.Cubism.Framework.HarmonicMotion.CubismHarmonicMotionDirection" Collapsed="true">
+    <Position X="18.25" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAACACAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\HarmonicMotion\CubismHarmonicMotionDirection.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Live2D.Cubism.Framework.LookAt.CubismLookAxis" Collapsed="true">
+    <Position X="20" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAE=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\LookAt\CubismLookAxis.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Live2D.Cubism.Framework.MotionFade.CubismFadeCurveType" Collapsed="true">
+    <Position X="16.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MotionFade\CubismFadeCurveType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Live2D.Cubism.Framework.MouthMovement.CubismAudioSamplingQuality" Collapsed="true">
+    <Position X="14.75" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAgAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\MouthMovement\CubismAudioSamplingQuality.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Live2D.Cubism.Framework.Physics.CubismPhysicsSourceComponent" Collapsed="true">
+    <Position X="23.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAYAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Physics\CubismPhysicsSourceComponent.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Live2D.Cubism.Framework.Raycasting.CubismRaycastablePrecision" Collapsed="true">
+    <Position X="25.25" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\Raycasting\CubismRaycastablePrecision.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Live2D.Cubism.Framework.UserData.CubismUserDataTargetType" Collapsed="true">
+    <Position X="28.75" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Framework\UserData\CubismUserDataTargetType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Live2D.Cubism.Rendering.CubismSortingMode" Collapsed="true">
+    <Position X="27" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEA=</HashCode>
+      <FileName>Assets\Live2D\Cubism\Rendering\CubismSortingMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Yu Gothic UI" Size="9" />
+</ClassDiagram>

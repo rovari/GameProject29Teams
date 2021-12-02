@@ -21,7 +21,7 @@ public class wall : MonoBehaviour
 
     void HitPlayer()
     {
-        //HP‚ğí‚éˆ—
+        //HPã‚’å‰Šã‚‹å‡¦ç†
 
 
     }

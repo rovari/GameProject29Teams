@@ -98,7 +98,7 @@ Shader "Custom/Surface"
 			float3	l	= normalize(float3(1.0, -1.0, 1.0));
 
 			Dissolve(IN.uv_Mask + addUv, c);
-			if (c.a < 0 || _Discard) discard;
+			if (c.a < 1.0 || _Discard) discard;
 
 			#ifdef _GT_ONECOLOR
 			c = c * _Color;
