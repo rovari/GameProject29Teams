@@ -529,7 +529,7 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Menu"",
+                    ""name"": ""Escape"",
                     ""type"": ""Button"",
                     ""id"": ""b2a889b3-9fdc-4427-95b1-46f7ea804df3"",
                     ""expectedControlType"": ""Button"",
@@ -831,7 +831,7 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Menu"",
+                    ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -842,7 +842,7 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Menu"",
+                    ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -853,7 +853,7 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Menu"",
+                    ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -864,7 +864,7 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Menu"",
+                    ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -895,7 +895,7 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
         m_MENU_High = m_MENU.FindAction("High", throwIfNotFound: true);
         m_MENU_Low = m_MENU.FindAction("Low", throwIfNotFound: true);
         m_MENU_Apply = m_MENU.FindAction("Apply", throwIfNotFound: true);
-        m_MENU_Menu = m_MENU.FindAction("Menu", throwIfNotFound: true);
+        m_MENU_Escape = m_MENU.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1097,7 +1097,7 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
     private readonly InputAction m_MENU_High;
     private readonly InputAction m_MENU_Low;
     private readonly InputAction m_MENU_Apply;
-    private readonly InputAction m_MENU_Menu;
+    private readonly InputAction m_MENU_Escape;
     public struct MENUActions
     {
         private @MainInputSystem m_Wrapper;
@@ -1107,7 +1107,7 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
         public InputAction @High => m_Wrapper.m_MENU_High;
         public InputAction @Low => m_Wrapper.m_MENU_Low;
         public InputAction @Apply => m_Wrapper.m_MENU_Apply;
-        public InputAction @Menu => m_Wrapper.m_MENU_Menu;
+        public InputAction @Escape => m_Wrapper.m_MENU_Escape;
         public InputActionMap Get() { return m_Wrapper.m_MENU; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1132,9 +1132,9 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                 @Apply.started -= m_Wrapper.m_MENUActionsCallbackInterface.OnApply;
                 @Apply.performed -= m_Wrapper.m_MENUActionsCallbackInterface.OnApply;
                 @Apply.canceled -= m_Wrapper.m_MENUActionsCallbackInterface.OnApply;
-                @Menu.started -= m_Wrapper.m_MENUActionsCallbackInterface.OnMenu;
-                @Menu.performed -= m_Wrapper.m_MENUActionsCallbackInterface.OnMenu;
-                @Menu.canceled -= m_Wrapper.m_MENUActionsCallbackInterface.OnMenu;
+                @Escape.started -= m_Wrapper.m_MENUActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_MENUActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_MENUActionsCallbackInterface.OnEscape;
             }
             m_Wrapper.m_MENUActionsCallbackInterface = instance;
             if (instance != null)
@@ -1154,9 +1154,9 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                 @Apply.started += instance.OnApply;
                 @Apply.performed += instance.OnApply;
                 @Apply.canceled += instance.OnApply;
-                @Menu.started += instance.OnMenu;
-                @Menu.performed += instance.OnMenu;
-                @Menu.canceled += instance.OnMenu;
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
             }
         }
     }
@@ -1186,6 +1186,6 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
         void OnHigh(InputAction.CallbackContext context);
         void OnLow(InputAction.CallbackContext context);
         void OnApply(InputAction.CallbackContext context);
-        void OnMenu(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

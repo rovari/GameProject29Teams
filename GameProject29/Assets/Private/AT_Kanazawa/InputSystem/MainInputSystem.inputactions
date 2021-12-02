@@ -516,7 +516,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Menu",
+                    "name": "Escape",
                     "type": "Button",
                     "id": "b2a889b3-9fdc-4427-95b1-46f7ea804df3",
                     "expectedControlType": "Button",
@@ -818,7 +818,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Menu",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -829,7 +829,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Menu",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -840,7 +840,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Menu",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -851,7 +851,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Menu",
+                    "action": "Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
