@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class resultScore : MonoBehaviour
 {
-    int score;
+    int crushing;
     int TotalScore;
     int ClearScore;
     float Tmp;
@@ -37,9 +37,9 @@ public class resultScore : MonoBehaviour
         Tmp = 1000 * Ma;
         ClearScore = (int)Tmp;
 
-        score = ScoreScript.GetScore();
-        Tmp = score * Ma;
-        score = (int)Tmp;
+        crushing = ScoreScript.GetScore();
+        Tmp = crushing * Ma;
+        crushing = (int)Tmp;
     }
 
     // Update is called once per frame
@@ -47,10 +47,14 @@ public class resultScore : MonoBehaviour
     {
         TotalScore =
             ClearScore +//ÉNÉäÉAëçìæì_
-            score;//åÇîjêî
+            crushing;//åÇîjêî
 
         ResultText.text = "Score:" + TotalScore.ToString();
     }
 
+    public int GetTotalScore()
+    {
+        return TotalScore;
+    }
   
 }
