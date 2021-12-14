@@ -22,8 +22,8 @@ public class PlayerFire : FacadeData {
         _targetIndex = 0;
         _weaponIndex = 0;
 
-        InputManager.GetPlayerInput().currentActionMap["Attack"]       .performed  += _ => OnFire();
-        InputManager.GetPlayerInput().currentActionMap["Weaponchange"] .started += _ => AddWeaponIndex();
+        InputManager.GetPlayerInput().currentActionMap["Fire"]  .performed  += _ => OnFire();
+        InputManager.GetPlayerInput().currentActionMap["Index"] .started    += _ => AddWeaponIndex();
                                  
         targetList.RefreshList();
     }
@@ -59,7 +59,7 @@ public class PlayerFire : FacadeData {
             StateManager.GetSetTakeDown = false;
         }
         if (weaponList.GetWeapon(_weaponIndex).GetUIType() == Weapon.UITYPE.AIM) return;
-        if (Mathf.Abs(InputManager.GetPlayerInput().currentActionMap["Lockon"].ReadValue<Vector2>().x) > 0.7f && !_lockIndex) StartCoroutine("TargetIndex");
+        if (Mathf.Abs(InputManager.GetPlayerInput().currentActionMap["Aim"].ReadValue<Vector2>().x) > 0.7f && !_lockIndex) StartCoroutine("TargetIndex");
     }
     private void AddWeaponIndex     () {
         targetList.RefreshList();
@@ -84,12 +84,12 @@ public class PlayerFire : FacadeData {
 
         while (true) {
 
-            if (Mathf.Abs(InputManager.GetPlayerInput().currentActionMap["Lockon"].ReadValue<Vector2>().x) < 0.3f) break;
+            if (Mathf.Abs(InputManager.GetPlayerInput().currentActionMap["Aim"].ReadValue<Vector2>().x) < 0.3f) break;
 
-            if (InputManager.GetPlayerInput().currentActionMap["Lockon"].ReadValue<Vector2>().x >  0.7f) {
+            if (InputManager.GetPlayerInput().currentActionMap["Aim"].ReadValue<Vector2>().x >  0.7f) {
                 _targetIndex = (_targetIndex >= targetList.GetListSize() - 1) ? 0 : ++_targetIndex;
             }
-            if (InputManager.GetPlayerInput().currentActionMap["Lockon"].ReadValue<Vector2>().x < -0.7f) {
+            if (InputManager.GetPlayerInput().currentActionMap["Aim"].ReadValue<Vector2>().x < -0.7f) {
                 _targetIndex = (_targetIndex <= 0) ? targetList.GetListSize() - 1 : --_targetIndex;
             }
 

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class PlayerSelect : MonoBehaviour
 {
-    [SerializeField, Header("ƒCƒxƒ“ƒg—pƒIƒuƒWƒFƒNƒg")] GameObject g;
+    [SerializeField, Header("ã‚¤ãƒ™ãƒ³ãƒˆç”¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")] GameObject g;
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +22,11 @@ public class PlayerSelect : MonoBehaviour
         
         if (g.name == "1Player")
         {
-            //1Playerƒ‚[ƒh‚Ö‘JˆÚ‚·‚éƒR[ƒh’Ç‰Á
+            //1Playerãƒ¢ãƒ¼ãƒ‰ã¸é·ç§»ã™ã‚‹ã‚³ãƒ¼ãƒ‰è¿½åŠ 
         }
         else if (g.name == "2Player")
         {
-            //2Playerƒ‚[ƒh‚Ö‘JˆÚ‚·‚éƒR[ƒh’Ç‰Á
+            //2Playerãƒ¢ãƒ¼ãƒ‰ã¸é·ç§»ã™ã‚‹ã‚³ãƒ¼ãƒ‰è¿½åŠ 
         }
     }
 }

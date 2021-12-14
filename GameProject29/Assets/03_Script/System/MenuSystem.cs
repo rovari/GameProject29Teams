@@ -8,37 +8,59 @@ public class MenuSystem : MonoBehaviour {
     // [ Hide Field   ] ===============================================
     private bool    _playerTimeState;
     private float   _oldTimeScale;
+    private bool    _lockFrame;
 
     // [ Show Field   ] ===============================================
-    [SerializeField] private GameObject     menuObject;
+    [SerializeField] private GameObject     menuUIObject;
+    [SerializeField] private GameObject     gameUIObject;
 
     // [ Property     ] ===============================================
 
     // [ Unity Method ] ===============================================
     private void Start() {
-        menuObject.SetActive(false);
-        InputManager.GetPlayerInput().currentActionMap["MenueButton"].started += _ => OpenMenu();
+        menuUIObject.SetActive(false);
+
+        STATE state = StateManager.GetSetState;
+
+        StateManager.GetSetState = STATE.GAME;
+        InputManager.GetPlayerInput().currentActionMap["Menu"]  .started += _ => OpenMenu();
+
+        StateManager.GetSetState = STATE.MENU;
+        InputManager.GetPlayerInput().currentActionMap["Escape"].started += _ => ExitMenu();
+
+        StateManager.GetSetState = state;
     }
-    
+
+    private void Update() {
+        //ExitMenu();
+    }
+
     // [ User  Method ] ===============================================
     private void OpenMenu() {
+        
+        _oldTimeScale = Time.timeScale;
+        _lockFrame = true;
 
-        if (StateManager.GetSetState == STATE.GAME ||  StateManager.GetSetState == STATE.EVENT) {
+        StateManager.GetSetState = STATE.MENU;
+        Time.timeScale = 0.0f;
 
-            _oldTimeScale = Time.timeScale;
-
-            StateManager.GetSetState = STATE.MENU;
-            Time.timeScale = 0.0f;
-
-            menuObject.SetActive(true);
-        }
+        gameUIObject.SetActive(false);
+        menuUIObject.SetActive(true);
+        
     }
 
     private void ExitMenu() {
 
-        menuObject.SetActive(false);
+        if (StateManager.GetSetState == STATE.MENU && !_lockFrame) {
 
-        Time.timeScale = _oldTimeScale;
-        StateManager.GetSetState = STATE.GAME;
+            if (InputManager.GetPlayerInput().currentActionMap["Escape"].enabled) {
+                menuUIObject.SetActive(false);
+                gameUIObject.SetActive(true);
+
+                Time.timeScale = _oldTimeScale;
+                StateManager.GetSetState = STATE.GAME;
+            }
+        }
+        else _lockFrame = false;
     }
 }

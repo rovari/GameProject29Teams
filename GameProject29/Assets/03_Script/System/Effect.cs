@@ -422,6 +422,8 @@ public class Effect : MonoBehaviour {
             period  -= Time.deltaTime;
             yield return null;
         }
+
+
     }
     private IEnumerator  TimeStop           () {
         

@@ -31,8 +31,11 @@ struct AudioLink {
 
 public class AudioManager : MonoBehaviour {
 
-   
+    
     // Hide  Field ================================================
+    private const float VOLUME_MAX = 2.0f;
+    private const float VOLUME_MIN = 0.0f;
+
     private static AudioClipDictionary  _bgmDic;
     private static AudioClipDictionary  _gmeDic;
     private static AudioClipDictionary  _sysDic;
@@ -128,6 +131,11 @@ public class AudioManager : MonoBehaviour {
         GetAudioLink(type).Stop();
     }
     public  static void Volume      (SOUNDTYPE type, float vol) {
+
+        vol = VOLUME_MAX > vol ?
+            VOLUME_MAX : 
+            VOLUME_MIN < vol ?
+            VOLUME_MIN : vol; 
 
         switch (type) {
             case SOUNDTYPE.MASTER:

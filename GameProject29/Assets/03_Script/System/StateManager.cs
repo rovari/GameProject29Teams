@@ -45,6 +45,8 @@ public class StateManager : MonoBehaviour {
     private void Start  () {
         Fetch();
 
+        GetSetState = STATE.GAME;
+
         LEVEL_CSV data;
         LoadLevelCSV.LoadCSV(csv, out data);
     }
