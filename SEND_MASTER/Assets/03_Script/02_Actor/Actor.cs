@@ -19,9 +19,10 @@ public enum TSCALE {
 public struct ActorState {
 
     // Field
-    public  bool    isDead;
-    public  bool    isInvincible;
-    public  bool    isTurbo;
+    [HideInInspector] public  bool    isDead;
+    [HideInInspector] public  bool    isInvincible;
+    [HideInInspector] public  bool    isTurbo;
+
     public  int     life;
     public  float   hp;
     public  float   defence;
@@ -31,9 +32,22 @@ public struct ActorState {
     private float   defHp;
 
     // Method
+    public  void    StateSave           () {
+        defLife = life;
+        defHp   = hp;
+    }
     public  void    StateUpdate         () {
         CalcpHp    ();
         CalcLife   ();
+    }
+    public  void    CalcDamage          (float inDamage, ELEMENT element) {
+
+        float damage;
+
+        damage = (inDamage * 0.5f) - (defence * 0.25f);
+        damage = (resist == element) ? damage : damage * 0.5f;
+
+        hp -= damage;
     }
 
     private void    CalcpHp             () {
@@ -61,17 +75,24 @@ public struct ActorState {
 public class Actor : MonoBehaviour {
 
     // Field
-    [SerializeField] private List<MeshRenderer> modelList;
-    [SerializeField] private ActorState         actorState;
-    [SerializeField] private ActorCollision     collision;
+    [SerializeField]  private   List<MeshRenderer>  meshlList;
+    [SerializeField]  private   ActorState          actorState;
+    [SerializeField]  private   ActorCollision      collision;
     
-    public  List<Surface>   surfaceList;
-    public  EffectSystem    effect;
+    [HideInInspector] public    List<Surface>       surfaceList;
+    [HideInInspector] public    EffectSystem        effect;
 
     // Property
-    public  Transform       GetSetTransform { get; set; }
-    public  GameObject      GetSetTarget    { get; set; }
-    public  Vector2         GetSetHitPos    { get; set; }
+    public  Transform           GetSetTransform {
+        get { return transform; }
+        set {
+            transform.position      = value.position;
+            transform.rotation      = value.rotation;
+            transform.localScale    = value.localScale;
+        }
+    }
+    public  GameObject          GetSetTarget    { get; set; }
+    public  Vector2             GetSetHitPos    { get; set; }
 
     // Method
     public  float               GetActorDeltaTime   () {
@@ -95,13 +116,27 @@ public class Actor : MonoBehaviour {
     }
 
     // Unity
-    private void            Start           () {
+    protected   void Start      () {
 
+        surfaceList = new List<Surface>();
+        effect      = GameObject.FindGameObjectWithTag("Effect").GetComponent<EffectSystem>();
+
+        foreach(var m in meshlList) {
+            surfaceList.Add(new Surface(m.material));
+        }
+
+        actorState.StateSave();
     }
-    private void            Update          () {
+    protected   void Update     () {
+
         GetActorState().StateUpdate();
     }
-    private void            OnDestroy       () {
-        //surface release;
+    private     void OnDestroy  () {
+
+        if (surfaceList.Count > 0) {
+            surfaceList.Clear();
+        }
+        
+        GC.Collect();
     }
 }

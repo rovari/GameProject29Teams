@@ -49,6 +49,9 @@ public class Bullet : Actor {
             default: break;
         }
     }
+    public  ELEMENT     GetElement          () {
+        return element;
+    } 
 
     private void        ActiveCollision     (bool active) {
         
@@ -338,7 +341,7 @@ public class Bullet : Actor {
     }
     
     // Unity
-    private void Start () {
-        
+    private new void Start () {
+        base.Start();
     }
 }

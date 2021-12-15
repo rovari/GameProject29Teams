@@ -8,15 +8,19 @@ public class ActorCollision : ActorData {
     // Field
     [SerializeField] private float      damage;
 	[SerializeField] private EffectData damageEffect;
-
+    
     // Property
 
     // Method
     public  Type GetActorType   () {
         return actor.GetActorType();
     }
-    private void CalcActorHp    (float hitDamage) {
-        actor.GetActorState().hp -= hitDamage;
+    private void CalcActorHp    (ActorCollision hitCollision) {
+        
+        if(typeof(Bullet) == hitCollision.actor.GetActorType()) {
+            actor.GetActorState().CalcDamage(hitCollision.damage, ((Bullet)hitCollision.actor).GetElement());
+        }
+        else actor.GetActorState().CalcDamage(hitCollision.damage, ELEMENT.NONE);
     }
     private void ActorEffect    (Type actorType) {
         
@@ -78,7 +82,7 @@ public class ActorCollision : ActorData {
 
         if (!other.gameObject.TryGetComponent<ActorCollision>(out actorCollision)) return;
 
-        CalcActorHp(actorCollision.damage);
+        CalcActorHp(actorCollision);
         ActorEffect(actorCollision.GetActorType());
 
     }

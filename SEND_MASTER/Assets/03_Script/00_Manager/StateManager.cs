@@ -16,7 +16,6 @@ public class StateManager : MonoBehaviour {
 
     // Field
     [SerializeField] private PlayableAsset introTL;
-    [SerializeField] private PlayableAsset talkTL;
     [SerializeField] private PlayableAsset generalTL;
     [SerializeField] private PlayableAsset endTL;
 
@@ -29,20 +28,37 @@ public class StateManager : MonoBehaviour {
     static private PlayableAsset    end;
 
     // Property
-    static public  STATE    GetSetState {
+    static public  STATE        GetSetState {
         get {
             return state;
         }
         set {
             state = value;
-            //AttachInputMaptoState();
+            AttachStateMap();
         }
     }
-    static public  float    GetSetScore     { get; set; }
-    static public  bool     GetSetBossDown  { get; set; }
+    static public  float        GetSetScore     { get; set; }
+    static public  bool         GetSetBossDown  { get; set; }
+    static public  LevelData    GetSetLevelData { get; set; }
 
     // Method 
-    
+    static private void  AttachStateMap () {
+
+        switch (GetSetState) {
+            case STATE.GAME:
+                InputManager.GetPlayerInput().currentActionMap = InputManager.GetPlayerInput().actions.actionMaps[0];
+                break;
+            case STATE.LOAD:
+                InputManager.GetPlayerInput().currentActionMap = InputManager.GetPlayerInput().actions.actionMaps[1];
+                break;
+            case STATE.EVENT:
+                InputManager.GetPlayerInput().currentActionMap = InputManager.GetPlayerInput().actions.actionMaps[2];
+                break;
+            case STATE.MENU:
+                InputManager.GetPlayerInput().currentActionMap = InputManager.GetPlayerInput().actions.actionMaps[3];
+                break;
+        }
+    }
 
     // Unity
 	private void Start() {

@@ -47,7 +47,7 @@ public class AudioManager : MonoBehaviour {
     [SerializeField] private AudioClipList  bgmClipList;
     [SerializeField] private AudioClipList  environmentClipList;
     [SerializeField] private AudioClipList  gameSeClipList;
-    [SerializeField] private AudioClipList  syetemSeClipList;
+    [SerializeField] private AudioClipList  systemSeClipList;
     [SerializeField] private AudioClipList  jingleClipList;
     [SerializeField] private AudioClipList  voiceClipList;
     
@@ -72,6 +72,30 @@ public class AudioManager : MonoBehaviour {
     // Property
 
     // Method
+    private void InitializeAudio () {
+
+        mix     = mixer;
+        bgmSrc  = transform.Find("BGM")         .GetComponent<AudioSource>();
+        seSrc   = transform.Find("SE")          .GetComponent<AudioSource>();
+        envSrc  = transform.Find("Environment") .GetComponent<AudioSource>();
+        jngSrc  = transform.Find("Jingle")      .GetComponent<AudioSource>();
+        voSrc   = transform.Find("Voice")       .GetComponent<AudioSource>();
+
+        bgmDic  = new AudioClipDictionary();
+        gmeDic  = new AudioClipDictionary();
+        sysDic  = new AudioClipDictionary();
+        envDic  = new AudioClipDictionary();
+        jngDic  = new AudioClipDictionary();
+        voDic   = new AudioClipDictionary();
+
+        foreach (var gme in gameSeClipList)         gmeDic.Add(gme.name, gme);
+        foreach (var sys in systemSeClipList)       sysDic.Add(sys.name, sys);
+        foreach (var bgm in bgmClipList)            bgmDic.Add(bgm.name, bgm);
+        foreach (var env in environmentClipList)    envDic.Add(env.name, env);
+        foreach (var jng in jingleClipList)         jngDic.Add(jng.name, jng);
+        foreach (var voc in voiceClipList)          voDic .Add(voc.name, voc);
+    }
+
     static private AudioLink GetAudioLink   (SOUNDTYPE soundType) {
 
         AudioLink link = default;
@@ -127,6 +151,6 @@ public class AudioManager : MonoBehaviour {
     
     // Unity
 	private void Start() {
-
+        InitializeAudio();
 	}
 }

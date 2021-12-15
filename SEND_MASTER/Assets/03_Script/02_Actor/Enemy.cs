@@ -98,7 +98,7 @@ public class Enemy : Actor {
     }
 
     // Unity
-    private void Start() {
-
+    private new void Start() {
+        base.Start();
     }
 }

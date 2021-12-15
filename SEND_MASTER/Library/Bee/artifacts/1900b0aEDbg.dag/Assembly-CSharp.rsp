@@ -336,6 +336,7 @@
 "Assets/03_Script/04_Shader/ShaderController.cs"
 "Assets/03_Script/04_Shader/Surface.cs"
 "Assets/03_Script/DontTouch/ExportCaptureImage.cs"
+"Assets/03_Script/DontTouch/LevelData.cs"
 "Assets/03_Script/DontTouch/MainInputSystem.cs"
 "Assets/03_Script/DontTouch/SceneObject.cs"
 "Assets/03_Script/DontTouch/StartUpGame.cs"

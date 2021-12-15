@@ -276,5 +276,6 @@ public class EffectSystem : MonoBehaviour {
     // Unity
 	private void Start() {
 
+        CreateDictionary();
 	}
 }

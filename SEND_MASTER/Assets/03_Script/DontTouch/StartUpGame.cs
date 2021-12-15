@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StartUpGame : MonoBehaviour {
 
@@ -23,14 +24,18 @@ public class StartUpGame : MonoBehaviour {
         }
     }
     private void QuitGame       () {
-        //if (Keyboard.current.escapeKey.isPressed && Keyboard.current.shiftKey.isPressed) { 
+        if (Keyboard.current.escapeKey.isPressed && Keyboard.current.shiftKey.isPressed) { 
 
-        //    #if UNITY_EDITOR
-        //    UnityEditor.EditorApplication.isPlaying = false;
-        //    #elif UNITY_STANDALONE
-        //    UnityEngine.Application.Quit();
-        //    #endif
-        //}
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #elif UNITY_STANDALONE
+            UnityEngine.Application.Quit();
+            #endif
+        }
+    }
+    private void ImportCSV      () {
+
+
     }
 
     // Signal

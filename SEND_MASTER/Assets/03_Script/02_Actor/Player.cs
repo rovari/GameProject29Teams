@@ -8,7 +8,7 @@ public class Player : Actor {
 
     // Field
     [SerializeField] private GameObject LifeBoxObject;
-    [SerializeField] private Vector3    boxPosition;
+    [SerializeField] private Vector3    boxLocalPos;
     [SerializeField] private float      boxBitween;
 
     private bool                isHoldItem;
@@ -49,15 +49,33 @@ public class Player : Actor {
         }
     }
 
-    private void        CreateBox   () { 
+    private void        CreateBox   () {
 
-        for(int i = 0; i <= GetActorState().life; ++i) {
+        LifeBoxList = new List<GameObject>();
+
+        for(int i = 0; i < GetActorState().life; ++i) {
             
-            LifeBoxList.Add(Instantiate(LifeBoxObject));
+            GameObject box = Instantiate(LifeBoxObject);
 
-            Vector3 boxPos = new Vector3(boxPosition.x, boxPosition.y, boxPosition.z + (boxBitween * (i + 1)));
+            box.transform.position = 
+                GetSetTransform.position + new Vector3(boxLocalPos.x, boxLocalPos.y + boxBitween * i, boxLocalPos.z);
 
-            LifeBoxList[i].transform.position = boxPos;
+            box.transform.parent = GetSetTransform;
+            box.name = "LifeBox_s" + (i + 1).ToString();
+
+            LifeBoxList.Add(box);
+        }
+    }
+    private void        UpdateBox   () {
+
+        for (int i = 0; i < LifeBoxList.Count; ++i) {
+
+            if (i < GetActorState().life) {
+                LifeBoxList[i].SetActive(true);
+            }
+            else {
+                LifeBoxList[i].SetActive(false);
+            }
         }
     }
 
@@ -97,7 +115,17 @@ public class Player : Actor {
     }
 
     // Unity
-	private void Start() {
+	private new void Start  () {
 
+        base.Start();
+
+        CreateBox();
 	}
+
+    private new void Update () {
+        
+        base.Update();
+
+        UpdateBox();
+    }
 }

@@ -20,6 +20,8 @@ public class PlayerMove : ActorData {
 
     // Property
 
+    public Vector2 test;
+
     // Method
     private void        CalcStabillity  () {
 
@@ -50,9 +52,9 @@ public class PlayerMove : ActorData {
     }
     private void        Move            () {
 
-        //velocity    += Mathf.Lerp   (-moveSpeed, moveSpeed, ());
+        velocity    += Mathf.Lerp   (-moveSpeed, moveSpeed, (InputManager.GetPlayerInput().currentActionMap["Move"].ReadValue<Vector2>().x + 1.0f) * 0.5f) * actor.GetActorDeltaTime();
         velocity    =  Mathf.Clamp  (velocity, -maxSpeed,maxSpeed);
-
+        
         float rot = 1.0f - Vector3.Dot(Vector3.up, Vector3.Normalize(new Vector3(velocity, 1.0f, 0.0f)));
         rot = (velocity < 0.0f) ? rot : -rot;
 
@@ -77,9 +79,9 @@ public class PlayerMove : ActorData {
 
             while (defaultPos.y <= actor.GetSetTransform.position.y) {
 
-                actor.GetSetTransform.position += new Vector3(0.0f, actor.GetActorDeltaTime(), 0.0f);
+                actor.GetSetTransform.position += new Vector3(0.0f, power * actor.GetActorDeltaTime(), 0.0f);
 
-                jumpPow -= 9.8f * actor.GetActorDeltaTime();
+                power -= 9.8f * actor.GetActorDeltaTime();
                 yield return null;
             }
 
@@ -131,7 +133,11 @@ public class PlayerMove : ActorData {
     // Unity
 	private void        Start           () {
 
-	}
+        defaultPos = actor.GetSetTransform.position;
+
+        StateManager.GetSetState = STATE.GAME;
+        InputManager.GetPlayerInput().currentActionMap["Jump"].started += _ => StartCoroutine("Jump");
+    }
 
     // Dependent Update by State
     protected override void GameUpdate   () {

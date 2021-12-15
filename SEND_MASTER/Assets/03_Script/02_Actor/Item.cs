@@ -34,7 +34,7 @@ public class Item : Actor {
 	// Signal
 
     // Unity
-	private void Start() {
-
+	private new void Start() {
+        base.Start();
 	}
 }
