@@ -12,21 +12,25 @@ public enum STATE {
     EVENT
 }
 
+public enum MAIN_TL {
+    IDLE,
+    INTRO,
+    GENERAL,
+    TALK,
+    RESULT,
+}
+
 public class StateManager : MonoBehaviour {
 
     // Field
     [SerializeField] private PlayableAsset introTL;
     [SerializeField] private PlayableAsset generalTL;
-    [SerializeField] private PlayableAsset endTL;
+    [SerializeField] private PlayableAsset resultTL;
 
     static private STATE            state;
-
-    static private PlayableDirector director;
-    static private PlayableAsset    intro;
-    static private PlayableAsset    talk;
-    static private PlayableAsset    general;
-    static private PlayableAsset    end;
-
+    static private MAIN_TL          sequence;
+    static private PlayableDirector timeline;
+    
     // Property
     static public  STATE        GetSetState {
         get {
@@ -42,6 +46,73 @@ public class StateManager : MonoBehaviour {
     static public  LevelData    GetSetLevelData { get; set; }
 
     // Method 
+    private void StartSequence  () {
+
+        timeline = GetComponent<PlayableDirector>();
+        sequence = MAIN_TL.IDLE;
+
+        if (introTL) {
+
+            sequence                = MAIN_TL.INTRO;
+            timeline.playableAsset  = introTL;
+            timeline.Play();
+        }
+    }
+    private void Sequence       () {
+        
+        switch (sequence) {
+            case MAIN_TL.INTRO:
+
+                if(timeline.time >= timeline.duration) {
+
+                    timeline.Stop();
+                    timeline.initialTime    = 0.0f;
+                    timeline.playableAsset  = generalTL;
+
+                    if (timeline.playableAsset != null) {
+                        sequence = MAIN_TL.TALK;
+                    }
+                }
+                break;
+
+            case MAIN_TL.TALK:
+
+                //if (isFinishTalk) { timeline.Play; sequence = MAIN_TL.GENERAL; } 
+
+                break;
+
+            case MAIN_TL.GENERAL:
+                
+                if(timeline.time >= timeline.duration) {
+
+                    timeline.Stop();
+                    timeline.initialTime    = 0.0f;
+                    timeline.playableAsset  = resultTL;
+
+                    if (timeline.playableAsset != null) {
+                        sequence = MAIN_TL.RESULT;
+                    }
+                }
+                break;
+
+            case MAIN_TL.RESULT:
+
+                //if(isResult) { timeline.Play; } 
+                if(timeline.time >= timeline.duration) {
+
+                    timeline.Stop();
+                    timeline.initialTime    = 0.0f;
+                    timeline.playableAsset  = resultTL;
+
+                    LoadManager.Load();
+                }
+                
+                break;
+
+            default: break;
+        }
+    }
+    
     static private void  AttachStateMap () {
 
         switch (GetSetState) {
@@ -59,9 +130,15 @@ public class StateManager : MonoBehaviour {
                 break;
         }
     }
-
+    
     // Unity
-	private void Start() {
+	private void Start  () {
 
+        GetSetState = STATE.GAME;
+        StartSequence();
 	}
+
+    private void Update () {
+        Sequence();
+    }
 }

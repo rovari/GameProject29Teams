@@ -14,7 +14,6 @@ public class LevelData : ScriptableObject {
     public string       stageBgm;
     public string       stageEnv;
     public string       stageName;
-    public bool         isEnd;
 
     // Enemy Setting
     [Space(10)]

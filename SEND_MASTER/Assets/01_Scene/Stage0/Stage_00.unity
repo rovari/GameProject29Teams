@@ -2065,6 +2065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 947870614}
   - component: {fileID: 947870615}
+  - component: {fileID: 947870616}
   m_Layer: 0
   m_Name: StateManager
   m_TagString: Untagged
@@ -2100,7 +2101,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introTL: {fileID: 0}
   generalTL: {fileID: 0}
-  endTL: {fileID: 0}
+  resultTL: {fileID: 0}
+--- !u!320 &947870616
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947870613}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &1003433454
 PrefabInstance:
   m_ObjectHideFlags: 0

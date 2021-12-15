@@ -134,9 +134,8 @@ public class PlayerMove : ActorData {
 	private void        Start           () {
 
         defaultPos = actor.GetSetTransform.position;
-
-        StateManager.GetSetState = STATE.GAME;
-        InputManager.GetPlayerInput().currentActionMap["Jump"].started += _ => StartCoroutine("Jump");
+        
+        InputManager.GetGAMEActions().Jump.started += _ => StartCoroutine("Jump");
     }
 
     // Dependent Update by State

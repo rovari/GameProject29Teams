@@ -7,34 +7,35 @@ using UnityEngine.InputSystem;
 public class ControlSystem : MonoBehaviour {
     
     // Field
-    private MainInputSystem input;
-	
-    public  PlayerInput  GetSetPlayerInput {
+    
+    // Property
+    public PlayerInput      GetSetPlayerInput {
         get; set;
     }
-    // Property
-
+    public MainInputSystem  GetSetMainInput{
+        get; set;
+    }
     // Method
 
-	// Signal
+    // Signal
     
-
     // Unity
-	private void Start      () {
+    private void Start      () {
 
 	}
     private void OnEnable   () {
 
-        input = new MainInputSystem();
-        GetSetPlayerInput = GetComponent<PlayerInput>();
+        GetSetMainInput     = new MainInputSystem();
+        GetSetPlayerInput   = GetComponent<PlayerInput>();
+
 
         InputManager.LoadInput(this);
-        input.Enable();
+        GetSetMainInput.Enable();
     }
     private void OnDisable  () {
-        input.Disable();
+        GetSetMainInput.Disable();
     }
     private void OnDestroy  () {
-        input.Dispose();
+        GetSetMainInput.Dispose();
     }
 }
