@@ -39,15 +39,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.75
         value: {x: -3.3549984, y: 2.6599998, z: -26.96}
-        inSlope: {x: -15.86, y: -3.2000008, z: 0}
-        outSlope: {x: -15.86, y: -3.2000008, z: 0}
+        inSlope: {x: 0, y: -3.2000008, z: 0}
+        outSlope: {x: 0, y: -3.2000008, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1
-        value: {x: -7.3199987, y: -0.44000006, z: -18.609999}
+        value: {x: 0.0000014305115, y: -0.44000006, z: -18.609999}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -121,15 +121,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.75
         value: -3.3549984
-        inSlope: -15.86
-        outSlope: -15.86
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: -7.3199987
+        value: 0.0000014305115
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
-  m_Name: apo1stert
+  m_Name: apo2stert
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
