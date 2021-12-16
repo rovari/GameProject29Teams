@@ -16,7 +16,7 @@ public enum MAIN_TL {
     IDLE,
     INTRO,
     GENERAL,
-    TALK,
+    SPEECH,
     RESULT,
 }
 
@@ -30,6 +30,7 @@ public class StateManager : MonoBehaviour {
     static private STATE            state;
     static private MAIN_TL          sequence;
     static private PlayableDirector timeline;
+    static private SpeechSystem     speech;
     
     // Property
     static public  STATE        GetSetState {
@@ -44,17 +45,15 @@ public class StateManager : MonoBehaviour {
     static public  float        GetSetScore     { get; set; }
     static public  bool         GetSetBossDown  { get; set; }
     static public  LevelData    GetSetLevelData { get; set; }
-
+    
     // Method 
     private void StartSequence  () {
 
         timeline = GetComponent<PlayableDirector>();
-        sequence = MAIN_TL.IDLE;
+        sequence = MAIN_TL.INTRO;
 
         if (introTL) {
-
-            sequence                = MAIN_TL.INTRO;
-            timeline.playableAsset  = introTL;
+            timeline.playableAsset = introTL;
             timeline.Play();
         }
     }
@@ -62,48 +61,62 @@ public class StateManager : MonoBehaviour {
         
         switch (sequence) {
             case MAIN_TL.INTRO:
+                
+                if(timeline.playableAsset && timeline.time >= timeline.duration) {
 
-                if(timeline.time >= timeline.duration) {
+                    state                   = STATE.EVENT;
 
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
                     timeline.playableAsset  = generalTL;
-
-                    if (timeline.playableAsset != null) {
-                        sequence = MAIN_TL.TALK;
-                    }
+                    sequence                = MAIN_TL.SPEECH;
                 }
+                else if (!timeline.playableAsset) {
+                    sequence                = MAIN_TL.SPEECH;
+                }
+
                 break;
 
-            case MAIN_TL.TALK:
+            case MAIN_TL.SPEECH:
 
-                //if (isFinishTalk) { timeline.Play; sequence = MAIN_TL.GENERAL; } 
+                speech.Speech();
+
+                if (speech.GetIsFinish()) {
+
+                    state       = STATE.GAME;
+                    sequence    = MAIN_TL.GENERAL;
+
+                    if (timeline.playableAsset != null) timeline.Play();
+                } 
 
                 break;
 
             case MAIN_TL.GENERAL:
                 
-                if(timeline.time >= timeline.duration) {
+                if(timeline.playableAsset && timeline.time >= timeline.duration) {
 
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
                     timeline.playableAsset  = resultTL;
-
-                    if (timeline.playableAsset != null) {
-                        sequence = MAIN_TL.RESULT;
-                    }
+                    sequence                = MAIN_TL.RESULT;
+                }
+                else if (!timeline.playableAsset) {
+                    sequence                = MAIN_TL.RESULT;
                 }
                 break;
 
             case MAIN_TL.RESULT:
 
-                //if(isResult) { timeline.Play; } 
-                if(timeline.time >= timeline.duration) {
+                if(GetSetBossDown) {
+                    if (timeline.playableAsset != null) timeline.Play();
+                } 
+
+                if(timeline.playableAsset && timeline.time >= timeline.duration) {
 
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
                     timeline.playableAsset  = resultTL;
-
+                    
                     LoadManager.Load();
                 }
                 
@@ -133,12 +146,13 @@ public class StateManager : MonoBehaviour {
     
     // Unity
 	private void Start  () {
-
-        GetSetState = STATE.GAME;
+        
+        speech      = GetComponent<SpeechSystem>();
         StartSequence();
 	}
 
     private void Update () {
+
         Sequence();
     }
 }
