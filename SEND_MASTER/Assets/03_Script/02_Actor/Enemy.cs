@@ -39,7 +39,16 @@ public class Enemy : Actor {
     public  GRADE   GetGrade    () {
         return grade;
     }
+    private void    SetSequence () {
 
+        timeline = GetComponent<PlayableDirector>();
+        timeline.playableAsset = encountTL;
+
+        if(timeline.playableAsset != null) {
+            sequence = SEQUENCE.ENCOUNT;
+            timeline.Play();
+        }
+    }
     private void    Sequence    () {
 
         switch (sequence) {
@@ -98,9 +107,9 @@ public class Enemy : Actor {
     }
 
     // Unity
-    private new void Start() {
+    private new void Start      () {
         base.Start();
 
-        timeline = GetComponent<PlayableDirector>();
+        SetSequence();
     }
 }
