@@ -314,7 +314,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  test: {x: 0, y: 0}
 --- !u!114 &113569633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3310,7 +3309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39ad5bd4550f3bd4bb3112f74f54dfba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introTL: {fileID: 11400000, guid: 133672925c3069c4aa8c2f6c64960648, type: 2}
+  introTL: {fileID: 0}
   generalTL: {fileID: 11400000, guid: c86b665c996a1d842b091e5ffa265cd9, type: 2}
   resultTL: {fileID: 11400000, guid: 1d86a3f457ec3414f8b2381b6148cc1a, type: 2}
 --- !u!320 &947870616
@@ -3360,8 +3359,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speecheList: []
   targetCunvas: {fileID: 430559507}
+  eraceCunvas: {fileID: 0}
   bubbleImage: {fileID: 0}
   targetText: {fileID: 0}
+  noneBubble: {fileID: 0}
   normalBubble: {fileID: 0}
   thinkBubble: {fileID: 0}
   thornBubble: {fileID: 0}
@@ -4062,6 +4063,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58c961ff14a2714e959da00eb6d3f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraShakeSpeed: 0
+  cameraShakeLevel: 0
 --- !u!1 &1191060622
 GameObject:
   m_ObjectHideFlags: 0
@@ -6331,7 +6334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1887301431
 Transform:
   m_ObjectHideFlags: 0
@@ -6340,7 +6343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887301430}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 16.23, z: -2.88}
+  m_LocalPosition: {x: 0, y: -0.1, z: -13.91}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 1551874458}
