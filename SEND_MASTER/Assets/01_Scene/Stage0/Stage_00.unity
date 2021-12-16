@@ -2034,8 +2034,8 @@ GameObject:
   m_Component:
   - component: {fileID: 947870614}
   - component: {fileID: 947870615}
-  - component: {fileID: 947870616}
   - component: {fileID: 947870617}
+  - component: {fileID: 947870616}
   m_Layer: 0
   m_Name: StateManager
   m_TagString: Untagged
