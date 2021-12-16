@@ -58,7 +58,8 @@ public class StateManager : MonoBehaviour {
         
         if (intro != null) {
 
-            sequence = MAIN_TL.INTRO;
+            GetSetState = STATE.EVENT;
+            sequence    = MAIN_TL.INTRO;
             timeline.playableAsset = intro;
             timeline.Play();
         }

@@ -21,8 +21,6 @@ public class PlayerMove : ActorData {
 
     // Property
 
-    public Vector2 test;
-
     // Method
     private void        CalcStabillity  () {
 
@@ -121,7 +119,7 @@ public class PlayerMove : ActorData {
         float count     = 0.0f;
         
         actor.GetSetTransform.localRotation = Quaternion.identity;
-        Vector3 returnPos = new Vector3(defaultPos.x, defaultPos.y, defaultPos.z - 2.0f);
+        Vector3 returnPos = new Vector3(defaultPos.x, defaultPos.y, defaultPos.z - 5.0f);
         
         while (period > 0) {
 

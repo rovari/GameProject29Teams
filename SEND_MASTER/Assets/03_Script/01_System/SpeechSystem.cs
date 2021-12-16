@@ -26,10 +26,12 @@ public class SpeechSystem : MonoBehaviour {
 
     [Space(10)]
     [SerializeField] private GameObject     targetCunvas;
+    [SerializeField] private GameObject     eraceCunvas;
     [SerializeField] private Image          bubbleImage;
     [SerializeField] private Text           targetText;
 
     [Space(10)]
+    [SerializeField] private Sprite         noneBubble;
     [SerializeField] private Sprite         normalBubble;
     [SerializeField] private Sprite         thinkBubble;
     [SerializeField] private Sprite         thornBubble;
@@ -55,6 +57,8 @@ public class SpeechSystem : MonoBehaviour {
         
         if(oldIndex != currentIndex) {
 
+            if(currentIndex == 1) eraceCunvas.SetActive(false);
+            targetCunvas.SetActive(true);
             isLock = true;
 
             if (currentIndex < speecheList.Count) {
@@ -75,7 +79,9 @@ public class SpeechSystem : MonoBehaviour {
                         bubbleImage.sprite = thornBubble;
                         break;
                         
-                    default: break;
+                    default:
+                        bubbleImage.sprite = noneBubble;
+                        break;
                 }
             }
             else {
@@ -107,8 +113,9 @@ public class SpeechSystem : MonoBehaviour {
     // Unity
 	private void Start() {
 
-        oldIndex = -1;
+        isLock      = true;
+        oldIndex    = -1;
         InputManager.GetEVENTActions().Apply.started += _ => AddIndex();
-	}
+    }
     
 }

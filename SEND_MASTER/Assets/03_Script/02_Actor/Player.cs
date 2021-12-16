@@ -53,7 +53,7 @@ public class Player : Actor {
 
         LifeBoxList = new List<GameObject>();
 
-        for(int i = 0; i < GetActorState().life; ++i) {
+        for(int i = 0; i < GetActorState().life + 1; ++i) {
             
             GameObject box = Instantiate(LifeBoxObject);
 
@@ -70,7 +70,7 @@ public class Player : Actor {
 
         for (int i = 0; i < LifeBoxList.Count; ++i) {
 
-            if (i < GetActorState().life) {
+            if (i < GetActorState().life + 1) {
                 LifeBoxList[i].SetActive(true);
             }
             else {
