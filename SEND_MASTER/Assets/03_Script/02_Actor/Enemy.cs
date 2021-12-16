@@ -41,6 +41,7 @@ public class Enemy : Actor {
     }
     private void    SetSequence () {
 
+        sequence = SEQUENCE.IDLE;
         timeline = GetComponent<PlayableDirector>();
         timeline.playableAsset = encountTL;
 
