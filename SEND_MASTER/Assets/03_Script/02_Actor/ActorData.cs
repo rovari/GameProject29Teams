@@ -7,7 +7,7 @@ public class ActorData : MonoBehaviour {
 
     // Field
     [SerializeField] protected Actor actor;
-
+    
     // Property
 
     // Method

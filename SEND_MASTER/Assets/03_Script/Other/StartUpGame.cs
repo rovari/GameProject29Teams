@@ -7,11 +7,7 @@ using UnityEngine.InputSystem;
 public class StartUpGame : MonoBehaviour {
 
     // Field
-    [SerializeField] private bool debugEnable;
-
     static private StartUpGame  singleton;
-    static public  bool         isDebug;
-    static public  bool         isLunch;
     
     // Property
 
@@ -19,7 +15,7 @@ public class StartUpGame : MonoBehaviour {
     private void CreateStartUp  () {
 
         if (singleton == null) {
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this);
             singleton = this;
         }
         else {
@@ -46,15 +42,10 @@ public class StartUpGame : MonoBehaviour {
     // Unity
     private void Start  () {
 
-        isDebug = debugEnable;
         CreateStartUp();
     }
-    private void Update () {
 
-        if (!isLunch) {
-            isLunch = true;
-            LoadManager.Load(0);
-        }
+    private void Update () {
 
         QuitGame();
     }

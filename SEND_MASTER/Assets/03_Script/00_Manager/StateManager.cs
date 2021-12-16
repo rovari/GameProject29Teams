@@ -61,12 +61,9 @@ public class StateManager : MonoBehaviour {
             sequence = MAIN_TL.INTRO;
             timeline.playableAsset = intro;
             timeline.Play();
-
-            return;
         }
-
-        GetSetState = STATE.GAME;
     }
+
     static private void  Sequence       () {
         
         switch (sequence) {
@@ -91,16 +88,16 @@ public class StateManager : MonoBehaviour {
                 if (speech.GetIsFinish()) {
 
                     GetSetState = STATE.GAME;
-                    sequence    = MAIN_TL.GENERAL;
+                    sequence = MAIN_TL.GENERAL;
 
                     if (timeline.playableAsset != null) timeline.Play();
-                } 
+                }
 
                 break;
 
             case MAIN_TL.GENERAL:
                 
-                if(timeline.playableAsset && timeline.time >= timeline.duration) {
+                if(GetSetBossDown && timeline.playableAsset && timeline.time >= timeline.duration) {
 
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
@@ -110,14 +107,12 @@ public class StateManager : MonoBehaviour {
                 break;
 
             case MAIN_TL.RESULT:
-
-                if(GetSetBossDown) {
-                    if (timeline.playableAsset != null) {
-                        GetSetState = STATE.EVENT;
-                        timeline.Play();
-                    }
-                } 
-
+                
+                if (timeline.playableAsset != null) {
+                    GetSetState = STATE.EVENT;
+                    timeline.Play();
+                }
+                
                 if(timeline.playableAsset && timeline.time >= timeline.duration) {
 
                     timeline.Stop();
@@ -132,7 +127,6 @@ public class StateManager : MonoBehaviour {
             default: break;
         }
     }
-    
     static private void  AttachStateMap () {
 
         switch (GetSetState) {
@@ -148,23 +142,20 @@ public class StateManager : MonoBehaviour {
             case STATE.MENU:
                 InputManager.GetPlayerInput().currentActionMap = InputManager.GetPlayerInput().actions.actionMaps[3];
                 break;
+            default: break;
         }
     }
 
-    private void FetchPlayableAsset     () {
-
-        intro   = introTL;
-        general = generalTL;
-        result  = resultTL;
-
-        timeline = GetComponent<PlayableDirector>();
-    }
-    
     // Unity
-	private void Start  () {
+    private void Start  () {
 
+        intro       = introTL;
+        general     = generalTL;
+        result      = resultTL;
+        timeline    = GetComponent<PlayableDirector>();
         speech      = GetComponent<SpeechSystem>();
-        FetchPlayableAsset();
+
+        StartSequence();
 	}
 
     private void Update () {

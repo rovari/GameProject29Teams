@@ -9,10 +9,10 @@ public class ControlSystem : MonoBehaviour {
     // Field
     
     // Property
-    public PlayerInput      GetSetPlayerInput {
+    public PlayerInput      GetSetPlayerInput   {
         get; set;
     }
-    public MainInputSystem  GetSetMainInput{
+    public MainInputSystem  GetSetMainInput     {
         get; set;
     }
     // Method

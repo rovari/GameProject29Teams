@@ -47,10 +47,6 @@ public class SpeechSystem : MonoBehaviour {
     // Method
     public  void Speech     () {
 
-        if(oldIndex < 0) {
-            targetCunvas.SetActive(true);
-        }
-
         if (speecheList.Count <= 0) {
 
             targetCunvas.SetActive(false);

@@ -32,10 +32,9 @@ public class InputManager : MonoBehaviour {
     static public  MainInputSystem.LOADActions  GetLOADActions  () {
         return controlSystem.GetSetMainInput.LOAD;
     }
-    static public  void DestroyInput() {
-    }
+    
     // Unity
-	public void Start() {
+	public void Start    () {
         LoadInput();
 	}
 

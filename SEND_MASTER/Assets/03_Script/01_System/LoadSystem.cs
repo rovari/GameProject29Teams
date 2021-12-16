@@ -13,27 +13,22 @@ public struct SceneData {
 public class LoadSystem : MonoBehaviour {
 
     // Field
+    [SerializeField] private bool               isPreLoad;
     [SerializeField] private int                sequensNum;
     [SerializeField] private SceneObject        loadingScene;
     [SerializeField] private List<SceneData>    sceneSequens;
-
-    [SerializeField] private bool isPreLoad;
-
+    
     // Property
 
     // Method
     public  void        LoadScene           (int index) {
-
-        StateManager.GetSetState = STATE.LOAD;
-
+        
         ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
         StartCoroutine("PreLoad", index);
     }
     public  void        ReLoadScene         () {
 
         StateManager.GetSetState = STATE.LOAD;
-
-        ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
         StartCoroutine("PreLoad", sequensNum);
     }
     private IEnumerator PreLoad             (int index) {
@@ -44,15 +39,11 @@ public class LoadSystem : MonoBehaviour {
         sequensNum = (sequensNum < sceneSequens.Count) ? sequensNum : 0;
 
         var async = SceneManager.LoadSceneAsync(sceneSequens[sequensNum].Scene);
-        async.allowSceneActivation = false;
+        async.allowSceneActivation      = false;
 
-        while (!async.isDone && isPreLoad) { yield return null; }
-        async.allowSceneActivation  = true;
-        
-        StateManager.GetSetLevelData    = sceneSequens[sequensNum].Data;
-        StateManager.StartSequence();
-
-        isPreLoad                   = false;
+        while (!async.isDone && !isPreLoad) { yield return null; }
+        async.allowSceneActivation      = true;
+        isPreLoad                       = false;
     }
 
 	// Signal
