@@ -703,6 +703,7 @@ RectTransform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_Children:
   - {fileID: 1762992340}
+  - {fileID: 1342863266}
   m_Father: {fileID: 2055199360}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2248,15 +2249,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25089924b0eb6b044bcc24da05545b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speecheList: []
+  speecheList:
+  - bubble: 1
+    speech: "\u5236\u4F5C\u8F9B\u304B\u3063\u305F"
+    isButton: 1
+  - bubble: 3
+    speech: "\u6B63\u76F4\u3001\u30DE\u30B9\u30BF\u30FC16\u3063\u3066\u3057\u3089\u306A\u304B\u3063\u305F..."
+    isButton: 1
+  - bubble: 2
+    speech: "\u3067\u3082\u3084\u3089\u306A\u3051\u308C\u3070 ! !"
+    isButton: 1
+  - bubble: 2
+    speech: "F\u25CB\u25CBK INPUT SYSTEM ! !"
+    isButton: 1
+  - bubble: 1
+    speech: " \u3054\u3081\u3093\u306A\u91D1\u6FA4..."
+    isButton: 1
+  - bubble: 3
+    speech: "\uFF08\u601D\u3063\u3066\u3082\u3044\u306A\u3044\uFF09"
+    isButton: 1
   targetCunvas: {fileID: 430559507}
-  bubbleImage: {fileID: 0}
-  iconImage: {fileID: 0}
-  targetText: {fileID: 0}
-  normalBubble: {fileID: 0}
-  thinkBubble: {fileID: 0}
-  thornBubble: {fileID: 0}
-  tutorialBubble: {fileID: 0}
+  bubbleImage: {fileID: 1762992341}
+  targetText: {fileID: 1342863267}
+  normalBubble: {fileID: 21300000, guid: efd1093852f98c94b8f595d5593d2f7d, type: 3}
+  thinkBubble: {fileID: 21300000, guid: 972794fa0dc3d684a90209086f50a651, type: 3}
+  thornBubble: {fileID: 21300000, guid: b59916765963d2045a6c5beccdea10e0, type: 3}
 --- !u!1001 &1003433454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2973,6 +2990,85 @@ MonoBehaviour:
   flightTime: 10
   lunchVector: {x: 0, y: 0, z: 0}
   muzzle: {fileID: 1956942695}
+--- !u!1 &1342863265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342863266}
+  - component: {fileID: 1342863268}
+  - component: {fileID: 1342863267}
+  m_Layer: 0
+  m_Name: Speek
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1342863266
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342863265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 430559508}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1342863267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342863265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e16c524de5ac63f41907b3f8e2c193ca, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 202
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Sppek Bubble '
+--- !u!222 &1342863268
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342863265}
+  m_CullTransparentMesh: 1
 --- !u!1 &1368626077
 GameObject:
   m_ObjectHideFlags: 0
@@ -3520,7 +3616,7 @@ GameObject:
   - component: {fileID: 1762992342}
   - component: {fileID: 1762992341}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3543,7 +3639,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 250, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1762992341
 MonoBehaviour:
@@ -3557,7 +3653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: c45430f777e78cf4fbfeb07e9e29de89, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3565,7 +3661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f7855d05f125e1c45944b4c8930bd27c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77100866afd18674b9004d0524bd5e67, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
