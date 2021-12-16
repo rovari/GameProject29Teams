@@ -6,10 +6,11 @@ using UnityEngine;
 public class PlayerMove : ActorData {
 
     // Field
-    private bool    isJump;
-    private float   velocity;
-    private float   oldHp;
-    private Vector3 defaultPos;
+    private bool        isJump;
+    private float       velocity;
+    private float       oldHp;
+    private Vector3     defaultPos;
+    private Renderer    target;
 
     [SerializeField] private float          jumpPow;
     [SerializeField] private float          maxSpeed;
@@ -62,11 +63,18 @@ public class PlayerMove : ActorData {
         actor.GetSetTransform.rotation = Quaternion.Euler(0.0f, 0.0f, rot * (180.0f / Mathf.PI) * 0.5f);
     }
     private void        PosIsInView     () {
+        
+        if (!actor.IsMeshVisible()) {
 
-        Rect    rect        = new Rect(0.0f, 0.0f, 1.0f, 1.0f);
-        Vector3 viewportPos = Camera.main.WorldToViewportPoint(actor.GetSetTransform.position);
+            actor.GetActorState().StateUpdate();
 
-        if (rect.Contains(viewportPos) && !actor.GetActorState().isDead) StartCoroutine("Dead");
+            if (actor.GetActorState().isDead) {
+                StartCoroutine("Dead");
+                return;
+            }
+
+            StartCoroutine("Return");
+        }
     }
 
     private IEnumerator Jump            () {
@@ -106,10 +114,15 @@ public class PlayerMove : ActorData {
 
         StateManager.GetSetState = STATE.EVENT;
 
+        --actor.GetActorState().life;
+        velocity = 0.0f;
+
         float period    = returnTime;
         float inc       = 1.0f / (period + Mathf.Epsilon); 
         float count     = 0.0f;
 
+
+        actor.GetSetTransform.localRotation = Quaternion.identity;
         Vector3 returnPos = new Vector3(defaultPos.x, defaultPos.y, defaultPos.z - 10.0f);
 
         while (period > 0) {
@@ -117,13 +130,13 @@ public class PlayerMove : ActorData {
             actor.GetSetTransform.position =
                 Vector3.Lerp(returnPos, defaultPos, count);
 
-            count   += inc * actor.GetActorDeltaTime();
-            period  += actor.GetActorDeltaTime();
+            count   += inc * Time.deltaTime;
+            period  -= Time.deltaTime;
 
             yield return null;
         }
 
-        actor.GetSetTransform.position = defaultPos;
+        actor.GetSetTransform.position      = defaultPos;
 
         StateManager.GetSetState = STATE.GAME;
     }
@@ -133,8 +146,7 @@ public class PlayerMove : ActorData {
     // Unity
 	private void        Start           () {
 
-        defaultPos = actor.GetSetTransform.position;
-        
+        defaultPos  = actor.GetSetTransform.position;
         InputManager.GetGAMEActions().Jump.started += _ => StartCoroutine("Jump");
     }
 
@@ -144,6 +156,7 @@ public class PlayerMove : ActorData {
         CalcStabillity  ();
         DamageBlow      ();
         Move            ();
+        PosIsInView     ();
 	}
     protected override void MenuUpdate   () { 
 

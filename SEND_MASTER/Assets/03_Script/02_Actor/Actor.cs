@@ -114,6 +114,16 @@ public class Actor : MonoBehaviour {
     public  ref ActorCollision  GetActorCollision   () {
         return ref collision;
     }
+    public  bool                IsMeshVisible       () {
+
+        bool visible = true;
+
+        foreach(var m in meshlList) {
+            if (!m.isVisible) visible = false;
+        }
+
+        return visible;
+    }
 
     // Unity
     protected   void Start      () {

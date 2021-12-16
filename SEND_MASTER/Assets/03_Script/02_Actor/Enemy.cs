@@ -100,5 +100,7 @@ public class Enemy : Actor {
     // Unity
     private new void Start() {
         base.Start();
+
+        timeline = new PlayableDirector();
     }
 }
