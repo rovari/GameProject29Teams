@@ -16,26 +16,14 @@ public class ControlSystem : MonoBehaviour {
         get; set;
     }
     // Method
+    public  void StartInput () {
+        GetSetMainInput     = new MainInputSystem();
+        GetSetPlayerInput   = GetComponent<PlayerInput>();
+        GetSetMainInput.Enable();
+    }
 
     // Signal
     
     // Unity
-    private void Start      () {
 
-	}
-    private void OnEnable   () {
-
-        GetSetMainInput     = new MainInputSystem();
-        GetSetPlayerInput   = GetComponent<PlayerInput>();
-
-
-        InputManager.LoadInput(this);
-        GetSetMainInput.Enable();
-    }
-    private void OnDisable  () {
-        GetSetMainInput.Disable();
-    }
-    private void OnDestroy  () {
-        GetSetMainInput.Dispose();
-    }
 }

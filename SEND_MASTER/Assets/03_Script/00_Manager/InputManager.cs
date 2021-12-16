@@ -12,9 +12,11 @@ public class InputManager : MonoBehaviour {
     // Property
 
     //Method
-    static public  void                         LoadInput       (ControlSystem input) {
-        controlSystem = input;
+    public void     LoadInput () {
+        controlSystem = GetComponent<ControlSystem>();
+        controlSystem.StartInput();
     }
+
     static public  PlayerInput                  GetPlayerInput  () {
         return controlSystem.GetSetPlayerInput;
     }
@@ -30,9 +32,18 @@ public class InputManager : MonoBehaviour {
     static public  MainInputSystem.LOADActions  GetLOADActions  () {
         return controlSystem.GetSetMainInput.LOAD;
     }
-
+    static public  void DestroyInput() {
+    }
     // Unity
-	private void Start() {
-
+	public void Start() {
+        LoadInput();
 	}
+
+    public void OnDisable() {
+        controlSystem.GetSetMainInput.Disable();
+    }
+
+    public void OnDestroy() {
+        controlSystem.GetSetMainInput.Dispose();
+    }
 }

@@ -17,7 +17,7 @@ public class LoadSystem : MonoBehaviour {
     [SerializeField] private SceneObject        loadingScene;
     [SerializeField] private List<SceneData>    sceneSequens;
 
-    private bool isPreLoad;
+    [SerializeField] private bool isPreLoad;
 
     // Property
 
@@ -47,11 +47,11 @@ public class LoadSystem : MonoBehaviour {
         async.allowSceneActivation = false;
 
         while (!async.isDone && isPreLoad) { yield return null; }
-
-        StateManager.GetSetState        = STATE.EVENT;
-        StateManager.GetSetLevelData    = sceneSequens[sequensNum].Data;
-
         async.allowSceneActivation  = true;
+        
+        StateManager.GetSetLevelData    = sceneSequens[sequensNum].Data;
+        StateManager.StartSequence();
+
         isPreLoad                   = false;
     }
 

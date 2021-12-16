@@ -84,6 +84,7 @@ public class Enemy : Actor {
                     }
                 }
                 else {
+                    activeCount += GetActorDeltaTime();
 
                     if(timeline.time >= timeline.duration) {
 

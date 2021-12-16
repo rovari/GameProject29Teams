@@ -50,6 +50,13 @@ public class SpeechSystem : MonoBehaviour {
         if(oldIndex < 0) {
             targetCunvas.SetActive(true);
         }
+
+        if (speecheList.Count <= 0) {
+
+            targetCunvas.SetActive(false);
+            isFinish = true;
+            return;
+        }
         
         if(oldIndex != currentIndex) {
             oldIndex = currentIndex;

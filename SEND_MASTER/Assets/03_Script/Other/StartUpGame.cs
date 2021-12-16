@@ -7,8 +7,12 @@ using UnityEngine.InputSystem;
 public class StartUpGame : MonoBehaviour {
 
     // Field
-    static private StartUpGame singleton;
+    [SerializeField] private bool debugEnable;
 
+    static private StartUpGame  singleton;
+    static public  bool         isDebug;
+    static public  bool         isLunch;
+    
     // Property
 
     // Method
@@ -41,9 +45,17 @@ public class StartUpGame : MonoBehaviour {
 
     // Unity
     private void Start  () {
+
+        isDebug = debugEnable;
         CreateStartUp();
     }
     private void Update () {
+
+        if (!isLunch) {
+            isLunch = true;
+            LoadManager.Load(0);
+        }
+
         QuitGame();
     }
 }
