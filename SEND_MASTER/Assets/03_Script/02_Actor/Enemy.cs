@@ -79,7 +79,7 @@ public class Enemy : Actor {
 
                     if(timeline.playableAsset != null) {
 
-                        sequence = SEQUENCE.GENERAL;
+                        sequence = SEQUENCE.RETURN;
                         timeline.Play();
                     }
                 }
