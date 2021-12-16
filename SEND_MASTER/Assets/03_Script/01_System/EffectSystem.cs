@@ -28,6 +28,9 @@ public struct EffectData {
 public class EffectSystem : MonoBehaviour {
 
     // Field
+    [SerializeField] private float cameraShakeSpeed;
+    [SerializeField] private float cameraShakeLevel;
+
     private Output      output;
     private EffectData  explosion;
     private EffectData  fade;
@@ -105,6 +108,15 @@ public class EffectSystem : MonoBehaviour {
         coroutine.Add(SlowMotion().ToString(), null);
     }
 
+    private void        CameraShake () {
+        float t     = Time.time * cameraShakeSpeed;
+        float nx    = ((Mathf.PerlinNoise(t         , t + 0.5f) + 0.025f) * 2.0f - 1.0f) * cameraShakeLevel;
+        float ny    = ((Mathf.PerlinNoise(t + 1.0f  , t + 1.5f) + 0.025f) * 2.0f - 1.0f) * cameraShakeLevel;
+        float nz    = ((Mathf.PerlinNoise(t + 2.0f  , t + 1.5f) + 0.025f) * 2.0f - 1.0f) * cameraShakeLevel;
+
+        Quaternion noiseRot         = Quaternion.Euler( nx, ny, nz );
+        Camera.main.transform.rotation   = Quaternion.Slerp(Camera.main.transform.rotation, noiseRot, Time.time * 5.0f);
+    }
     private IEnumerator Explosion   () {
 
         float period    = explosion.time;
@@ -274,8 +286,13 @@ public class EffectSystem : MonoBehaviour {
     }
 
     // Unity
-	private void Start() {
+	private void Start  () {
 
         CreateDictionary();
 	}
+
+    private void Update () {
+
+        CameraShake();
+    }
 }

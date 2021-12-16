@@ -90,7 +90,9 @@ public class SpeechSystem : MonoBehaviour {
         }
     }
     private void AddIndex   () {
-        if (speecheList[currentIndex].isButton && !isLock) ++currentIndex;
+
+
+        if (!isLock && speecheList[currentIndex].isButton) ++currentIndex;
     }
     public  bool GetIsFinish() {
         return isFinish;
