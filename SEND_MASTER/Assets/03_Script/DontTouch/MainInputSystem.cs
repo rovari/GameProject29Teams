@@ -468,6 +468,14 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Apply"",
+                    ""type"": ""Button"",
+                    ""id"": ""f906d1fb-3662-4d44-8a4c-e4111e2fabd0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -479,6 +487,50 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""431e8727-456c-4a7e-932f-88615e4d7f9d"",
+                    ""path"": ""<DualShockGamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Apply"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d58a417b-6cea-4650-aecc-c132997f49ac"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Apply"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""451ec31e-3513-422a-9788-7414fe35c1d8"",
+                    ""path"": ""<SwitchProControllerHID>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Apply"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a047ab1a-0342-4c49-8777-a1e8ea4563a9"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Apply"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -888,6 +940,7 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
         // EVENT
         m_EVENT = asset.FindActionMap("EVENT", throwIfNotFound: true);
         m_EVENT_Menu = m_EVENT.FindAction("Menu", throwIfNotFound: true);
+        m_EVENT_Apply = m_EVENT.FindAction("Apply", throwIfNotFound: true);
         // MENU
         m_MENU = asset.FindActionMap("MENU", throwIfNotFound: true);
         m_MENU_Up = m_MENU.FindAction("Up", throwIfNotFound: true);
@@ -1060,11 +1113,13 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
     private readonly InputActionMap m_EVENT;
     private IEVENTActions m_EVENTActionsCallbackInterface;
     private readonly InputAction m_EVENT_Menu;
+    private readonly InputAction m_EVENT_Apply;
     public struct EVENTActions
     {
         private @MainInputSystem m_Wrapper;
         public EVENTActions(@MainInputSystem wrapper) { m_Wrapper = wrapper; }
         public InputAction @Menu => m_Wrapper.m_EVENT_Menu;
+        public InputAction @Apply => m_Wrapper.m_EVENT_Apply;
         public InputActionMap Get() { return m_Wrapper.m_EVENT; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1077,6 +1132,9 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                 @Menu.started -= m_Wrapper.m_EVENTActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_EVENTActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_EVENTActionsCallbackInterface.OnMenu;
+                @Apply.started -= m_Wrapper.m_EVENTActionsCallbackInterface.OnApply;
+                @Apply.performed -= m_Wrapper.m_EVENTActionsCallbackInterface.OnApply;
+                @Apply.canceled -= m_Wrapper.m_EVENTActionsCallbackInterface.OnApply;
             }
             m_Wrapper.m_EVENTActionsCallbackInterface = instance;
             if (instance != null)
@@ -1084,6 +1142,9 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
+                @Apply.started += instance.OnApply;
+                @Apply.performed += instance.OnApply;
+                @Apply.canceled += instance.OnApply;
             }
         }
     }
@@ -1178,6 +1239,7 @@ public class @MainInputSystem : IInputActionCollection, IDisposable
     public interface IEVENTActions
     {
         void OnMenu(InputAction.CallbackContext context);
+        void OnApply(InputAction.CallbackContext context);
     }
     public interface IMENUActions
     {
