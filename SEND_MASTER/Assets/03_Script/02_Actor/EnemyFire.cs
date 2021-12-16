@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyFire : ActorData {
 
     // Field
-    private FireSystem fireSystem;
+    [SerializeField] private FireSystem fireSystem;
 
     // Property
 
@@ -21,13 +21,13 @@ public class EnemyFire : ActorData {
 
     // Signal
     public  void LunchSignal  (int index) {
-        fireSystem.weaponIndex = index;
+        fireSystem.SetWeaponIndex(index);
         fireSystem.Lunch();
     }
 
     // Unity
 	private void Start() {
-
+        fireSystem.SetOwner(actor.GetSetTransform);
 	}
 
 	// Dependent Update by State

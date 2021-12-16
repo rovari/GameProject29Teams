@@ -19,7 +19,7 @@ public enum TSCALE {
 public struct ActorState {
 
     // Field
-    [HideInInspector] public  bool    isDead;
+     public  bool    isWillDead;
     [HideInInspector] public  bool    isInvincible;
     [HideInInspector] public  bool    isTurbo;
 
@@ -68,7 +68,8 @@ public struct ActorState {
                 ? -1
                 : life;
 
-        if (life == -1) isDead = true; 
+        if (life < 1) isWillDead = true;
+        else isWillDead = false;
     }
 }
 

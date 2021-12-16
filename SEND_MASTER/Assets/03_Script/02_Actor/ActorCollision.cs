@@ -78,13 +78,14 @@ public class ActorCollision : ActorData {
 	}
     private void OnTriggerEnter (Collider other) {
 
+        if (StateManager.GetSetState != STATE.GAME) return;
+
         ActorCollision actorCollision;
 
         if (!other.gameObject.TryGetComponent<ActorCollision>(out actorCollision)) return;
 
         CalcActorHp(actorCollision);
         ActorEffect(actorCollision.GetActorType());
-
     }
     
     // Dependent Update by State

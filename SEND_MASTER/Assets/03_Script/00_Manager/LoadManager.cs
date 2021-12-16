@@ -11,12 +11,14 @@ public class LoadManager : MonoBehaviour {
     // Property
     
     // Method
-    static public void Load (int sceneNumber = -1) {
+    static public void Load     (int sceneNumber = -1) {
         loadSystem.LoadScene(sceneNumber);
     }
-    
+    static public void ReLoad   () {
+        loadSystem.ReLoadScene();
+    }
     // Unity
 	private void Start() {
-
+        loadSystem = GetComponent<LoadSystem>();
 	}
 }

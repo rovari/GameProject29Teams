@@ -38,13 +38,13 @@ public class Bullet : Actor {
         target = inTarget;
         
         switch (orbit) {
-            case ORBIT.SHOT:        break; 
-            case ORBIT.HOMING:      break; 
-            case ORBIT.UNTRACK:     break; 
-            case ORBIT.THROW:       break; 
-            case ORBIT.BLADE:       break; 
-            case ORBIT.ENVIRONMENT: break; 
-            case ORBIT.BOMB:        break; 
+            case ORBIT.SHOT:        StartCoroutine("Shot");         break; 
+            case ORBIT.HOMING:      StartCoroutine("Homing");       break; 
+            case ORBIT.UNTRACK:     StartCoroutine("UnTrack");      break; 
+            case ORBIT.THROW:       StartCoroutine("Throw");        break; 
+            case ORBIT.BLADE:       StartCoroutine("Blade");        break; 
+            case ORBIT.ENVIRONMENT: StartCoroutine("Environment");  break; 
+            case ORBIT.BOMB:        StartCoroutine("Bomb");         break; 
 
             default: break;
         }

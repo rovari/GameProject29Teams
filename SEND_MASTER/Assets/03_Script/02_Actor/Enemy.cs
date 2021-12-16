@@ -25,11 +25,11 @@ public class Enemy : Actor {
     // Field
     [SerializeField] private GRADE          grade;
     [SerializeField] private float          activeTime;
-    [SerializeField] private float          activeCount;
     [SerializeField] private PlayableAsset  encountTL;
     [SerializeField] private PlayableAsset  generalTL; 
     [SerializeField] private PlayableAsset  returnTL;
 
+    private float               activeCount;
     private SEQUENCE            sequence;
     private PlayableDirector    timeline;
 
@@ -112,5 +112,10 @@ public class Enemy : Actor {
         base.Start();
 
         SetSequence();
+    }
+    private new void Update     () {
+        base.Update();
+
+        Sequence();
     }
 }

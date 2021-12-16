@@ -6,33 +6,39 @@ using UnityEngine;
 public class PlayerFire : ActorData {
 
     // Field
+    [SerializeField] private FireSystem  fireSystem;
+
     private bool        isSyncLunch;
     private Vector3     aimTarget;
-    private FireSystem  targeting;
 
     // Property
 
     // Method
     private void Lunch              () {
-
+        if (isSyncLunch) {
+            isSyncLunch = false;
+            fireSystem.Lunch();
+        }
     }
-    private void AddWeaaponIndex    () {
-
+	private void SyncLunch          () {
+        isSyncLunch = true;
     }
-    private void AddTargetIndex     () {
 
-    }
-	
     // Signal
 
     // Unity
 	private void Start () {
 
-	}
+        fireSystem.SetOwner(actor.GetSetTransform);
+
+        InputManager.GetGAMEActions().Fire.performed    += _ => SyncLunch();
+        InputManager.GetGAMEActions().Index.started     += _ => fireSystem.AddWeaaponIndex();
+        InputManager.GetGAMEActions().Aim.started       += _ => fireSystem.AddTargetIndex ();
+    }
 
     // Dependent Update by State
-    protected override void GameUpdate   () { 
-
+    protected override void GameUpdate   () {
+        Lunch();
 	}
     protected override void MenuUpdate   () { 
 

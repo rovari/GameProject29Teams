@@ -26,8 +26,15 @@ public class LoadSystem : MonoBehaviour {
 
         StateManager.GetSetState = STATE.LOAD;
 
-        ScreenCapture.CaptureScreenshot("Assets/00_System/DontTouch/capture.png");
+        ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
         StartCoroutine("PreLoad", index);
+    }
+    public  void        ReLoadScene         () {
+
+        StateManager.GetSetState = STATE.LOAD;
+
+        ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
+        StartCoroutine("PreLoad", sequensNum);
     }
     private IEnumerator PreLoad             (int index) {
 

@@ -13,11 +13,11 @@ public class EnemyMove : ActorData {
 
     // Method
     private void        LookAt      () {
-        if (!actor.GetActorState().isDead && actor.GetSetTarget != null)
+        if (!actor.GetActorState().isWillDead && actor.GetSetTarget != null)
             actor.GetSetTransform.LookAt(actor.GetSetTarget.transform.position);
     }
     private void        CheckDead   () {
-        if (actor.GetActorState().isDead) StartCoroutine("Dead");
+        if (actor.GetActorState().life < 0) StartCoroutine("Dead");
     }
     private IEnumerator Dead        () {
         
@@ -63,7 +63,7 @@ public class EnemyMove : ActorData {
 
 	// Dependent Update by State
     protected override void GameUpdate   () {
-        LookAt      ();
+        //LookAt      ();
         CheckDead   ();
 	}
     protected override void MenuUpdate   () { 

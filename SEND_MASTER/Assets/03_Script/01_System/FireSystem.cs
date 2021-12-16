@@ -6,28 +6,42 @@ using UnityEngine;
 public class FireSystem : MonoBehaviour {
 
     // Field
-    public int targetIndex;
-    public int weaponIndex;
 
-    [SerializeField] private Transform          owner;
     [SerializeField] private string             searchTagName;
     [SerializeField] private List<GameObject>   targetList;
     [SerializeField] private List<WeaponSystem> weaponList;
     
+    private Transform   owner;
+    private int         targetIndex;
+    private int         weaponIndex;
     // Property
     
     // Method
+    public  void SetOwner           (Transform inOnwer) {
+        owner = inOnwer;
+    }
+    public  void SetWeaponIndex     (int index) {
+        weaponIndex = index;
+    }
     public  void RefreshList        () {
         FindTargetWithTag   ();
         SortListByDistance  ();
     }
     public  void Lunch              () {
 
-        if (targetList[targetIndex] == null) return;
+        if (targetList.Count == 0 || targetList[targetIndex] == null) return;
 
         weaponList[weaponIndex].Lunch(targetList[targetIndex].gameObject);
     }
-    public  void ClampIndex         () {
+    public  void AddWeaaponIndex    () {
+        ++weaponIndex;
+        RefreshList();
+    }
+    public  void AddTargetIndex     () {
+        ++targetIndex;
+    }
+    
+    private void ClampIndex         () {
 
         targetIndex 
             = (targetIndex >= targetList.Count)
@@ -43,7 +57,6 @@ public class FireSystem : MonoBehaviour {
             ? weaponList.Count - 1
             : weaponIndex;
     }
-
     private void FindTargetWithTag  () {
         targetList.Clear    ();
         targetList.AddRange (GameObject.FindGameObjectsWithTag(searchTagName));

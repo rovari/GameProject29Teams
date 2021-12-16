@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &12163519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 12163520}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &12163520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12163519}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 928948656}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &113569629
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,10 +188,10 @@ MonoBehaviour:
   - {fileID: 1904349763}
   - {fileID: 1904349764}
   actorState:
-    isDead: 0
+    isWillDead: 0
     isInvincible: 0
     isTurbo: 0
-    life: 3
+    life: 0
     hp: 1
     defence: 0
     resist: 0
@@ -183,6 +213,7 @@ Transform:
   m_Children:
   - {fileID: 1904349762}
   - {fileID: 615626773}
+  - {fileID: 1150086792}
   - {fileID: 465419143}
   - {fileID: 2055199360}
   m_Father: {fileID: 0}
@@ -267,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actor: {fileID: 113569630}
+  fireSystem: {fileID: 615626774}
 --- !u!1 &237018729
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshlList: []
   actorState:
-    isDead: 0
+    isWillDead: 0
     isInvincible: 0
     isTurbo: 0
     life: 0
@@ -456,9 +488,9 @@ MonoBehaviour:
   orbit: 1
   element: 1
   damageTime: 0
-  flightTime: 0
+  flightTime: 10
   lunchVector: {x: 0, y: 0, z: 0}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 1956942695}
 --- !u!1 &379173871
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +908,7 @@ MonoBehaviour:
   actor: {fileID: 113569630}
   lockType: 0
   recastTime: 0
-  interval: 0
+  interval: 0.5
   bulletList:
   - {fileID: 335080581}
   - {fileID: 1112482867}
@@ -913,7 +945,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 113569631}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &465419144
 MonoBehaviour:
@@ -1203,7 +1235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshlList: []
   actorState:
-    isDead: 0
+    isWillDead: 0
     isInvincible: 0
     isTurbo: 0
     life: 0
@@ -1216,9 +1248,9 @@ MonoBehaviour:
   orbit: 1
   element: 1
   damageTime: 0
-  flightTime: 0
+  flightTime: 10
   lunchVector: {x: 0, y: 0, z: 0}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 1956942695}
 --- !u!1 &615626772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,9 +1295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78bb56ad1facef48a4f86bab17f0b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetIndex: 0
-  weaponIndex: 0
-  owner: {fileID: 113569631}
   searchTagName: Enemy
   targetList: []
   weaponList:
@@ -1299,7 +1328,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 928948656}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &632625254
 MonoBehaviour:
@@ -1840,7 +1869,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshlList: []
   actorState:
-    isDead: 0
+    isWillDead: 0
     isInvincible: 0
     isTurbo: 0
     life: 0
@@ -1853,9 +1882,9 @@ MonoBehaviour:
   orbit: 1
   element: 1
   damageTime: 0
-  flightTime: 0
+  flightTime: 10
   lunchVector: {x: 0, y: 0, z: 0}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 1956942695}
 --- !u!1 &913945641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,7 +1962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &928948655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1946,20 +1975,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45beb585fc535be4fa76de33d6f1f884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshlList: []
+  meshlList:
+  - {fileID: 1122748461}
   actorState:
-    isDead: 0
+    isWillDead: 0
     isInvincible: 0
     isTurbo: 0
     life: 0
-    hp: 0
+    hp: 1
     defence: 0
     resist: 0
   collision: {fileID: 632625254}
   effect: {fileID: 0}
   grade: 1
-  activeTime: 0
-  activeCount: 0
+  activeTime: 30
   encountTL: {fileID: 0}
   generalTL: {fileID: 0}
   returnTL: {fileID: 0}
@@ -1976,6 +2005,7 @@ Transform:
   m_Children:
   - {fileID: 1800777121}
   - {fileID: 1914954356}
+  - {fileID: 12163520}
   - {fileID: 632625253}
   - {fileID: 1028526001}
   m_Father: {fileID: 1979588245}
@@ -1993,7 +2023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65a4b5ff021f80f4fa2b3a1aec5a5a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actor: {fileID: 0}
+  actor: {fileID: 928948655}
+  fireSystem: {fileID: 1914954357}
 --- !u!114 &928948658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2006,7 +2037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740290c1ad4c22040bd146339dc7f706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actor: {fileID: 0}
+  actor: {fileID: 928948655}
 --- !u!320 &928948659
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -2247,7 +2278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 928948656}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1078477295
 GameObject:
@@ -2325,9 +2356,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af870140d773924c80f0ab88a52362d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshlList: []
+  meshlList:
+  - {fileID: 0}
   actorState:
-    isDead: 0
+    isWillDead: 0
     isInvincible: 0
     isTurbo: 0
     life: 0
@@ -2340,9 +2372,45 @@ MonoBehaviour:
   orbit: 1
   element: 1
   damageTime: 0
-  flightTime: 0
+  flightTime: 10
   lunchVector: {x: 0, y: 0, z: 0}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 1956942695}
+--- !u!23 &1122748461 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 6385cdf38bb9a064db3a2bb6b020c352, type: 3}
+  m_PrefabInstance: {fileID: 1800777120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1150086791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1150086792}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1150086792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150086791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1956942695}
+  m_Father: {fileID: 113569631}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1173279429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,7 +2457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshlList: []
   actorState:
-    isDead: 0
+    isWillDead: 0
     isInvincible: 0
     isTurbo: 0
     life: 0
@@ -2402,9 +2470,9 @@ MonoBehaviour:
   orbit: 1
   element: 1
   damageTime: 0
-  flightTime: 0
+  flightTime: 10
   lunchVector: {x: 0, y: 0, z: 0}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 1956942695}
 --- !u!1 &1180464780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2848,7 +2916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshlList: []
   actorState:
-    isDead: 0
+    isWillDead: 0
     isInvincible: 0
     isTurbo: 0
     life: 0
@@ -2861,9 +2929,9 @@ MonoBehaviour:
   orbit: 1
   element: 1
   damageTime: 0
-  flightTime: 0
+  flightTime: 10
   lunchVector: {x: 0, y: 0, z: 0}
-  muzzle: {fileID: 0}
+  muzzle: {fileID: 1956942695}
 --- !u!1 &1368626077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2980,20 +3048,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sequensNum: 0
   loadingScene:
-    m_SceneName: 
+    m_SceneName: Lunch
   sceneSequens:
   - Scene:
       m_SceneName: Stage_00
     Data: {fileID: 11400000, guid: 0805cfc8835ab7c4f957bc40f7e3ebf2, type: 2}
-  - Scene:
-      m_SceneName: 
-    Data: {fileID: 0}
-  - Scene:
-      m_SceneName: 
-    Data: {fileID: 0}
-  - Scene:
-      m_SceneName: 
-    Data: {fileID: 0}
 --- !u!1 &1523963732
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,12 +3900,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d78bb56ad1facef48a4f86bab17f0b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetIndex: 0
-  weaponIndex: 0
-  owner: {fileID: 928948656}
   searchTagName: Player
   targetList: []
   weaponList: []
+--- !u!1 &1956942694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1956942695}
+  m_Layer: 0
+  m_Name: Front
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1956942695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956942694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1150086792}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1979588244
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,6 +4056,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2032783489}
+  - component: {fileID: 2032783490}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -3993,6 +4080,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2032783490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032783488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48fc8792ab1fe74693a4a883d39b88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameUI: {fileID: 1560180828}
+  menuUI: {fileID: 1523963732}
 --- !u!1 &2055199359
 GameObject:
   m_ObjectHideFlags: 0
@@ -4022,7 +4123,7 @@ Transform:
   m_Children:
   - {fileID: 430559508}
   m_Father: {fileID: 113569631}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2077315525
 GameObject:

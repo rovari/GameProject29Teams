@@ -65,15 +65,14 @@ public class PlayerMove : ActorData {
     private void        PosIsInView     () {
         
         if (!actor.IsMeshVisible()) {
-
-            actor.GetActorState().StateUpdate();
-
-            if (actor.GetActorState().isDead) {
+            
+            if (actor.GetActorState().isWillDead) {
                 StartCoroutine("Dead");
                 return;
             }
 
             StartCoroutine("Return");
+            actor.GetActorState().StateUpdate();
         }
     }
 
@@ -106,9 +105,9 @@ public class PlayerMove : ActorData {
     private IEnumerator Dead            () {
         
         StateManager.GetSetState = STATE.EVENT;
-    
+        LoadManager.ReLoad();
+
         yield return null;
-        // ReloadGame    
     }
     private IEnumerator Return          () {
 
@@ -120,11 +119,10 @@ public class PlayerMove : ActorData {
         float period    = returnTime;
         float inc       = 1.0f / (period + Mathf.Epsilon); 
         float count     = 0.0f;
-
-
+        
         actor.GetSetTransform.localRotation = Quaternion.identity;
         Vector3 returnPos = new Vector3(defaultPos.x, defaultPos.y, defaultPos.z - 2.0f);
-
+        
         while (period > 0) {
 
             actor.GetSetTransform.position =
