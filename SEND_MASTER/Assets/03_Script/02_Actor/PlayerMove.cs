@@ -123,7 +123,7 @@ public class PlayerMove : ActorData {
 
 
         actor.GetSetTransform.localRotation = Quaternion.identity;
-        Vector3 returnPos = new Vector3(defaultPos.x, defaultPos.y, defaultPos.z - 10.0f);
+        Vector3 returnPos = new Vector3(defaultPos.x, defaultPos.y, defaultPos.z - 2.0f);
 
         while (period > 0) {
 

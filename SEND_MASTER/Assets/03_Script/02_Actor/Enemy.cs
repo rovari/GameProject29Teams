@@ -101,6 +101,6 @@ public class Enemy : Actor {
     private new void Start() {
         base.Start();
 
-        timeline = new PlayableDirector();
+        timeline = GetComponent<PlayableDirector>();
     }
 }

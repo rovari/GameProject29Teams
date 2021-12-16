@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 113569630}
   - component: {fileID: 113569632}
   - component: {fileID: 113569633}
+  - component: {fileID: 113569634}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -161,7 +162,7 @@ MonoBehaviour:
     isDead: 0
     isInvincible: 0
     isTurbo: 0
-    life: 10
+    life: 3
     hp: 1
     defence: 0
     resist: 0
@@ -267,6 +268,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actor: {fileID: 113569630}
+--- !u!320 &113569634
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113569629}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &237018729
 GameObject:
   m_ObjectHideFlags: 0
