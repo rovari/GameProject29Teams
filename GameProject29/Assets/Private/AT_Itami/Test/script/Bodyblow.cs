@@ -7,20 +7,20 @@ public class Bodyblow : MonoBehaviour
 {
     public static float dtime;
 
-    GameObject m_PlayerObject; //ÉvÉåÉCÉÑÅ[ÉIÉuÉWÉFÉNÉg
-    Transform m_Transform; //ÉXÉNÉäÉvÉgêÊÇÃÉgÉâÉìÉXÉtÉHÅ[ÉÄ
-    Vector3     pos; //íuÇ´èÍ
-    bool flag = true;Å@//ÉtÉâÉO
+    GameObject m_PlayerObject; //„Éó„É¨„Ç§„É§„Éº„Ç™„Éñ„Ç∏„Çß„ÇØ„Éà
+    public Transform m_Transform; //„Çπ„ÇØ„É™„Éó„ÉàÂÖà„ÅÆ„Éà„É©„É≥„Çπ„Éï„Ç©„Éº„É†
+    Vector3     pos; //ÁΩÆ„ÅçÂ†¥
+    bool flag = true;„ÄÄ//„Éï„É©„Ç∞
     private Vector3 velocity;
-    Vector3 acce = Vector3.zero;//èâä˙âª
-    public float period = 1.5f; //íÖíeéûä‘
-    public int mTime;//ìÆÇ´énÇﬂÇÃéûä‘
+    Vector3 acce = Vector3.zero;//ÂàùÊúüÂåñ
+    public float period = 1.5f; //ÁùÄÂºæÊôÇÈñì
+    public float sTime;//Âãï„ÅçÂßã„ÇÅ„ÅÆÊôÇÈñì
 
     // Start is called before the first frame update
     void Start()
     {
-        m_PlayerObject = GameObject.FindGameObjectWithTag("Player");//ÉvÉåÉCÉÑÅ[ÇÃèÓïÒéÊìæ
-        m_Transform = this.transform;
+        m_PlayerObject = GameObject.FindGameObjectWithTag("Player");//„Éó„É¨„Ç§„É§„Éº„ÅÆÊÉÖÂ†±ÂèñÂæó
+        //m_Transform = this.transform;
         dtime = 0;
     }
 
@@ -29,11 +29,11 @@ public class Bodyblow : MonoBehaviour
     {
         dtime += Time.deltaTime;
 
-        if(dtime>= mTime && flag==true)
+        if(dtime>= sTime && flag==true)
         {
             flag = false;
             pos = m_PlayerObject.transform.position;
-            Debug.Log("ílÅF"+(pos.x,pos.y,pos.z).ToString());
+            Debug.Log("ÂÄ§Ôºö"+(pos.x,pos.y,pos.z).ToString());
             Vector3 diff = pos - m_Transform.transform.position;
            
             acce += (diff - velocity * period) * 10 

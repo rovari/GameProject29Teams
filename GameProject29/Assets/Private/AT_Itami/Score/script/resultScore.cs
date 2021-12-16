@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class resultScore : MonoBehaviour
 {
     int crushing;
-    int TotalScore;
-    int ClearScore;
+    static int TotalScore;
+    static int ClearScore;
     float Tmp;
     float ClearTime;
-    float Ma;//”{—¦
-    public Text ResultText; //“¾“_‚Ì•¶Žš‚Ì•Ï”
+    float Ma;//å€çŽ‡
+    public Text ResultText; //å¾—ç‚¹ã®æ–‡å­—ã®å¤‰æ•°]
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class resultScore : MonoBehaviour
         Tmp = 1000 * Ma;
         ClearScore = (int)Tmp;
 
-        crushing = ScoreScript.GetScore();
+        crushing = ScoreScript.GetCrushing();
         Tmp = crushing * Ma;
         crushing = (int)Tmp;
     }
@@ -46,15 +47,20 @@ public class resultScore : MonoBehaviour
     void Update()
     {
         TotalScore =
-            ClearScore +//ƒNƒŠƒA‘“¾“_
-            crushing;//Œ‚”j”
+            ClearScore +//ã‚¯ãƒªã‚¢ç·å¾—ç‚¹
+            crushing;//æ’ƒç ´æ•°
 
         ResultText.text = "Score:" + TotalScore.ToString();
     }
 
-    public int GetTotalScore()
+    public static int GetTotalScore()
     {
         return TotalScore;
+    }
+
+    public static int GetClearScore()
+    {
+        return ClearScore;
     }
   
 }

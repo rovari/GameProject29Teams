@@ -6,15 +6,15 @@ using UnityEngine.UI;
 
 public class ScoreScript : MonoBehaviour
 {
-    public static int Crushing; //“¾“_‚Ì•Ï”
-    public Text ScoreText; //“¾“_‚Ì•¶š‚Ì•Ï”
+    public static int Crushing; //å¾—ç‚¹ã®å¤‰æ•°
+    public Text ScoreText; //å¾—ç‚¹ã®æ–‡å­—ã®å¤‰æ•°
     public static float dTime;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Crushing = 0; //‰Šú‰»
+        Crushing = 0; //åˆæœŸåŒ–
     }
 
     // Update is called once per frame
@@ -22,32 +22,32 @@ public class ScoreScript : MonoBehaviour
     {
         dTime += Time.deltaTime;
 
-        //Debug.Log("Œv‘ª’†F " + (dTime).ToString());
-        ScoreText.text = "Score:" + Crushing.ToString(); //ScoreText‚Ì•¶š‚ğScore:Score‚Ì’l‚É‚·‚é
+        //Debug.Log("è¨ˆæ¸¬ä¸­ï¼š " + (dTime).ToString());
+        ScoreText.text = "Score:" + Crushing.ToString(); //ScoreTextã®æ–‡å­—ã‚’Score:Scoreã®å€¤ã«ã™ã‚‹
         
     }
 
 
 
-    public void AddScoreE()//’ÊíƒGƒlƒ~[
+    public void AddScoreE()//é€šå¸¸ã‚¨ãƒãƒŸãƒ¼
     {
         Crushing += 300;
     }
 
-    public void AddScoreWE()//G‹›ƒGƒlƒ~[
+    public void AddScoreWE()//é›‘é­šã‚¨ãƒãƒŸãƒ¼
     {
         Crushing += 100;
     }
-    public void AddScoreMBE()//’†ƒ{ƒX
+    public void AddScoreMBE()//ä¸­ãƒœã‚¹
     {
         Crushing += 500;
     }
-    public void AddScoreBE()//ƒ{ƒXƒGƒlƒ~[
+    public void AddScoreBE()//ãƒœã‚¹ã‚¨ãƒãƒŸãƒ¼
     {
         Crushing += 999;
     }
    
-    public static int GetScore()
+    public static int GetCrushing()
     {
         return Crushing;
     }
