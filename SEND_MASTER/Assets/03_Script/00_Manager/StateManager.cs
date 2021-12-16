@@ -64,7 +64,7 @@ public class StateManager : MonoBehaviour {
                 
                 if(timeline.playableAsset && timeline.time >= timeline.duration) {
 
-                    state                   = STATE.EVENT;
+                    GetSetState             = STATE.EVENT;
 
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
@@ -83,7 +83,7 @@ public class StateManager : MonoBehaviour {
 
                 if (speech.GetIsFinish()) {
 
-                    state       = STATE.GAME;
+                    GetSetState = STATE.GAME;
                     sequence    = MAIN_TL.GENERAL;
 
                     if (timeline.playableAsset != null) timeline.Play();
@@ -108,7 +108,10 @@ public class StateManager : MonoBehaviour {
             case MAIN_TL.RESULT:
 
                 if(GetSetBossDown) {
-                    if (timeline.playableAsset != null) timeline.Play();
+                    if (timeline.playableAsset != null) {
+                        GetSetState = STATE.EVENT;
+                        timeline.Play();
+                    }
                 } 
 
                 if(timeline.playableAsset && timeline.time >= timeline.duration) {
