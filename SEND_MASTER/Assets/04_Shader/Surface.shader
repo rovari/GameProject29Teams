@@ -19,7 +19,7 @@ Shader "Custom/Surface"
 
 		_Mask		("Dissolve Mask", 2D)			= "white" {}
 		[Toggle]	_Reverse("Reverse Mask "	, int)				= 0
-		_Range		("Dissolve"					, Range(0.0 , 1.0))	= 1.0
+		_Range		("Dissolve"					, Range(0.0 , 1.0))	= 0.0
         _DisCol		("Dissolve Color"			, Color)			= (1,1,1,1)
         _DisEdgeCol	("Dissolve Edge Color"		, Color)			= (1,1,1,1)
 		_Scr_X		("UvScroll Speed X"			, float)			= 0.0			
@@ -82,11 +82,11 @@ Shader "Custom/Surface"
 			o.lightDir = normalize(mul(rotation, mul(unity_WorldToObject, -float3(1.0, -1.0, 1.0))));
 		}
 
-		void Dissolve(float2 uv, fixed4 col) {
+		void Dissolve(float2 uv) {
 			fixed m = tex2D(_Mask, uv).r;
 			m = (_Reverse != 0) ? 1.0 - m : m;
 
-			if (m > _Range) { _Discard = true; }
+			if (m < _Range) { _Discard = true; }
 		}
 
         void surf (Input IN, inout SurfaceOutput o) {
@@ -97,7 +97,7 @@ Shader "Custom/Surface"
 			float3	n	= UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap + addUv) * _Height);
 			float3	l	= normalize(float3(1.0, -1.0, 1.0));
 
-			Dissolve(IN.uv_Mask + addUv, c);
+			Dissolve(IN.uv_Mask + addUv);
 			if (c.a < 1.0 || _Discard) discard;
 
 			#ifdef _GT_ONECOLOR
@@ -133,7 +133,7 @@ Shader "Custom/Surface"
 
 
 			o.Normal = n;
-			o.Albedo = lerp(_DisCol, c, _Range * _Range);
+			o.Albedo = lerp(c, _DisCol, _Range * _Range);
         }
         ENDCG
     }

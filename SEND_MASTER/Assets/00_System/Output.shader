@@ -180,7 +180,6 @@ Shader "Custom/Output" {
 					: (1.0 - tex2D(_FadeMask, uv).r <  _FdRange) ? _FdRange : 0.0;
 				
 				c = lerp(col, _FdCol, fr);
-
 				return c;
 			}
 

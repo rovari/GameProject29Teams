@@ -100,9 +100,7 @@ public class Enemy : Actor {
                 if(timeline.time >= timeline.duration) {
 
                     timeline.Stop();
-                    timeline.initialTime    = 0.0f;
-                    timeline.playableAsset  = null;
-                    sequence                = SEQUENCE.IDLE;
+                    Destroy(this);
                 }
                 break;
         }

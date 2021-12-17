@@ -26,7 +26,7 @@ public class SpeechSystem : MonoBehaviour {
 
     [Space(10)]
     [SerializeField] private GameObject     targetCunvas;
-    [SerializeField] private GameObject     eraceCunvas;
+    [SerializeField] private TitleErace     titleErace;
     [SerializeField] private Image          bubbleImage;
     [SerializeField] private Text           targetText;
 
@@ -57,7 +57,7 @@ public class SpeechSystem : MonoBehaviour {
         
         if(oldIndex != currentIndex) {
 
-            if(currentIndex == 1) eraceCunvas.SetActive(false);
+            if(currentIndex == 1) titleErace.StartDissolve();
             targetCunvas.SetActive(true);
             isLock = true;
 
@@ -68,14 +68,20 @@ public class SpeechSystem : MonoBehaviour {
                 switch (speecheList[currentIndex].bubble) {
                     
                     case SPEECH_BUBBLE.NORMAL:
+                        bubbleImage.transform.localScale    = new Vector3(1.0f, 1.0f);
+                        targetText.transform.localScale     = new Vector3(0.75f, 0.75f);
                         bubbleImage.sprite = normalBubble;             
                         break;
 
                     case SPEECH_BUBBLE.THINK:
+                        bubbleImage.transform.localScale    = new Vector3(1.0f, 1.0f);
+                        targetText.transform.localScale     = new Vector3(0.75f, 0.75f);
                         bubbleImage.sprite = thinkBubble;
                         break;
-
+                            
                     case SPEECH_BUBBLE.THORN:
+                        bubbleImage.transform.localScale    = new Vector3(1.5f, 1.5f);
+                        targetText.transform.localScale     = new Vector3(1.0f, 1.0f);
                         bubbleImage.sprite = thornBubble;
                         break;
                         

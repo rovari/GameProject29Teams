@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum EFFECT {
     EXPLOSION,
@@ -28,8 +29,10 @@ public struct EffectData {
 public class EffectSystem : MonoBehaviour {
 
     // Field
-    [SerializeField] private float cameraShakeSpeed;
-    [SerializeField] private float cameraShakeLevel;
+    [SerializeField] private float      cameraShakeSpeed;
+    [SerializeField] private float      cameraShakeLevel;
+    [SerializeField] private EffectData fadeIn;
+    [SerializeField] private EffectData fadeOut;
 
     private Output      output;
     private EffectData  explosion;
@@ -99,13 +102,13 @@ public class EffectSystem : MonoBehaviour {
 
         coroutine = new Dictionary<string, IEnumerator>();
 
-        coroutine.Add(Explosion ().ToString(), null);
-        coroutine.Add(Fill      ().ToString(), null);
-        coroutine.Add(Vignette  ().ToString(), null);
-        coroutine.Add(CA        ().ToString(), null);
-        coroutine.Add(FOV       ().ToString(), null);
-        coroutine.Add(TimeStop  ().ToString(), null);
-        coroutine.Add(SlowMotion().ToString(), null);
+        coroutine.Add(Explosion ().ToString(), Explosion());
+        coroutine.Add(Fill      ().ToString(), Fill());
+        coroutine.Add(Vignette  ().ToString(), Vignette());
+        coroutine.Add(CA        ().ToString(), CA());
+        coroutine.Add(FOV       ().ToString(), FOV());
+        coroutine.Add(TimeStop  ().ToString(), TimeStop());
+        coroutine.Add(SlowMotion().ToString(), SlowMotion());
     }
 
     private void        CameraShake () {
@@ -176,7 +179,12 @@ public class EffectSystem : MonoBehaviour {
 
         while(period > 0) {
 
-            output.SetFade(fade.isEnable, fade.color, curve.Evaluate(count));
+            output.SetFade(
+                fade.isEnable,
+                Color.Lerp(fade.subColor, fade.color, curve.Evaluate(count)),
+                curve.Evaluate(count)
+            );
+
             count   += inc * Time.deltaTime;
             period  -= Time.deltaTime;
             yield return null;
@@ -280,14 +288,16 @@ public class EffectSystem : MonoBehaviour {
     }
 
 	// Signal
-    private void FadeSignal         (EffectData data) {
-        fade = data;
+    public void FadeSignal(bool outFade) {
+
+        fade = (!outFade) ? fadeIn : fadeOut;
         StartCoroutine("Fade");
     }
 
     // Unity
 	private void Start  () {
 
+        output = new Output(GameObject.FindGameObjectWithTag("Frame").GetComponent<Image>().material);
         CreateDictionary();
 	}
 

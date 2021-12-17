@@ -15,8 +15,9 @@ public enum STATE {
 public enum MAIN_TL {
     IDLE,
     INTRO,
-    GENERAL,
     SPEECH,
+    GENERAL,
+    BOSS,
     RESULT,
 }
 
@@ -25,6 +26,7 @@ public class StateManager : MonoBehaviour {
     // Field
     [SerializeField] private PlayableAsset  introTL;
     [SerializeField] private PlayableAsset  generalTL;
+    [SerializeField] private PlayableAsset  bossTL;
     [SerializeField] private PlayableAsset  resultTL;
 
     static private STATE            state;
@@ -34,6 +36,7 @@ public class StateManager : MonoBehaviour {
 
     static private PlayableAsset    intro;
     static private PlayableAsset    general;
+    static private PlayableAsset    boss;
     static private PlayableAsset    result;
 
     // Property
@@ -56,7 +59,7 @@ public class StateManager : MonoBehaviour {
         
         sequence = MAIN_TL.IDLE;
         
-        if (intro != null) {
+        if (intro != null || GetSetState == STATE.LOAD) {
 
             GetSetState = STATE.EVENT;
             sequence    = MAIN_TL.INTRO;
@@ -97,32 +100,42 @@ public class StateManager : MonoBehaviour {
                 break;
 
             case MAIN_TL.GENERAL:
+
+                if(timeline.playableAsset && timeline.time >= timeline.duration) {
+                    
+                    timeline.playableAsset  = boss;
+                    timeline.Stop();
+                    timeline.initialTime    = 0.0f;
+                    sequence                = MAIN_TL.BOSS;
+
+                    if (timeline.playableAsset != null) timeline.Play();
+                }
+                break;
                 
-                if(GetSetBossDown && timeline.playableAsset && timeline.time >= timeline.duration) {
+            case MAIN_TL.BOSS:
+
+                if(!GetSetBossDown) {
+
+                    GetSetState = STATE.EVENT;
+                    GetSetBossDown = false;
 
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
                     timeline.playableAsset  = result;
                     sequence                = MAIN_TL.RESULT;
+
+                    if (timeline.playableAsset != null) timeline.Play();
                 }
                 break;
 
             case MAIN_TL.RESULT:
                 
-                if (timeline.playableAsset != null) {
-                    GetSetState = STATE.EVENT;
-                    timeline.Play();
-                }
-                
                 if(timeline.playableAsset && timeline.time >= timeline.duration) {
 
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
-                    timeline.playableAsset  = result;
-                    
                     LoadManager.Load();
                 }
-                
                 break;
 
             default: break;
@@ -152,7 +165,9 @@ public class StateManager : MonoBehaviour {
 
         intro       = introTL;
         general     = generalTL;
+        boss        = bossTL;
         result      = resultTL;
+
         timeline    = GetComponent<PlayableDirector>();
         speech      = GetComponent<SpeechSystem>();
 

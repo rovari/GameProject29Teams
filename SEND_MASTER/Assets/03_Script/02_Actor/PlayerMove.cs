@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove : ActorData {
 
     // Field
     private bool        isJump;
+    private bool        isReturn;
+    private bool        isDeff;
     private float       velocity;
     private float       oldHp;
     private Vector3     defaultPos;
@@ -18,6 +21,9 @@ public class PlayerMove : ActorData {
     [SerializeField] private float          returnTime;
     [SerializeField] private AnimationCurve blowCurve;
     [SerializeField] private AnimationCurve frictionCurve;
+
+    [SerializeField] private EffectData     gameOverFill;
+    [SerializeField] private GameObject     gameOverPlane;
 
     // Property
 
@@ -103,12 +109,15 @@ public class PlayerMove : ActorData {
     private IEnumerator Dead            () {
         
         StateManager.GetSetState = STATE.EVENT;
-        LoadManager.ReLoad();
 
-        yield return null;
+        actor.effect.PlayEffect(EFFECT.FILL, gameOverFill);
+
+        gameOverPlane.SetActive(true);
+        yield return new WaitForSecondsRealtime(gameOverFill.time);
+        LoadManager.ReLoad();
     }
     private IEnumerator Return          () {
-
+        
         StateManager.GetSetState = STATE.EVENT;
 
         --actor.GetActorState().life;
@@ -123,8 +132,36 @@ public class PlayerMove : ActorData {
         
         while (period > 0) {
 
+            if (isDeff) yield break;
+
             actor.GetSetTransform.position =
                 Vector3.Lerp(returnPos, defaultPos, count);
+
+            count   += inc * Time.deltaTime;
+            period  -= Time.deltaTime;
+
+            
+            yield return null;
+        }
+    
+        actor.GetSetTransform.position      = defaultPos;
+        
+        StateManager.GetSetState = STATE.GAME;
+    }
+    private IEnumerator MoveDefault     () {
+
+        isDeff = true;
+
+        float period    = 1.0f / 2.2f;
+        float inc       = 1.0f / (period + Mathf.Epsilon); 
+        float count     = 0.0f;
+        
+        Vector3 position = actor.GetSetTransform.position;
+        
+        while (period > 0) {
+
+            actor.GetSetTransform.position =
+                Vector3.Lerp(position, defaultPos, count);
 
             count   += inc * Time.deltaTime;
             period  -= Time.deltaTime;
@@ -134,10 +171,13 @@ public class PlayerMove : ActorData {
 
         actor.GetSetTransform.position      = defaultPos;
 
-        StateManager.GetSetState = STATE.GAME;
+        isDeff = false;
     }
 
     // Signal
+    public  void        ReturDeffSignal () {
+        StartCoroutine("MoveDefault");
+    }
 
     // Unity
 	private void        Start           () {
@@ -160,7 +200,8 @@ public class PlayerMove : ActorData {
     protected override void LoadUpdate   () { 
 
 	}
-    protected override void EventUpdate  () { 
+    protected override void EventUpdate  () {
 
+        
 	}
 }

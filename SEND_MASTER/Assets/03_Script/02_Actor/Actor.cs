@@ -142,12 +142,4 @@ public class Actor : MonoBehaviour {
 
         GetActorState().StateUpdate();
     }
-    private     void OnDestroy  () {
-
-        if (surfaceList.Count > 0) {
-            surfaceList.Clear();
-        }
-        
-        GC.Collect();
-    }
 }

@@ -83,7 +83,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Range: 1
+    - _Range: 0
     - _Reverse: 0
     - _Rim: 1
     - _RimLv: 3.2

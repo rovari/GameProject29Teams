@@ -13,22 +13,25 @@ public struct SceneData {
 public class LoadSystem : MonoBehaviour {
 
     // Field
-    [SerializeField] private bool               isPreLoad;
-    [SerializeField] private int                sequensNum;
     [SerializeField] private SceneObject        loadingScene;
     [SerializeField] private List<SceneData>    sceneSequens;
     
+    public int  sequensNum;
+    public bool isPreLoad;
+
     // Property
 
     // Method
     public  void        LoadScene           (int index) {
-        
+
+        StateManager.GetSetState = STATE.LOAD;
         ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
         StartCoroutine("PreLoad", index);
     }
     public  void        ReLoadScene         () {
 
         StateManager.GetSetState = STATE.LOAD;
+        ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
         StartCoroutine("PreLoad", sequensNum);
     }
     private IEnumerator PreLoad             (int index) {
@@ -45,7 +48,7 @@ public class LoadSystem : MonoBehaviour {
         async.allowSceneActivation      = true;
         isPreLoad                       = false;
     }
-
+    
 	// Signal
     public  void        AddIndexLoadSignal  () {
         ++sequensNum;

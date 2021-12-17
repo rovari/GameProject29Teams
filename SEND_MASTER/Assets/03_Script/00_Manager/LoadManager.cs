@@ -17,6 +17,14 @@ public class LoadManager : MonoBehaviour {
     static public void ReLoad   () {
         loadSystem.ReLoadScene();
     }
+
+    static public ref bool  GetIsPreLoad    () {
+        return ref loadSystem.isPreLoad;
+    }
+    static public int       GetSequenceNum  () {
+        return loadSystem.sequensNum;
+    }
+
     // Unity
 	private void Start() {
         loadSystem = GetComponent<LoadSystem>();

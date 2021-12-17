@@ -10,7 +10,7 @@ public class Surface : ShaderController {
         material = mat;
     }
     public  void SetDissolve    (float level) {
-        material.SetFloat   ("_Ragne", Mathf.Clamp01(level));
+        material.SetFloat   ("_Range", Mathf.Clamp01(level));
     }
     public  void SetRimEnable   (bool active, Color color) {
         material.SetInt     ("_Rim", Convert.ToInt32(active));
