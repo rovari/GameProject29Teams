@@ -17,7 +17,7 @@ public class EnemysSystem : MonoBehaviour {
         foreach(var i in indexes) GameObject.Instantiate(enemyList[i]);
     }
     public void AllDestroySignal () {
-        foreach (var e in enemyList) Destroy(e);
+        foreach (var e in enemyList) Destroy(e.gameObject);
     }
 
     // Unity

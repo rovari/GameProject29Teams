@@ -14,9 +14,11 @@ public enum SPEECH_BUBBLE {
 [Serializable]
 public struct Speech {
 
-    public SPEECH_BUBBLE    bubble;
-    public string           speech;
     public bool             isButton;
+    public SPEECH_BUBBLE    bubble;
+
+    [Multiline(3)]
+    public string           speech;
 }
 
 public class SpeechSystem : MonoBehaviour {
@@ -68,20 +70,17 @@ public class SpeechSystem : MonoBehaviour {
                 switch (speecheList[currentIndex].bubble) {
                     
                     case SPEECH_BUBBLE.NORMAL:
-                        bubbleImage.transform.localScale    = new Vector3(1.0f, 1.0f);
-                        targetText.transform.localScale     = new Vector3(0.75f, 0.75f);
+                        bubbleImage.transform.localScale    = new Vector3(2.0f, 1.5f);
                         bubbleImage.sprite = normalBubble;             
                         break;
 
                     case SPEECH_BUBBLE.THINK:
-                        bubbleImage.transform.localScale    = new Vector3(1.0f, 1.0f);
-                        targetText.transform.localScale     = new Vector3(0.75f, 0.75f);
+                        bubbleImage.transform.localScale    = new Vector3(2.0f, 1.5f);
                         bubbleImage.sprite = thinkBubble;
                         break;
                             
                     case SPEECH_BUBBLE.THORN:
-                        bubbleImage.transform.localScale    = new Vector3(1.5f, 1.5f);
-                        targetText.transform.localScale     = new Vector3(1.0f, 1.0f);
+                        bubbleImage.transform.localScale    = new Vector3(3.0f, 2.0f);
                         bubbleImage.sprite = thornBubble;
                         break;
                         

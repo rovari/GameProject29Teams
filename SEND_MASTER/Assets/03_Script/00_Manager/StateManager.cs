@@ -160,6 +160,10 @@ public class StateManager : MonoBehaviour {
         }
     }
 
+    static public  ref PlayableDirector GetTimeLine() {
+        return ref timeline;
+    }
+
     // Unity
     private void Start  () {
 

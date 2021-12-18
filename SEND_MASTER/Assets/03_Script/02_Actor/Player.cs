@@ -7,9 +7,10 @@ using UnityEngine;
 public class Player : Actor {
 
     // Field
-    [SerializeField] private GameObject LifeBoxObject;
-    [SerializeField] private Vector3    boxLocalPos;
     [SerializeField] private float      boxBitween;
+    [SerializeField] private Vector3    boxLocalPos;
+    [SerializeField] private GameObject LifeBoxObject;
+    [SerializeField] private FireSystem fireSystem;
 
     private bool                isHoldItem;
     private bool                isEffect;
@@ -49,11 +50,15 @@ public class Player : Actor {
         }
     }
 
+    public  ref FireSystem  GetFireSystem   ()  {
+        return ref fireSystem;
+    }
+
     private void        CreateBox   () {
 
         LifeBoxList = new List<GameObject>();
 
-        for(int i = 0; i < GetActorState().life + 1; ++i) {
+        for(int i = 0; i < GetActorState().life; ++i) {
             
             GameObject box = Instantiate(LifeBoxObject);
 
@@ -70,7 +75,7 @@ public class Player : Actor {
 
         for (int i = 0; i < LifeBoxList.Count; ++i) {
 
-            if (i < GetActorState().life + 1) {
+            if (i < GetActorState().life) {
                 LifeBoxList[i].SetActive(true);
             }
             else {

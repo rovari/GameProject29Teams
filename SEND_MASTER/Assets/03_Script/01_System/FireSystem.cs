@@ -12,8 +12,11 @@ public class FireSystem : MonoBehaviour {
     [SerializeField] private List<WeaponSystem> weaponList;
     
     private Transform   owner;
+    private GameObject  aim;
+
     private int         targetIndex;
     private int         weaponIndex;
+
     // Property
     
     // Method
@@ -28,17 +31,41 @@ public class FireSystem : MonoBehaviour {
         SortListByDistance  ();
     }
     public  void Lunch              () {
+        
+        WeaponSystem weapon = weaponList[weaponIndex];
 
-        if (targetList.Count == 0 || targetList[targetIndex] == null) return;
+        switch (weapon.GetLockType()) {
 
-        weaponList[weaponIndex].Lunch(targetList[targetIndex].gameObject);
+            case LOCKTYPE.AIM:
+                weaponList[weaponIndex].Lunch(aim);
+                break;
+
+            case LOCKTYPE.LOCK:
+
+                if (targetList.Count == 0 || targetList[targetIndex] == null) return;
+                weaponList[weaponIndex].Lunch(targetList[targetIndex].gameObject);
+
+                break;
+
+            default: break;
+        }
     }
     public  void AddWeaaponIndex    () {
         ++weaponIndex;
-        RefreshList();
+
+        if (weaponList[weaponIndex].GetLockType() == LOCKTYPE.LOCK) {
+            RefreshList();
+        }
     }
     public  void AddTargetIndex     () {
         ++targetIndex;
+    }
+
+    public  GameObject      GetTarget    () {
+        return (targetList.Count > 0) ? targetList[targetIndex] : null;
+    }
+    public  WeaponSystem    GetWeapon    () {
+        return (weaponList.Count > 0) ? weaponList[weaponIndex] : null;
     }
     
     private void ClampIndex         () {

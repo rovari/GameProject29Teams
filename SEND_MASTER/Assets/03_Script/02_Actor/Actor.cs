@@ -28,8 +28,8 @@ public struct ActorState {
     public  float   defence;
     public  ELEMENT resist;
 
-    private int     defLife;
-    private float   defHp;
+    public int      defLife;
+    public float    defHp;
 
     // Method
     public  void    StateSave           () {
@@ -64,11 +64,11 @@ public struct ActorState {
 
         life = (life > defLife)
                 ? defLife
-                : (life < -1)
-                ? -1
+                : (life < 1)
+                ? 1
                 : life;
 
-        if (life < 1) isWillDead = true;
+        if (life < 2) isWillDead = true;
         else isWillDead = false;
     }
 }
@@ -82,7 +82,7 @@ public class Actor : MonoBehaviour {
     
     [HideInInspector] public    List<Surface>       surfaceList;
     [HideInInspector] public    EffectSystem        effect;
-
+    
     // Property
     public  Transform           GetSetTransform {
         get { return transform; }
@@ -92,7 +92,6 @@ public class Actor : MonoBehaviour {
             transform.localScale    = value.localScale;
         }
     }
-    public  GameObject          GetSetTarget    { get; set; }
     public  Vector2             GetSetHitPos    { get; set; }
 
     // Method

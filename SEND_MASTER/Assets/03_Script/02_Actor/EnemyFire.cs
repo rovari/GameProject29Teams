@@ -11,16 +11,9 @@ public class EnemyFire : ActorData {
     // Property
 
     // Method
-    private IEnumerator RefreshList() {
-
-        while (true) {
-            fireSystem.RefreshList();
-            yield return new WaitForSeconds(1.0f);
-        }
-    }
 
     // Signal
-    public  void LunchSignal  (int index) {
+    public  void LunchMarker  (int index) {
         fireSystem.SetWeaponIndex(index);
         fireSystem.Lunch();
     }
@@ -31,8 +24,8 @@ public class EnemyFire : ActorData {
 	}
 
 	// Dependent Update by State
-    protected override void GameUpdate   () { 
-
+    protected override void GameUpdate   () {
+        fireSystem.RefreshList();
 	}
     protected override void MenuUpdate   () { 
 

@@ -109,11 +109,14 @@ public class PlayerMove : ActorData {
     private IEnumerator Dead            () {
         
         StateManager.GetSetState = STATE.EVENT;
+        StateManager.GetTimeLine().Stop();
 
         actor.effect.PlayEffect(EFFECT.FILL, gameOverFill);
 
         gameOverPlane.SetActive(true);
         yield return new WaitForSecondsRealtime(gameOverFill.time);
+        gameOverPlane.SetActive(false);
+        
         LoadManager.ReLoad();
     }
     private IEnumerator Return          () {

@@ -36,6 +36,7 @@ public class Bullet : Actor {
         if (inTarget == null || isWait) return;
 
         target = inTarget;
+        gameObject.SetActive(true);
         
         switch (orbit) {
             case ORBIT.SHOT:        StartCoroutine("Shot");         break; 
@@ -105,7 +106,7 @@ public class Bullet : Actor {
         transform.position  = muzzle.position;
         transform.rotation  = Quaternion.identity;
         
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
     private IEnumerator Homing          () {
         
@@ -163,7 +164,7 @@ public class Bullet : Actor {
         transform.position  = muzzle.position;
         transform.rotation  = Quaternion.identity;
 
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
     private IEnumerator UnTrack         () {
         
@@ -255,7 +256,7 @@ public class Bullet : Actor {
         transform.position  = muzzle.position;
         transform.rotation  = Quaternion.identity;
 
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
     private IEnumerator Blade           () {
         
@@ -343,5 +344,10 @@ public class Bullet : Actor {
     // Unity
     private new void Start () {
         base.Start();
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable() {
+        isWait = false;
     }
 }

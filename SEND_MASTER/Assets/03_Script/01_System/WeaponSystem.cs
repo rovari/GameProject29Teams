@@ -18,7 +18,7 @@ public class WeaponSystem : MonoBehaviour {
     [SerializeField] protected float        interval;
     [SerializeField] protected List<Bullet> bulletList;
 
-    protected   bool        isRecast;
+    [SerializeField] protected   bool        isRecast;
     protected   float       castCount;
     protected   GameObject  target;
 
@@ -31,13 +31,16 @@ public class WeaponSystem : MonoBehaviour {
 
         if (isRecast || inTarget == null) return;
 
-        target = inTarget;
+        target   = inTarget;
+        isRecast = true;
 
-        StartCoroutine("Cast");
         StartCoroutine("TimeLine");
     }
-    public  float                   GetRecast   () {
-        return castCount;
+    public  float                   GetRecastNormalize   () {
+
+        if (castCount == 0.0f) return 0.0f;
+
+        return 1.0f / recastTime * castCount;
     }
     public  LOCKTYPE                GetLockType () {
         return lockType;
@@ -56,12 +59,25 @@ public class WeaponSystem : MonoBehaviour {
             period      -= actor.GetActorDeltaTime();
             yield return null;
         }
+
+        isRecast = false;
     }
 
     virtual protected IEnumerator   TimeLine    () {
 
-        foreach (var b in bulletList) b.StartBullet(ref target);
-        yield return null;
+
+        foreach (var b in bulletList) {
+            b.StartBullet(ref target);
+            
+            float count = 0.0f;
+
+            while (interval > count) {
+                count += actor.GetActorDeltaTime();
+                yield return null;
+            }
+        }
+        
+       yield return Cast();
     }
 
     // Unity

@@ -16,8 +16,9 @@ public class PlayerFire : ActorData {
     // Method
     private void Lunch              () {
         if (isSyncLunch) {
+
             isSyncLunch = false;
-            fireSystem.Lunch();
+            if(fireSystem.GetTarget()) fireSystem.Lunch();
         }
     }
 	private void SyncLunch          () {
@@ -39,6 +40,7 @@ public class PlayerFire : ActorData {
     // Dependent Update by State
     protected override void GameUpdate   () {
         Lunch();
+        
 	}
     protected override void MenuUpdate   () { 
 

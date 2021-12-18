@@ -76,8 +76,8 @@ Material:
     - _DstBlend: 0
     - _FdLink: 1
     - _FdRan: 0.591
-    - _FdRange: 0.0005593896
-    - _FiLv: 0.000004827976
+    - _FdRange: 0.0013123155
+    - _FiLv: 0.0050989985
     - _Fill: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5

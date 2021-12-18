@@ -25,6 +25,7 @@ public class Enemy : Actor {
     // Field
     [SerializeField] private GRADE          grade;
     [SerializeField] private float          activeTime;
+    [SerializeField] private FireSystem     fireSystem;
     [SerializeField] private PlayableAsset  encountTL;
     [SerializeField] private PlayableAsset  generalTL; 
     [SerializeField] private PlayableAsset  returnTL;
@@ -39,6 +40,13 @@ public class Enemy : Actor {
     public  GRADE   GetGrade    () {
         return grade;
     }
+    public ref PlayableDirector GetTimeline     () {
+        return ref timeline;
+    }
+    public ref FireSystem       GetFireSystem   () {
+        return ref fireSystem;
+    }
+
     private void    SetSequence () {
 
         sequence = SEQUENCE.IDLE;
@@ -100,7 +108,7 @@ public class Enemy : Actor {
                 if(timeline.time >= timeline.duration) {
 
                     timeline.Stop();
-                    Destroy(this);
+                    Destroy(this.gameObject);
                 }
                 break;
         }
