@@ -42,6 +42,7 @@ public class EnemyMove : ActorData {
     // Field
     private EffectData      hitStopEffect;
     private EffectData      deadEffect;
+    private double          currentTime;
 
     // Property
 
@@ -53,11 +54,13 @@ public class EnemyMove : ActorData {
         if (actor.GetActorState().life < 0) StartCoroutine("Dead");
     }
     private IEnumerator Dead        () {
-        
+
+        StateManager.GetSetEnemyDown = true;
+
         float   period  = deadEffect.time;
         float   inc     = 1.0f / (period + Mathf.Epsilon);
         float   count   = 0.0f;
-
+        
         actor.effect.PlayEffect(EFFECT.TIMESTOP, hitStopEffect);
         
         GRADE grade =((Enemy)actor).GetGrade();
@@ -154,18 +157,24 @@ public class EnemyMove : ActorData {
     }
     private IEnumerator Turn        (float radian) {
         
+        float period    = 1.0f;
+        float inc       = 1.0f / (period + Mathf.Epsilon);
         float count     = 0.0f;
         
-        while (1.0f > count) {
+        while (period > 0) {
 
             Quaternion rotY = Quaternion.AngleAxis(radian * actor.GetActorDeltaTime(),Vector3.up);
 
             transform.localRotation = transform.localRotation * rotY;
-
-            count += actor.GetActorDeltaTime();
+            
+            count += inc * actor.GetActorDeltaTime();
+            period -= actor.GetActorDeltaTime();
             yield return null;
         }
 
+        transform.localRotation = Quaternion.AngleAxis(radian, Vector3.up);
+
+        ((Enemy)actor).GetTimeline().time = currentTime + actor.GetActorDeltaTime();
         ((Enemy)actor).GetTimeline().Resume();
     }
     private IEnumerator Shivering   () {
@@ -200,8 +209,9 @@ public class EnemyMove : ActorData {
     // Signal
     public void         ConstantMove(ENEMY_MOVE move) {
 
+        currentTime = ((Enemy)actor).GetTimeline().time;
         ((Enemy)actor).GetTimeline().Pause();
-
+        
         switch (move) {
             case ENEMY_MOVE.FIRE_ANIMATION_PLAY:        break;
 

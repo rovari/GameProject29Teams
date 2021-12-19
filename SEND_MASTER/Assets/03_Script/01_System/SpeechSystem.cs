@@ -29,6 +29,7 @@ public class SpeechSystem : MonoBehaviour {
     [Space(10)]
     [SerializeField] private GameObject     targetCunvas;
     [SerializeField] private TitleErace     titleErace;
+    [SerializeField] private GameObject     encount;
     [SerializeField] private Image          bubbleImage;
     [SerializeField] private Text           targetText;
 
@@ -66,7 +67,8 @@ public class SpeechSystem : MonoBehaviour {
             if (currentIndex < speecheList.Count) {
 
                 oldIndex = currentIndex;
-            
+                AudioManager.PlayOneShot(SOUNDTYPE.GAME, "Speech_Bubble_gse");
+
                 switch (speecheList[currentIndex].bubble) {
                     
                     case SPEECH_BUBBLE.NORMAL:
@@ -93,6 +95,7 @@ public class SpeechSystem : MonoBehaviour {
                 
                 targetCunvas.SetActive(false);
                 isFinish = true;
+                encount.SetActive(true);
                 return;
             }
 

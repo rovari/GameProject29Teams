@@ -21,8 +21,8 @@ public class PlayerUI : ActorData {
     // Method
     void SetSliderValue() {
         
-        //weaponText.text         = ((Player)actor).GetFireSystem().GetWeapon().gameObject.name;
-        //weaponSlider.value      = ((Player)actor).GetFireSystem().GetWeapon().GetRecastNormalize();
+        weaponText.text         = ((Player)actor).GetFireSystem().GetWeapon().gameObject.name;
+        weaponSlider.value      = ((Player)actor).GetFireSystem().GetWeapon().GetRecastNormalize();
 
         if (StateManager.GetTimeLine().duration > 0.0 && StateManager.GetTimeLine().time > 0.0) {
             progressSlider.value  = (float)(1.0 / StateManager.GetTimeLine().duration * StateManager.GetTimeLine().time);

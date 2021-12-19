@@ -31,9 +31,22 @@ public class Bullet : Actor {
     // Property
 
     // Method
-    public  void        StartBullet         (ref GameObject inTarget) {
-        
+    public void StartBullet(ref GameObject inTarget) {
+
         if (inTarget == null || isWait) return;
+
+        switch (element) {
+            case ELEMENT.NORMAL:
+                AudioManager.PlayOneShot(SOUNDTYPE.GAME, "Lunch_Normal_gse");
+                break;
+
+            case ELEMENT.SPECIAL:
+                AudioManager.PlayOneShot(SOUNDTYPE.GAME, "Lunch_Special_gse");
+                break;
+
+            default: break;
+        }
+        
 
         target = inTarget;
         gameObject.SetActive(true);
@@ -55,11 +68,11 @@ public class Bullet : Actor {
     } 
 
     private void        ActiveCollision     (bool active) {
-        
+        collision.gameObject.SetActive(active);
     }
     private IEnumerator DissolveErase       () {
 
-        float period    = 0.5f;
+        float period    = 1.0f / 0.5f;
         float inc       = 1.0f / (period + Mathf.Epsilon);
         float count     = 0.0f;
 

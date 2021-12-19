@@ -14,8 +14,8 @@ public class FireSystem : MonoBehaviour {
     private Transform   owner;
     private GameObject  aim;
 
-    private int         targetIndex;
-    private int         weaponIndex;
+    [SerializeField]private int         targetIndex;
+    [SerializeField]private int         weaponIndex;
 
     // Property
     
@@ -33,6 +33,10 @@ public class FireSystem : MonoBehaviour {
     public  void Lunch              () {
         
         WeaponSystem weapon = weaponList[weaponIndex];
+        
+        if(Vector3.Dot(owner.forward, targetList[targetIndex].transform.position - owner.position) < 0.0f) {
+            return;
+        }
 
         switch (weapon.GetLockType()) {
 
@@ -50,8 +54,10 @@ public class FireSystem : MonoBehaviour {
             default: break;
         }
     }
-    public  void AddWeaaponIndex    () {
+    public  void AddWeaponIndex     () {
+
         ++weaponIndex;
+        WrapIndex();
 
         if (weaponList[weaponIndex].GetLockType() == LOCKTYPE.LOCK) {
             RefreshList();
@@ -59,8 +65,9 @@ public class FireSystem : MonoBehaviour {
     }
     public  void AddTargetIndex     () {
         ++targetIndex;
+        WrapIndex();
     }
-
+        
     public  GameObject      GetTarget    () {
         return (targetList.Count > 0) ? targetList[targetIndex] : null;
     }
@@ -68,7 +75,7 @@ public class FireSystem : MonoBehaviour {
         return (weaponList.Count > 0) ? weaponList[weaponIndex] : null;
     }
     
-    private void ClampIndex         () {
+    private void WrapIndex          () {
 
         targetIndex 
             = (targetIndex >= targetList.Count)
@@ -85,8 +92,17 @@ public class FireSystem : MonoBehaviour {
             : weaponIndex;
     }
     private void FindTargetWithTag  () {
+        
         targetList.Clear    ();
-        targetList.AddRange (GameObject.FindGameObjectsWithTag(searchTagName));
+        
+        foreach(var i in GameObject.FindGameObjectsWithTag(searchTagName)) {
+
+            if (i.transform.position.z < 10.0f
+                && Vector3.Dot(owner.forward, i.transform.position - owner.position) > 0.0f) {
+
+                targetList.Add(i);
+            }
+        }
     }
     private void SortListByDistance () {
         if(targetList.Count > 0) {
@@ -102,6 +118,6 @@ public class FireSystem : MonoBehaviour {
 
 	}
     private void Update () {
-        ClampIndex();
+        
     }
 }

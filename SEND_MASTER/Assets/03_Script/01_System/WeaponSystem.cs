@@ -38,9 +38,9 @@ public class WeaponSystem : MonoBehaviour {
     }
     public  float                   GetRecastNormalize   () {
 
-        if (castCount == 0.0f) return 0.0f;
+        if (castCount == 0.0f) return 1.0f;
 
-        return 1.0f / recastTime * castCount;
+        return (1.0f / (recastTime + Mathf.Epsilon)) * castCount * recastTime;
     }
     public  LOCKTYPE                GetLockType () {
         return lockType;

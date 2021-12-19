@@ -83,11 +83,13 @@ public class PlayerMove : ActorData {
     private IEnumerator Jump            () {
 
         float power = jumpPow;
+        if (StateManager.GetSetState != STATE.GAME) yield break;
 
-        if (!isJump) {
-
+            if (!isJump) {
+            
             isJump = true;
-
+            AudioManager.PlayOneShot(SOUNDTYPE.GAME, "Jump_gse");
+            
             while (defaultPos.y <= actor.GetSetTransform.position.y) {
 
                 actor.GetSetTransform.position += new Vector3(0.0f, power * actor.GetActorDeltaTime(), 0.0f);
@@ -110,6 +112,8 @@ public class PlayerMove : ActorData {
         
         StateManager.GetSetState = STATE.EVENT;
         StateManager.GetTimeLine().Stop();
+        AudioManager.ShmoothLowPass (true, true, gameOverFill.time * 0.5f);
+        AudioManager.ShmoothFade    (true, gameOverFill.time, 0.0f);
 
         actor.effect.PlayEffect(EFFECT.FILL, gameOverFill);
 
@@ -155,14 +159,15 @@ public class PlayerMove : ActorData {
 
         isDeff = true;
 
-        float period    = 1.0f / 2.2f;
+        float period    = 2.2f;
         float inc       = 1.0f / (period + Mathf.Epsilon); 
         float count     = 0.0f;
         
         Vector3 position = actor.GetSetTransform.position;
-        
-        while (period > 0) {
+        actor.GetSetTransform.localRotation = Quaternion.identity;
 
+        while (period > 0) {
+            
             actor.GetSetTransform.position =
                 Vector3.Lerp(position, defaultPos, count);
 

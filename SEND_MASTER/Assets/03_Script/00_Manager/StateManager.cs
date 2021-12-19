@@ -50,6 +50,7 @@ public class StateManager : MonoBehaviour {
             }
     }
     static public  float        GetSetScore     { get; set; }
+    static public  bool         GetSetEnemyDown { get; set; }
     static public  bool         GetSetBossDown  { get; set; }
     static public  LevelData    GetSetLevelData { get; set; }
     
@@ -59,7 +60,13 @@ public class StateManager : MonoBehaviour {
         
         sequence = MAIN_TL.IDLE;
         
-        if (intro != null || GetSetState == STATE.LOAD) {
+        if (intro != null && GetSetState != STATE.LOAD) {
+            
+            AudioManager.Play           (SOUNDTYPE.BGM, "Title_bgm");
+            AudioManager.ShmoothLowPass (true, true, 0.0f);
+
+            AudioManager.Volume         (SOUNDTYPE.BGM, 0.0f);
+            AudioManager.ShmoothFade    (true, 3.0f, 10.0f);
 
             GetSetState = STATE.EVENT;
             sequence    = MAIN_TL.INTRO;
@@ -94,6 +101,8 @@ public class StateManager : MonoBehaviour {
                     GetSetState = STATE.GAME;
                     sequence = MAIN_TL.GENERAL;
 
+                    AudioManager.ShmoothLowPass(true, false, 0.5f);
+                    
                     if (timeline.playableAsset != null) timeline.Play();
                 }
 
@@ -108,6 +117,7 @@ public class StateManager : MonoBehaviour {
                     timeline.initialTime    = 0.0f;
                     sequence                = MAIN_TL.BOSS;
 
+                    AudioManager.SwapBGM(5.0f, "Stage01_bgm");
                     if (timeline.playableAsset != null) timeline.Play();
                 }
                 break;
@@ -129,12 +139,17 @@ public class StateManager : MonoBehaviour {
                 break;
 
             case MAIN_TL.RESULT:
-                
+
+                double fadeTime = 2.0;
+
                 if(timeline.playableAsset && timeline.time >= timeline.duration) {
 
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
                     LoadManager.Load();
+                }
+                if(timeline.playableAsset && timeline.time >= timeline.duration - fadeTime) {
+                    AudioManager.ShmoothFade(true, (float)fadeTime, 0.0f);
                 }
                 break;
 

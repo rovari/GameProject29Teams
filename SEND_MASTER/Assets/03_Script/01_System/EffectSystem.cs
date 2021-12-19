@@ -84,6 +84,8 @@ public class EffectSystem : MonoBehaviour {
             default: break;
         }
     }
+
+    // Graphic
     
     private void PlayHierarchyCheck (ref EffectData runData, EffectData newData, IEnumerator newCoroutine) {
         
@@ -287,7 +289,100 @@ public class EffectSystem : MonoBehaviour {
         timeScale.hierarchy = 0;
     }
 
-	// Signal
+    // Sound
+    public void SoundLowPassEffect  (bool bgmOnly, bool lowpassIn, float time) {
+        IEnumerator cor = LowPass(bgmOnly, lowpassIn, time);
+        StartCoroutine(cor);
+    }
+    public void SoundFadeEffect     (bool bgmOnly, float time, float volume) {
+        IEnumerator cor = SoundFade(bgmOnly, time, volume);
+        StartCoroutine(cor);
+    }
+    public void SwapBgmEffect       (float time, string nextBgmName) {
+        IEnumerator cor = SwapSound(time, nextBgmName);
+        StartCoroutine(cor);
+    }
+
+    private IEnumerator LowPass     (bool bgmOnly, bool lowpassIn, float time) {
+
+        const float passMax = 22000.0f;
+        const float passMin = 1000.0f;
+
+        float period    = time;
+        float inc       = 1.0f / (period + Mathf.Epsilon);
+        float count     = 0.0f;
+        string target   = (!bgmOnly) ? "MS_LP": "BG_LP";
+
+        
+        while(period > 0) {
+
+            if (!lowpassIn) AudioManager.GetMixer().SetFloat(target, Mathf.Lerp(passMin, passMax, count));
+            else AudioManager.GetMixer().SetFloat(target, Mathf.Lerp(passMax, passMin, count));
+
+            count   += inc * Time.deltaTime;
+            period  -= Time.deltaTime;
+            yield return null;
+        }
+
+        if (lowpassIn) AudioManager.GetMixer().SetFloat(target, passMin);
+        else AudioManager.GetMixer().SetFloat(target, passMax);
+    }
+    private IEnumerator SoundFade   (bool bgmOnly, float time, float volume) {
+
+        float period    = time;
+        float inc       = 1.0f / (period + Mathf.Epsilon);
+        float count     = 0.0f;
+
+        string  target      = (!bgmOnly) ? "MS_VL" : "BG_VL";
+
+        float current;
+        AudioManager.GetMixer().GetFloat(target, out current);
+        
+        while (period > 0) {
+            
+            AudioManager.GetMixer().SetFloat(target, Mathf.Lerp(current, volume, Mathf.Sin((Mathf.PI * 0.5f) * count)));
+
+            count += inc * Time.deltaTime;
+            period -= Time.deltaTime;
+            yield return null;
+        }
+
+        AudioManager.GetMixer().SetFloat(target, volume);
+    }
+    private IEnumerator SwapSound   (float time, string nextBgmName) {
+
+        bool    isChange    = false;
+        float   period      = time;
+        float   inc         = 1.0f / (period + Mathf.Epsilon);
+        float   count       = 0.0f;
+        string  target      = "BG_VL";
+
+        float current;
+        AudioManager.GetMixer().GetFloat(target, out current);
+
+        while (period > 0) {
+
+            if (period < 0.5f && !isChange) {
+                isChange = true;
+
+                period = 0.5f;
+                AudioManager.Volume (SOUNDTYPE.BGM, 0.0f);
+                AudioManager.Stop   (SOUNDTYPE.BGM);
+                AudioManager.Play   (SOUNDTYPE.BGM, nextBgmName);
+            }
+            
+            if (period > 0.5f) AudioManager.GetMixer().SetFloat(target, Mathf.Lerp(current, -80.0f, Mathf.Sin((Mathf.PI * 0.5f) * count * 2.0f)));
+            if (period < 0.5f) AudioManager.GetMixer().SetFloat(target, Mathf.Lerp(-80.0f, current, Mathf.Sin((Mathf.PI * 0.5f) * count * 2.0f - 0.5f)));
+
+            count += inc * Time.deltaTime;
+            period -= Time.deltaTime;
+            yield return null;
+        }
+
+        AudioManager.GetMixer().SetFloat(target, current);
+    }
+    
+    // Signal
     public void FadeSignal(bool outFade) {
 
         fade = (!outFade) ? fadeIn : fadeOut;

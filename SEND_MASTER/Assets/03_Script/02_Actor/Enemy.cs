@@ -66,7 +66,6 @@ public class Enemy : Actor {
                 if(timeline.time >= timeline.duration) {
 
                     timeline.Stop();
-                    timeline.initialTime    = 0.0f;
                     timeline.playableAsset  = generalTL;
 
                     if (timeline.playableAsset != null) {
@@ -77,12 +76,11 @@ public class Enemy : Actor {
                 break;
 
             case SEQUENCE.GENERAL:
-
+                
                 if(activeCount > activeTime) {
 
                     timeline.Stop();
                     activeCount             = 0.0f;
-                    timeline.initialTime    = 0.0f;
                     timeline.playableAsset  = returnTL;
 
                     if(timeline.playableAsset != null) {
@@ -97,7 +95,6 @@ public class Enemy : Actor {
                     if(timeline.time >= timeline.duration) {
 
                         timeline.Stop();
-                        timeline.initialTime = 0.0f;
                         timeline.Play();
                     }
                 }

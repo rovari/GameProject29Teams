@@ -24,10 +24,13 @@ struct AudioLink {
     private AudioClipDictionary dictionary;
 
     // Method
-    public void Set         (AudioSource audioSource = null, AudioClipDictionary clipDictionary = null) {
+    public void Fetch       (AudioSource audioSource = null, AudioClipDictionary clipDictionary = null) {
 
         source      = audioSource;
         dictionary  = clipDictionary;
+    }
+    public void Set         (string name) {
+        source.clip = dictionary[name];
     }
     public void Play        () {
         source.Play();
@@ -43,6 +46,7 @@ struct AudioLink {
 public class AudioManager : MonoBehaviour {
 
     // Field
+    [SerializeField] private EffectSystem   effect;
     [SerializeField] private AudioMixer     mixer;
     [SerializeField] private AudioClipList  bgmClipList;
     [SerializeField] private AudioClipList  environmentClipList;
@@ -51,7 +55,7 @@ public class AudioManager : MonoBehaviour {
     [SerializeField] private AudioClipList  jingleClipList;
     [SerializeField] private AudioClipList  voiceClipList;
     
-    private const float VOLUME_MAX = 2.0f;
+    private const float VOLUME_MAX = 1.0f;
     private const float VOLUME_MIN = 0.0f;
 
     static private AudioClipDictionary bgmDic;
@@ -61,6 +65,7 @@ public class AudioManager : MonoBehaviour {
     static private AudioClipDictionary jngDic;
     static private AudioClipDictionary voDic;
 
+    static private EffectSystem ef;
     static private AudioMixer   mix;
     static private AudioSource  bgmSrc;
     static private AudioSource  gmeSrc;
@@ -74,6 +79,7 @@ public class AudioManager : MonoBehaviour {
     // Method
     private void InitializeAudio () {
 
+        ef      = effect;
         mix     = mixer;
         bgmSrc  = transform.Find("BGM")         .GetComponent<AudioSource>();
         seSrc   = transform.Find("SE")          .GetComponent<AudioSource>();
@@ -96,23 +102,12 @@ public class AudioManager : MonoBehaviour {
         foreach (var voc in voiceClipList)          voDic .Add(voc.name, voc);
     }
 
-    static private AudioLink GetAudioLink   (SOUNDTYPE soundType) {
-
-        AudioLink link = default;
-
-        switch (soundType) {
-            case SOUNDTYPE.BGM:         link.Set(bgmSrc, bgmDic);   break;
-            case SOUNDTYPE.ENVIRONMENT: link.Set(envSrc, envDic);   break;
-            case SOUNDTYPE.SYSTEM:      link.Set(seSrc,  gmeDic);   break;
-            case SOUNDTYPE.GAME:        link.Set(seSrc,  sysDic);   break;
-            case SOUNDTYPE.JINGLE:      link.Set(jngSrc, jngDic);   break;
-            case SOUNDTYPE.VOICE:       link.Set(voSrc,  voDic);    break;
-            default: break;
-        }
-
-        return link;
+    static public  AudioMixer GetMixer() {
+        return mix;
     }
-    static public  void Play                (SOUNDTYPE soundType) {
+
+    static public  void Play                (SOUNDTYPE soundType, string name) {
+        GetAudioLink(soundType).Set(name);
         GetAudioLink(soundType).Play();
     }
     static public  void PlayOneShot         (SOUNDTYPE soundType, string name) {
@@ -121,13 +116,17 @@ public class AudioManager : MonoBehaviour {
     static public  void Stop                (SOUNDTYPE soundType) {
         GetAudioLink(soundType).Stop();
     }
+
     static public  void Volume              (SOUNDTYPE soundType, float volume) {
 
         volume =
-            VOLUME_MAX > volume ?
+            VOLUME_MAX < volume ?
             VOLUME_MAX :
-            VOLUME_MIN < volume ?
+            VOLUME_MIN > volume ?
             VOLUME_MIN : volume;
+
+
+        volume = volume * 100.0f - 80.0f;
 
         switch (soundType) {
             case SOUNDTYPE.MASTER:
@@ -148,7 +147,51 @@ public class AudioManager : MonoBehaviour {
             default: break;
         }
     }
-    
+    static public  void MasterLowPass       (bool enable) {
+
+        if (!enable) {
+            mix.SetFloat("MS_LP", 22000.0f);
+        }
+        else {
+            mix.SetFloat("MS_LP", 1000.0f);
+        }
+    }
+    static public  void ShmoothLowPass      (bool bgmOnly, bool lowPassIn, float time) {
+        ef.SoundLowPassEffect(bgmOnly, lowPassIn, time);
+    }
+    static public  void ShmoothFade         (bool bgmOnly, float time, float volume) {
+
+        volume =
+            VOLUME_MAX < volume ?
+            VOLUME_MAX :
+            VOLUME_MIN > volume ?
+            VOLUME_MIN : volume;
+        
+        volume = volume * 100.0f - 80.0f;
+
+        ef.SoundFadeEffect(bgmOnly, time, volume);
+    }
+    static public  void SwapBGM             (float time, string nextBgmName) {
+        ef.SwapBgmEffect(time, nextBgmName);
+    }
+
+    static private AudioLink GetAudioLink   (SOUNDTYPE soundType) {
+
+        AudioLink link = default;
+
+        switch (soundType) {
+            case SOUNDTYPE.BGM:         link.Fetch(bgmSrc, bgmDic);   break;
+            case SOUNDTYPE.ENVIRONMENT: link.Fetch(envSrc, envDic);   break;
+            case SOUNDTYPE.SYSTEM:      link.Fetch(seSrc,  sysDic);   break;
+            case SOUNDTYPE.GAME:        link.Fetch(seSrc,  gmeDic);   break;
+            case SOUNDTYPE.JINGLE:      link.Fetch(jngSrc, jngDic);   break;
+            case SOUNDTYPE.VOICE:       link.Fetch(voSrc,  voDic);    break;
+            default: break;
+        }
+
+        return link;
+    }
+
     // Unity
 	private void Start() {
         InitializeAudio();

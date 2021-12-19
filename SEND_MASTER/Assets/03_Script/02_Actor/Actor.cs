@@ -76,9 +76,9 @@ public struct ActorState {
 public class Actor : MonoBehaviour {
 
     // Field
-    [SerializeField]  private   List<MeshRenderer>  meshlList;
-    [SerializeField]  private   ActorState          actorState;
-    [SerializeField]  private   ActorCollision      collision;
+    [SerializeField]  private       List<MeshRenderer>  meshlList;
+    [SerializeField]  private       ActorState          actorState;
+    [SerializeField]  protected     ActorCollision      collision;
     
     [HideInInspector] public    List<Surface>       surfaceList;
     [HideInInspector] public    EffectSystem        effect;
