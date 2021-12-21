@@ -358,6 +358,7 @@ public class Bullet : Actor {
     private new void Start () {
         base.Start();
         gameObject.SetActive(false);
+        collision.gameObject.SetActive(false);
     }
 
     private void OnDisable() {

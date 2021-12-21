@@ -10,9 +10,9 @@ public class FireSystem : MonoBehaviour {
     [SerializeField] private string             searchTagName;
     [SerializeField] private List<GameObject>   targetList;
     [SerializeField] private List<WeaponSystem> weaponList;
+    [SerializeField] private GameObject         aim;
     
     private Transform   owner;
-    private GameObject  aim;
 
     [SerializeField]private int         targetIndex;
     [SerializeField]private int         weaponIndex;
@@ -34,10 +34,6 @@ public class FireSystem : MonoBehaviour {
         
         WeaponSystem weapon = weaponList[weaponIndex];
         
-        if(Vector3.Dot(owner.forward, targetList[targetIndex].transform.position - owner.position) < 0.0f) {
-            return;
-        }
-
         switch (weapon.GetLockType()) {
 
             case LOCKTYPE.AIM:
@@ -45,8 +41,12 @@ public class FireSystem : MonoBehaviour {
                 break;
 
             case LOCKTYPE.LOCK:
+                
+                if (targetList.Count <= 0 || targetList[targetIndex] == null) return;
+                if (Vector3.Dot(owner.forward, targetList[targetIndex].transform.position - owner.position) < 0.0f) {
+                    return;
+                }   
 
-                if (targetList.Count == 0 || targetList[targetIndex] == null) return;
                 weaponList[weaponIndex].Lunch(targetList[targetIndex].gameObject);
 
                 break;

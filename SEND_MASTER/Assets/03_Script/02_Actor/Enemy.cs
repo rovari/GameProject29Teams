@@ -56,6 +56,7 @@ public class Enemy : Actor {
         if(timeline.playableAsset != null) {
             sequence = SEQUENCE.ENCOUNT;
             timeline.Play();
+
         }
     }
     private void    Sequence    () {
@@ -115,6 +116,7 @@ public class Enemy : Actor {
     private new void Start      () {
         base.Start();
 
+        gameObject.SetActive(true);
         SetSequence();
     }
     private new void Update     () {

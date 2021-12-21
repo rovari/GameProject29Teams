@@ -43,6 +43,8 @@ public class StartUpGame : MonoBehaviour {
     private void Start  () {
 
         CreateStartUp();
+        Camera.main.depthTextureMode |= DepthTextureMode.Depth;
+        Application.targetFrameRate = 61;
     }
 
     private void Update () {

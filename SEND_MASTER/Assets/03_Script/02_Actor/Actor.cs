@@ -76,7 +76,9 @@ public struct ActorState {
 public class Actor : MonoBehaviour {
 
     // Field
-    [SerializeField]  private       List<MeshRenderer>  meshlList;
+    [SerializeField]  private       List<MeshRenderer>          meshlList;
+    [SerializeField]  private       List<SkinnedMeshRenderer>   skinMeshlList;
+
     [SerializeField]  private       ActorState          actorState;
     [SerializeField]  protected     ActorCollision      collision;
     
@@ -132,6 +134,9 @@ public class Actor : MonoBehaviour {
         effect      = GameObject.FindGameObjectWithTag("Effect").GetComponent<EffectSystem>();
 
         foreach(var m in meshlList) {
+            surfaceList.Add(new Surface(m.material));
+        }
+        foreach(var m in skinMeshlList) {
             surfaceList.Add(new Surface(m.material));
         }
 

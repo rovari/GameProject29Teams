@@ -7,6 +7,8 @@ public class ActorCollision : ActorData {
 
     // Field
     [SerializeField] private float      damage;
+    [SerializeField] private bool       isUseParticle;
+    [SerializeField] private GameObject particle;
 	[SerializeField] private EffectData damageEffect;
     
     // Property
@@ -22,17 +24,19 @@ public class ActorCollision : ActorData {
         }
         else actor.GetActorState().CalcDamage(hitCollision.damage, ELEMENT.NONE);
     }
-    private void ActorEffect    (Type actorType) {
+    private void ActorEffect    (Type hitActorType) {
         
         if(typeof(Player) == actor.GetActorType()) {
 
-            if (typeof(Enemy)   == actorType) {
+            if (typeof(Enemy)   == hitActorType) {
+                actor.effect.PlayEffect(EFFECT.CA, damageEffect);
+                actor.effect.PlayEffect(EFFECT.EXPLOSION, damageEffect);
 
             }
-            if (typeof(Bullet)  == actorType) {
+            if (typeof(Bullet)  == hitActorType) {
 
             }
-            if (typeof(Item)    == actorType) {
+            if (typeof(Item)    == hitActorType) {
 
             }
             
@@ -41,31 +45,12 @@ public class ActorCollision : ActorData {
         
         if(typeof(Enemy) == actor.GetActorType()) {
 
-            if (typeof(Player)  == actorType) {
+            if (typeof(Player)  == hitActorType) {
 
             }
-            if (typeof(Bullet)  == actorType) {
+            if (typeof(Bullet)  == hitActorType) {
 
             }
-            if (typeof(Item)    == actorType) {
-
-            }
-
-            return;
-        }
-
-        if(typeof(Bullet) == actor.GetActorType()) {
-
-            if (typeof(Player)  == actorType) {
-
-            }
-            if (typeof(Enemy )  == actorType) {
-
-            }
-            if (typeof(Item)    == actorType) {
-
-            }
-
             return;
         }
     }
@@ -75,17 +60,20 @@ public class ActorCollision : ActorData {
     // Unity
 	private void Start          () {
 
+        particle.SetActive(isUseParticle);
 	}
     private void OnTriggerEnter (Collider other) {
 
         if (StateManager.GetSetState != STATE.GAME) return;
 
-        ActorCollision actorCollision;
+        ActorCollision hitActorCollision;
 
-        if (!other.gameObject.TryGetComponent<ActorCollision>(out actorCollision)) return;
+        if (!other.gameObject.TryGetComponent(out hitActorCollision)) return;
 
-        CalcActorHp(actorCollision);
-        ActorEffect(actorCollision.GetActorType());
+        Debug.Log("HiT " + actor.name + " -> " + other.gameObject.name);
+
+        CalcActorHp(hitActorCollision);
+        ActorEffect(hitActorCollision.GetActorType());
     }
     
     // Dependent Update by State

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Output
   m_Shader: {fileID: 4800000, guid: 20c8cdaefa14d0d48b13d5072e538e00, type: 3}
-  m_ShaderKeywords: _FDLINK_ON _LINK_ON _THICK_ON _TYPE_COLORMASK _VIGG_ON
+  m_ShaderKeywords: _FDLINK_ON _LINK_ON _THICK_ON _TYPE_COLORMASK _VIGG_ON _VIG_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -76,15 +76,15 @@ Material:
     - _DstBlend: 0
     - _FdLink: 1
     - _FdRan: 0.591
-    - _FdRange: 0.0016683936
-    - _FiLv: 0.037059426
+    - _FdRange: 0.013000131
+    - _FiLv: 0
     - _Fill: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Link: 1
     - _Metallic: 0
-    - _MoLv: 0.495
+    - _MoLv: 0
     - _Mode: 0
     - _Mono: 0
     - _NDIFF: 1
@@ -97,19 +97,19 @@ Material:
     - _TYPE: 0
     - _Thick: 0.54
     - _UVSec: 0
-    - _ViLv: 0
-    - _ViRg: 0
-    - _Vig: 0
+    - _ViLv: 0.08
+    - _ViRg: 0.02
+    - _Vig: 1
     - _Vigg: 1
     - _ZWrite: 1
     - _fiLv: 0
     m_Colors:
-    - _Color: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+    - _Color: {r: 0.1450694, g: 0.17995724, b: 0.18867922, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FdCol: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
     - _FdSCol: {r: 1, g: 0, b: 0, a: 0}
     - _FiCol: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
     - _MoCol: {r: 1, g: 1, b: 1, a: 1}
-    - _ViCol: {r: 0, g: 1, b: 1, a: 1}
+    - _ViCol: {r: 0, g: 0, b: 0, a: 1}
     - _fiCol: {r: 0.49056602, g: 0.40494835, b: 0.40494835, a: 1}
   m_BuildTextureStacks: []

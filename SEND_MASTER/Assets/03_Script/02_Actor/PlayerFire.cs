@@ -18,14 +18,14 @@ public class PlayerFire : ActorData {
         if (isSyncLunch) {
 
             isSyncLunch = false;
-            if(fireSystem.GetTarget()) fireSystem.Lunch();
+            fireSystem.Lunch();
         }
     }
 	private void SyncLunch          () {
         isSyncLunch = true;
     }
 
-    private void AddWeaponIndex() {
+    private void AddWeaponIndex     () {
 
         if (StateManager.GetSetState != STATE.GAME) return;
 
