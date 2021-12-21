@@ -23,6 +23,10 @@ GameProject29/Assets/00_System/DontTouch/Output.mat
 GameProject29/Assets/00_System/DontTouch/capture.png
 GameProject29/UserSettings/EditorUserSettings.asset
 
+#Master Nomaguti data ignore
+SEND_MASTER/Assets/00_System/capture.png
+SEND_MASTER/Assets/00_System/Output.mat
+
 #original Kusama data ignore
 GameProject29/Assets/Private/AT_Kusama/Live2D/miku_pro_jp/miku_pro_jp/motion/miku_02.anime
 GameProject29/Assets/Private/AT_Kusama/Live2D/
