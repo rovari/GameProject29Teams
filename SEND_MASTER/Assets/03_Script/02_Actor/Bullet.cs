@@ -357,8 +357,10 @@ public class Bullet : Actor {
     // Unity
     private new void Start () {
         base.Start();
+
         gameObject.SetActive(false);
         collision.gameObject.SetActive(false);
+        GetSetTransform.position = muzzle.position;
     }
 
     private void OnDisable() {

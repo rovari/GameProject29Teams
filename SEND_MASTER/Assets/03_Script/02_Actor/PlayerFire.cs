@@ -17,9 +17,9 @@ public class PlayerFire : ActorData {
     private void Lunch              () {
         if (isSyncLunch) {
 
-            isSyncLunch = false;
             fireSystem.Lunch();
         }
+            isSyncLunch = false;
     }
 	private void SyncLunch          () {
         isSyncLunch = true;
