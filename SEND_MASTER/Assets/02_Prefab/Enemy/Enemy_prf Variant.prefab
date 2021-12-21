@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshlList:
   - {fileID: 7076078192506986998}
+  skinMeshlList: []
   actorState:
     isWillDead: 0
     isInvincible: 0
@@ -55,7 +56,7 @@ MonoBehaviour:
     resist: 0
     defLife: 0
     defHp: 0
-  collision: {fileID: 8499086351796390213}
+  collision: {fileID: 0}
   effect: {fileID: 0}
   owner: {fileID: 8499086351561171613}
   orbit: 1
@@ -157,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1087111321531442340, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1087111321531442340, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -304,17 +305,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1087111322666991904, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
   m_PrefabInstance: {fileID: 8855453443134015014}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8499086351796390213 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1087111321699389283, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
-  m_PrefabInstance: {fileID: 8855453443134015014}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74159d31e2f3d7849844ea4245cf9569, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8499086352201061864 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1087111322104222670, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
