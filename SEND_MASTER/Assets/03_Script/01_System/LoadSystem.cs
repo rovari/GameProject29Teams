@@ -53,8 +53,11 @@ public class LoadSystem : MonoBehaviour {
             async.allowSceneActivation = true;
             isPreLoad = false;
         }
+        else { 
+            async.allowSceneActivation = true;
+        }
 
-        async.allowSceneActivation = true;
+        StateManager.GetSetState = STATE.NONE;
     }
 
 	// Signal
