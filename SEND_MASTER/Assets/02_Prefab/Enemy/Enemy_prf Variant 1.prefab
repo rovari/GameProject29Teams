@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1087111321531442340, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1087111321531442340, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_LocalRotation.w
@@ -55,6 +55,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_prf Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_PlayableAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8bf4dee419f283541969289904781355, type: 2}
+    - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_SceneBindings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].key
+      value: 
+      objectReference: {fileID: 6365521935532345130, guid: 58e931078c1e02548820f4d9fbcc5752, type: 2}
+    - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: 3128615512394884289, guid: 82bdb9676278db94ebe9f35b77238a61, type: 2}
+    - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].key
+      value: 
+      objectReference: {fileID: 7763323427533653451, guid: 8bf4dee419f283541969289904781355, type: 2}
+    - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 5219740924645298758}
+    - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
+      value: 
+      objectReference: {fileID: 5219740924645298758}
+    - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 5219740924645298758}
+    - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: returnTL
+      value: 
+      objectReference: {fileID: 11400000, guid: 8bf4dee419f283541969289904781355, type: 2}
+    - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: encountTL
+      value: 
+      objectReference: {fileID: 11400000, guid: 58e931078c1e02548820f4d9fbcc5752, type: 2}
+    - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: generalTL
+      value: 
+      objectReference: {fileID: 11400000, guid: 82bdb9676278db94ebe9f35b77238a61, type: 2}
     - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: actorState.life
       value: 3
@@ -69,3 +113,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+--- !u!95 &5219740924645298758 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1087111321531442362, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+  m_PrefabInstance: {fileID: 5144816441364756220}
+  m_PrefabAsset: {fileID: 0}
