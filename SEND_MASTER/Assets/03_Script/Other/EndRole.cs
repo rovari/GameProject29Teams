@@ -16,13 +16,10 @@ public class EndRole : MonoBehaviour {
 
     // Unity
 	private void Start() {
-
+        vidoPlayer.loopPointReached += _ => Load();
 	}
 
-    private void Update() {
-
-        if (vidoPlayer.isPlaying) {
-            LoadManager.Load(0);
-        }
+    private void Load() {
+        LoadManager.Load();
     }
 }

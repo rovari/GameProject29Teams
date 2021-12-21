@@ -156,8 +156,8 @@ public class AudioManager : MonoBehaviour {
             mix.SetFloat("MS_LP", 1000.0f);
         }
     }
-    static public  void ShmoothLowPass      (bool bgmOnly, bool lowPassIn, float time) {
-        ef.SoundLowPassEffect(bgmOnly, lowPassIn, time);
+    static public  void ShmoothLowPass      (bool bgmOnly, bool lowPassOut, float time) {
+        ef.SoundLowPassEffect(bgmOnly, lowPassOut, time);
     }
     static public  void ShmoothFade         (bool bgmOnly, float time, float volume) {
 

@@ -70,13 +70,13 @@ Material:
     - _CALv: 0
     - _CDIFF: 0.5
     - _Cutoff: 0.5
-    - _DDIFF: 0.8
+    - _DDIFF: 1
     - _DFLAG: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FdLink: 1
     - _FdRan: 0.591
-    - _FdRange: 0.0025120378
+    - _FdRange: 0.008951008
     - _FiLv: 0
     - _Fill: 0
     - _GlossMapScale: 1
@@ -95,7 +95,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _TYPE: 0
-    - _Thick: 0.54
+    - _Thick: 0.5
     - _UVSec: 0
     - _ViLv: 0.08
     - _ViRg: 0.02

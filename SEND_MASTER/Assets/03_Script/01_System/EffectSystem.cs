@@ -302,8 +302,8 @@ public class EffectSystem : MonoBehaviour {
     }
 
     // Sound
-    public void SoundLowPassEffect  (bool bgmOnly, bool lowpassIn, float time) {
-        IEnumerator cor = LowPass(bgmOnly, lowpassIn, time);
+    public void SoundLowPassEffect  (bool bgmOnly, bool lowpassOut, float time) {
+        IEnumerator cor = LowPass(bgmOnly, lowpassOut, time);
         StartCoroutine(cor);
     }
     public void SoundFadeEffect     (bool bgmOnly, float time, float volume) {
@@ -315,7 +315,7 @@ public class EffectSystem : MonoBehaviour {
         StartCoroutine(cor);
     }
 
-    private IEnumerator LowPass     (bool bgmOnly, bool lowpassIn, float time) {
+    private IEnumerator LowPass     (bool bgmOnly, bool lowpassOut, float time) {
 
         const float passMax = 22000.0f;
         const float passMin = 1000.0f;
@@ -328,7 +328,7 @@ public class EffectSystem : MonoBehaviour {
         
         while(period > 0) {
 
-            if (!lowpassIn) AudioManager.GetMixer().SetFloat(target, Mathf.Lerp(passMin, passMax, count));
+            if (!lowpassOut) AudioManager.GetMixer().SetFloat(target, Mathf.Lerp(passMin, passMax, count));
             else AudioManager.GetMixer().SetFloat(target, Mathf.Lerp(passMax, passMin, count));
 
             count   += inc * Time.deltaTime;
@@ -336,7 +336,7 @@ public class EffectSystem : MonoBehaviour {
             yield return null;
         }
 
-        if (lowpassIn) AudioManager.GetMixer().SetFloat(target, passMin);
+        if (!lowpassOut) AudioManager.GetMixer().SetFloat(target, passMin);
         else AudioManager.GetMixer().SetFloat(target, passMax);
     }
     private IEnumerator SoundFade   (bool bgmOnly, float time, float volume) {

@@ -65,7 +65,7 @@ public class StateManager : MonoBehaviour {
             AudioManager.Play           (SOUNDTYPE.BGM, "Title_bgm");
             AudioManager.Play           (SOUNDTYPE.ENVIRONMENT, "Window_env");
 
-            AudioManager.ShmoothLowPass (true, true, 0.0f);
+            AudioManager.ShmoothLowPass (true, false, 0.0f);
 
             AudioManager.Volume         (SOUNDTYPE.BGM, 0.0f);
             AudioManager.ShmoothFade    (true, 3.0f, 10.0f);
@@ -103,7 +103,7 @@ public class StateManager : MonoBehaviour {
                     GetSetState = STATE.GAME;
                     sequence = MAIN_TL.GENERAL;
 
-                    AudioManager.ShmoothLowPass(true, false, 0.5f);
+                    AudioManager.ShmoothLowPass(true, true, 0.5f);
                     
                     if (timeline.playableAsset != null) timeline.Play();
                 }
@@ -148,6 +148,7 @@ public class StateManager : MonoBehaviour {
 
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
+                    
                     LoadManager.Load();
                 }
                 if(timeline.playableAsset && timeline.time >= timeline.duration - fadeTime) {

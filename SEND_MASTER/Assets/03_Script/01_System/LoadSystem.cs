@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 [Serializable]
 public struct SceneData {
-    public SceneObject     Scene;
-    public LevelData       Data;
+    public SceneObject      Scene;
+    public LevelData        Data;
+    public bool             isSkipLoadScene;
 }
 
 public class LoadSystem : MonoBehaviour {
@@ -34,21 +35,28 @@ public class LoadSystem : MonoBehaviour {
         ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
         StartCoroutine("PreLoad", sequensNum);
     }
+
     private IEnumerator PreLoad             (int index) {
 
-        if (loadingScene != null) SceneManager.LoadSceneAsync(loadingScene);
+        SceneData oldSceneData = sceneSequens[sequensNum];
+
+        if (loadingScene != null && !oldSceneData.isSkipLoadScene) SceneManager.LoadSceneAsync(loadingScene);
 
         sequensNum = (index >= 0) ? index : ++sequensNum;
         sequensNum = (sequensNum < sceneSequens.Count) ? sequensNum : 0;
 
         var async = SceneManager.LoadSceneAsync(sceneSequens[sequensNum].Scene);
         async.allowSceneActivation      = false;
+        
+        if (!oldSceneData.isSkipLoadScene) {
+            while (!async.isDone && !isPreLoad) { yield return null; }
+            async.allowSceneActivation = true;
+            isPreLoad = false;
+        }
 
-        while (!async.isDone && !isPreLoad) { yield return null; }
-        async.allowSceneActivation      = true;
-        isPreLoad                       = false;
+        async.allowSceneActivation = true;
     }
-    
+
 	// Signal
     public  void        AddIndexLoadSignal  () {
         ++sequensNum;

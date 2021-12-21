@@ -20,11 +20,14 @@ public class MenuSystem : MonoBehaviour {
 
     private STATE oldState;
     private float oldTimeScale = 0.0f;
-
+    private float lockTime;
+    
     // Property
 
     // Method
     void OpenMenu() {
+        
+        AudioManager.ShmoothLowPass(true, false, 0.0f);
 
         oldState        = StateManager.GetSetState;
         oldTimeScale    = Time.timeScale;
@@ -40,8 +43,9 @@ public class MenuSystem : MonoBehaviour {
         menuUI.SetActive(false);
 
         Time.timeScale = oldTimeScale;
-
         StateManager.GetSetState = oldState;
+        
+        AudioManager.ShmoothLowPass(true, true, 0.0f);
     }
 
 

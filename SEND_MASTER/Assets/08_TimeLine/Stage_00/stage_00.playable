@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 2.0166666666666666
   indexes: 00000000
---- !u!114 &-4487864082016423360
+--- !u!114 &-4840457425139038045
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23,13 +23,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a272afe30f5a540a9122bbf1b0165c, type: 3}
-  m_Name: Enemy Marker
+  m_Script: {fileID: 11500000, guid: 50eb7d85c4f33fb418daf3ef04f35db4, type: 3}
+  m_Name: Pop Marker
   m_EditorClassIdentifier: 
-  m_Time: 22.400000000000027
-  type: 1
-  move: 0
-  index: 0
+  m_Time: 20.5
+  indexes: 00000000
 --- !u!114 &-3193732474826679444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50eb7d85c4f33fb418daf3ef04f35db4, type: 3}
   m_Name: Pop Marker
   m_EditorClassIdentifier: 
-  m_Time: 7.966666666666667
+  m_Time: 10.866666666666667
   indexes: 00000000
 --- !u!114 &-1843975875336735969
 MonoBehaviour:
@@ -93,10 +91,9 @@ MonoBehaviour:
     m_Objects:
     - {fileID: -124451333989238351}
     - {fileID: -2107513972990444451}
-    - {fileID: 7000669001134766622}
-    - {fileID: 312529837285539229}
-    - {fileID: -4487864082016423360}
-    - {fileID: 1746868588087614409}
+    - {fileID: 1598051483161471532}
+    - {fileID: -4840457425139038045}
+    - {fileID: 4446093854145346445}
 --- !u!114 &-124451333989238351
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50eb7d85c4f33fb418daf3ef04f35db4, type: 3}
   m_Name: Pop Marker
   m_EditorClassIdentifier: 
-  m_Time: 3.7666666666666666
-  indexes: 
+  m_Time: 2.0833333333333335
+  indexes: 00000000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,13 +123,13 @@ MonoBehaviour:
   m_Version: 0
   m_Tracks:
   - {fileID: -1843975875336735969}
-  m_FixedDuration: 120
+  m_FixedDuration: 40
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
   m_DurationMode: 1
   m_MarkerTrack: {fileID: 0}
---- !u!114 &312529837285539229
+--- !u!114 &1598051483161471532
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,29 +138,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a272afe30f5a540a9122bbf1b0165c, type: 3}
-  m_Name: Enemy Marker
+  m_Script: {fileID: 11500000, guid: 50eb7d85c4f33fb418daf3ef04f35db4, type: 3}
+  m_Name: Pop Marker
   m_EditorClassIdentifier: 
-  m_Time: 18.45000000000001
-  type: 1
-  move: 0
-  index: 0
---- !u!114 &1746868588087614409
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a272afe30f5a540a9122bbf1b0165c, type: 3}
-  m_Name: Enemy Marker
-  m_EditorClassIdentifier: 
-  m_Time: 11.166666666666682
-  type: 1
-  move: 0
-  index: 0
+  m_Time: 27.883333333333333
+  indexes: 00000000
 --- !u!114 &3428211024999288919
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 1.1833333333333333
   indexes: 00000000
---- !u!114 &7000669001134766622
+--- !u!114 &4446093854145346445
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,10 +166,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a272afe30f5a540a9122bbf1b0165c, type: 3}
-  m_Name: Enemy Marker
+  m_Script: {fileID: 11500000, guid: 50eb7d85c4f33fb418daf3ef04f35db4, type: 3}
+  m_Name: Pop Marker
   m_EditorClassIdentifier: 
-  m_Time: 14.4
-  type: 1
-  move: 0
-  index: 0
+  m_Time: 34.6
+  indexes: 00000000
