@@ -84,6 +84,11 @@ public class EffectSystem : MonoBehaviour {
             default: break;
         }
     }
+    public  void PlayHitStop        (float time) {
+
+        timeStop.time = time;
+        IEnumerator cor = TimeStop();
+    }
 
     // Graphic
     
@@ -168,6 +173,8 @@ public class EffectSystem : MonoBehaviour {
             yield return null;
         }
 
+        output.SetFill(false, fill.color, 0.0f);
+
         fill.hierarchy = 0;
     }
     private IEnumerator Fade        () {
@@ -205,12 +212,14 @@ public class EffectSystem : MonoBehaviour {
 
         while (period > 0) {
 
-            output.SetVignette(vignette.isEnable, vignette.color, vignette.level);
+            output.SetVignette(vignette.isEnable, vignette.color, curve.Evaluate(count) * vignette.level);
 
             count   += inc * Time.deltaTime;
             period  -= Time.deltaTime;
             yield return null;
         }
+
+        output.SetVignette(vignette.isEnable, vignette.color, 0.0f);
 
         vignette.hierarchy = 0;
     }
@@ -225,12 +234,14 @@ public class EffectSystem : MonoBehaviour {
 
         while(period > 0) {
 
-            output.SetChromaticAberrtion(chromaticAberration.isEnable, chromaticAberration.level);
+            output.SetChromaticAberrtion(chromaticAberration.isEnable, curve.Evaluate(count) * chromaticAberration.level);
 
             count   += inc * Time.deltaTime;
             period  -= Time.deltaTime;
             yield return null;
         }
+
+        output.SetChromaticAberrtion(false, 0.0f);
 
         chromaticAberration.hierarchy = 0;
     }
@@ -265,6 +276,7 @@ public class EffectSystem : MonoBehaviour {
         yield return new WaitForSecondsRealtime(timeStop.time);
         Time.timeScale = defScale;
         timeStop.hierarchy = 0;
+
     }
     private IEnumerator SlowMotion  () {
         

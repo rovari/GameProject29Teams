@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3977060319350757520
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3936184674571194270}
+    m_Modifications:
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845669, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414818213544845670, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
+      propertyPath: m_Name
+      value: MissileTail
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 11774185487145b41b3cf97aa6c0adbb, type: 3}
 --- !u!1001 &6097190055555510210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,6 +205,10 @@ PrefabInstance:
     - target: {fileID: 6754106947977301543, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
       propertyPath: element
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754106947977301543, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
+      propertyPath: damageTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6754106947977301543, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
       propertyPath: flightTime

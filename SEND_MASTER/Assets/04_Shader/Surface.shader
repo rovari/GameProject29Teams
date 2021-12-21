@@ -18,6 +18,7 @@ Shader "Custom/Surface"
 		_GH_BOTTOM	("Gradation Height Bottom"	, float)			= 0
 
 		_Mask		("Dissolve Mask", 2D)			= "white" {}
+		[Toggle]	_Affect	("Affect	uv "	, int)				= 1
 		[Toggle]	_Reverse("Reverse Mask "	, int)				= 0
 		_Range		("Dissolve"					, Range(0.0 , 1.0))	= 0.0
         _DisCol		("Dissolve Color"			, Color)			= (1,1,1,1)
@@ -65,7 +66,7 @@ Shader "Custom/Surface"
         fixed4	_Color, _SubColor, _FogColor, _RimColor, _DisCol, _DisEdgeCol;
 		fixed	_Height, _Clv, _RimLv;
 		fixed	_GV_X, _GV_Y, _GH_TOP, _GH_BOTTOM;
-		int		_Reverse, _Fog, _Rim;
+		int		_Affect, _Reverse, _Fog, _Rim;
 		fixed	_Range;
 		float	_Scr_X, _Scr_Y, _FogStart, _FogEnd;
 		int		_Discard;
@@ -97,7 +98,9 @@ Shader "Custom/Surface"
 			float3	n	= UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap + addUv) * _Height);
 			float3	l	= normalize(float3(1.0, -1.0, 1.0));
 
-			Dissolve(IN.uv_Mask + addUv);
+			float2 disUv = (_Affect) ? addUv : 0.0;
+
+			Dissolve(IN.uv_Mask + disUv);
 			if (c.a < 1.0 || _Discard) discard;
 
 			#ifdef _GT_ONECOLOR

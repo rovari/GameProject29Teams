@@ -14,9 +14,13 @@ public class ActorCollision : ActorData {
     // Property
 
     // Method
-    public  Type GetActorType   () {
+    public  ref Actor   GetActor   () {
+        return ref actor;
+    }
+    public  Type    GetActorType   () {
         return actor.GetActorType();
     }
+
     private void CalcActorHp    (ActorCollision hitCollision) {
         
         if(typeof(Bullet) == hitCollision.actor.GetActorType()) {
@@ -24,20 +28,25 @@ public class ActorCollision : ActorData {
         }
         else actor.GetActorState().CalcDamage(hitCollision.damage, ELEMENT.NONE);
     }
-    private void ActorEffect    (Type hitActorType) {
+    private void ActorEffect    (Actor hitActor) {
         
         if(typeof(Player) == actor.GetActorType()) {
 
-            if (typeof(Enemy)   == hitActorType) {
+            if (typeof(Enemy)   == hitActor.GetActorType()) {
+
+                actor.effect.PlayHitStop(0.1f);
+                actor.effect.PlayEffect (EFFECT.CA, damageEffect);
+                actor.effect.PlayEffect (EFFECT.EXPLOSION, damageEffect);
+            }
+            if (typeof(Bullet)  == hitActor.GetActorType()) {
+                
+                actor.effect.PlayHitStop(0.1f);
                 actor.effect.PlayEffect(EFFECT.CA, damageEffect);
                 actor.effect.PlayEffect(EFFECT.EXPLOSION, damageEffect);
-
             }
-            if (typeof(Bullet)  == hitActorType) {
-
-            }
-            if (typeof(Item)    == hitActorType) {
-
+            if (typeof(Item)    == hitActor.GetActorType()) {
+                
+                //((Item)hitActor)
             }
             
             return;
@@ -45,11 +54,11 @@ public class ActorCollision : ActorData {
         
         if(typeof(Enemy) == actor.GetActorType()) {
 
-            if (typeof(Player)  == hitActorType) {
+            if (typeof(Player)  == hitActor.GetActorType()) {
 
             }
-            if (typeof(Bullet)  == hitActorType) {
-
+            if (typeof(Bullet)  == hitActor.GetActorType()) {
+                actor.effect.PlayHitStop(0.1f);
             }
             return;
         }
@@ -70,10 +79,10 @@ public class ActorCollision : ActorData {
 
         if (!other.gameObject.TryGetComponent(out hitActorCollision)) return;
 
-        Debug.Log("HiT " + actor.name + " -> " + other.gameObject.name);
+        Debug.Log("HiT " + actor.name + " -> " + other.GetComponent<ActorCollision>().GetActor().gameObject.name);
 
         CalcActorHp(hitActorCollision);
-        ActorEffect(hitActorCollision.GetActorType());
+        ActorEffect(hitActorCollision.GetActor());
     }
     
     // Dependent Update by State

@@ -61,6 +61,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Affect: 1
     - _BumpScale: 1
     - _Clv: 0.5
     - _Cutoff: 0.5
@@ -88,7 +89,7 @@ Material:
     - _Rim: 0
     - _RimLv: 0
     - _Scr_X: 0
-    - _Scr_Y: -0.5
+    - _Scr_Y: -1.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

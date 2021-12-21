@@ -63,6 +63,8 @@ public class StateManager : MonoBehaviour {
         if (intro != null && GetSetState != STATE.LOAD) {
             
             AudioManager.Play           (SOUNDTYPE.BGM, "Title_bgm");
+            AudioManager.Play           (SOUNDTYPE.ENVIRONMENT, "Window_env");
+
             AudioManager.ShmoothLowPass (true, true, 0.0f);
 
             AudioManager.Volume         (SOUNDTYPE.BGM, 0.0f);
