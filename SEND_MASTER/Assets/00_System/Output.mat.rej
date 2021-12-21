@@ -1,0 +1,13 @@
+diff a/SEND_MASTER/Assets/00_System/Output.mat b/SEND_MASTER/Assets/00_System/Output.mat	(rejected hunks)
+@@ -76,7 +76,11 @@
+     - _DstBlend: 0
+     - _FdLink: 1
+     - _FdRan: 0.591
++<<<<<<< HEAD
+     - _FdRange: 0.0025120378
++=======
++    - _FdRange: 0.010220349
++>>>>>>> 47f0d19b543e0e0528fedbc1466a7e9ca172ecce
+     - _FiLv: 0
+     - _Fill: 0
+     - _GlossMapScale: 1
