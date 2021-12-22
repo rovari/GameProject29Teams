@@ -37,7 +37,12 @@ public class PlayerFire : ActorData {
         if (StateManager.GetSetState != STATE.GAME) return;
         fireSystem.AddTargetIndex();
     }
-    
+    private void SubTargetIndex() {
+
+        if (StateManager.GetSetState != STATE.GAME) return;
+        fireSystem.SubTargetIndex();
+    }
+
     private void IsEnemyDownUpdate() {
         if (StateManager.GetSetEnemyDown) {
             StateManager.GetSetEnemyDown = false;
@@ -52,7 +57,8 @@ public class PlayerFire : ActorData {
 
         InputManager.GetGAMEActions().Fire.performed    += _ => SyncLunch();
         InputManager.GetGAMEActions().Index.started     += _ => AddWeaponIndex();
-        InputManager.GetGAMEActions().Aim.started       += _ => AddTargetIndex();
+        InputManager.GetGAMEActions().TargetR.started   += _ => AddTargetIndex();
+        InputManager.GetGAMEActions().TargetL.started   += _ => SubTargetIndex();
     }
 
     // Dependent Update by State

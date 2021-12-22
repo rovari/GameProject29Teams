@@ -67,6 +67,10 @@ public class FireSystem : MonoBehaviour {
         ++targetIndex;
         WrapIndex();
     }
+    public  void SubTargetIndex     () {
+        --targetIndex;
+        WrapIndex();
+    }
         
     public  GameObject      GetTarget    () {
         return (targetList.Count > 0) ? targetList[targetIndex] : null;
@@ -80,15 +84,19 @@ public class FireSystem : MonoBehaviour {
         targetIndex 
             = (targetIndex >= targetList.Count)
             ? 0 
-            : (targetIndex < 0 && targetList.Count > 0)
-            ? targetList.Count - 1 
+            : (targetIndex < 0)
+            ? (targetList.Count != 0) 
+            ? 0
+            : targetList.Count -1
             : targetIndex;
-
+        
         weaponIndex
             = (weaponIndex >= weaponList.Count)
             ? 0
-            : (weaponIndex < 0 && weaponList.Count > 0)
-            ? weaponList.Count - 1
+            : (weaponIndex < 0)
+            ? (weaponList.Count != 0)
+            ? 0
+            : weaponList.Count - 1
             : weaponIndex;
     }
     private void FindTargetWithTag  () {

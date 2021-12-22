@@ -106,18 +106,43 @@ public class AudioManager : MonoBehaviour {
         return mix;
     }
 
-    static public  void Play                (SOUNDTYPE soundType, string name) {
+    static public  void  Play               (SOUNDTYPE soundType, string name) {
         GetAudioLink(soundType).Set(name);
         GetAudioLink(soundType).Play();
     }
-    static public  void PlayOneShot         (SOUNDTYPE soundType, string name) {
+    static public  void  PlayOneShot        (SOUNDTYPE soundType, string name) {
         GetAudioLink(soundType).PlayOneShot(name);
     }
-    static public  void Stop                (SOUNDTYPE soundType) {
+    static public  void  Stop               (SOUNDTYPE soundType) {
         GetAudioLink(soundType).Stop();
     }
+    static public  float GetVolume          (SOUNDTYPE soundType) {
 
-    static public  void Volume              (SOUNDTYPE soundType, float volume) {
+        float volume = 0.0f;
+
+        switch (soundType) {
+            case SOUNDTYPE.MASTER:
+                mix.GetFloat("MS_VL", out volume); break;
+
+            case SOUNDTYPE.BGM:
+            case SOUNDTYPE.ENVIRONMENT:
+                mix.GetFloat("BG_VL", out volume); break;
+
+            case SOUNDTYPE.SYSTEM:
+            case SOUNDTYPE.GAME:
+            case SOUNDTYPE.JINGLE:
+                mix.GetFloat("SE_VL", out volume); break;
+
+            case SOUNDTYPE.VOICE:
+                mix.GetFloat("VC_VL", out volume); break;
+
+            default: break;
+        }
+
+        return volume;
+    }
+
+    static public  void  Volume             (SOUNDTYPE soundType, float volume) {
 
         volume =
             VOLUME_MAX < volume ?
@@ -130,6 +155,8 @@ public class AudioManager : MonoBehaviour {
 
         switch (soundType) {
             case SOUNDTYPE.MASTER:
+
+                volume = (volume > -20.0f) ? -20.0f : volume;
                 mix.SetFloat("MS_VL", volume); break;
 
             case SOUNDTYPE.BGM:
