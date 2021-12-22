@@ -107,16 +107,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2828262426357720117, guid: 2749c706052b97549a08a8b4e577e9f7, type: 3}
-      propertyPath: orbit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828262426357720117, guid: 2749c706052b97549a08a8b4e577e9f7, type: 3}
-      propertyPath: element
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2828262426357720117, guid: 2749c706052b97549a08a8b4e577e9f7, type: 3}
       propertyPath: flightTime
-      value: 1.5
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2749c706052b97549a08a8b4e577e9f7, type: 3}

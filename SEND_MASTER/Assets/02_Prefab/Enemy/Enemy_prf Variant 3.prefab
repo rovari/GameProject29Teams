@@ -8,6 +8,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 118339521594930021, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: orbit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 118339521594930021, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: element
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 118339521594930021, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: meshlList.Array.data[0]
       value: 
       objectReference: {fileID: 6428878809774788537}

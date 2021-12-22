@@ -40,8 +40,7 @@ public enum ENEMY_MOVE {
 public class EnemyMove : ActorData {
 
     // Field
-    private EffectData      hitStopEffect;
-    private EffectData      deadEffect;
+    [SerializeField] private EffectData      deadEffect;
     private double          currentTime;
 
     // Property
@@ -51,17 +50,15 @@ public class EnemyMove : ActorData {
         
     }
     private void        CheckDead   () {
-        if (actor.GetActorState().life < 0) StartCoroutine("Dead");
+        if (actor.GetActorState().life <= 1) StartCoroutine("Dead");
     }
     private IEnumerator Dead        () {
 
         StateManager.GetSetEnemyDown = true;
 
-        float   period  = deadEffect.time;
+        float   period  = 0.5f;
         float   inc     = 1.0f / (period + Mathf.Epsilon);
         float   count   = 0.0f;
-        
-        actor.effect.PlayEffect(EFFECT.TIMESTOP, hitStopEffect);
         
         GRADE grade =((Enemy)actor).GetGrade();
 
@@ -75,7 +72,7 @@ public class EnemyMove : ActorData {
         while (period > 0) {
 
             foreach (var s in actor.surfaceList) {
-                s.SetDissolve(1.0f - count);
+                s.SetDissolve(count);
             }
 
             count   += inc * actor.GetActorDeltaTime();
@@ -84,7 +81,7 @@ public class EnemyMove : ActorData {
         }
 
         foreach (var s in actor.surfaceList) {
-            s.SetDissolve(0.0f);
+            s.SetDissolve(1.0f);
         }
 
         if (grade >= GRADE.BOSS) StateManager.GetSetBossDown = true;

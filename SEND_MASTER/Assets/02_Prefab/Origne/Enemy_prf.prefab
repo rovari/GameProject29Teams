@@ -273,6 +273,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actor: {fileID: 1087111321531442363}
+  deadEffect:
+    isEnable: 0
+    hierarchy: 1
+    time: 0.5
+    level: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: -0.009589012
+        outSlope: -0.009589012
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.841412
+      - serializedVersion: 3
+        time: 0.10298953
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.3
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -0.009270163
+        outSlope: -0.009270163
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.44478372
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    color: {r: 0, g: 0, b: 0, a: 0}
+    subColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1087111321531442360
 MonoBehaviour:
   m_ObjectHideFlags: 0

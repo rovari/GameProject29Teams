@@ -47,7 +47,6 @@ public class Bullet : Actor {
             default: break;
         }
         
-
         target = inTarget;
         gameObject.SetActive(true);
         
@@ -70,26 +69,6 @@ public class Bullet : Actor {
     private void        ActiveCollision     (bool active) {
         collision.gameObject.SetActive(active);
     }
-    private IEnumerator DissolveErase       () {
-
-        float period    = 1.0f / 0.5f;
-        float inc       = 1.0f / (period + Mathf.Epsilon);
-        float count     = 0.0f;
-
-        while (period > 0) {
-
-            foreach(var s in surfaceList) {
-                s.SetDissolve(count);
-            }
-
-            count   += inc * GetActorDeltaTime();
-            period  -= GetActorDeltaTime();
-
-            yield return null;
-        }
-
-        foreach (var s in surfaceList) s.SetDissolve(0.0f);
-    }
 
     // Lunch Orbits
     private IEnumerator Shot            () {
@@ -99,7 +78,7 @@ public class Bullet : Actor {
         
         var startPos    = muzzle.position;
         var endPos      = target.transform.position;
-        var speed       = 30.0f;
+        var speed       = flightTime;
         var length      = (startPos - endPos).sqrMagnitude;
         var calcPos     = transform.position;
 
@@ -114,7 +93,6 @@ public class Bullet : Actor {
         transform.position = endPos;
 
         ActiveCollision(false);
-        StartCoroutine(DissolveErase());
       
         transform.position  = muzzle.position;
         transform.rotation  = Quaternion.identity;
@@ -162,7 +140,6 @@ public class Bullet : Actor {
         }
         
         ActiveCollision(true);
-        DissolveErase();
 
         float   count   = damageTime;
         
@@ -215,7 +192,6 @@ public class Bullet : Actor {
         }
         
         ActiveCollision(true);
-        StartCoroutine(DissolveErase());
 
         float   count   = damageTime;
         
@@ -254,7 +230,6 @@ public class Bullet : Actor {
         }
         
         ActiveCollision(true);
-        DissolveErase();
 
         float count = damageTime;
 
@@ -293,7 +268,6 @@ public class Bullet : Actor {
         transform.position = endPos;
 
         ActiveCollision(false);
-        StartCoroutine(DissolveErase());
 
         transform.position  = muzzle.position;
         transform.rotation  = Quaternion.identity;
@@ -324,7 +298,6 @@ public class Bullet : Actor {
         }
 
         ActiveCollision(false);
-        StartCoroutine(DissolveErase());
 
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.identity;
@@ -336,7 +309,6 @@ public class Bullet : Actor {
         isWait = true;
         
         ActiveCollision(true);
-        StartCoroutine(DissolveErase());
 
         float count = damageTime;
 
