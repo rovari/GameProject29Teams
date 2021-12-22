@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum MENU_INDEX {
     RETURN,
@@ -17,7 +18,10 @@ public class MenuSystem : MonoBehaviour {
 
     // Field
     [SerializeField] private GameObject menuUI;
-    [SerializeField]
+    [SerializeField] private Slider     masterVL;
+    [SerializeField] private Slider     bgmVL;
+    [SerializeField] private Slider     seVL;
+    [SerializeField] private Slider     vosVL;
 
     private float       lockTime;
     private float       oldTimeScale;

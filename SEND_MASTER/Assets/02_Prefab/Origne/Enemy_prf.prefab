@@ -743,6 +743,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1087111321531442340}
     m_Modifications:
+    - target: {fileID: 3558510397315080358, guid: d27818036bb21e74f9ed7ed333c40d7f, type: 3}
+      propertyPath: actor
+      value: 
+      objectReference: {fileID: 1087111321531442363}
+    - target: {fileID: 3558510397315080358, guid: d27818036bb21e74f9ed7ed333c40d7f, type: 3}
+      propertyPath: damage
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3558510397315080360, guid: d27818036bb21e74f9ed7ed333c40d7f, type: 3}
       propertyPath: m_Name
       value: Collision
@@ -750,6 +758,18 @@ PrefabInstance:
     - target: {fileID: 3558510397315080361, guid: d27818036bb21e74f9ed7ed333c40d7f, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558510397315080361, guid: d27818036bb21e74f9ed7ed333c40d7f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558510397315080361, guid: d27818036bb21e74f9ed7ed333c40d7f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3558510397315080361, guid: d27818036bb21e74f9ed7ed333c40d7f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3558510397315080361, guid: d27818036bb21e74f9ed7ed333c40d7f, type: 3}
       propertyPath: m_LocalPosition.x

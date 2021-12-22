@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: d52d281b7613fc54281d892eb33d7670, type: 2}
     - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].key
@@ -75,6 +75,10 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[2].key
       value: 
       objectReference: {fileID: -1860619273158686980, guid: 195e2e6c976355044a6f81e05dcb8f54, type: 2}
+    - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_SceneBindings.Array.data[3].key
+      value: 
+      objectReference: {fileID: 4807806516888045980, guid: d52d281b7613fc54281d892eb33d7670, type: 2}
     - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
