@@ -17,12 +17,12 @@ public class EnemyFire : ActorData {
         fireSystem.SetWeaponIndex(index);
         fireSystem.Lunch();
     }
-
+    
     // Unity
 	private void Start() {
         fireSystem.SetOwner(actor.GetSetTransform);
 	}
-
+    
 	// Dependent Update by State
     protected override void GameUpdate   () {
         fireSystem.RefreshList();

@@ -15,7 +15,7 @@ public class EnemysSystem : MonoBehaviour {
 
 	// Signal
     public void PopMarker        (List<int> indexes) {
-        foreach(var i in indexes) currentEnemyList.Add(GameObject.Instantiate(enemyList[i]));
+        foreach(var i in indexes) currentEnemyList.Add(Instantiate(enemyList[i]));
     }
     public void AllDestroySignal () {
         foreach (var e in currentEnemyList) Destroy(e.gameObject);
@@ -23,5 +23,6 @@ public class EnemysSystem : MonoBehaviour {
 
     // Unity
 	private void Start() {
+        currentEnemyList = new List<GameObject>();
 	}
 }

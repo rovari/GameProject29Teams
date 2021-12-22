@@ -37,6 +37,8 @@ public class ActorCollision : ActorData {
                 actor.effect.PlayHitStop(0.1f);
                 actor.effect.PlayEffect (EFFECT.CA, damageEffect);
                 actor.effect.PlayEffect (EFFECT.EXPLOSION, damageEffect);
+
+                actor.GetSetHitPos = new Vector2(hitActor.GetSetTransform.position.x, hitActor.GetSetTransform.position.y);
                 
                 IEnumerator cor = DamegeRim(0.5f, 0.05f);
                 StartCoroutine(cor);
@@ -46,7 +48,9 @@ public class ActorCollision : ActorData {
                 actor.effect.PlayHitStop(0.1f);
                 actor.effect.PlayEffect(EFFECT.CA, damageEffect);
                 actor.effect.PlayEffect(EFFECT.EXPLOSION, damageEffect);
-                
+
+                actor.GetSetHitPos = new Vector2(hitActor.GetSetTransform.position.x, hitActor.GetSetTransform.position.y);
+
                 IEnumerator cor = DamegeRim(0.5f, 0.05f);
                 StartCoroutine(cor);
             }
@@ -64,7 +68,9 @@ public class ActorCollision : ActorData {
 
             }
             if (typeof(Bullet)  == hitActor.GetActorType()) {
+
                 actor.effect.PlayHitStop(0.5f);
+                actor.GetSetHitPos = new Vector2(hitActor.GetSetTransform.position.x, hitActor.GetSetTransform.position.y);
 
                 IEnumerator cor = DamegeRim(0.5f, 0.05f);
                 StartCoroutine(cor);
