@@ -25,12 +25,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454209212565668088}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2828262426357720116}
-  m_RootOrder: 2
+  m_Father: {fileID: 6152922643134848554}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &4312165407481262101
 ParticleSystem:
@@ -4817,7 +4817,6 @@ GameObject:
   - component: {fileID: 6152922643134848554}
   - component: {fileID: 629246663219802247}
   - component: {fileID: 6084044702503627013}
-  - component: {fileID: 5654292760483991758}
   m_Layer: 0
   m_Name: Shot
   m_TagString: Untagged
@@ -4834,8 +4833,9 @@ Transform:
   m_GameObject: {fileID: 3071207064526567190}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
-  m_Children: []
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1043809661595298150}
   m_Father: {fileID: 2828262426357720116}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4889,19 +4889,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5654292760483991758
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3071207064526567190}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.50000024
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8861793021634390546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4957,6 +4944,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6754106947977301543, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
+      propertyPath: meshlList.Array.data[0]
+      value: 
+      objectReference: {fileID: 6084044702503627013}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
 --- !u!4 &2828262426357720116 stripped
