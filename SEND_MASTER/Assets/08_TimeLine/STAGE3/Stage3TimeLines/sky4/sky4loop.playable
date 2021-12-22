@@ -889,6 +889,22 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events: []
+--- !u!114 &-7309698660772808193
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a272afe30f5a540a9122bbf1b0165c, type: 3}
+  m_Name: Enemy Marker
+  m_EditorClassIdentifier: 
+  m_Time: 3
+  type: 1
+  move: 0
+  index: 0
 --- !u!114 &-4430973699062321767
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -901,7 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a272afe30f5a540a9122bbf1b0165c, type: 3}
   m_Name: Enemy Marker
   m_EditorClassIdentifier: 
-  m_Time: 0.5666666666666667
+  m_Time: 1
   type: 1
   move: 0
   index: 0
@@ -929,6 +945,8 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: -4430973699062321767}
+    - {fileID: -7309698660772808193}
+    - {fileID: -682892081131366366}
   m_InfiniteClipPreExtrapolation: 1
   m_InfiniteClipPostExtrapolation: 1
   m_InfiniteClipOffsetPosition: {x: 49.2, y: 3.56, z: 13.3}
@@ -947,6 +965,22 @@ MonoBehaviour:
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
+--- !u!114 &-682892081131366366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a272afe30f5a540a9122bbf1b0165c, type: 3}
+  m_Name: Enemy Marker
+  m_EditorClassIdentifier: 
+  m_Time: 5
+  type: 1
+  move: 0
+  index: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

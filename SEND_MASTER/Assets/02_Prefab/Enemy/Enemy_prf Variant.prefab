@@ -236,6 +236,18 @@ PrefabInstance:
       propertyPath: generalTL
       value: 
       objectReference: {fileID: 11400000, guid: e83ecc73997d2314ebd77ed7633b0d9e, type: 2}
+    - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: activeTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: actorState.life
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3996828882155257857, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4512982927050276018, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1

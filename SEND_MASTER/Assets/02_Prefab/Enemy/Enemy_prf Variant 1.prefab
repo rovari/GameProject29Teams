@@ -58,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8bf4dee419f283541969289904781355, type: 2}
+      objectReference: {fileID: 11400000, guid: 82bdb9676278db94ebe9f35b77238a61, type: 2}
     - target: {fileID: 1087111321531442361, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 3
@@ -99,6 +99,14 @@ PrefabInstance:
       propertyPath: generalTL
       value: 
       objectReference: {fileID: 11400000, guid: 82bdb9676278db94ebe9f35b77238a61, type: 2}
+    - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: activeTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: actorState.hp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: actorState.life
       value: 3

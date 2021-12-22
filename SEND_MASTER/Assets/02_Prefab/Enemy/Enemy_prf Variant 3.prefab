@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: activeTime
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: actorState.hp
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3996828882155257863, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_IsActive
       value: 1
