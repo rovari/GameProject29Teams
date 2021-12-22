@@ -217,7 +217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2265852362231115848, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
       propertyPath: damage
-      value: 0.25
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2265852362231115848, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
       propertyPath: isUseParticle

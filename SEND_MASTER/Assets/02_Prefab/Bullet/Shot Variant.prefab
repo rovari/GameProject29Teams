@@ -89,6 +89,10 @@ PrefabInstance:
       propertyPath: actor
       value: 
       objectReference: {fileID: 1234888799245808141}
+    - target: {fileID: 2265852362231115848, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
+      propertyPath: damage
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6754106947977301537, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
       propertyPath: m_Name
       value: Shot Variant
