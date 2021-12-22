@@ -158,6 +158,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6754106947977301543, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
+      propertyPath: flightTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6754106947977301543, guid: 454d3b717e31a3444983af3026e293ab, type: 3}
       propertyPath: meshlList.Array.size
       value: 1
       objectReference: {fileID: 0}

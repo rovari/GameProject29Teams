@@ -47,7 +47,10 @@ public class EnemyMove : ActorData {
 
     // Method
     private void        LookAt      () {
-        
+
+        if (((Enemy)actor).GetFireSystem().GetTarget() == null) return; 
+
+        actor.GetSetTransform.LookAt(((Enemy)actor).GetFireSystem().GetTarget().transform, Vector3.up);
     }
     private void        CheckDead   () {
         if (actor.GetActorState().life <= 1) StartCoroutine("Dead");
@@ -251,6 +254,7 @@ public class EnemyMove : ActorData {
 
 	// Dependent Update by State
     protected override void GameUpdate   () {
+        LookAt      ();
         CheckDead   ();
 	}
     protected override void MenuUpdate   () { 

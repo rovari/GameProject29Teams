@@ -37,13 +37,12 @@ public class PlayerFire : ActorData {
         if (StateManager.GetSetState != STATE.GAME) return;
         fireSystem.AddTargetIndex();
     }
-    private void SubTargetIndex() {
+    private void SubTargetIndex     () {
 
         if (StateManager.GetSetState != STATE.GAME) return;
         fireSystem.SubTargetIndex();
     }
-
-    private void IsEnemyDownUpdate() {
+    private void IsEnemyDownUpdate  () {
         if (StateManager.GetSetEnemyDown) {
             StateManager.GetSetEnemyDown = false;
             fireSystem.RefreshList();
