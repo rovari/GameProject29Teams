@@ -162,7 +162,7 @@ public class Bullet : Actor {
         }
         
         ActiveCollision(true);
-        StartCoroutine(DissolveErase());
+        DissolveErase();
 
         float   count   = damageTime;
         
@@ -254,7 +254,7 @@ public class Bullet : Actor {
         }
         
         ActiveCollision(true);
-        StartCoroutine(DissolveErase());
+        DissolveErase();
 
         float count = damageTime;
 

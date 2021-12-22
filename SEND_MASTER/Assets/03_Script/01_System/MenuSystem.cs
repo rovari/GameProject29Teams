@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MENU_CURRENT {
+public enum MENU_INDEX {
     RETURN,
     RETRY,
     MASTER_VL,
@@ -17,18 +17,20 @@ public class MenuSystem : MonoBehaviour {
 
     // Field
     [SerializeField] private GameObject menuUI;
+    [SerializeField]
 
-    private STATE oldState;
-    private float oldTimeScale = 0.0f;
-    private float lockTime;
-    
+    private float       lockTime;
+    private float       oldTimeScale;
+    private STATE       oldState;
+    private MENU_INDEX  menuIndex;
+
     // Property
 
     // Method
-    void OpenMenu() {
+    private void OpenMenu   () {
         
         AudioManager.ShmoothLowPass(true, false, 0.0f);
-
+        
         oldState        = StateManager.GetSetState;
         oldTimeScale    = Time.timeScale;
         
@@ -37,8 +39,7 @@ public class MenuSystem : MonoBehaviour {
         
         menuUI.SetActive(true);
     }
-
-    void ExitMenu() {
+    private void ExitMenu   () {
         
         menuUI.SetActive(false);
 
@@ -46,6 +47,51 @@ public class MenuSystem : MonoBehaviour {
         StateManager.GetSetState = oldState;
         
         AudioManager.ShmoothLowPass(true, true, 0.0f);
+    }
+    private void ApplySelectMenu () {
+
+        switch (menuIndex) {
+
+            case MENU_INDEX.RETURN:
+                ExitMenu();
+
+                break;
+            case MENU_INDEX.RETRY:
+                LoadManager.ReLoad();
+                break;
+
+            case MENU_INDEX.EXIT:
+                
+                #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+                #elif UNITY_STANDALONE
+                UnityEngine.Application.Quit();
+                #endif
+                break;
+
+            default: break;
+        }
+    }
+    private void SliderSelectMenu () {
+
+        switch (menuIndex) {
+
+            case MENU_INDEX.MASTER_VL:
+
+                break;
+            case MENU_INDEX.BGM_VL:
+
+                break;
+            case MENU_INDEX.SE_VL:
+
+                break;
+            case MENU_INDEX.VOS_VL:
+
+
+                break;
+
+            default: break;
+        }
     }
 
 

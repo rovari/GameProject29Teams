@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
-public class EndRole : MonoBehaviour {
+public class VideoScene : MonoBehaviour {
 
     // Field
     [SerializeField] VideoPlayer vidoPlayer;
+    [SerializeField] bool   isLunch;
+    [SerializeField] string fristScene;
     // Property
 
     // Method
@@ -20,6 +23,8 @@ public class EndRole : MonoBehaviour {
 	}
 
     private void Load() {
-        LoadManager.Load();
+
+        if (isLunch) SceneManager.LoadScene(fristScene);
+        else SceneManager.LoadScene("Lunch");
     }
 }

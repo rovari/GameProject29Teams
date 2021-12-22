@@ -6,7 +6,8 @@ using UnityEngine;
 public class EnemysSystem : MonoBehaviour {
 
     // Field
-    [SerializeField] private List<GameObject> enemyList; 
+    [SerializeField] private List<GameObject> enemyList;
+    private List<GameObject> currentEnemyList;
 
     // Property
 
@@ -14,10 +15,10 @@ public class EnemysSystem : MonoBehaviour {
 
 	// Signal
     public void PopMarker        (List<int> indexes) {
-        foreach(var i in indexes) GameObject.Instantiate(enemyList[i]);
+        foreach(var i in indexes) currentEnemyList.Add(GameObject.Instantiate(enemyList[i]));
     }
     public void AllDestroySignal () {
-        foreach (var e in enemyList) Destroy(e.gameObject);
+        foreach (var e in currentEnemyList) Destroy(e.gameObject);
     }
 
     // Unity
