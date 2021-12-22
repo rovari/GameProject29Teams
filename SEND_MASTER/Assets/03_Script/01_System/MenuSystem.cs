@@ -18,41 +18,41 @@ public class MenuSystem : MonoBehaviour {
 
     // Field
     [SerializeField] private GameObject menuUI;
-    [SerializeField] private Slider     masterVL;
-    [SerializeField] private Slider     bgmVL;
-    [SerializeField] private Slider     seVL;
-    [SerializeField] private Slider     vosVL;
+    [SerializeField] private Slider masterVL;
+    [SerializeField] private Slider bgmVL;
+    [SerializeField] private Slider seVL;
+    [SerializeField] private Slider vosVL;
 
-    private float       lockTime;
-    private float       oldTimeScale;
-    private STATE       oldState;
-    private MENU_INDEX  menuIndex;
+    private float lockTime;
+    private float oldTimeScale;
+    private STATE oldState;
+    private MENU_INDEX menuIndex;
 
     // Property
 
     // Method
-    private void OpenMenu   () {
-        
+    private void OpenMenu           () {
+
         AudioManager.ShmoothLowPass(true, false, 0.0f);
-        
-        oldState        = StateManager.GetSetState;
-        oldTimeScale    = Time.timeScale;
-        
+
+        oldState = StateManager.GetSetState;
+        oldTimeScale = Time.timeScale;
+
         StateManager.GetSetState = STATE.MENU;
         Time.timeScale = 0.0f;
-        
+
         menuUI.SetActive(true);
     }
-    private void ExitMenu   () {
-        
+    private void ExitMenu           () {
+
         menuUI.SetActive(false);
 
         Time.timeScale = oldTimeScale;
         StateManager.GetSetState = oldState;
-        
+
         AudioManager.ShmoothLowPass(true, true, 0.0f);
     }
-    private void ApplySelectMenu () {
+    private void ApplySelectMenu    () {
 
         switch (menuIndex) {
 
@@ -65,53 +65,60 @@ public class MenuSystem : MonoBehaviour {
                 break;
 
             case MENU_INDEX.EXIT:
-                
-                #if UNITY_EDITOR
+
+#if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
-                #elif UNITY_STANDALONE
+#elif UNITY_STANDALONE
                 UnityEngine.Application.Quit();
-                #endif
+#endif
                 break;
 
             default: break;
         }
     }
-    private void SliderSelectMenu () {
+    private void SliderSelectMenu   () {
+
+        Vector2 stick = InputManager.GetPlayerInput().currentActionMap["VL"].ReadValue<Vector2>();
 
         switch (menuIndex) {
 
             case MENU_INDEX.MASTER_VL:
-
+                masterVL.value += (stick.x < 0) ? -0.5f * Time.unscaledDeltaTime : 0.5f * Time.unscaledDeltaTime;
                 break;
             case MENU_INDEX.BGM_VL:
-
+                bgmVL.value += (stick.x < 0) ? -0.5f * Time.unscaledDeltaTime : 0.5f * Time.unscaledDeltaTime;
                 break;
             case MENU_INDEX.SE_VL:
-
+                seVL.value += (stick.x < 0) ? -0.5f * Time.unscaledDeltaTime : 0.5f * Time.unscaledDeltaTime;
                 break;
             case MENU_INDEX.VOS_VL:
-
-
+                vosVL.value += (stick.x < 0) ? -0.5f * Time.unscaledDeltaTime : 0.5f * Time.unscaledDeltaTime;
                 break;
 
             default: break;
         }
     }
+    private void AddIndex           () {
+        menuIndex += 1;
+    }
+    private void SubIndex           () {
+        menuIndex -= 1;
+    }
 
-
-	// Signal
+    // Signal
 
     // Unity
-	private void Start() {
-
-         oldState = StateManager.GetSetState;
-
-        StateManager.GetSetState = STATE.GAME;
-        InputManager.GetPlayerInput().currentActionMap["Menu"]  .started += _ => OpenMenu();
-
-        StateManager.GetSetState = STATE.MENU;
-        InputManager.GetPlayerInput().currentActionMap["Escape"].started += _ => ExitMenu();
+    private void Start      () {
         
+        InputManager.GetGAMEActions().Menu.started      += _ => OpenMenu        ();
+        InputManager.GetMENUActions().Escape.started    += _ => ExitMenu        ();
+        InputManager.GetMENUActions().Apply.started     += _ => ApplySelectMenu ();
+
+
         StateManager.GetSetState = oldState;
+    }
+    private void  Update    () {
+
+        if (StateManager.GetSetState == STATE.MENU) SliderSelectMenu();
     }
 }
