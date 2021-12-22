@@ -37,12 +37,18 @@ public class ActorCollision : ActorData {
                 actor.effect.PlayHitStop(0.1f);
                 actor.effect.PlayEffect (EFFECT.CA, damageEffect);
                 actor.effect.PlayEffect (EFFECT.EXPLOSION, damageEffect);
+                
+                IEnumerator cor = DamegeRim(0.5f, 0.05f);
+                StartCoroutine(cor);
             }
             if (typeof(Bullet)  == hitActor.GetActorType()) {
                 
                 actor.effect.PlayHitStop(0.1f);
                 actor.effect.PlayEffect(EFFECT.CA, damageEffect);
                 actor.effect.PlayEffect(EFFECT.EXPLOSION, damageEffect);
+                
+                IEnumerator cor = DamegeRim(0.5f, 0.05f);
+                StartCoroutine(cor);
             }
             if (typeof(Item)    == hitActor.GetActorType()) {
                 
@@ -58,9 +64,33 @@ public class ActorCollision : ActorData {
 
             }
             if (typeof(Bullet)  == hitActor.GetActorType()) {
-                actor.effect.PlayHitStop(0.1f);
+                actor.effect.PlayHitStop(0.5f);
+
+                IEnumerator cor = DamegeRim(0.5f, 0.05f);
+                StartCoroutine(cor);
             }
             return;
+        }
+    }
+    private IEnumerator DamegeRim(float time, float interval) { 
+
+        float   count   = time / interval;
+        bool    sw      = true;
+
+        while (count > 0) {
+
+            foreach (var s in actor.surfaceList) {
+                s.SetRimEnable(sw, Color.red);
+            }
+
+            count -= 1.0f;
+            sw = !sw;
+
+            yield return new WaitForSeconds(interval);
+        }
+
+        foreach (var s in actor.surfaceList) {
+            s.SetRimEnable(false, Color.white);
         }
     }
 

@@ -87,7 +87,7 @@ Material:
     - _Range: 0
     - _Reverse: 0
     - _Rim: 0
-    - _RimLv: 0
+    - _RimLv: 0.5
     - _Scr_X: 0
     - _Scr_Y: 0
     - _SmoothnessTextureChannel: 0
