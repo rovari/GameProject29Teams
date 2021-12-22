@@ -219,6 +219,7 @@ MonoBehaviour:
     - {fileID: 8455298852048482669}
     - {fileID: -4404654065294825305}
     - {fileID: -3309849805433713798}
+    - {fileID: 8876700130635187326}
 --- !u!114 &7208614366524559937
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,3 +248,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 40
   indexes: 08000000
+--- !u!114 &8876700130635187326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50eb7d85c4f33fb418daf3ef04f35db4, type: 3}
+  m_Name: Pop Marker
+  m_EditorClassIdentifier: 
+  m_Time: 50.016666666666666
+  indexes: 09000000
