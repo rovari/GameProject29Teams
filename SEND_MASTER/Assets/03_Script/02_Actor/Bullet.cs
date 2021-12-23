@@ -332,6 +332,9 @@ public class Bullet : Actor {
 
         gameObject.SetActive(false);
         collision.gameObject.SetActive(false);
+    }
+
+    private void OnEnable() {
         GetSetTransform.position = muzzle.position;
     }
 

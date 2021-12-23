@@ -18,11 +18,24 @@ public class MenuSystem : MonoBehaviour {
 
     // Field
     [SerializeField] private GameObject menuUI;
+
+    [SerializeField] private Image  Icon;
+
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider seSlider;
     [SerializeField] private Slider vosSlider;
 
+    [SerializeField] private RectTransform AnchorRe;
+    [SerializeField] private RectTransform AnchorRs;
+    [SerializeField] private RectTransform AnchorMs;
+    [SerializeField] private RectTransform AnchorBg;
+    [SerializeField] private RectTransform AnchorSe;
+    [SerializeField] private RectTransform AnchorVo;
+    [SerializeField] private RectTransform AnchorEx;
+
+    private Vector3 velocity;
+    
     private float masterVL;
     private float bgmVL;
     private float seVL;
@@ -65,17 +78,23 @@ public class MenuSystem : MonoBehaviour {
 
             case MENU_INDEX.RETURN:
 
+                Icon.rectTransform.position = AnchorRe.position;
+
                 AudioManager.PlayOneShot(SOUNDTYPE.SYSTEM, "Apply_mse");
                 ExitMenu();
 
                 break;
             case MENU_INDEX.RETRY:
 
+                Icon.rectTransform.position = AnchorRs.position;
+
                 AudioManager.PlayOneShot(SOUNDTYPE.SYSTEM, "Apply_mse");
                 LoadManager.ReLoad();
                 break;
 
             case MENU_INDEX.EXIT:
+
+                Icon.rectTransform.position = AnchorEx.position;
 
                 AudioManager.PlayOneShot(SOUNDTYPE.SYSTEM, "Apply_mse");
                 
@@ -117,7 +136,25 @@ public class MenuSystem : MonoBehaviour {
 
         switch (menuIndex) {
 
+
+            case MENU_INDEX.RETURN:
+                
+                Icon.rectTransform.position = AnchorRe.position;
+                break;
+
+            case MENU_INDEX.RETRY:
+                
+                Icon.rectTransform.position = AnchorRs.position;
+                break;
+
+            case MENU_INDEX.EXIT:
+
+                Icon.rectTransform.position = AnchorEx.position;
+                break;
+
             case MENU_INDEX.MASTER_VL:
+
+                Icon.rectTransform.position = AnchorMs.position;
 
                 masterVL += stick.x * Time.unscaledDeltaTime;
                 masterVL = Mathf.Clamp01(masterVL);
@@ -125,18 +162,26 @@ public class MenuSystem : MonoBehaviour {
                 break;
 
             case MENU_INDEX.BGM_VL:
+
+                Icon.rectTransform.position = AnchorBg.position;
+
                 bgmVL += stick.x * Time.unscaledDeltaTime;
                 bgmVL = Mathf.Clamp01(bgmVL);
 
                 break;
             case MENU_INDEX.SE_VL:
+
+                Icon.rectTransform.position = AnchorSe.position;
+
                 seVL += stick.x * Time.unscaledDeltaTime;
                 seVL = Mathf.Clamp01(seVL);
 
                 break;
             case MENU_INDEX.VOS_VL:
-                vosVL += stick.x * Time.unscaledDeltaTime;
 
+                Icon.rectTransform.position = AnchorVo.position;
+
+                vosVL += stick.x * Time.unscaledDeltaTime;
                 vosVL = Mathf.Clamp01(vosVL);
 
                 break;

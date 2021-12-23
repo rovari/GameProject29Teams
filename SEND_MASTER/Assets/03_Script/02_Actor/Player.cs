@@ -131,6 +131,7 @@ public class Player : Actor {
         
         base.Update();
 
-        UpdateBox();
+        GetActorState   ().isPlayer = true;
+        UpdateBox       ();
     }
 }

@@ -62,7 +62,7 @@ public class StateManager : MonoBehaviour {
         
         if (intro != null && GetSetState != STATE.LOAD) {
             
-            AudioManager.Play           (SOUNDTYPE.BGM, "Title_bgm");
+            AudioManager.Play           (SOUNDTYPE.BGM, "Stage01_bgm");
             AudioManager.Play           (SOUNDTYPE.ENVIRONMENT, "Window_env");
 
             AudioManager.ShmoothLowPass (true, false, 0.0f);
@@ -119,14 +119,14 @@ public class StateManager : MonoBehaviour {
                     timeline.initialTime    = 0.0f;
                     sequence                = MAIN_TL.BOSS;
 
-                    AudioManager.SwapBGM(5.0f, "Stage01_bgm");
+                    AudioManager.SwapBGM(5.0f, "Boss_bgm");
                     if (timeline.playableAsset != null) timeline.Play();
                 }
                 break;
                 
             case MAIN_TL.BOSS:
 
-                if(!GetSetBossDown) {
+                if(GetSetBossDown) {
 
                     GetSetState = STATE.EVENT;
                     GetSetBossDown = false;
@@ -136,6 +136,7 @@ public class StateManager : MonoBehaviour {
                     timeline.playableAsset  = result;
                     sequence                = MAIN_TL.RESULT;
 
+                    AudioManager.SwapBGM(5.0f, "Thutorial_bgm");
                     if (timeline.playableAsset != null) timeline.Play();
                 }
                 break;

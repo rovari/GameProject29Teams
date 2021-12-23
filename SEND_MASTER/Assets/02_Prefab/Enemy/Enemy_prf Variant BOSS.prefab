@@ -120,6 +120,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: grade
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442363, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: returnTL
       value: 
       objectReference: {fileID: 11400000, guid: 2c326d73036915648805023ba61c8ba6, type: 2}

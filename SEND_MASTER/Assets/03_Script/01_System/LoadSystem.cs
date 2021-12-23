@@ -19,6 +19,7 @@ public class LoadSystem : MonoBehaviour {
     
     public int  sequensNum;
     public bool isPreLoad;
+    public bool isReLoad;
 
     // Property
 
@@ -33,14 +34,20 @@ public class LoadSystem : MonoBehaviour {
 
         StateManager.GetSetState = STATE.LOAD;
         ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
+
+        isReLoad = true;
         StartCoroutine("PreLoad", sequensNum);
+
+
     }
 
     private IEnumerator PreLoad             (int index) {
 
         SceneData oldSceneData = sceneSequens[sequensNum];
 
-        if (loadingScene != null && !oldSceneData.isSkipLoadScene) SceneManager.LoadSceneAsync(loadingScene);
+        if (loadingScene != null) {
+           if(!oldSceneData.isSkipLoadScene) SceneManager.LoadSceneAsync(loadingScene);
+        }
 
         sequensNum = (index >= 0) ? index : ++sequensNum;
         sequensNum = (sequensNum < sceneSequens.Count) ? sequensNum : 0;
@@ -48,7 +55,8 @@ public class LoadSystem : MonoBehaviour {
         var async = SceneManager.LoadSceneAsync(sceneSequens[sequensNum].Scene);
         async.allowSceneActivation      = false;
         
-        if (!oldSceneData.isSkipLoadScene) {
+        if (!oldSceneData.isSkipLoadScene || isReLoad) {
+
             while (!async.isDone && !isPreLoad) { yield return null; }
             async.allowSceneActivation = true;
             isPreLoad = false;
@@ -57,9 +65,10 @@ public class LoadSystem : MonoBehaviour {
             async.allowSceneActivation = true;
         }
 
+        isReLoad = false;
         StateManager.GetSetState = STATE.NONE;
     }
-
+    
 	// Signal
     public  void        AddIndexLoadSignal  () {
         ++sequensNum;

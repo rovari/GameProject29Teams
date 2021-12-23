@@ -111,6 +111,10 @@ PrefabInstance:
       propertyPath: actorState.life
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3996828882155257863, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4512982927050276018, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
