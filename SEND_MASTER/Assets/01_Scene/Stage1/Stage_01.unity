@@ -2171,7 +2171,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 182cbd9adca8ec8419422d289c97b666, type: 3}
   - {fileID: 8300000, guid: 138977cc2905c504997741214956d340, type: 3}
   environmentClipList:
+  - {fileID: 8300000, guid: eedbab78c2786454a85c00d4e94c5009, type: 3}
   - {fileID: 8300000, guid: 0d3b2213143845344bf1fb944d9d1812, type: 3}
+  - {fileID: 8300000, guid: 99f3bf9a0150a0348ac9193ec660f8ed, type: 3}
+  - {fileID: 8300000, guid: 212eb85e735f3ed42980ba45715b8cce, type: 3}
   gameSeClipList:
   - {fileID: 8300000, guid: 99e6bd55eeec8034cbbed347606edf48, type: 3}
   - {fileID: 8300000, guid: 206d7d8d0319d114bb8ee2efa54255cc, type: 3}
@@ -9777,7 +9780,7 @@ PlayableDirector:
   m_GameObject: {fileID: 947870613}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 4dc81f7e42a3c6247a0f316ac92f1125, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: bb3330cd7611bac4eb9f21b38234db8b, type: 2}
   m_InitialState: 1
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -9844,37 +9847,37 @@ MonoBehaviour:
   speecheList:
   - isButton: 1
     bubble: 1
-    speech: "\u3042\u30FC...\u30C6\u30B9\u30C6\u30B9"
-  - isButton: 1
-    bubble: 1
-    speech: "\u305D\u306E\u6A5F\u4F53\u306F\u4E45\u3005\u304B\uFF1F"
-  - isButton: 1
-    bubble: 1
-    speech: "\u3068\u308A\u3042\u3048\u305A\n\u4F7F\u3044\u65B9\u3092\u601D\u3044\u51FA\u305B"
-  - isButton: 1
-    bubble: 3
-    speech: "\u79FB\u52D5\nL Stick"
-  - isButton: 1
-    bubble: 3
-    speech: "\u7167\u6E96\nR Stick"
-  - isButton: 1
-    bubble: 3
-    speech: "\u653B\u6483\nR2"
-  - isButton: 1
-    bubble: 3
-    speech: "\u6B66\u5668\u5207\u308A\u66FF\u3048\nX"
-  - isButton: 1
-    bubble: 3
-    speech: "\u30B8\u30E3\u30F3\u30D7\nA"
-  - isButton: 1
-    bubble: 1
-    speech: "\u4ECA\u56DE\u3082\n\u304A\u5F97\u610F\u69D8\u304B\u3089\u306E\u4F9D\u983C\u3060"
-  - isButton: 1
-    bubble: 1
-    speech: "\u30B9\u30A5..."
+    speech: "\u30B6\u30B6..."
   - isButton: 1
     bubble: 2
-    speech: "\u7A4D\u307F\u8377\u306F\n\u547D\u3088\u308A\u91CD\u8981\u3060"
+    speech: "\u7DCA\u6025\u3060\u3001\n\u4EFB\u52D9\u306E\u60C5\u5831\u304C\u6D41\u51FA\u3057\u305F!"
+  - isButton: 1
+    bubble: 2
+    speech: "\u72D9\u308F\u308C\u308B\u3060\u308D\u3046\uFF01\n\u6C17\u3092\u4ED8\u3051\u308B\u3093\u3060\uFF01"
+  - isButton: 1
+    bubble: 0
+    speech: "\"\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB\""
+  - isButton: 1
+    bubble: 0
+    speech: "\u80CC\u4E2D\u306E\u8377\u7269\u304C\u306A\u304F\u306A\u308B\u3068\n\u30B2\u30FC\u30E0\u30AA\u30FC\u30D0\u30FC\u3067\u3059\u3002"
+  - isButton: 1
+    bubble: 0
+    speech: "\u8377\u7269\u306F\u753B\u9762\u5916\u306B\u51FA\u308B\u3068\n\u5931\u3044\u307E\u3059\u3002"
+  - isButton: 1
+    bubble: 0
+    speech: "\u307E\u305F\u3001\u6575\u306E\u653B\u6483\u306B\u3042\u305F\u308B\u3068\n\u5439\u304D\u98DB\u3070\u3055\u308C\u307E\u3059\u3002"
+  - isButton: 1
+    bubble: 0
+    speech: "\u5916\u306B\u306F\u3058\u304D\u51FA\u3055\u308C\u306A\u3044\u3088\u3046\n\u6C17\u3092\u4ED8\u3051\u307E\u3057\u3087\u3046\u3002"
+  - isButton: 1
+    bubble: 2
+    speech: "\u76F8\u624B\u306F\u305F\u3060\u306E\u30AE\u30E3\u30F3\u30B0\u3060\uFF01\t"
+  - isButton: 1
+    bubble: 2
+    speech: "\u8377\u7269\u306F\u3001\u547D\u3088\u308A\u91CD\u3044\u3068\u601D\u3048\uFF01"
+  - isButton: 1
+    bubble: 3
+    speech: "\u30B9\u30A5..."
   - isButton: 1
     bubble: 2
     speech: "\u7D76\u5BFE\u306B\u5931\u3046\u306A\uFF01"
@@ -9883,7 +9886,7 @@ MonoBehaviour:
   encount: {fileID: 839017955}
   bubbleImage: {fileID: 1762992341}
   targetText: {fileID: 1342863267}
-  noneBubble: {fileID: 21300000, guid: de205f54ce1a96f49b0658a98aeb2bf0, type: 3}
+  noneBubble: {fileID: 21300000, guid: 49c0097d77a11d54eba190df9af4c5e7, type: 3}
   normalBubble: {fileID: 21300000, guid: efd1093852f98c94b8f595d5593d2f7d, type: 3}
   thinkBubble: {fileID: 21300000, guid: 972794fa0dc3d684a90209086f50a651, type: 3}
   thornBubble: {fileID: 21300000, guid: b59916765963d2045a6c5beccdea10e0, type: 3}
@@ -11596,7 +11599,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 5358432282736697828, guid: 58748d0b63714384e8382e303ec0f209, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

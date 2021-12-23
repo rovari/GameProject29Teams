@@ -2357,6 +2357,8 @@ MonoBehaviour:
   environmentClipList:
   - {fileID: 8300000, guid: 0d3b2213143845344bf1fb944d9d1812, type: 3}
   - {fileID: 8300000, guid: 212eb85e735f3ed42980ba45715b8cce, type: 3}
+  - {fileID: 8300000, guid: eedbab78c2786454a85c00d4e94c5009, type: 3}
+  - {fileID: 8300000, guid: 99f3bf9a0150a0348ac9193ec660f8ed, type: 3}
   gameSeClipList:
   - {fileID: 8300000, guid: 99e6bd55eeec8034cbbed347606edf48, type: 3}
   - {fileID: 8300000, guid: 206d7d8d0319d114bb8ee2efa54255cc, type: 3}
@@ -11654,7 +11656,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 5358432282736697828, guid: 58748d0b63714384e8382e303ec0f209, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -12184,7 +12186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 550c4db2cccbcc045acfe4cfd39ea5c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8704c02ee2467a847b1a5b57a6a288a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
