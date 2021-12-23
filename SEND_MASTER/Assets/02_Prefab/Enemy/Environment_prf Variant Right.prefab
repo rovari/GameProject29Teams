@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: generalTL
       value: 
       objectReference: {fileID: 11400000, guid: bc3211bb204e5884ab42bb557f7efd9d, type: 2}
+    - target: {fileID: 6200415399196023088, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
+      propertyPath: activeTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6200415399196023090, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: m_PlayableAsset
       value: 
