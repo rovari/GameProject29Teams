@@ -38,12 +38,11 @@ public class StartUpGame : MonoBehaviour {
     }
 
     // Signal
-
+    
     // Unity
     private void Start  () {
 
         CreateStartUp();
-        Camera.main.depthTextureMode |= DepthTextureMode.Depth;
         Application.targetFrameRate = 61;
     }
 

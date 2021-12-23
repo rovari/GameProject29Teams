@@ -19,35 +19,26 @@ public class LoadSystem : MonoBehaviour {
     
     public int  sequensNum;
     public bool isPreLoad;
-    public bool isReLoad;
 
     // Property
 
     // Method
     public  void        LoadScene           (int index) {
-
-        StateManager.GetSetState = STATE.LOAD;
+        
         ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
         StartCoroutine("PreLoad", index);
     }
     public  void        ReLoadScene         () {
-
-        StateManager.GetSetState = STATE.LOAD;
+        
         ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
-
-        isReLoad = true;
-        StartCoroutine("PreLoad", sequensNum);
-
-
+        StartCoroutine("ReLoad", sequensNum);
     }
 
     private IEnumerator PreLoad             (int index) {
 
         SceneData oldSceneData = sceneSequens[sequensNum];
 
-        if (loadingScene != null) {
-           if(!oldSceneData.isSkipLoadScene) SceneManager.LoadSceneAsync(loadingScene);
-        }
+        if (loadingScene != null && !oldSceneData.isSkipLoadScene) SceneManager.LoadSceneAsync(loadingScene);
 
         sequensNum = (index >= 0) ? index : ++sequensNum;
         sequensNum = (sequensNum < sceneSequens.Count) ? sequensNum : 0;
@@ -55,21 +46,30 @@ public class LoadSystem : MonoBehaviour {
         var async = SceneManager.LoadSceneAsync(sceneSequens[sequensNum].Scene);
         async.allowSceneActivation      = false;
         
-        if (!oldSceneData.isSkipLoadScene || isReLoad) {
-
-            while (!async.isDone && !isPreLoad) { yield return null; }
+        if (!oldSceneData.isSkipLoadScene) {
+            while (!async.isDone || !isPreLoad) { yield return null; }
             async.allowSceneActivation = true;
             isPreLoad = false;
         }
         else { 
             async.allowSceneActivation = true;
         }
-
-        isReLoad = false;
-        StateManager.GetSetState = STATE.NONE;
     }
-    
-	// Signal
+
+    private IEnumerator ReLoad(int index) {
+        
+        if (loadingScene != null) SceneManager.LoadSceneAsync(loadingScene);
+        
+        var async = SceneManager.LoadSceneAsync(sceneSequens[sequensNum].Scene);
+        async.allowSceneActivation = false;
+        
+        while (!async.isDone || !isPreLoad) { yield return null; }
+
+        async.allowSceneActivation = true;
+        isPreLoad = false;  
+    }   
+
+    // Signal
     public  void        AddIndexLoadSignal  () {
         ++sequensNum;
         LoadScene(sequensNum);

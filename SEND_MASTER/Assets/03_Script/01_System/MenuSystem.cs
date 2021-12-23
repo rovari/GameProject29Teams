@@ -115,14 +115,14 @@ public class MenuSystem : MonoBehaviour {
         AudioManager.PlayOneShot(SOUNDTYPE.SYSTEM, "Cursor_mse");
 
         if (menuIndex < MENU_INDEX.EXIT)    ++menuIndex;
-        else menuIndex = MENU_INDEX.RETRY;
+        else menuIndex = MENU_INDEX.RETURN;
     }
     private void SubIndex           () {
 
         if (StateManager.GetSetState != STATE.MENU) return;
         AudioManager.PlayOneShot(SOUNDTYPE.SYSTEM, "Cursor_mse");
 
-        if (menuIndex > MENU_INDEX.RETRY)   --menuIndex;
+        if (menuIndex > MENU_INDEX.RETURN)   --menuIndex;
         else menuIndex = MENU_INDEX.EXIT;
     }
     private void SliderSelectMenu   () {
@@ -130,9 +130,9 @@ public class MenuSystem : MonoBehaviour {
         Vector2 stick = InputManager.GetPlayerInput().currentActionMap["VL"].ReadValue<Vector2>();
 
         masterVL    = (AudioManager.GetVolume(SOUNDTYPE.MASTER) + 80f) * 0.01f;
-        bgmVL       = (AudioManager.GetVolume(SOUNDTYPE.BGM) + 80f) * 0.01f;
+        bgmVL       = (AudioManager.GetVolume(SOUNDTYPE.BGM)    + 80f) * 0.01f;
         seVL        = (AudioManager.GetVolume(SOUNDTYPE.SYSTEM) + 80f) * 0.01f;
-        vosVL       = (AudioManager.GetVolume(SOUNDTYPE.VOICE) + 80f) * 0.01f;
+        vosVL       = (AudioManager.GetVolume(SOUNDTYPE.VOICE)  + 80f) * 0.01f;
 
         switch (menuIndex) {
 

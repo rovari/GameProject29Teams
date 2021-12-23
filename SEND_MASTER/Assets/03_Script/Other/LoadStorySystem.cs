@@ -36,6 +36,6 @@ public class LoadStorySystem : MonoBehaviour {
     // Unity
 	private void Start() {
         StateManager.GetSetState = STATE.LOAD;
-        InputManager.GetLOADActions().Enter.started += _ => OpenPreLoadSystem();
+        InputManager.GetPlayerInput().currentActionMap["Enter"].started += _ => OpenPreLoadSystem();
 	}
 }
