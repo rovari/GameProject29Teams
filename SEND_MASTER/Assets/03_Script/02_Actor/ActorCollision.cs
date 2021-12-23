@@ -25,6 +25,7 @@ public class ActorCollision : ActorData {
         
         if(typeof(Bullet) == hitCollision.actor.GetActorType()) {
             actor.GetActorState().CalcDamage(hitCollision.damage, ((Bullet)hitCollision.actor).GetElement());
+            AudioManager.PlayOneShot(SOUNDTYPE.GAME, "Hit_gse");
         }
         else actor.GetActorState().CalcDamage(hitCollision.damage, ELEMENT.NONE);
     }
@@ -39,7 +40,9 @@ public class ActorCollision : ActorData {
                 actor.effect.PlayEffect (EFFECT.EXPLOSION, damageEffect);
 
                 actor.GetSetHitPos = new Vector2(hitActor.GetSetTransform.position.x, hitActor.GetSetTransform.position.y);
-                
+
+                AudioManager.PlayOneShot(SOUNDTYPE.GAME, "Damage_gse");
+
                 IEnumerator cor = DamegeRim(0.5f, 0.05f);
                 StartCoroutine(cor);
             }
@@ -50,6 +53,8 @@ public class ActorCollision : ActorData {
                 actor.effect.PlayEffect(EFFECT.EXPLOSION, damageEffect);
 
                 actor.GetSetHitPos = new Vector2(hitActor.GetSetTransform.position.x, hitActor.GetSetTransform.position.y);
+
+                AudioManager.PlayOneShot(SOUNDTYPE.GAME, "Damage_gse");
 
                 IEnumerator cor = DamegeRim(0.5f, 0.05f);
                 StartCoroutine(cor);

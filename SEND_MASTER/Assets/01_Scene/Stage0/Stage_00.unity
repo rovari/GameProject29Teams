@@ -9781,7 +9781,7 @@ MonoBehaviour:
     speech: "\"\u6A5F\u4F53\u3068\u8377\u7269\u306F\u5927\u5207\u306B\""
   - isButton: 1
     bubble: 0
-    speech: "\"\u30DB\u30D0\u30FC\u30A8\u30F3\u30B8\u30F3\u3067\u81EA\u7531\u306B\u52D5\u3051\u308B!\"\n\u79FB\u52D5
+    speech: "\"\u30DB\u30D0\u30FC\u30A8\u30F3\u30B8\u30F3\u3067\u81EA\u7531\u81EA\u5728!\"\n\u79FB\u52D5
       L Stick"
   - isButton: 1
     bubble: 0

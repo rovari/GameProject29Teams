@@ -2250,8 +2250,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 182cbd9adca8ec8419422d289c97b666, type: 3}
   - {fileID: 8300000, guid: 138977cc2905c504997741214956d340, type: 3}
   environmentClipList:
+  - {fileID: 8300000, guid: eedbab78c2786454a85c00d4e94c5009, type: 3}
   - {fileID: 8300000, guid: 0d3b2213143845344bf1fb944d9d1812, type: 3}
   - {fileID: 8300000, guid: 99f3bf9a0150a0348ac9193ec660f8ed, type: 3}
+  - {fileID: 8300000, guid: 212eb85e735f3ed42980ba45715b8cce, type: 3}
   gameSeClipList:
   - {fileID: 8300000, guid: 99e6bd55eeec8034cbbed347606edf48, type: 3}
   - {fileID: 8300000, guid: 206d7d8d0319d114bb8ee2efa54255cc, type: 3}
@@ -9744,37 +9746,37 @@ MonoBehaviour:
   speecheList:
   - isButton: 1
     bubble: 1
-    speech: "\u3042\u30FC...\u30C6\u30B9\u30C6\u30B9"
+    speech: "\u30B6\u30B6..."
   - isButton: 1
     bubble: 1
-    speech: "\u305D\u306E\u6A5F\u4F53\u306F\u4E45\u3005\u304B\uFF1F"
+    speech: "\u9762\u5012\u4E8B\u306B\n\u5DFB\u304D\u8FBC\u3093\u3060\u306A\u3002"
   - isButton: 1
     bubble: 1
-    speech: "\u3068\u308A\u3042\u3048\u305A\n\u4F7F\u3044\u65B9\u3092\u601D\u3044\u51FA\u305B"
-  - isButton: 1
-    bubble: 3
-    speech: "\u79FB\u52D5\nL Stick"
-  - isButton: 1
-    bubble: 3
-    speech: "\u7167\u6E96\nR Stick"
-  - isButton: 1
-    bubble: 3
-    speech: "\u653B\u6483\nR2"
-  - isButton: 1
-    bubble: 3
-    speech: "\u6B66\u5668\u5207\u308A\u66FF\u3048\nX"
-  - isButton: 1
-    bubble: 3
-    speech: "\u30B8\u30E3\u30F3\u30D7\nA"
+    speech: "\u7533\u3057\u8A33\u306A\u3044\u3002"
   - isButton: 1
     bubble: 1
-    speech: "\u4ECA\u56DE\u3082\n\u304A\u5F97\u610F\u69D8\u304B\u3089\u306E\u4F9D\u983C\u3060"
+    speech: "\u4ECA\u56DE\u306E\u4F9D\u983C\u306F..."
+  - isButton: 1
+    bubble: 1
+    speech: "\u305D\u3046\u3060\u306A...\n\u56FD..."
+  - isButton: 1
+    bubble: 1
+    speech: "\u305D\u308C\u3088\u308A\u3082\n\u591A\u304D\u3044\u3082\u306E\u3060\u3002"
+  - isButton: 1
+    bubble: 1
+    speech: "\u524D\u56DE\u306E\u4E8B\u4EF6\u4EE5\u964D\u3001"
+  - isButton: 1
+    bubble: 1
+    speech: "\u30AE\u30E3\u30F3\u30B0\u306E\u52D5\u304D\u304C\n\u6D3B\u767A\u306B\u306A\u3063\u3066\u3044\u308B\u3002"
+  - isButton: 1
+    bubble: 1
+    speech: "\u4ECA\u56DE\u3082\u3001\u63A5\u6575\u3059\u308B\n\u3053\u3068\u306B\u306A\u308B\u3060\u308D\u3046\u3002"
+  - isButton: 1
+    bubble: 2
+    speech: "\u8377\u7269\u306F\u3001\u547D\u3088\u308A\u91CD\u3044\u3068\u601D\u3048\uFF01"
   - isButton: 1
     bubble: 1
     speech: "\u30B9\u30A5..."
-  - isButton: 1
-    bubble: 2
-    speech: "\u7A4D\u307F\u8377\u306F\n\u547D\u3088\u308A\u91CD\u8981\u3060"
   - isButton: 1
     bubble: 2
     speech: "\u7D76\u5BFE\u306B\u5931\u3046\u306A\uFF01"
@@ -11549,7 +11551,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 5358432282736697828, guid: 58748d0b63714384e8382e303ec0f209, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -12075,7 +12077,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 550c4db2cccbcc045acfe4cfd39ea5c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f8b3b21a99c54534aaa64ce66f54fda6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13809,7 +13811,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 150}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1762992341
 MonoBehaviour:

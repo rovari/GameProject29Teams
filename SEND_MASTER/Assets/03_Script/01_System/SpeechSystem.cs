@@ -94,7 +94,7 @@ public class SpeechSystem : MonoBehaviour {
                         break;
 
                     default:
-                        bubbleImage.transform.localScale = new Vector3(3.0f, 3.0f);
+                        bubbleImage.transform.localScale = new Vector3(2.5f, 2.0f);
                         bubbleImage.sprite = noneBubble;
                         break;
                 }
