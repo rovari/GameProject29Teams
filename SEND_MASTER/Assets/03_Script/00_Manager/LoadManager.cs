@@ -17,7 +17,7 @@ public class LoadManager : MonoBehaviour {
     static public void ReLoad   () {
         loadSystem.ReLoadScene();
     }
-
+    
 
     static public ref bool  GetIsPreLoad    () {
         return ref loadSystem.isPreLoad;

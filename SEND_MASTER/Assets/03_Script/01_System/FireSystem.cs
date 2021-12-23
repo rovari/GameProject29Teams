@@ -57,7 +57,7 @@ public class FireSystem : MonoBehaviour {
     public  void AddWeaponIndex     () {
 
         ++weaponIndex;
-        WrapIndex();
+        WrapIndex(weaponList, ref weaponIndex);
 
         if (weaponList[weaponIndex].GetLockType() == LOCKTYPE.LOCK) {
             RefreshList();
@@ -65,11 +65,11 @@ public class FireSystem : MonoBehaviour {
     }
     public  void AddTargetIndex     () {
         ++targetIndex;
-        WrapIndex();
+        WrapIndex(targetList, ref targetIndex);
     }
     public  void SubTargetIndex     () {
         --targetIndex;
-        WrapIndex();
+        WrapIndex(targetList, ref targetIndex);
     }
         
     public  GameObject      GetTarget    () {
@@ -79,25 +79,15 @@ public class FireSystem : MonoBehaviour {
         return (weaponList.Count > 0) ? weaponList[weaponIndex] : null;
     }
     
-    private void WrapIndex          () {
+    private void WrapIndex<T>          (List<T> list, ref int index) {
 
-        targetIndex 
-            = (targetIndex >= targetList.Count)
-            ? 0 
-            : (targetIndex < 0)
-            ? (targetList.Count != 0) 
-            ? 0
-            : targetList.Count -1
-            : targetIndex;
-        
-        weaponIndex
-            = (weaponIndex >= weaponList.Count)
-            ? 0
-            : (weaponIndex < 0)
-            ? (weaponList.Count != 0)
-            ? 0
-            : weaponList.Count - 1
-            : weaponIndex;
+        if (list.Count == 0) {
+            index = 0;
+            return;
+        }
+
+        index = (index < 0) ? list.Count - 1 : index;
+        index = (index > list.Count - 1) ? 0 : index;
     }
     private void FindTargetWithTag  () {
         

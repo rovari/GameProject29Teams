@@ -123,5 +123,7 @@ public class Enemy : Actor {
         base.Update();
 
         Sequence();
+
+        if (StateManager.GetSetBossDown) Destroy(gameObject);
     }
 }

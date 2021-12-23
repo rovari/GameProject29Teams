@@ -129,8 +129,7 @@ public class StateManager : MonoBehaviour {
                 if(GetSetBossDown) {
 
                     GetSetState = STATE.EVENT;
-                    GetSetBossDown = false;
-
+                    
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
                     timeline.playableAsset  = result;
@@ -149,7 +148,7 @@ public class StateManager : MonoBehaviour {
 
                     timeline.Stop();
                     timeline.initialTime    = 0.0f;
-                    
+                    GetSetBossDown          = false;           
                     LoadManager.Load();
                 }
                 if(timeline.playableAsset && timeline.time >= timeline.duration - fadeTime) {
@@ -159,6 +158,7 @@ public class StateManager : MonoBehaviour {
 
             default: break;
         }
+        
     }
     static private void  AttachStateMap () {
 
