@@ -6,16 +6,14 @@ using UnityEngine;
 public class FireSystem : MonoBehaviour {
 
     // Field
-
     [SerializeField] private string             searchTagName;
     [SerializeField] private List<GameObject>   targetList;
     [SerializeField] private List<WeaponSystem> weaponList;
     [SerializeField] private GameObject         aim;
-    
-    private Transform   owner;
 
-    [SerializeField]private int         targetIndex;
-    [SerializeField]private int         weaponIndex;
+    private Transform   owner;
+    private int         targetIndex;
+    private int         weaponIndex;
 
     // Property
     
@@ -42,7 +40,9 @@ public class FireSystem : MonoBehaviour {
 
             case LOCKTYPE.LOCK:
                 
-                if (targetList.Count <= 0 || targetList[targetIndex] == null) return;
+                if (targetList.Count        <= 0 || targetIndex > targetList.Count - 1) return;
+                if (targetList[targetIndex] == null ) return;
+
                 if (Vector3.Dot(owner.forward, targetList[targetIndex].transform.position - owner.position) < 0.0f) {
                     return;
                 }   
@@ -73,7 +73,7 @@ public class FireSystem : MonoBehaviour {
     }
         
     public  GameObject      GetTarget    () {
-        return (targetList.Count > 0) ? targetList[targetIndex] : null;
+        return (targetList.Count > 0 && targetIndex < targetList.Count) ? targetList[targetIndex] : null;
     }
     public  WeaponSystem    GetWeapon    () {
         return (weaponList.Count > 0) ? weaponList[weaponIndex] : null;

@@ -28,11 +28,13 @@ public class StateManager : MonoBehaviour {
     [SerializeField] private PlayableAsset  generalTL;
     [SerializeField] private PlayableAsset  bossTL;
     [SerializeField] private PlayableAsset  resultTL;
+    [SerializeField] private GameObject     caution;
 
     static private STATE            state;
     static private MAIN_TL          sequence;
     static private PlayableDirector timeline;
     static private SpeechSystem     speech;
+    static private GameObject       cautionObj;
 
     static private PlayableAsset    intro;
     static private PlayableAsset    general;
@@ -69,10 +71,10 @@ public class StateManager : MonoBehaviour {
 
                 if (intro != null && GetSetState != STATE.LOAD) {
 
-                    AudioManager.Play           (SOUNDTYPE.BGM, "Stage01_bgm");
+                    AudioManager.Play           (SOUNDTYPE.BGM, GetSetLevelData.stageBgm);
                     AudioManager.Play           (SOUNDTYPE.ENVIRONMENT, "Window_env");
 
-                    AudioManager.ShmoothLowPass (true, false, 0.0f);
+                    if(!speech.isThutorial) AudioManager.ShmoothLowPass (true, false, 0.0f);
 
                     AudioManager.Volume         (SOUNDTYPE.BGM, 0.0f);
                     AudioManager.ShmoothFade    (true, 3.0f, 10.0f);
@@ -104,11 +106,16 @@ public class StateManager : MonoBehaviour {
 
                 if (speech.GetIsFinish()) {
 
+                    if (speech.isThutorial) {
+                        speech.ThutorialLoad();
+                        break;
+                    }
+
                     GetSetState = STATE.GAME;
                     sequence = MAIN_TL.GENERAL;
-
-                    AudioManager.ShmoothLowPass(true, true, 0.5f);
                     
+                    AudioManager.ShmoothLowPass(true, true, 0.5f);
+
                     if (timeline.playableAsset != null) timeline.Play();
                 }
 
@@ -123,7 +130,9 @@ public class StateManager : MonoBehaviour {
                     timeline.initialTime    = 0.0f;
                     sequence                = MAIN_TL.BOSS;
 
-                    AudioManager.SwapBGM(5.0f, "Boss_bgm");
+                    AudioManager.SwapBGM(4.0f, "Boss_bgm");
+                    cautionObj.SetActive(true);
+
                     if (timeline.playableAsset != null) timeline.Play();
                 }
                 break;
@@ -139,7 +148,7 @@ public class StateManager : MonoBehaviour {
                     timeline.playableAsset  = result;
                     sequence                = MAIN_TL.RESULT;
 
-                    AudioManager.SwapBGM(5.0f, "Thutorial_bgm");
+                    AudioManager.SwapBGM(4.0f, "Thutorial_bgm");
                     if (timeline.playableAsset != null) timeline.Play();
                 }
                 break;
@@ -194,10 +203,12 @@ public class StateManager : MonoBehaviour {
         general     = generalTL;
         boss        = bossTL;
         result      = resultTL;
+        cautionObj  = caution;
 
         timeline    = GetComponent<PlayableDirector>();
         speech      = GetComponent<SpeechSystem>();
 
+        GetSetLevelData = LoadManager.GetLevelData();
         StartSequence();
 	}
 

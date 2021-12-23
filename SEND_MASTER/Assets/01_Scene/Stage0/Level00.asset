@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052f81f2fc78a8440a14c0102a822ec4, type: 3}
+  m_Name: Level00
+  m_EditorClassIdentifier: 
+  level: 1
+  lineColor: {r: 0.10239409, g: 0.3679245, b: 0.36063543, a: 1}
+  stageBgm: Thutorial_bgm
+  stageEnv: Wind_env
+  stageName: ProtoStage
+  lowEnemyName: "\u30D7\u30ED\u30C8\u30C9\u30ED\u30FC\u30F3"
+  lowEnemyTex: {fileID: 0}
+  lowEnemyState:
+    isWillDead: 0
+    isPlayer: 0
+    isInvincible: 0
+    isTurbo: 0
+    life: 0
+    hp: 1
+    defence: 0
+    resist: 0
+    defLife: 0
+    defHp: 0
+  middleEnemyName: "\u30D7\u30ED\u30C8\u30E2\u30D2\u30AB\u30F3"
+  middleEnemyTex: {fileID: 2800000, guid: 054d61052c4dbb9449943e42e822c70e, type: 3}
+  middleEnemyState:
+    isWillDead: 0
+    isPlayer: 0
+    isInvincible: 0
+    isTurbo: 0
+    life: 0
+    hp: 1
+    defence: 0
+    resist: 0
+    defLife: 0
+    defHp: 0
+  highEnemyName: "\u30D7\u30ED\u30C8\u30B8\u30A7\u30EA\u30FC"
+  highEnemyTex: {fileID: 0}
+  highEnemyState:
+    isWillDead: 0
+    isPlayer: 0
+    isInvincible: 0
+    isTurbo: 0
+    life: 0
+    hp: 1
+    defence: 0
+    resist: 0
+    defLife: 0
+    defHp: 0
+  bossEnemyName: "\u30D7\u30ED\u30C8\u30D8\u30C3\u30C9"
+  bossEnemyTex: {fileID: 2800000, guid: 0efe942d25af79c4b92c6b7002a93589, type: 3}
+  bossEnemyState:
+    isWillDead: 0
+    isPlayer: 0
+    isInvincible: 0
+    isTurbo: 0
+    life: 1
+    hp: 1
+    defence: 0
+    resist: 0
+    defLife: 0
+    defHp: 0
+  endBossEnemyName: "\u30D7\u30ED\u30C8\u30C9\u30F3\u30E2\u30D2\u30AB\u30F3"
+  endBossEnemyTex: {fileID: 0}
+  endBossEnemyState:
+    isWillDead: 0
+    isPlayer: 0
+    isInvincible: 0
+    isTurbo: 0
+    life: 1
+    hp: 1
+    defence: 0
+    resist: 0
+    defLife: 0
+    defHp: 0

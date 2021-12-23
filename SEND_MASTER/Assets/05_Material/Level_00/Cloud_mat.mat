@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Cloud_mat
   m_Shader: {fileID: 4800000, guid: 9df51b61575038c469c5db3f24fda848, type: 3}
-  m_ShaderKeywords: _AFFECT_ON _GT_ONECOLOR
+  m_ShaderKeywords: _GT_ONECOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AddTex:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 100, y: 100}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -40,11 +44,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1ff32421c0172104e804ead577e371d3, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: cfa826f2236fe4940a0d3b33c609acd4, type: 3}
+        m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 2800000, guid: cd920bf0055f1d34bbba1db3541d1138, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -61,7 +65,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Affect: 1
+    - _Add: 0.28
+    - _Affect: 0
     - _BumpScale: 1
     - _Clv: 0.5
     - _Cutoff: 0.5
@@ -84,23 +89,23 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Range: 0.67
+    - _Range: 0
     - _Reverse: 0
     - _Rim: 0
     - _RimLv: 0
     - _Scr_X: 0
-    - _Scr_Y: -0.15
+    - _Scr_Y: -150
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.7075472, g: 0.5473525, b: 0.44388574, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DisCol: {r: 1, g: 1, b: 1, a: 1}
     - _DisEdgeCol: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FogColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SubColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

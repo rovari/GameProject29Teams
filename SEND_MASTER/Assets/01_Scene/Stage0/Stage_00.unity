@@ -1142,7 +1142,6 @@ MonoBehaviour:
   - {fileID: 2033401932}
   - {fileID: 374770643}
   - {fileID: 691238349}
-  isRecast: 0
 --- !u!1001 &264436009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2309,7 +2308,6 @@ MonoBehaviour:
   - {fileID: 1153747158}
   - {fileID: 2064186408}
   - {fileID: 852447264}
-  isRecast: 0
 --- !u!1001 &463685057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7804,7 +7802,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ebc9d6ae97e92ad429f98bb34ecd1347, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5ffcdc1e188818f4b98bf7331afa0aab, type: 2}
+      objectReference: {fileID: 2100000, guid: 519ec4bfae813584883c6f2a0c7ededc, type: 2}
     - target: {fileID: 919132149155446097, guid: ebc9d6ae97e92ad429f98bb34ecd1347, type: 3}
       propertyPath: m_Name
       value: Cloud_mdl
@@ -7967,8 +7965,6 @@ MonoBehaviour:
   - {fileID: 937053230}
   - {fileID: 246091398}
   aim: {fileID: 1488220823}
-  targetIndex: 0
-  weaponIndex: 0
 --- !u!1 &654208232
 GameObject:
   m_ObjectHideFlags: 0
@@ -8120,7 +8116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: a7b2c6814b2ad3f469c233ec67b44eed, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.92156863, b: 0.88235295, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8505,7 +8501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.92156863, b: 0.88235295, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9167,7 +9163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.92156863, b: 0.88235295, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9623,7 +9619,6 @@ MonoBehaviour:
   - {fileID: 264436011}
   - {fileID: 1122481722}
   - {fileID: 2071459094}
-  isRecast: 0
 --- !u!1 &942345672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ebc9d6ae97e92ad429f98bb34ecd1347, type: 3}
@@ -9693,6 +9688,7 @@ MonoBehaviour:
   generalTL: {fileID: 11400000, guid: 4dc81f7e42a3c6247a0f316ac92f1125, type: 2}
   bossTL: {fileID: 11400000, guid: bb3330cd7611bac4eb9f21b38234db8b, type: 2}
   resultTL: {fileID: 11400000, guid: 81eea6f7fba504f4bba04bf3a4488563, type: 2}
+  caution: {fileID: 0}
 --- !u!320 &947870616
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -9775,43 +9771,49 @@ MonoBehaviour:
     speech: "\u305D\u306E\u6A5F\u4F53\u306F\u4E45\u3005\u304B\uFF1F"
   - isButton: 1
     bubble: 1
-    speech: "\u3068\u308A\u3042\u3048\u305A\n\u4F7F\u3044\u65B9\u3092\u601D\u3044\u51FA\u305B"
+    speech: "\u30DE\u30CB\u30E5\u30A2\u30EB\u3092\u898B\u3066\n\u4F7F\u3044\u65B9\u3092\u601D\u3044\u51FA\u305B"
+  - isButton: 1
+    bubble: 0
+    speech: "\" SEND Inc\"\n\" \u914D\u9054\u30DE\u30CB\u30E5\u30A2\u30EB\""
+  - isButton: 1
+    bubble: 0
+    speech: "\"\u6A5F\u4F53\u3068\u8377\u7269\u306F\u5927\u5207\u306B\""
+  - isButton: 1
+    bubble: 0
+    speech: "\"\u30DB\u30D0\u30FC\u30A8\u30F3\u30B8\u30F3\u3067\u81EA\u7531\u306B\u52D5\u3051\u308B!\"\n\u79FB\u52D5
+      L Stick"
+  - isButton: 1
+    bubble: 0
+    speech: "'<\u30BF\u30FC\u30B2\u30C3\u30C8\u30B7\u30B9\u30C6\u30E0>'\n\u7167\u6E96
+      R Stick"
+  - isButton: 1
+    bubble: 0
+    speech: "'\u30BB\u30FC\u30D5\u30C6\u30A3\u306F\u5916\u3057\u305F\u304B\uFF1F\"\n\u653B\u6483
+      R2"
+  - isButton: 1
+    bubble: 0
+    speech: "\"\u6B66\u5668\u3092\u5207\u308A\u66FF\u3048\u3066\u6575\u3092\u6483\u9000!\"\n\u6B66\u5668\u5207\u308A\u66FF\u3048
+      X"
+  - isButton: 1
+    bubble: 0
+    speech: "\"\u63A8\u529B\u5909\u66F4\u3082\u3067\u304D\u308B\u305E!\"\n\u30B8\u30E3\u30F3\u30D7
+      A"
   - isButton: 1
     bubble: 3
-    speech: "\u79FB\u52D5\nL Stick"
+    speech: "\u304A\u3084...?"
   - isButton: 1
     bubble: 3
-    speech: "\u7167\u6E96\nR Stick"
-  - isButton: 1
-    bubble: 3
-    speech: "\u653B\u6483\nR2"
-  - isButton: 1
-    bubble: 3
-    speech: "\u6B66\u5668\u5207\u308A\u66FF\u3048\nX"
-  - isButton: 1
-    bubble: 3
-    speech: "\u30B8\u30E3\u30F3\u30D7\nA"
-  - isButton: 1
-    bubble: 1
-    speech: "\u4ECA\u56DE\u3082\n\u304A\u5F97\u610F\u69D8\u304B\u3089\u306E\u4F9D\u983C\u3060"
-  - isButton: 1
-    bubble: 1
-    speech: "\u30B9\u30A5..."
-  - isButton: 1
-    bubble: 2
-    speech: "\u7A4D\u307F\u8377\u306F\n\u547D\u3088\u308A\u91CD\u8981\u3060"
-  - isButton: 1
-    bubble: 2
-    speech: "\u7D76\u5BFE\u306B\u5931\u3046\u306A\uFF01"
+    speech: "\u30DE\u30CB\u30E5\u30A2\u30EB\u306B\u914D\u9054\u5148\u304C...\u3002"
   targetCunvas: {fileID: 430559507}
   titleErace: {fileID: 1360137141}
   encount: {fileID: 839017955}
   bubbleImage: {fileID: 1762992341}
   targetText: {fileID: 1342863267}
-  noneBubble: {fileID: 21300000, guid: de205f54ce1a96f49b0658a98aeb2bf0, type: 3}
+  noneBubble: {fileID: 21300000, guid: 49c0097d77a11d54eba190df9af4c5e7, type: 3}
   normalBubble: {fileID: 21300000, guid: efd1093852f98c94b8f595d5593d2f7d, type: 3}
   thinkBubble: {fileID: 21300000, guid: 972794fa0dc3d684a90209086f50a651, type: 3}
   thornBubble: {fileID: 21300000, guid: b59916765963d2045a6c5beccdea10e0, type: 3}
+  isThutorial: 1
 --- !u!114 &947870618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10181,7 +10183,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5b7718e60bad81440854cbbd0f56249e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a895199c377432846b744fa9f97cbe36, type: 2}
+      objectReference: {fileID: 2100000, guid: 034e8157bf5b9ba4f9910e1daa480731, type: 2}
     - target: {fileID: 919132149155446097, guid: 5b7718e60bad81440854cbbd0f56249e, type: 3}
       propertyPath: m_Name
       value: Sky_mdl
@@ -10365,7 +10367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.92156863, b: 0.88235295, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10566,7 +10568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.92156863, b: 0.88235295, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11670,7 +11672,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ebc9d6ae97e92ad429f98bb34ecd1347, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 73db473ee44292a4fbf9f1b556e9d013, type: 2}
+      objectReference: {fileID: 2100000, guid: fadfe265bcda3754d925f1b6c91a2bfa, type: 2}
     - target: {fileID: 919132149155446097, guid: ebc9d6ae97e92ad429f98bb34ecd1347, type: 3}
       propertyPath: m_Name
       value: Plane_mdl
@@ -12046,7 +12048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 550c4db2cccbcc045acfe4cfd39ea5c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de205f54ce1a96f49b0658a98aeb2bf0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12106,7 +12108,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1384960818}
   - component: {fileID: 1384960819}
-  - component: {fileID: 1384960820}
   m_Layer: 0
   m_Name: LoadManager
   m_TagString: Untagged
@@ -12121,7 +12122,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384960817}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -12140,35 +12141,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eacedcf1883b97469f8deb57c7674df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1384960820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384960817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9832cc8005e400c40bfd343bebe607de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadingScene:
-    m_SceneName: Load
-  sceneSequens:
+  sceneList:
   - Scene:
       m_SceneName: Stage_00
-    Data: {fileID: 11400000, guid: 0805cfc8835ab7c4f957bc40f7e3ebf2, type: 2}
+    Data: {fileID: 11400000, guid: c3176d4b9cd42294fa9b1f790218d780, type: 2}
     isSkipLoadScene: 0
   - Scene:
       m_SceneName: Stage_01
+    Data: {fileID: 11400000, guid: 0805cfc8835ab7c4f957bc40f7e3ebf2, type: 2}
+    isSkipLoadScene: 0
+  - Scene:
+      m_SceneName: Stage_02
     Data: {fileID: 11400000, guid: e601dfa3ee8bebe489b02d45a574984c, type: 2}
+    isSkipLoadScene: 0
+  - Scene:
+      m_SceneName: Stage_03
+    Data: {fileID: 11400000, guid: f882f1aa512883647b01b774b70f9595, type: 2}
+    isSkipLoadScene: 0
+  - Scene:
+      m_SceneName: Stage_04
+    Data: {fileID: 11400000, guid: 1a02e8bff4fb19845b72c2f72d96b059, type: 2}
     isSkipLoadScene: 1
   - Scene:
       m_SceneName: End
     Data: {fileID: 0}
     isSkipLoadScene: 0
-  sequensNum: 0
-  isPreLoad: 0
+  loadScene:
+    m_SceneName: Load
 --- !u!1001 &1407077249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12591,7 +12590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1455266587
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13884,7 +13883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.92156863, b: 0.88235295, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0

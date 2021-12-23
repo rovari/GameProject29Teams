@@ -10,10 +10,19 @@ EditorBuildSettings:
     guid: 06c4887fe6b6dde4892a06bf636ebd21
   - enabled: 1
     path: Assets/01_Scene/Stage0/Stage_00.unity
-    guid: 3739a49fd3b975f4e80192135f0335d0
+    guid: 498d3d81922fc8443b838d45f5c878d6
   - enabled: 1
     path: Assets/01_Scene/Stage1/Stage_01.unity
+    guid: 3739a49fd3b975f4e80192135f0335d0
+  - enabled: 1
+    path: Assets/01_Scene/Stage2/Stage_02.unity
     guid: 7ef1bbf538e4e474cbd89c0e1907e239
+  - enabled: 1
+    path: Assets/01_Scene/Stage3/Stage_03.unity
+    guid: 9f7b14d6bde85a040bab8a68695c349c
+  - enabled: 1
+    path: Assets/01_Scene/Stage4/Stage_04.unity
+    guid: a5589f2f26cced04d90a770ea98a140e
   - enabled: 1
     path: Assets/01_Scene/System/Load.unity
     guid: 0b732b0431163b94f8389fe2be562c1b

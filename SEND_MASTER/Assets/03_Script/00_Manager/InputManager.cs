@@ -34,7 +34,7 @@ public class InputManager : MonoBehaviour {
     }
     
     // Unity
-	public void Start    () {
+	public void Awake    () {
         LoadInput();
 	}
 

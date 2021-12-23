@@ -15,7 +15,12 @@ public class EnemysSystem : MonoBehaviour {
 
 	// Signal
     public void PopMarker        (List<int> indexes) {
-        foreach(var i in indexes) currentEnemyList.Add(Instantiate(enemyList[i]));
+
+        foreach (var i in indexes) {
+
+            if (i > enemyList.Count - 1) continue;
+            currentEnemyList.Add(Instantiate(enemyList[i]));
+        }
     }
     public void AllDestroySignal () {
         foreach (var e in currentEnemyList) Destroy(e.gameObject);

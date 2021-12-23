@@ -17,30 +17,31 @@ public enum MENU_INDEX {
 public class MenuSystem : MonoBehaviour {
 
     // Field
-    [SerializeField] private GameObject menuUI;
+    [SerializeField] private GameObject     menuUI;
 
-    [SerializeField] private Image  Icon;
+    [SerializeField] private Image          Icon;
 
-    [SerializeField] private Slider masterSlider;
-    [SerializeField] private Slider bgmSlider;
-    [SerializeField] private Slider seSlider;
-    [SerializeField] private Slider vosSlider;
+    [SerializeField] private Slider         masterSlider;
+    [SerializeField] private Slider         bgmSlider;
+    [SerializeField] private Slider         seSlider;
+    [SerializeField] private Slider         vosSlider;
 
-    [SerializeField] private RectTransform AnchorRe;
-    [SerializeField] private RectTransform AnchorRs;
-    [SerializeField] private RectTransform AnchorMs;
-    [SerializeField] private RectTransform AnchorBg;
-    [SerializeField] private RectTransform AnchorSe;
-    [SerializeField] private RectTransform AnchorVo;
-    [SerializeField] private RectTransform AnchorEx;
+    [SerializeField] private RectTransform  AnchorRe;
+    [SerializeField] private RectTransform  AnchorRs;
+    [SerializeField] private RectTransform  AnchorMs;
+    [SerializeField] private RectTransform  AnchorBg;
+    [SerializeField] private RectTransform  AnchorSe;
+    [SerializeField] private RectTransform  AnchorVo;
+    [SerializeField] private RectTransform  AnchorEx;
 
     private Vector3 velocity;
     
+    private bool  isLock;
     private float masterVL;
     private float bgmVL;
     private float seVL;
     private float vosVL;
-
+    
     private float lockTime;
     private float oldTimeScale;
     private STATE oldState;
@@ -59,11 +60,11 @@ public class MenuSystem : MonoBehaviour {
         StateManager.GetSetState = STATE.MENU;
         Time.timeScale = 0.0f;
 
-        menuUI.SetActive(true);
+        if(menuUI != null) menuUI.SetActive(true);
     }
     private void ExitMenu           () {
 
-        menuUI.SetActive(false);
+        if (Icon != null) menuUI.SetActive(false);
 
         Time.timeScale = oldTimeScale;
         StateManager.GetSetState = oldState;
@@ -78,7 +79,7 @@ public class MenuSystem : MonoBehaviour {
 
             case MENU_INDEX.RETURN:
 
-                Icon.rectTransform.position = AnchorRe.position;
+                if(Icon != null) Icon.rectTransform.position = AnchorRe.position;
 
                 AudioManager.PlayOneShot(SOUNDTYPE.SYSTEM, "Apply_mse");
                 ExitMenu();
@@ -86,15 +87,21 @@ public class MenuSystem : MonoBehaviour {
                 break;
             case MENU_INDEX.RETRY:
 
-                Icon.rectTransform.position = AnchorRs.position;
+                if (Icon != null) Icon.rectTransform.position = AnchorRs.position;
 
                 AudioManager.PlayOneShot(SOUNDTYPE.SYSTEM, "Apply_mse");
-                LoadManager.ReLoad();
+
+                if (!isLock) {
+
+                    isLock = true;
+                    LoadManager.ReLoad();
+                }
+
                 break;
 
             case MENU_INDEX.EXIT:
 
-                Icon.rectTransform.position = AnchorEx.position;
+                if (Icon != null) Icon.rectTransform.position = AnchorEx.position;
 
                 AudioManager.PlayOneShot(SOUNDTYPE.SYSTEM, "Apply_mse");
                 
@@ -138,23 +145,23 @@ public class MenuSystem : MonoBehaviour {
 
 
             case MENU_INDEX.RETURN:
-                
-                Icon.rectTransform.position = AnchorRe.position;
+
+                if (Icon != null) Icon.rectTransform.position = AnchorRe.position;
                 break;
 
             case MENU_INDEX.RETRY:
-                
-                Icon.rectTransform.position = AnchorRs.position;
+
+                if (Icon != null) Icon.rectTransform.position = AnchorRs.position;
                 break;
 
             case MENU_INDEX.EXIT:
 
-                Icon.rectTransform.position = AnchorEx.position;
+                if (Icon != null) Icon.rectTransform.position = AnchorEx.position;
                 break;
 
             case MENU_INDEX.MASTER_VL:
 
-                Icon.rectTransform.position = AnchorMs.position;
+                if (Icon != null) Icon.rectTransform.position = AnchorMs.position;
 
                 masterVL += stick.x * Time.unscaledDeltaTime;
                 masterVL = Mathf.Clamp01(masterVL);
@@ -163,7 +170,7 @@ public class MenuSystem : MonoBehaviour {
 
             case MENU_INDEX.BGM_VL:
 
-                Icon.rectTransform.position = AnchorBg.position;
+                if (Icon != null) Icon.rectTransform.position = AnchorBg.position;
 
                 bgmVL += stick.x * Time.unscaledDeltaTime;
                 bgmVL = Mathf.Clamp01(bgmVL);
@@ -171,7 +178,7 @@ public class MenuSystem : MonoBehaviour {
                 break;
             case MENU_INDEX.SE_VL:
 
-                Icon.rectTransform.position = AnchorSe.position;
+                if (Icon != null) Icon.rectTransform.position = AnchorSe.position;
 
                 seVL += stick.x * Time.unscaledDeltaTime;
                 seVL = Mathf.Clamp01(seVL);
@@ -179,7 +186,7 @@ public class MenuSystem : MonoBehaviour {
                 break;
             case MENU_INDEX.VOS_VL:
 
-                Icon.rectTransform.position = AnchorVo.position;
+                if (Icon != null) Icon.rectTransform.position = AnchorVo.position;
 
                 vosVL += stick.x * Time.unscaledDeltaTime;
                 vosVL = Mathf.Clamp01(vosVL);
@@ -207,7 +214,7 @@ public class MenuSystem : MonoBehaviour {
         oldState = StateManager.GetSetState;
 
         StateManager.GetSetState = STATE.GAME;
-        InputManager.GetPlayerInput().currentActionMap["Menu"].started += _ => OpenMenu();
+        InputManager.GetPlayerInput().currentActionMap["Menu"]  .started += _ => OpenMenu();
 
         StateManager.GetSetState = STATE.MENU;
         InputManager.GetPlayerInput().currentActionMap["Escape"].started += _ => ExitMenu();
@@ -216,13 +223,10 @@ public class MenuSystem : MonoBehaviour {
         InputManager.GetPlayerInput().currentActionMap["Down"]  .started += _ => AddIndex();
 
         StateManager.GetSetState = oldState;
-
-
-
-
+        
     }
     private void  Update    () {
 
         if (StateManager.GetSetState == STATE.MENU) SliderSelectMenu();
-    }
+    }   
 }

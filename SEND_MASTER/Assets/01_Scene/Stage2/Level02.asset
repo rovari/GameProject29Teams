@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 052f81f2fc78a8440a14c0102a822ec4, type: 3}
-  m_Name: Stage_01
+  m_Name: Level02
   m_EditorClassIdentifier: 
   level: 1
   lineColor: {r: 0.060074754, g: 0.509434, b: 0.17400981, a: 1}
-  stageBgm: 
-  stageEnv: 
+  stageBgm: Stage02_bgm
+  stageEnv: DeepSea_env
   stageName: 
   lowEnemyName: 
   lowEnemyTex: {fileID: 0}
