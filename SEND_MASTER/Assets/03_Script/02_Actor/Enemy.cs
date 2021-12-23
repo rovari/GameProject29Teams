@@ -78,7 +78,7 @@ public class Enemy : Actor {
 
             case SEQUENCE.GENERAL:
                 
-                if(activeCount > activeTime) {
+                if(activeCount > activeTime && grade < GRADE.BOSS) {
 
                     timeline.Stop();
                     activeCount             = 0.0f;
