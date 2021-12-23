@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Title_mat
+  m_Name: Plane_mat
   m_Shader: {fileID: 4800000, guid: 9df51b61575038c469c5db3f24fda848, type: 3}
-  m_ShaderKeywords: _GT_ONECOLOR _REVERSE_ON
+  m_ShaderKeywords: _FOG_ON _GT_LAMBERT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,13 +20,13 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AddTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: c53f797b22fb34048b84e928c0b7988a, type: 3}
+        m_Scale: {x: 250, y: 250}
+        m_Offset: {x: 0.5, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: 7183c074fe37af34591e362e97db890c, type: 3}
+        m_Scale: {x: 100, y: 100}
+        m_Offset: {x: 0.5, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -44,11 +44,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 1ff32421c0172104e804ead577e371d3, type: 3}
+        m_Scale: {x: 500, y: 500}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 2800000, guid: 7b4d729e6d9aa1e4aa559c4eb2214e49, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -65,7 +65,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Add: 0
+    - _Add: 0.52
     - _Affect: 1
     - _BumpScale: 1
     - _Clv: 0.5
@@ -73,12 +73,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _Discard: 0
     - _DstBlend: 0
-    - _Fog: 0
-    - _FogEnd: 0
-    - _FogStart: 0
+    - _Fog: 1
+    - _FogEnd: 2.13
+    - _FogStart: 0.06
     - _GH_BOTTOM: 0
     - _GH_TOP: 0
-    - _GT: 0
+    - _GT: 1
     - _GV_X: 1
     - _GV_Y: 1
     - _GlossMapScale: 1
@@ -90,22 +90,22 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Range: 0
-    - _Reverse: 1
+    - _Reverse: 0
     - _Rim: 0
     - _RimLv: 0
     - _Scr_X: 0
-    - _Scr_Y: 0
+    - _Scr_Y: -1.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DisCol: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+    - _Color: {r: 0.9528302, g: 0.8942782, b: 0.63372195, a: 1}
+    - _DisCol: {r: 1, g: 1, b: 1, a: 1}
     - _DisEdgeCol: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FogColor: {r: 0.051041294, g: 0.14290582, b: 0.2924528, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SubColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SubColor: {r: 0.2995283, g: 0.46352118, b: 0.5, a: 1}
   m_BuildTextureStacks: []

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 052f81f2fc78a8440a14c0102a822ec4, type: 3}
-  m_Name: Level0
+  m_Name: Stage_01
   m_EditorClassIdentifier: 
   level: 1
-  lineColor: {r: 0.1433562, g: 0.13389999, b: 0.16037738, a: 1}
-  stageBgm: Stage02_bgm
-  stageEnv: Wind_env
-  stageName: ProtoStage
-  lowEnemyName: "\u30D7\u30ED\u30C8\u30C9\u30ED\u30FC\u30F3"
+  lineColor: {r: 0.060074754, g: 0.509434, b: 0.17400981, a: 1}
+  stageBgm: 
+  stageEnv: 
+  stageName: 
+  lowEnemyName: 
   lowEnemyTex: {fileID: 0}
   lowEnemyState:
     isWillDead: 0
@@ -25,25 +25,25 @@ MonoBehaviour:
     isInvincible: 0
     isTurbo: 0
     life: 0
-    hp: 1
+    hp: 0
     defence: 0
     resist: 0
     defLife: 0
     defHp: 0
-  middleEnemyName: "\u30D7\u30ED\u30C8\u30E2\u30D2\u30AB\u30F3"
-  middleEnemyTex: {fileID: 2800000, guid: 054d61052c4dbb9449943e42e822c70e, type: 3}
+  middleEnemyName: 
+  middleEnemyTex: {fileID: 0}
   middleEnemyState:
     isWillDead: 0
     isPlayer: 0
     isInvincible: 0
     isTurbo: 0
     life: 0
-    hp: 1
+    hp: 0
     defence: 0
     resist: 0
     defLife: 0
     defHp: 0
-  highEnemyName: "\u30D7\u30ED\u30C8\u30B8\u30A7\u30EA\u30FC"
+  highEnemyName: 
   highEnemyTex: {fileID: 0}
   highEnemyState:
     isWillDead: 0
@@ -51,33 +51,33 @@ MonoBehaviour:
     isInvincible: 0
     isTurbo: 0
     life: 0
-    hp: 1
+    hp: 0
     defence: 0
     resist: 0
     defLife: 0
     defHp: 0
-  bossEnemyName: "\u30D7\u30ED\u30C8\u30D8\u30C3\u30C9"
-  bossEnemyTex: {fileID: 2800000, guid: 0efe942d25af79c4b92c6b7002a93589, type: 3}
+  bossEnemyName: 
+  bossEnemyTex: {fileID: 0}
   bossEnemyState:
     isWillDead: 0
     isPlayer: 0
     isInvincible: 0
     isTurbo: 0
-    life: 1
-    hp: 1
+    life: 0
+    hp: 0
     defence: 0
     resist: 0
     defLife: 0
     defHp: 0
-  endBossEnemyName: "\u30D7\u30ED\u30C8\u30C9\u30F3\u30E2\u30D2\u30AB\u30F3"
+  endBossEnemyName: 
   endBossEnemyTex: {fileID: 0}
   endBossEnemyState:
     isWillDead: 0
     isPlayer: 0
     isInvincible: 0
     isTurbo: 0
-    life: 1
-    hp: 1
+    life: 0
+    hp: 0
     defence: 0
     resist: 0
     defLife: 0

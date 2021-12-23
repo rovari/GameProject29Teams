@@ -66,9 +66,9 @@ public class EnemyMove : ActorData {
         GRADE grade =((Enemy)actor).GetGrade();
 
         if(grade >= GRADE.MIDDLE)   actor.effect.PlayEffect(EFFECT.EXPLOSION,   deadEffect);
-        if(grade >= GRADE.BOSS)     actor.effect.PlayEffect(EFFECT.CA,          deadEffect);
+        if(grade >= GRADE.HIGH)     actor.effect.PlayEffect(EFFECT.CA,          deadEffect);
         if(grade >= GRADE.BOSS)     actor.effect.PlayEffect(EFFECT.FILL,        deadEffect);
-        if(grade >= GRADE.ENDBOSS)  actor.effect.PlayEffect(EFFECT.SLOWMOTION,  deadEffect);
+        if(grade >= GRADE.BOSS)     actor.effect.PlayEffect(EFFECT.SLOWMOTION,  deadEffect);
 
         tag = "Untagged";
 

@@ -6,6 +6,7 @@ Shader "Custom/Surface"
 		_GT ("Gradation Type", float) = 0
 
 		_MainTex ("Albedo (RGB)", 2D)				= "white" {}
+		_AddTex	 ("Add (RGB)"	, 2D)				= "black" {}
 		_BumpMap ("Normal Map"	, 2D)				= "bump"  {}
 		
         _Color		("Color"					, Color)			= (1,1,1,1)
@@ -14,6 +15,7 @@ Shader "Custom/Surface"
 		_Clv		("Cel Light Level"			, Range(0.0, 1.0))	= 0.5
 		_GV_X		("Gradation UV vector X"	, Range(0.0, 1.0))	= 1.0
 		_GV_Y		("Gradation UV vector Y"	, Range(0.0, 1.0))	= 1.0
+		_Add		("Add Color Level"			, float)			= 0
 		_GH_TOP		("Gradation Height Top"		, float)			= 0
 		_GH_BOTTOM	("Gradation Height Bottom"	, float)			= 0
 
@@ -51,11 +53,13 @@ Shader "Custom/Surface"
 		#pragma shader_feature _GT_ONECOLOR _GT_LAMBERT _GT_CEL _GT_UV _GT_HEIGHT
 
         sampler2D _MainTex;
+        sampler2D _AddTex;
 		sampler2D _BumpMap;
 		sampler2D _Mask;
 		
         struct Input{
             float2	uv_MainTex;
+            float2	uv_AddTex;
             float2	uv_BumpMap;
             float2	uv_Mask;
 			float3	worldPos;
@@ -64,7 +68,7 @@ Shader "Custom/Surface"
         };
 
         fixed4	_Color, _SubColor, _FogColor, _RimColor, _DisCol, _DisEdgeCol;
-		fixed	_Height, _Clv, _RimLv;
+		fixed	_Add, _Height, _Clv, _RimLv;
 		fixed	_GV_X, _GV_Y, _GH_TOP, _GH_BOTTOM;
 		int		_Affect, _Reverse, _Fog, _Rim;
 		fixed	_Range;
@@ -94,7 +98,7 @@ Shader "Custom/Surface"
 
 			float2 addUv = float2(_Time.y * _Scr_X, _Time.y * _Scr_Y);
 
-			fixed4	c	= tex2D(_MainTex, IN.uv_MainTex + addUv);
+			fixed4	c	= tex2D(_MainTex, IN.uv_MainTex + addUv) + (tex2D(_AddTex, IN.uv_AddTex + addUv) * _Add);
 			float3	n	= UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap + addUv) * _Height);
 			float3	l	= normalize(float3(1.0, -1.0, 1.0));
 

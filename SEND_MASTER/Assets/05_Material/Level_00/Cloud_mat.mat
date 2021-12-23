@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Plane_mat
+  m_Name: Cloud_mat
   m_Shader: {fileID: 4800000, guid: 9df51b61575038c469c5db3f24fda848, type: 3}
-  m_ShaderKeywords: _FOG_ON _GT_LAMBERT
+  m_ShaderKeywords: _AFFECT_ON _GT_ONECOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,9 +20,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: ae5ab265a206bb34191ed6cc7185956a, type: 3}
-        m_Scale: {x: 100, y: 100}
-        m_Offset: {x: 0.5, y: 0}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -41,10 +41,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 1ff32421c0172104e804ead577e371d3, type: 3}
-        m_Scale: {x: 500, y: 500}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: cd920bf0055f1d34bbba1db3541d1138, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -68,12 +68,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _Discard: 0
     - _DstBlend: 0
-    - _Fog: 1
-    - _FogEnd: 4.48
-    - _FogStart: 0.09
+    - _Fog: 0
+    - _FogEnd: 0
+    - _FogStart: 0
     - _GH_BOTTOM: 0
     - _GH_TOP: 0
-    - _GT: 1
+    - _GT: 0
     - _GV_X: 1
     - _GV_Y: 1
     - _GlossMapScale: 1
@@ -84,23 +84,23 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Range: 0
+    - _Range: 0.67
     - _Reverse: 0
     - _Rim: 0
     - _RimLv: 0
     - _Scr_X: 0
-    - _Scr_Y: -1.5
+    - _Scr_Y: -0.15
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+    - _Color: {r: 0.7075472, g: 0.5473525, b: 0.44388574, a: 1}
     - _DisCol: {r: 1, g: 1, b: 1, a: 1}
     - _DisEdgeCol: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor: {r: 0.7264151, g: 0.48919034, b: 0.16104485, a: 1}
+    - _FogColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SubColor: {r: 0.2264151, g: 0.20844764, b: 0.19117124, a: 1}
+    - _SubColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

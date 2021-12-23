@@ -59,27 +59,31 @@ public class StateManager : MonoBehaviour {
     static public  void  StartSequence  () {
         
         sequence = MAIN_TL.IDLE;
-        
-        if (intro != null && GetSetState != STATE.LOAD) {
-            
-            AudioManager.Play           (SOUNDTYPE.BGM, "Stage01_bgm");
-            AudioManager.Play           (SOUNDTYPE.ENVIRONMENT, "Window_env");
-
-            AudioManager.ShmoothLowPass (true, false, 0.0f);
-
-            AudioManager.Volume         (SOUNDTYPE.BGM, 0.0f);
-            AudioManager.ShmoothFade    (true, 3.0f, 10.0f);
-
-            GetSetState = STATE.EVENT;
-            sequence    = MAIN_TL.INTRO;
-            timeline.playableAsset = intro;
-            timeline.Play();
-        }
     }
 
     static private void  Sequence       () {
         
         switch (sequence) {
+
+            case MAIN_TL.IDLE:
+
+                if (intro != null && GetSetState != STATE.LOAD) {
+
+                    AudioManager.Play           (SOUNDTYPE.BGM, "Stage01_bgm");
+                    AudioManager.Play           (SOUNDTYPE.ENVIRONMENT, "Window_env");
+
+                    AudioManager.ShmoothLowPass (true, false, 0.0f);
+
+                    AudioManager.Volume         (SOUNDTYPE.BGM, 0.0f);
+                    AudioManager.ShmoothFade    (true, 3.0f, 10.0f);
+
+                    GetSetState = STATE.EVENT;
+                    sequence    = MAIN_TL.INTRO;
+                    timeline.playableAsset = intro;
+                    timeline.Play();
+                }
+                break;
+
             case MAIN_TL.INTRO:
                 
                 if(timeline.playableAsset && timeline.time >= timeline.duration) {

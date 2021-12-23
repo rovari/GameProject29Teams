@@ -66,8 +66,12 @@ public class LoadSystem : MonoBehaviour {
         while (!async.isDone || !isPreLoad) { yield return null; }
 
         async.allowSceneActivation = true;
-        isPreLoad = false;  
-    }   
+        isPreLoad = false;
+    }
+
+    private void SetLevelData() {
+        StateManager.GetSetLevelData = sceneSequens[sequensNum].Data;
+    }
 
     // Signal
     public  void        AddIndexLoadSignal  () {
@@ -80,6 +84,6 @@ public class LoadSystem : MonoBehaviour {
     
     // Unity
 	private void Start() {
-
-	}
+        SetLevelData();
+    }
 }

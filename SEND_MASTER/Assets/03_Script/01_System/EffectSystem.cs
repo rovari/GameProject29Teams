@@ -406,6 +406,8 @@ public class EffectSystem : MonoBehaviour {
 
         output = new Output(GameObject.FindGameObjectWithTag("Frame").GetComponent<Image>().material);
         CreateDictionary();
+
+        output.SetLaplacian(StateManager.GetSetLevelData.lineColor);
 	}
 
     private void Update () {
