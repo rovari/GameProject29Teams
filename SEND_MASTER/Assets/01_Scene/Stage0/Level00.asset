@@ -15,7 +15,7 @@ MonoBehaviour:
   level: 1
   lineColor: {r: 0.10239409, g: 0.3679245, b: 0.36063543, a: 1}
   stageBgm: Thutorial_bgm
-  stageEnv: Wind_env
+  stageEnv: Plant_env
   stageName: ProtoStage
   lowEnemyName: "\u30D7\u30ED\u30C8\u30C9\u30ED\u30FC\u30F3"
   lowEnemyTex: {fileID: 0}

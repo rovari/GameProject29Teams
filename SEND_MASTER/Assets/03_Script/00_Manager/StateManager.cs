@@ -71,8 +71,8 @@ public class StateManager : MonoBehaviour {
 
                 if (intro != null && GetSetState != STATE.LOAD) {
 
-                    AudioManager.Play           (SOUNDTYPE.BGM, GetSetLevelData.stageBgm);
-                    AudioManager.Play           (SOUNDTYPE.ENVIRONMENT, "Window_env");
+                    AudioManager.Play (SOUNDTYPE.BGM, GetSetLevelData.stageBgm);
+                    AudioManager.Play (SOUNDTYPE.ENVIRONMENT, GetSetLevelData.stageEnv);
 
                     if(!speech.isThutorial) AudioManager.ShmoothLowPass (true, false, 0.0f);
 

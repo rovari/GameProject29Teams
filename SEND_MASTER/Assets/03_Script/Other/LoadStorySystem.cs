@@ -27,15 +27,16 @@ public class LoadStorySystem : MonoBehaviour {
     // Method
     public void OpenPreLoad         () {
 
-        if (storyTL != null && storyTL.time < storyTL.duration) return;
+        if (storyTL == null) return;
+        if (storyTL.time < storyTL.duration) return;
 
         LoadManager .OpenLoad();
         StateManager.GetSetState    = STATE.NONE;
     }
 
     private void SetStoryTexture    () {
-        storyImage.sprite   = storySprites[LoadManager.GetSequenceNum() - 1].sprite;
-        storyText.text      = storySprites[LoadManager.GetSequenceNum() - 1].story;
+        storyImage.sprite   = storySprites[LoadManager.GetSequenceNum()].sprite;
+        storyText.text      = storySprites[LoadManager.GetSequenceNum()].story;
     }
 
 	// Signal

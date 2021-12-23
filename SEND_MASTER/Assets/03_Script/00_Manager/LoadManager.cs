@@ -23,6 +23,8 @@ public class LoadManager : MonoBehaviour {
     static public List<SceneData>   sceneSequens;
     static public SceneObject       loadingScene;
 
+    static private bool             isLock;
+
     // Property
 
     // Method
@@ -47,21 +49,21 @@ public class LoadManager : MonoBehaviour {
     }
     static public void ReLoad           () {
 
-        ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
-        SceneData oldSceneData = sceneSequens[sequensNum];
+        if (!isLock) {
+            isLock = true;
 
-        if (loadingScene != null && !oldSceneData.isSkipLoadScene)
-        {
-            SceneManager.LoadSceneAsync(loadingScene);
-        }
-        
-        async = SceneManager.LoadSceneAsync(sceneSequens[sequensNum].Scene);
-        async.allowSceneActivation = false;
+            ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
 
-        if (!oldSceneData.isSkipLoadScene) {
+            if (loadingScene != null)
+            {
+                SceneManager.LoadSceneAsync(loadingScene);
+            }
+
+            async = SceneManager.LoadSceneAsync(sceneSequens[sequensNum].Scene);
             async.allowSceneActivation = false;
-        }
 
+            isLock = false;
+        }
     }
     static public void OpenLoad         () {
         async.allowSceneActivation = true;

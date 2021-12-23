@@ -52,10 +52,13 @@ public class MenuSystem : MonoBehaviour {
     // Method
     private void OpenMenu           () {
 
+        oldTimeScale = Time.timeScale;
+        oldState = StateManager.GetSetState;
+
+        if (StateManager.GetSetState != STATE.GAME) return;
+
         AudioManager.ShmoothLowPass(true, false, 0.0f);
 
-        oldState = StateManager.GetSetState;
-        oldTimeScale = Time.timeScale;
 
         StateManager.GetSetState = STATE.MENU;
         Time.timeScale = 0.0f;

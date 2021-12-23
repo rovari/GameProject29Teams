@@ -15,7 +15,7 @@ MonoBehaviour:
   level: 3
   lineColor: {r: 1, g: 0.92156863, b: 0.88235295, a: 1}
   stageBgm: Stage04_bgm
-  stageEnv: 
+  stageEnv: Space_env
   stageName: 
   lowEnemyName: 
   lowEnemyTex: {fileID: 0}

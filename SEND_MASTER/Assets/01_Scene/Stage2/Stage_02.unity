@@ -2251,6 +2251,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 138977cc2905c504997741214956d340, type: 3}
   environmentClipList:
   - {fileID: 8300000, guid: 0d3b2213143845344bf1fb944d9d1812, type: 3}
+  - {fileID: 8300000, guid: 99f3bf9a0150a0348ac9193ec660f8ed, type: 3}
   gameSeClipList:
   - {fileID: 8300000, guid: 99e6bd55eeec8034cbbed347606edf48, type: 3}
   - {fileID: 8300000, guid: 206d7d8d0319d114bb8ee2efa54255cc, type: 3}
