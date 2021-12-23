@@ -1142,7 +1142,6 @@ MonoBehaviour:
   - {fileID: 2033401932}
   - {fileID: 374770643}
   - {fileID: 691238349}
-  isRecast: 0
 --- !u!1001 &264436009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2309,7 +2308,6 @@ MonoBehaviour:
   - {fileID: 1153747158}
   - {fileID: 2064186408}
   - {fileID: 852447264}
-  isRecast: 0
 --- !u!1001 &463685057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7967,8 +7965,6 @@ MonoBehaviour:
   - {fileID: 937053230}
   - {fileID: 246091398}
   aim: {fileID: 1488220823}
-  targetIndex: 0
-  weaponIndex: 0
 --- !u!1 &654208232
 GameObject:
   m_ObjectHideFlags: 0
@@ -9627,7 +9623,6 @@ MonoBehaviour:
   - {fileID: 264436011}
   - {fileID: 1122481722}
   - {fileID: 2071459094}
-  isRecast: 0
 --- !u!1 &942345672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ebc9d6ae97e92ad429f98bb34ecd1347, type: 3}
@@ -9695,8 +9690,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introTL: {fileID: 11400000, guid: 54555af6e91e55a43aabcbad4e52ae84, type: 2}
   generalTL: {fileID: 11400000, guid: 4dc81f7e42a3c6247a0f316ac92f1125, type: 2}
-  bossTL: {fileID: 11400000, guid: bb3330cd7611bac4eb9f21b38234db8b, type: 2}
+  bossTL: {fileID: 11400000, guid: 459f1baeb2a4e644c8e77af09ae82559, type: 2}
   resultTL: {fileID: 11400000, guid: 81eea6f7fba504f4bba04bf3a4488563, type: 2}
+  caution: {fileID: 0}
 --- !u!320 &947870616
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -9756,6 +9752,8 @@ PlayableDirector:
     value: {fileID: 819569149}
   - key: {fileID: 6671108202033378229, guid: 4dc81f7e42a3c6247a0f316ac92f1125, type: 2}
     value: {fileID: 819569149}
+  - key: {fileID: 1387674141919029890, guid: 459f1baeb2a4e644c8e77af09ae82559, type: 2}
+    value: {fileID: 819569145}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &947870617
@@ -9816,6 +9814,7 @@ MonoBehaviour:
   normalBubble: {fileID: 21300000, guid: efd1093852f98c94b8f595d5593d2f7d, type: 3}
   thinkBubble: {fileID: 21300000, guid: 972794fa0dc3d684a90209086f50a651, type: 3}
   thornBubble: {fileID: 21300000, guid: b59916765963d2045a6c5beccdea10e0, type: 3}
+  isThutorial: 0
 --- !u!114 &947870618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12144,6 +12143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eacedcf1883b97469f8deb57c7674df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneList: []
+  loadScene:
+    m_SceneName: 
 --- !u!114 &1384960820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12156,19 +12158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9832cc8005e400c40bfd343bebe607de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScene:
-    m_SceneName: Load
-  sceneSequens:
-  - Scene:
-      m_SceneName: Stage_00
-    Data: {fileID: 11400000, guid: 0805cfc8835ab7c4f957bc40f7e3ebf2, type: 2}
-    isSkipLoadScene: 1
-  - Scene:
-      m_SceneName: End
-    Data: {fileID: 0}
-    isSkipLoadScene: 0
-  sequensNum: 0
-  isPreLoad: 0
 --- !u!1001 &1407077249
 PrefabInstance:
   m_ObjectHideFlags: 0
