@@ -143,6 +143,30 @@ PrefabInstance:
       propertyPath: actorState.hp
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442367, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: deadEffect.time
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442367, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: deadEffect.level
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442367, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: deadEffect.color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442367, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: deadEffect.color.b
+      value: 0.88235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442367, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: deadEffect.color.g
+      value: 0.92156863
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087111321531442367, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
+      propertyPath: deadEffect.color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1087111322666991904, guid: 0c5ce90cbab440f49a86f1a8c17d3b91, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.293
