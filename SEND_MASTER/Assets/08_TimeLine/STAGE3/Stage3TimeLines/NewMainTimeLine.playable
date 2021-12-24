@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50eb7d85c4f33fb418daf3ef04f35db4, type: 3}
   m_Name: Pop Marker
   m_EditorClassIdentifier: 
-  m_Time: 25
+  m_Time: 20
   indexes: 03000000
 --- !u!114 &-4404654065294825305
 MonoBehaviour:
