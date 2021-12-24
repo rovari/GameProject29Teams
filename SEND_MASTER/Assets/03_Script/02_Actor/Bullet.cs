@@ -33,9 +33,7 @@ public class Bullet : Actor {
     // Method
     public void StartBullet(ref GameObject inTarget) {
 
-        if (orbit != ORBIT.ENVIRONMENT) {
-            if (inTarget == null || isWait) return;
-        }
+        if (inTarget == null || isWait) return;
 
         switch (element) {
             case ELEMENT.NORMAL:

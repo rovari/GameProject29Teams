@@ -118,7 +118,9 @@ public class ActorCollision : ActorData {
 
         ActorCollision hitActorCollision;
 
-        if (!other.gameObject.TryGetComponent(out hitActorCollision)) return;
+        if (!other.gameObject.TryGetComponent(out hitActorCollision)) {
+            Debug.Log("NC"); return;
+        }
 
         Debug.Log("HiT " + actor.name + " -> " + other.GetComponent<ActorCollision>().GetActor().gameObject.name);
 
