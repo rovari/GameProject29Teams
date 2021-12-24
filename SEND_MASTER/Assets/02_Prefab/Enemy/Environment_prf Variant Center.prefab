@@ -11,6 +11,26 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4123095198098454732, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
+      propertyPath: orbit
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776822403943539719, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776822403943539719, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776822403943539719, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200415399096938158, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
+      propertyPath: aim
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6200415399196023086, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: m_Name
       value: Environment_prf Variant Center
@@ -78,29 +98,37 @@ PrefabInstance:
     - target: {fileID: 6200415399196023088, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: encountTL
       value: 
-      objectReference: {fileID: 11400000, guid: 6dca0ac527f0e8e43851300d573c3a85, type: 2}
+      objectReference: {fileID: 11400000, guid: 274028b88643e074ea448b6c3c94fe9b, type: 2}
     - target: {fileID: 6200415399196023088, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: generalTL
       value: 
-      objectReference: {fileID: 11400000, guid: bc3211bb204e5884ab42bb557f7efd9d, type: 2}
+      objectReference: {fileID: 11400000, guid: 6dca0ac527f0e8e43851300d573c3a85, type: 2}
     - target: {fileID: 6200415399196023088, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: activeTime
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6200415399196023090, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 6dca0ac527f0e8e43851300d573c3a85, type: 2}
+      objectReference: {fileID: 11400000, guid: 274028b88643e074ea448b6c3c94fe9b, type: 2}
     - target: {fileID: 6200415399196023090, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6200415399196023090, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].key
       value: 
       objectReference: {fileID: -5462444866566230568, guid: 6dca0ac527f0e8e43851300d573c3a85, type: 2}
     - target: {fileID: 6200415399196023090, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].key
+      value: 
+      objectReference: {fileID: -1572883304208149245, guid: 274028b88643e074ea448b6c3c94fe9b, type: 2}
+    - target: {fileID: 6200415399196023090, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 7859261523991491383}
+    - target: {fileID: 6200415399196023090, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
+      propertyPath: m_SceneBindings.Array.data[1].value
       value: 
       objectReference: {fileID: 7859261523991491383}
     m_RemovedComponents: []

@@ -269,6 +269,6 @@ MonoBehaviour:
   m_Name: Enemy Marker
   m_EditorClassIdentifier: 
   m_Time: 59.95
-  type: 0
+  type: 1
   move: 0
   index: 0

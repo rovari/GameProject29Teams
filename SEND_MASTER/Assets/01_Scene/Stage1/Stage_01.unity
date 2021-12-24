@@ -8972,6 +8972,10 @@ MonoBehaviour:
   - {fileID: 3454134106998674416, guid: aafbdf7a1fc2774498ba268611259b9f, type: 3}
   - {fileID: 2642333408251467081, guid: 6b6366951a93d6d4eba55c17b241b450, type: 3}
   - {fileID: 5825555907386045033, guid: c3a9e90a080d01c4b8766b7d00d380fd, type: 3}
+  - {fileID: 1956773883098776512, guid: cbb69b09d4cea9b4da0afc88fe0876c1, type: 3}
+  - {fileID: 8534919237031924584, guid: 6e0f02261de464f47b2a2d37f715143b, type: 3}
+  - {fileID: 7859261523991491368, guid: e55c89b6371594641bdec201b57ac984, type: 3}
+  - {fileID: 5019414169835084884, guid: 7d6d6ee2b113efc41bad716f7d1e5f68, type: 3}
   - {fileID: 1139412892182592860, guid: b5b3806d61ae1b6459e7357bd111d2ee, type: 3}
 --- !u!114 &819569148
 MonoBehaviour:
@@ -9768,7 +9772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introTL: {fileID: 11400000, guid: 54555af6e91e55a43aabcbad4e52ae84, type: 2}
   generalTL: {fileID: 11400000, guid: 4dc81f7e42a3c6247a0f316ac92f1125, type: 2}
-  bossTL: {fileID: 11400000, guid: bb3330cd7611bac4eb9f21b38234db8b, type: 2}
+  bossTL: {fileID: 11400000, guid: 459f1baeb2a4e644c8e77af09ae82559, type: 2}
   resultTL: {fileID: 11400000, guid: 81eea6f7fba504f4bba04bf3a4488563, type: 2}
   caution: {fileID: 2000113296}
 --- !u!320 &947870616
@@ -9780,7 +9784,7 @@ PlayableDirector:
   m_GameObject: {fileID: 947870613}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: bb3330cd7611bac4eb9f21b38234db8b, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 459f1baeb2a4e644c8e77af09ae82559, type: 2}
   m_InitialState: 1
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -9829,6 +9833,8 @@ PlayableDirector:
   - key: {fileID: -1843975875336735969, guid: 3e3283f532d034d4f84d8745c18125c7, type: 2}
     value: {fileID: 819569149}
   - key: {fileID: 6671108202033378229, guid: 4dc81f7e42a3c6247a0f316ac92f1125, type: 2}
+    value: {fileID: 819569149}
+  - key: {fileID: -6613717425433425059, guid: 459f1baeb2a4e644c8e77af09ae82559, type: 2}
     value: {fileID: 819569149}
   m_ExposedReferences:
     m_References: []
