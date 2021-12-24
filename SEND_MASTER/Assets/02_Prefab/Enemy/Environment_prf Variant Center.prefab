@@ -105,12 +105,12 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6dca0ac527f0e8e43851300d573c3a85, type: 2}
     - target: {fileID: 6200415399196023088, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: activeTime
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6200415399196023090, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 274028b88643e074ea448b6c3c94fe9b, type: 2}
+      objectReference: {fileID: 11400000, guid: 6dca0ac527f0e8e43851300d573c3a85, type: 2}
     - target: {fileID: 6200415399196023090, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 2
