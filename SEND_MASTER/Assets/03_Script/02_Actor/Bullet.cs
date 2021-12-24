@@ -33,7 +33,9 @@ public class Bullet : Actor {
     // Method
     public void StartBullet(ref GameObject inTarget) {
 
-        if (inTarget == null || isWait) return;
+        if (orbit != ORBIT.ENVIRONMENT) {
+            if (inTarget == null || isWait) return;
+        }
 
         switch (element) {
             case ELEMENT.NORMAL:
@@ -85,11 +87,12 @@ public class Bullet : Actor {
         ActiveCollision(true);
         
         while ( 0 < length - (startPos - transform.position).sqrMagnitude) {
+
             calcPos += Vector3.Normalize(endPos - startPos) * speed * Time.deltaTime;
             transform.position = calcPos;
             yield return null;
         }
-
+   
         transform.position = endPos;
 
         ActiveCollision(false);

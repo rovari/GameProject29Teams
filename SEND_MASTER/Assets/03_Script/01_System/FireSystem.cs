@@ -95,9 +95,7 @@ public class FireSystem : MonoBehaviour {
         
         foreach(var i in GameObject.FindGameObjectsWithTag(searchTagName)) {
 
-            if (i.transform.position.z < 10.0f
-                && Vector3.Dot(owner.forward, i.transform.position - owner.position) > 0.0f) {
-
+            if (Vector3.Dot(owner.forward, i.transform.position - owner.position) > 0.0f) {
                 targetList.Add(i);
             }
         }
