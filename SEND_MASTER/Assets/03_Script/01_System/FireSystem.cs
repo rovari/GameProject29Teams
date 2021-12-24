@@ -43,7 +43,7 @@ public class FireSystem : MonoBehaviour {
                 if (targetList.Count        <= 0 || targetIndex > targetList.Count - 1) return;
                 if (targetList[targetIndex] == null ) return;
 
-                if (Vector3.Dot(owner.forward, targetList[targetIndex].transform.position - owner.position) < 0.0f) {
+                if (Vector3.Dot(owner.forward, targetList[targetIndex].transform.position - owner.position) > 0.0f) {
                     return;
                 }   
 

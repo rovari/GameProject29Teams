@@ -283,19 +283,21 @@ public class Bullet : Actor {
 
         bool useEnvSpeed = false;
 
-        var a   = -Camera.main.transform.forward;
-        var s   = (useEnvSpeed) ? 1.0f : 10.0f;
-        var sv  = new Vector3(transform.position.x, transform.position.y, 100.0f);
+        var vector      = (owner.transform.forward.z < 0) ? new Vector3(0.0f, 0.0f, -1.0f) : new Vector3(0.0f, 0.0f, 1.0f);
+        var speed       = flightTime;
+        var startPos    = owner.transform.position - owner.transform.forward * 10.0f;
 
-        transform.position = sv;
+        transform.position = startPos;
 
         ActiveCollision(true);
 
         while (true) {
-            sv += a;
-            transform.position = sv;
 
-            if (Vector3.Dot(a, (Camera.main.transform.position - sv)) < 0.0f) break;
+            startPos += vector * speed;
+            transform.position = startPos;
+            
+            if (vector.z < 0.0f && Vector3.Dot(vector, (Camera.main.transform.position - startPos)) < 0.0f) break;
+            if (vector.z > 0.0f && Vector3.Dot(vector, (vector * 100.0f - startPos)) > 0.0f) break;
 
             yield return null;
         }
