@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a272afe30f5a540a9122bbf1b0165c, type: 3}
   m_Name: Enemy Marker
   m_EditorClassIdentifier: 
-  m_Time: 4
+  m_Time: 1
   type: 1
   move: 0
   index: 0
@@ -115,7 +115,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 6.38, y: -3.9, z: -87.2}
+        value: {x: 4.98, y: -3.9, z: -87.2}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -124,7 +124,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 9
-        value: {x: 6.38, y: -3.9, z: -87.2}
+        value: {x: 4.98, y: -3.9, z: -87.2}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -186,7 +186,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 6.38
+        value: 4.98
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -195,7 +195,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 9
-        value: 6.38
+        value: 4.98
         inSlope: 0
         outSlope: 0
         tangentMode: 136

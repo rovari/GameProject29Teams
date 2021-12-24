@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: orbit
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4123095198098454732, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
+      propertyPath: flightTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5776822403943539719, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: m_LocalScale.x
       value: 5000
@@ -105,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 6dca0ac527f0e8e43851300d573c3a85, type: 2}
     - target: {fileID: 6200415399196023088, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: activeTime
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6200415399196023090, guid: 757e9a1f4a3782145bab03f91959f27e, type: 3}
       propertyPath: m_PlayableAsset
