@@ -36,7 +36,7 @@ public class LoadManager : MonoBehaviour {
         if (loadingScene != null && !oldSceneData.isSkipLoadScene) {
             SceneManager.LoadSceneAsync(loadingScene);
         }
-
+        
         sequensNum = (sceneNumber >= 0) ? sceneNumber : ++sequensNum;
         sequensNum = (sequensNum < sceneSequens.Count) ? sequensNum : 0;
         
@@ -54,8 +54,8 @@ public class LoadManager : MonoBehaviour {
 
             ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
 
-            if (loadingScene != null)
-            {
+            if (loadingScene != null) {
+
                 SceneManager.LoadSceneAsync(loadingScene);
             }
 
@@ -67,6 +67,9 @@ public class LoadManager : MonoBehaviour {
     }
     static public void OpenLoad         () {
         async.allowSceneActivation = true;
+    }
+    static public void SetSequenceNum   (int num) {
+        sequensNum = num;
     }
     static public int  GetSequenceNum   () {
         return sequensNum;

@@ -20,7 +20,7 @@ public class LoadStorySystem : MonoBehaviour {
     [SerializeField] Image              storyImage;
     [SerializeField] PlayableDirector   storyTL;
     [SerializeField] List<LoadStory>    storySprites;
-    [SerializeField] Image              button;
+    [SerializeField] GameObject         button;
     
     // Property
 
@@ -51,6 +51,6 @@ public class LoadStorySystem : MonoBehaviour {
 	}
 
     private void Update() {
-        if (storyTL.time >= storyTL.duration) button.gameObject.SetActive(true);
+        if (storyTL.time >= storyTL.duration) button.SetActive(true);
     }
 }

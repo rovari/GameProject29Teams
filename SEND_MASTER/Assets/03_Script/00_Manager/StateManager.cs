@@ -208,6 +208,10 @@ public class StateManager : MonoBehaviour {
         timeline    = GetComponent<PlayableDirector>();
         speech      = GetComponent<SpeechSystem>();
 
+        if(LoadManager.GetSequenceNum() == 0) {
+            LoadManager.SetSequenceNum(0);
+        }
+
         GetSetLevelData = LoadManager.GetLevelData();
         StartSequence();
 	}
