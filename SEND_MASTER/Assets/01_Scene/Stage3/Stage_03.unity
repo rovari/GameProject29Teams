@@ -9769,7 +9769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   introTL: {fileID: 11400000, guid: 54555af6e91e55a43aabcbad4e52ae84, type: 2}
   generalTL: {fileID: 11400000, guid: 4dc81f7e42a3c6247a0f316ac92f1125, type: 2}
-  bossTL: {fileID: 11400000, guid: bb3330cd7611bac4eb9f21b38234db8b, type: 2}
+  bossTL: {fileID: 11400000, guid: 459f1baeb2a4e644c8e77af09ae82559, type: 2}
   resultTL: {fileID: 11400000, guid: 81eea6f7fba504f4bba04bf3a4488563, type: 2}
   caution: {fileID: 1292922463}
 --- !u!320 &947870616
@@ -9781,7 +9781,7 @@ PlayableDirector:
   m_GameObject: {fileID: 947870613}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 4dc81f7e42a3c6247a0f316ac92f1125, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 459f1baeb2a4e644c8e77af09ae82559, type: 2}
   m_InitialState: 1
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
@@ -9830,6 +9830,8 @@ PlayableDirector:
   - key: {fileID: -1843975875336735969, guid: 3e3283f532d034d4f84d8745c18125c7, type: 2}
     value: {fileID: 819569149}
   - key: {fileID: 6671108202033378229, guid: 4dc81f7e42a3c6247a0f316ac92f1125, type: 2}
+    value: {fileID: 819569149}
+  - key: {fileID: -6613717425433425059, guid: 459f1baeb2a4e644c8e77af09ae82559, type: 2}
     value: {fileID: 819569149}
   m_ExposedReferences:
     m_References: []
