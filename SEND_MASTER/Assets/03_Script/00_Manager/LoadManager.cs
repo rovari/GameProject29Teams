@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 [Serializable]
@@ -30,6 +31,10 @@ public class LoadManager : MonoBehaviour {
     // Method
     static public void Load             (int sceneNumber = -1) {
 
+        if (File.Exists("Assets/00_System/capture.png")) {
+            File.Delete("Assets/00_System/capture.png");
+        }
+
         ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
         SceneData oldSceneData = sceneSequens[sequensNum];
 
@@ -51,7 +56,8 @@ public class LoadManager : MonoBehaviour {
 
         if (!isLock) {
             isLock = true;
-
+            
+            File.Delete("Assets/00_System/capture.png");
             ScreenCapture.CaptureScreenshot("Assets/00_System/capture.png");
 
             if (loadingScene != null) {

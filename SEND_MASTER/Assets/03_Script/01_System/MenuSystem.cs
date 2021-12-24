@@ -37,6 +37,7 @@ public class MenuSystem : MonoBehaviour {
     private Vector3 velocity;
     
     private bool  isLock;
+    private bool  isOpen;
     private float masterVL;
     private float bgmVL;
     private float seVL;
@@ -52,15 +53,15 @@ public class MenuSystem : MonoBehaviour {
     // Method
     private void OpenMenu           () {
 
-        if (StateManager.GetSetState != STATE.GAME) return;
+        if (isOpen) return;
+
+        isOpen = true;
 
         oldTimeScale = Time.timeScale;
         oldState = StateManager.GetSetState;
-
-
+        
         AudioManager.ShmoothLowPass(true, false, 0.0f);
-
-
+        
         StateManager.GetSetState = STATE.MENU;
         Time.timeScale = 0.0f;
 
@@ -72,6 +73,8 @@ public class MenuSystem : MonoBehaviour {
 
         Time.timeScale = oldTimeScale;
         StateManager.GetSetState = oldState;
+
+        isOpen = false;
 
         AudioManager.ShmoothLowPass(true, true, 0.0f);
     }
